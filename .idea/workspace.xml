@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="31e4b298-4100-441a-9459-4c981422892e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/skyl3e-css.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/basic/_colors.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/basic/_init.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/_button.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/button.scss" beforeDir="false" />
-    </list>
+    <list default="true" id="31e4b298-4100-441a-9459-4c981422892e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,12 +35,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1589063959734</updated>
-      <workItem from="1589063962070" duration="516000" />
+      <workItem from="1589063962070" duration="622000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial Commit">
+      <created>1589064520794</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1589064520794</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="731" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589064224854">
@@ -64,10 +63,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="752" y="206" key="#com.intellij.ide.macro.MacrosDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589064095463" />
-    <state x="773" y="359" width="834" height="322" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1589064395343">
+    <state x="773" y="359" width="834" height="322" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1589064579550">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="773" y="359" width="834" height="322" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589064395343" />
+    <state x="773" y="359" width="834" height="322" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589064579550" />
+    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1589064516434">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589064516434" />
     <state x="641" y="162" width="662" height="678" key="EditFileWatcherDialog" timestamp="1589064128159">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -76,6 +79,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589064129911" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1589064526723">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589064526723" />
     <state x="764" y="359" key="scopes" timestamp="1589064110140">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
