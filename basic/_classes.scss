@@ -1,0 +1,39 @@
+@import "mixins/mixins";
+
+@include display(null);
+@include spacers(null);
+@include text(null);
+@include margin-auto(null);
+
+// Flex Utilities
+@include flex-row-col(null);
+@include flex-wrap(null);
+@include flex-fill(null);
+@include flex-grow(null);
+@include flex-shrink(null);
+@include align-items(null);
+@include align-content(null);
+@include justify-content(null);
+@include align-self(null);
+
+
+
+@each $name, $size in $breakpoints {
+  @media (min-width : $size) {
+    @include display($name);
+    @include spacers($name);
+    @include margin-auto($name);
+    //-----------------------------
+    // Flex Utilities
+    //-----------------------------
+    @include flex-row-col($name);
+    @include flex-wrap($name);
+    @include flex-fill($name);
+    @include flex-grow($name);
+    @include flex-shrink($name);
+    @include align-items($name);
+    @include align-content($name);
+    @include justify-content($name);
+    @include align-self($name);
+  }
+}

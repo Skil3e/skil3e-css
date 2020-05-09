@@ -1,1 +1,16 @@
+$phone             : 480px !default;
+$tablet            : 768px !default;
+$laptop            : 992px !default;
+$desktop           : 1200px !default;
 
+$breakpoints: (
+        '-sm': $phone,
+        '-md': $tablet,
+        '-lg': $laptop,
+        '-xl': $desktop,
+);
+
+@import "basic/init";
+@import "basic/maps";
+@import "basic/colors";
+@import "basic/classes";
