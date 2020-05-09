@@ -1,0 +1,85 @@
+$primary-HUE : 210 !default;
+$accent-HUE  : 358 !default;
+$red-HUE     : 360 !default;
+$pink-HUE    : 330 !default;
+$blue-HUE    : 212 !default;
+$mint-HUE    : 180 !default;
+$green-HUE   : 140 !default;
+$yellow-HUE  : 45 !default;
+$orange-HUE  : 30 !default;
+
+@function Primary($s: 21, $l: 20, $a: 1) {
+  @return hsla($primary-HUE, $s, $l, $a);
+}
+
+@function Accent($s: 88, $l: 52, $a: 1) {
+  @return hsla($accent-HUE, $s, $l, $a);
+}
+
+@function Red($s: 80, $l: 50, $a: 1) {
+  @return hsla($red-HUE, $s, $l, $a);
+}
+
+@function Pink($s: 80, $l: 50, $a: 1) {
+  @return hsla($pink-HUE, $s, $l, $a);
+}
+
+@function Blue($s: 100, $l: 50, $a: 1) {
+  @return hsla($blue-HUE, $s, $l, $a);
+}
+
+@function Mint($s: 80, $l: 30, $a: 1) {
+  @return hsla($mint-HUE, $s, $l, $a);
+}
+
+@function Green($s: 100, $l: 30, $a: 1) {
+  @return hsla($green-HUE, $s, $l, $a);
+}
+
+@function Yellow($s: 100, $l: 50, $a: 1) {
+  @return hsla($yellow-HUE, $s, $l, $a);
+}
+
+@function Orange($s: 100, $l: 50, $a: 1) {
+  @return hsla($orange-HUE, $s, $l, $a);
+}
+
+@function Gray($l: 50, $a: 1) {
+  @return hsla(212, 0, $l, $a);
+}
+
+
+//-----------------------------
+// Color Contrast Acc
+//-----------------------------
+@function colour-difference($foreground, $background) {
+  $r: (max(red($foreground), red($background))) - (min(red($foreground), red($background)));
+  $g: (max(green($foreground), green($background))) - (min(green($foreground), green($background)));
+  $b: (max(blue($foreground), blue($background))) - (min(blue($foreground), blue($background)));
+  $sum-rgb: $r + $g + $b;
+  @if $sum-rgb < 500 {
+    @return "false";
+  } @else {
+    @return "true";
+  }
+}
+@function color-contrast($n) {
+  $color-brightness: round((red($n) * 299) + (green($n) * 587) + (blue($n) * 114) / 1000);
+  $light-color: round((red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) / 1000);
+  @if abs($color-brightness) < ($light-color/2) {
+    @return #fff;
+  } @else {
+    @return black;
+  }
+}
+
+//-----------------------------
+// BG Contrast Acc
+//-----------------------------
+@function set-btn-hover-color($hex) {
+  @if (lightness($hex) > 20) {
+    @return darken($hex, 7.5%);
+  } @else {
+    @return lighten($hex, 15%);
+  }
+}

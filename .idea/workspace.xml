@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba0ed78f-1fe6-490b-b40e-0cb58cb51b61" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ui/button.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ui/button.scss" afterDir="false" />
+    <list default="true" id="31e4b298-4100-441a-9459-4c981422892e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/skyl3e-css.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/basic/_colors.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/basic/_init.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/_button.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/button.scss" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,70 +23,62 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1bgpMuJQYRSuombDPieIE0Nt6kR" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1bgqCrsGs992wEsHqkQQ1W7BNnG" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ba0ed78f-1fe6-490b-b40e-0cb58cb51b61" name="Default Changelist" comment="" />
-      <created>1589063546382</created>
+      <changelist id="31e4b298-4100-441a-9459-4c981422892e" name="Default Changelist" comment="" />
+      <created>1589063959734</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1589063546382</updated>
-      <workItem from="1589063549262" duration="244000" />
+      <updated>1589063959734</updated>
+      <workItem from="1589063962070" duration="516000" />
     </task>
-    <task id="LOCAL-00001" summary="Initial commit">
-      <created>1589063789721</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1589063789722</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="440" y="94" key="#Project_Structure" timestamp="1589063550623">
+    <state x="731" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589064224854">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589063550623" />
-    <state x="740" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589063631172">
+    <state x="731" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589064224854" />
+    <state x="752" y="206" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1589064095463">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589063631172" />
-    <state x="585" y="97" width="749" height="860" key="CommitChangelistDialog2" timestamp="1589063786116">
+    <state x="752" y="206" key="#com.intellij.ide.macro.MacrosDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589064095463" />
+    <state x="773" y="359" width="834" height="322" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1589064395343">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="97" width="749" height="860" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589063786116" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589063613171">
+    <state x="773" y="359" width="834" height="322" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589064395343" />
+    <state x="641" y="162" width="662" height="678" key="EditFileWatcherDialog" timestamp="1589064128159">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589063613171" />
+    <state x="641" y="162" width="662" height="678" key="EditFileWatcherDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589064128159" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1589064129911">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589064129911" />
+    <state x="764" y="359" key="scopes" timestamp="1589064110140">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="764" y="359" key="scopes/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1589064110140" />
   </component>
 </project>
