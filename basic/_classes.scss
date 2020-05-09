@@ -16,8 +16,6 @@
 @include justify-content(null);
 @include align-self(null);
 
-
-
 @each $name, $size in $breakpoints {
   @media (min-width : $size) {
     @include display($name);
