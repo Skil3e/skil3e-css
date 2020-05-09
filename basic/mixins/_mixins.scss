@@ -1,0 +1,204 @@
+@mixin bgImgCenter() {
+  background-repeat  : no-repeat;
+  background-position: center;
+  background-size    : cover;
+}
+//-----------------------------
+// Flexbox
+//-----------------------------
+@mixin flexbox($align, $justify) {
+  display        : flex;
+  align-items    : $align;
+  justify-content: $justify;
+}
+//-----------------------------
+// Position
+//-----------------------------
+@mixin position($pos, $z, $t, $r, $b, $l, $w, $h) {
+  position: $pos;
+  z-index : #{$z};
+  top     : #{$t};
+  right   : #{$r};
+  bottom  : #{$b};
+  left    : #{$l};
+  width   : #{$w};
+  height  : #{$h};
+}
+//-----------------------------
+// Before & After
+//-----------------------------
+@mixin pseudo() {
+  display : block;
+  position: absolute;
+  z-index : -1;
+  top     : 0;
+  bottom  : 0;
+  left    : 0;
+  right   : 0;
+  width   : 100%;
+  height  : 100%;
+}
+//-----------------------------
+// Display Classes
+//-----------------------------
+@mixin display($grid-breakpoint) {
+  @each $type, $value in $display-classes {
+    .d#{$grid-breakpoint}-#{$value} {
+      display: $value !important;
+    }
+  }
+}
+//-----------------------------
+// Text Classes
+//-----------------------------
+@mixin text($grid-breakpoint) {
+  @each $type, $value in (left: left, right: right, center: center) {
+    .text#{$grid-breakpoint}-#{$value} {
+      text-align: $value;
+    }
+  }
+}
+//-----------------------------
+// Flex Wrap
+//-----------------------------
+@mixin flex-row-col($grid-breakpoint) {
+  @each $type, $value in (row: row, column: column, row-reverse: row-reverse, column-reverse: column-reverse) {
+    .flex#{$grid-breakpoint}-#{$type} {
+      flex-direction: $value;
+    }
+  }
+}
+//-----------------------------
+// Flex Wrap
+//-----------------------------
+@mixin flex-wrap($grid-breakpoint) {
+  @each $type, $value in (wrap: wrap, nowrap: nowrap, wrap-reverse: wrap-reverse) {
+    .flex#{$grid-breakpoint}-#{$type} {
+      flex-wrap: $value;
+    }
+  }
+}
+//-----------------------------
+// Flex Fill
+//-----------------------------
+@mixin flex-fill($grid-breakpoint) {
+  @each $type, $value in (fill: 1 1 auto) {
+    .flex#{$grid-breakpoint}-#{$type} {
+      flex: $value;
+    }
+  }
+}
+//-----------------------------
+// Flex Grow
+//-----------------------------
+@mixin flex-grow($grid-breakpoint) {
+  @each $type, $value in (grow-0: 0, grow-1: 1) {
+    .flex#{$grid-breakpoint}-#{$type} {
+      flex-grow: $value;
+    }
+  }
+}
+//-----------------------------
+// Flex Shrink
+//-----------------------------
+@mixin flex-shrink($grid-breakpoint) {
+  @each $type, $value in (shrink-0: 0, shrink-1: 1) {
+    .flex#{$grid-breakpoint}-#{$type} {
+      flex-shrink: $value;
+    }
+  }
+}
+//-----------------------------
+// Flex Align Items
+//-----------------------------
+@mixin align-items($grid-breakpoint) {
+  @each $type, $value in $align {
+    .align-items#{$grid-breakpoint}-#{$type} {
+      align-items: $value;
+    }
+  }
+}
+//-----------------------------
+// Flex Justify Content
+//-----------------------------
+@mixin justify-content($grid-breakpoint) {
+  @each $type, $value in $justify {
+    .justify-content#{$grid-breakpoint}-#{$type} {
+      justify-content: $value;
+    }
+  }
+}
+//-----------------------------
+// Flex Align Content
+//-----------------------------
+@mixin align-content($grid-breakpoint) {
+  @each $type, $value in $justify {
+    .align-content#{$grid-breakpoint}-#{$type} {
+      align-content: $value;
+    }
+  }
+}
+//-----------------------------
+// Flex Align Self
+//-----------------------------
+@mixin align-self($grid-breakpoint) {
+  $align: map-merge($align, ("auto": auto));
+  @each $type, $value in $align {
+    .align-self#{$grid-breakpoint}-#{$type} {
+      align-self: $value;
+    }
+  }
+}
+//-----------------------------
+// Spacers Classes
+//-----------------------------
+@mixin spacers($grid-breakpoint) {
+  @each $prop, $prefix in (margin: m, padding: p) {
+    @each $num, $value in $spacers {
+      .#{$prefix}#{$grid-breakpoint}-#{$num} {
+        #{$prop}: $value !important;
+      }
+      .#{$prefix}t#{$grid-breakpoint}-#{$num},
+      .#{$prefix}y#{$grid-breakpoint}-#{$num} {
+        #{$prop}-top: $value !important;
+      }
+      .#{$prefix}b#{$grid-breakpoint}-#{$num},
+      .#{$prefix}y#{$grid-breakpoint}-#{$num} {
+        #{$prop}-bottom: $value !important;
+      }
+      .#{$prefix}l#{$grid-breakpoint}-#{$num},
+      .#{$prefix}x#{$grid-breakpoint}-#{$num} {
+        #{$prop}-left: $value !important;
+      }
+      .#{$prefix}r#{$grid-breakpoint}-#{$num},
+      .#{$prefix}x#{$grid-breakpoint}-#{$num} {
+        #{$prop}-right: $value !important;
+      }
+    }
+  }
+}
+//-----------------------------
+// Auto Margins
+//-----------------------------
+@mixin margin-auto($grid-breakpoint) {
+  .mt#{$grid-breakpoint}-auto,
+  .my#{$grid-breakpoint}-auto {
+    margin-top: auto !important;
+  }
+  .mb#{$grid-breakpoint}-auto,
+  .my#{$grid-breakpoint}-auto {
+    margin-bottom: auto !important;
+  }
+  .ml#{$grid-breakpoint}-auto,
+  .mx#{$grid-breakpoint}-auto {
+    margin-left: auto !important;
+  }
+  .mr#{$grid-breakpoint}-auto,
+  .mx#{$grid-breakpoint}-auto {
+    margin-right: auto !important;
+  }
+  .m#{$grid-breakpoint}-auto,
+  .m#{$grid-breakpoint}-auto {
+    margin: auto !important;
+  }
+}
