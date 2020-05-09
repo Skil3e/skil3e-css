@@ -1,0 +1,28 @@
+$display-classes : (
+        'none' : none,
+        'block' : block,
+        'inline' : inline,
+        'inline-block': inline-block,
+        'table' : table,
+        'table-cell' : table-cell,
+        'table-row' : table-row,
+        'flex' : flex,
+        'inline-flex' : inline-flex,
+);
+
+$align           : (
+        'center' : center,
+        'start' : flex-start,
+        'end' : flex-end,
+        'stretch' : stretch,
+        'baseline': baseline,
+);
+
+$justify         : (
+        'center' : center,
+        'start' : flex-start,
+        'end' : flex-end,
+        'stretch': stretch,
+        'between': space-between,
+        'around' : space-around,
+);

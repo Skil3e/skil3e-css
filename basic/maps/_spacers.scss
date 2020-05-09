@@ -1,0 +1,19 @@
+$spacers : (
+        '0' : 0,
+        '1' : 0.3125rem, // 5px
+        '2' : 0.625rem, // 10px
+        '3' : 0.9375rem, // 15px
+        '4' : 1.25rem, // 20px
+        '5' : 1.5625rem, // 25px
+        'xs' : 0.375rem, // 6px
+        'sm' : 0.75rem, // 12px
+        'md' : 0.9375rem, // 15px
+        'gap' : #{(0.9375 / 2)}rem,
+        'lg' : 1.3125rem, // 21px
+        'xl' : 1.875rem, // 30px
+        'xxl': 2.5rem, // 40px
+);
+
+@function spacer($var) {
+  @return map-get($spacers, $var);
+}
