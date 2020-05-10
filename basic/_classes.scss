@@ -21,9 +21,7 @@
     @include display($name);
     @include spacers($name);
     @include margin-auto($name);
-    //-----------------------------
-    // Flex Utilities
-    //-----------------------------
+
     @include flex-row-col($name);
     @include flex-wrap($name);
     @include flex-fill($name);

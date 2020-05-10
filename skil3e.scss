@@ -4,10 +4,10 @@ $laptop            : 992px !default;
 $desktop           : 1200px !default;
 
 $breakpoints: (
-        '-sm': $phone,
-        '-md': $tablet,
-        '-lg': $laptop,
-        '-xl': $desktop,
+        'sm_': $phone,
+        'md_': $tablet,
+        'lg_': $laptop,
+        'xl_': $desktop,
 );
 
 @import "basic/init";
