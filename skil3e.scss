@@ -1,3 +1,7 @@
+@import "basic/colors";
+//-----------------------------------------------------------
+//Breakpoints
+//-----------------------------------------------------------
 $phone       : 480px !default;
 $tablet      : 768px !default;
 $laptop      : 992px !default;
@@ -9,12 +13,30 @@ $breakpoints : (
         'lg_': $laptop,
         'xl_': $desktop,
 );
+//-----------------------------------------------------------
+//Typography
+//-----------------------------------------------------------
+$systemFonts : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$headingFont : $systemFonts;
+$bodyFont    : $systemFonts;
+$font-sizes  : (
+        'small': 80%,
+        'h6' : 100%,
+        'h5' : 125%,
+        'h4' : 150%,
+        'h3' : 175%,
+        'h2' : 200%,
+        'h1' : 250%,
+);
+@function fontSize($var) {
+  @return map-get($font-sizes, $var);
+}
 
 @import "basic/init";
 @import "basic/maps";
-@import "basic/colors";
 @import "basic/classes";
 
+//Use these if you want
 @import "ui/buttons/button";
 @import "ui/buttons/minimal-link";
 @import "ui/buttons/fill";

@@ -1,8 +1,3 @@
-@mixin bgImgCenter() {
-  background-repeat  : no-repeat;
-  background-position: center;
-  background-size    : cover;
-}
 //-----------------------------
 // Flexbox
 //-----------------------------
@@ -10,33 +5,6 @@
   display        : flex;
   align-items    : $align;
   justify-content: $justify;
-}
-//-----------------------------
-// Position
-//-----------------------------
-@mixin position($pos, $z, $t, $r, $b, $l, $w, $h) {
-  position: $pos;
-  z-index : #{$z};
-  top     : #{$t};
-  right   : #{$r};
-  bottom  : #{$b};
-  left    : #{$l};
-  width   : #{$w};
-  height  : #{$h};
-}
-//-----------------------------
-// Before & After
-//-----------------------------
-@mixin pseudo() {
-  display : block;
-  position: absolute;
-  z-index : -1;
-  top     : 0;
-  bottom  : 0;
-  left    : 0;
-  right   : 0;
-  width   : 100%;
-  height  : 100%;
 }
 //-----------------------------
 // Display Classes
