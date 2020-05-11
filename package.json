@@ -1,0 +1,24 @@
+{
+  "name": "skyl3e-css",
+  "version": "1.0.0",
+  "description": "A simple CSS Lib",
+  "main": "index.js",
+  "scripts": {
+    "build": "node-sass skil3e.scss > skil3e.min.css --output-style compressed",
+    "debug": "node-sass skil3e.scss > skil3e.css --output-style expanded",
+    "build-docs": "node-sass skil3e.scss -o C:/Users/User/GitHub/skil3e-css-docs/src --output-style compressed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Skil3e/skil3e-css.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Skil3e/skil3e-css/issues"
+  },
+  "homepage": "https://github.com/Skil3e/skil3e-css#readme",
+  "dependencies": {
+    "node-sass": "^4.14.1"
+  }
+}

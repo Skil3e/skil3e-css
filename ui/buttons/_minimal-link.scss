@@ -1,0 +1,34 @@
+//-----------------------------------------------------------
+// Button Link & Minimal Defaults
+//-----------------------------------------------------------
+.button {
+  &.link,
+  &.minimal {
+    @extend .button;
+    padding : 0 !important;
+    border  : none;
+    @each $color, $hex in $button-colors {
+      &.#{$color} {
+        color : $hex;
+
+        .icon {
+          fill : $hex;
+        }
+
+        &:hover {
+          color : set-btn-hover-color($hex);
+
+          .icon {
+            fill : darken($hex, 7%)
+          }
+        }
+      }
+    }
+  }
+
+  &.link {
+    display         : inline;
+    vertical-align  : baseline;
+    text-decoration : underline;
+  }
+}

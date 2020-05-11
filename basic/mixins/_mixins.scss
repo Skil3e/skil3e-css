@@ -53,9 +53,9 @@
 //-----------------------------
 // Text Classes
 //-----------------------------
-@mixin text($grid-breakpoint) {
+@mixin text($breakpoint) {
   @each $type, $value in (left: left, right: right, center: center) {
-    .#{$grid-breakpoint}text-#{$value} {
+    .#{$breakpoint}text-#{$value} {
       text-align: $value;
     }
   }
@@ -63,9 +63,9 @@
 //-----------------------------
 // Flex Wrap
 //-----------------------------
-@mixin flex-row-col($grid-breakpoint) {
+@mixin flex-row-col($breakpoint) {
   @each $type, $value in (row: row, column: column, row-reverse: row-reverse, column-reverse: column-reverse) {
-    .#{$grid-breakpoint}flex-#{$type} {
+    .#{$breakpoint}flex-#{$type} {
       flex-direction: $value;
     }
   }
@@ -73,9 +73,9 @@
 //-----------------------------
 // Flex Wrap
 //-----------------------------
-@mixin flex-wrap($grid-breakpoint) {
+@mixin flex-wrap($breakpoint) {
   @each $type, $value in (wrap: wrap, nowrap: nowrap, wrap-reverse: wrap-reverse) {
-    .#{$grid-breakpoint}flex-#{$type} {
+    .#{$breakpoint}flex-#{$type} {
       flex-wrap: $value;
     }
   }
@@ -83,9 +83,9 @@
 //-----------------------------
 // Flex Fill
 //-----------------------------
-@mixin flex-fill($grid-breakpoint) {
+@mixin flex-fill($breakpoint) {
   @each $type, $value in (fill: 1 1 auto) {
-    .#{$grid-breakpoint}flex-#{$type} {
+    .#{$breakpoint}flex-#{$type} {
       flex: $value;
     }
   }
@@ -93,9 +93,9 @@
 //-----------------------------
 // Flex Grow
 //-----------------------------
-@mixin flex-grow($grid-breakpoint) {
+@mixin flex-grow($breakpoint) {
   @each $type, $value in (grow-0: 0, grow-1: 1) {
-    .#{$grid-breakpoint}flex-#{$type} {
+    .#{$breakpoint}flex-#{$type} {
       flex-grow: $value;
     }
   }
@@ -103,9 +103,9 @@
 //-----------------------------
 // Flex Shrink
 //-----------------------------
-@mixin flex-shrink($grid-breakpoint) {
+@mixin flex-shrink($breakpoint) {
   @each $type, $value in (shrink-0: 0, shrink-1: 1) {
-    .#{$grid-breakpoint}flex-#{$type} {
+    .#{$breakpoint}flex-#{$type} {
       flex-shrink: $value;
     }
   }
@@ -113,9 +113,9 @@
 //-----------------------------
 // Flex Align Items
 //-----------------------------
-@mixin align-items($grid-breakpoint) {
+@mixin align-items($breakpoint) {
   @each $type, $value in $align {
-    .#{$grid-breakpoint}align-items-#{$type} {
+    .#{$breakpoint}align-items-#{$type} {
       align-items: $value;
     }
   }
@@ -123,9 +123,9 @@
 //-----------------------------
 // Flex Justify Content
 //-----------------------------
-@mixin justify-content($grid-breakpoint) {
+@mixin justify-content($breakpoint) {
   @each $type, $value in $justify {
-    .#{$grid-breakpoint}justify-content-#{$type} {
+    .#{$breakpoint}justify-content-#{$type} {
       justify-content: $value;
     }
   }
@@ -133,9 +133,9 @@
 //-----------------------------
 // Flex Align Content
 //-----------------------------
-@mixin align-content($grid-breakpoint) {
+@mixin align-content($breakpoint) {
   @each $type, $value in $justify {
-    .#{$grid-breakpoint}align-content-#{$type} {
+    .#{$breakpoint}align-content-#{$type} {
       align-content: $value;
     }
   }
@@ -143,10 +143,10 @@
 //-----------------------------
 // Flex Align Self
 //-----------------------------
-@mixin align-self($grid-breakpoint) {
+@mixin align-self($breakpoint) {
   $align: map-merge($align, ("auto": auto));
   @each $type, $value in $align {
-    .#{$grid-breakpoint}align-self-#{$type} {
+    .#{$breakpoint}align-self-#{$type} {
       align-self: $value;
     }
   }
@@ -154,26 +154,26 @@
 //-----------------------------
 // Spacers Classes
 //-----------------------------
-@mixin spacers($grid-breakpoint) {
+@mixin spacers($breakpoint) {
   @each $prop, $prefix in (margin: m, padding: p) {
     @each $num, $value in $spacers {
-      .#{$grid-breakpoint}#{$prefix}-#{$num} {
+      .#{$breakpoint}#{$prefix}-#{$num} {
         #{$prop}: $value !important;
       }
-      .#{$grid-breakpoint}#{$prefix}t-#{$num},
-      .#{$grid-breakpoint}#{$prefix}y-#{$num} {
+      .#{$breakpoint}#{$prefix}t-#{$num},
+      .#{$breakpoint}#{$prefix}y-#{$num} {
         #{$prop}-top: $value !important;
       }
-      .#{$grid-breakpoint}#{$prefix}b-#{$num},
-      .#{$grid-breakpoint}#{$prefix}y-#{$num} {
+      .#{$breakpoint}#{$prefix}b-#{$num},
+      .#{$breakpoint}#{$prefix}y-#{$num} {
         #{$prop}-bottom: $value !important;
       }
-      .#{$grid-breakpoint}#{$prefix}l-#{$num},
-      .#{$grid-breakpoint}#{$prefix}x-#{$num} {
+      .#{$breakpoint}#{$prefix}l-#{$num},
+      .#{$breakpoint}#{$prefix}x-#{$num} {
         #{$prop}-left: $value !important;
       }
-      .#{$grid-breakpoint}#{$prefix}r-#{$num},
-      .#{$grid-breakpoint}#{$prefix}x-#{$num} {
+      .#{$breakpoint}#{$prefix}r-#{$num},
+      .#{$breakpoint}#{$prefix}x-#{$num} {
         #{$prop}-right: $value !important;
       }
     }
@@ -182,25 +182,25 @@
 //-----------------------------
 // Auto Margins
 //-----------------------------
-@mixin margin-auto($grid-breakpoint) {
-  .#{$grid-breakpoint}mt-auto,
-  .#{$grid-breakpoint}my-auto {
+@mixin margin-auto($breakpoint) {
+  .#{$breakpoint}mt-auto,
+  .#{$breakpoint}my-auto {
     margin-top: auto !important;
   }
-  .#{$grid-breakpoint}mb-auto,
-  .#{$grid-breakpoint}my-auto {
+  .#{$breakpoint}mb-auto,
+  .#{$breakpoint}my-auto {
     margin-bottom: auto !important;
   }
-  .#{$grid-breakpoint}ml-auto,
-  .#{$grid-breakpoint}mx-auto {
+  .#{$breakpoint}ml-auto,
+  .#{$breakpoint}mx-auto {
     margin-left: auto !important;
   }
-  .#{$grid-breakpoint}mr-auto,
-  .#{$grid-breakpoint}mx-auto {
+  .#{$breakpoint}mr-auto,
+  .#{$breakpoint}mx-auto {
     margin-right: auto !important;
   }
-  .#{$grid-breakpoint}m-auto,
-  .#{$grid-breakpoint}m-auto {
+  .#{$breakpoint}m-auto,
+  .#{$breakpoint}m-auto {
     margin: auto !important;
   }
 }

@@ -1,0 +1,64 @@
+//----------------------------
+//Variables
+//----------------------------
+$paddingX      : 1.5rem;
+$paddingY      : .625rem;
+$padding       : $paddingY $paddingX;
+$fontSize      : 120%;
+$fontWeight    : 400;
+$lineHeight    : 1.2;
+$borderRadius  : 50rem;
+$borderWidth   : 1px;
+$borderStyle   : solid;
+$border        : 2px solid;
+$transition    : 200ms ease-in-out;
+
+$button-colors : (
+        "primary" : Primary(),
+        "secondary" : Primary($s : 30),
+        "danger" : Red(),
+        "success" : Green(),
+        "warning" : Orange(),
+);
+
+.button {
+  z-index             : 1;
+  position            : relative;
+  display             : inline-flex;
+  align-items         : center;
+  justify-content     : center;
+  vertical-align      : middle;
+  cursor              : pointer;
+  font-weight         : $fontWeight;
+  font-size           : $fontSize;
+  line-height         : $lineHeight;
+  text-decoration     : none;
+  padding             : $padding;
+  background          : transparent;
+  border              : $border transparent;
+  border-radius       : $borderRadius;
+  transition          : $transition;
+  transition-property : background, color, border;
+
+  .icon {
+    transition : fill $transition;
+  }
+
+  &.disabled, &:disabled {
+    opacity : .65;
+    cursor  : not-allowed;
+  }
+
+  &:focus {
+    outline : none;
+
+    &::after,
+    &::before {
+      outline : none;
+    }
+  }
+
+  &.fullwidth {
+    width : 100%;
+  }
+}

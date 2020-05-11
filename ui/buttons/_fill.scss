@@ -1,0 +1,26 @@
+//-----------------------------------------------------------
+// Button Fill
+//-----------------------------------------------------------
+.button {
+  &.fill {
+    @extend .button;
+    @each $color, $hex in $button-colors {
+      &.#{$color} {
+        background : $hex;
+        color      : color-contrast($hex);
+
+        .icon {
+          fill : color-contrast($hex);
+        }
+
+        &:hover {
+          background : set-btn-hover-color($hex);
+
+          .icon {
+            fill : color-contrast($hex);
+          }
+        }
+      }
+    }
+  }
+}
