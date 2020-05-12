@@ -7,8 +7,35 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello World</h1>
-    <div class="d-flex">Display</div>
-    <button class="button fill success">Click Me</button>
+<h1>Hello World</h1>
+<div class="d-flex">Display</div>
+<button class="button fill success">Click Me</button>
+<input class="d-block p-xl" type="file" id="fileupload" multiple>
+<div id="gallery"></div>
+<script>
+    const input = document.getElementById("fileupload");
+    const wrapper = document.getElementById("gallery");
+    const _URL = window.URL || window.webkitURL;
+    const images = []
+
+    input.addEventListener("change", (e) => {
+        console.log(e.target.files)
+
+        const files = Array.from(e.target.files);
+
+        files.forEach(file => {
+            const img = new Image();
+            const objectUrl = _URL.createObjectURL(file);
+
+            img.onload = function () {
+                images.push({name: file.name, width: img.width, height: img.height})
+                _URL.revokeObjectURL(objectUrl);
+            };
+            img.src = objectUrl;
+            console.log(images);
+        })
+
+    })
+</script>
 </body>
 </html>

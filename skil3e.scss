@@ -21,12 +21,12 @@ $headingFont : $systemFonts;
 $bodyFont    : $systemFonts;
 $font-sizes  : (
         'small': 80%,
-        'h6' : 100%,
-        'h5' : 125%,
-        'h4' : 150%,
-        'h3' : 175%,
-        'h2' : 200%,
-        'h1' : 250%,
+        'h6' : 125%,
+        'h5' : 150%,
+        'h4' : 175%,
+        'h3' : 200%,
+        'h2' : 250%,
+        'h1' : 300%,
 );
 @function fontSize($var) {
   @return map-get($font-sizes, $var);
@@ -36,7 +36,7 @@ $font-sizes  : (
 @import "basic/maps";
 @import "basic/classes";
 
-//Use these if you want
-@import "ui/buttons/button";
+//Optional
+@import "ui/buttons/_button";
 @import "ui/buttons/minimal-link";
 @import "ui/buttons/fill";
