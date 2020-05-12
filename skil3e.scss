@@ -19,24 +19,17 @@ $breakpoints : (
 $systemFonts : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 $headingFont : $systemFonts;
 $bodyFont    : $systemFonts;
-$font-sizes  : (
-        'small': 80%,
-        'h6' : 125%,
-        'h5' : 150%,
-        'h4' : 175%,
-        'h3' : 200%,
-        'h2' : 250%,
-        'h1' : 300%,
-);
-@function fontSize($var) {
-  @return map-get($font-sizes, $var);
-}
 
-@import "basic/init";
+
 @import "basic/maps";
+@import "basic/init";
 @import "basic/classes";
 
 //Optional
+//Buttons
 @import "ui/buttons/_button";
 @import "ui/buttons/minimal-link";
 @import "ui/buttons/fill";
+//Forms
+@import "ui/forms/inputs";
+@import "ui/forms/input-wrappers";

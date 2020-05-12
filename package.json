@@ -8,7 +8,8 @@
     "debug": "node-sass skil3e.scss > skil3e.css --output-style expanded",
     "build-all": "node-sass skil3e.scss > skil3e.min.css --output-style compressed & node-sass skil3e.scss > skil3e.css --output-style expanded",
     "build-docs": "node-sass skil3e.scss > C:/Users/User/GitHub/skil3e-css-docs/src/components/skil3e.min.css --output-style compressed",
-    "build-niko": "node-sass skil3e.scss > C:/Users/User/GitHub/whoisniko/src/components/skil3e.min.css --output-style compressed"
+    "build-niko": "node-sass skil3e.scss > C:/Users/User/GitHub/whoisniko/src/components/skil3e.min.css --output-style compressed",
+    "build-current": "node-sass skil3e.scss > C:/Users/User/GitHub/react-boilerplate/src/app/skil3e.min.css --output-style compressed"
   },
   "repository": {
     "type": "git",

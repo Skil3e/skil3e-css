@@ -4,8 +4,8 @@
 $paddingX      : 1.5rem;
 $paddingY      : .625rem;
 $padding       : $paddingY $paddingX;
-$fontSize      : 120%;
-$fontWeight    : 400;
+$fontSize      : 100%;
+$fontWeight    : 500;
 $lineHeight    : 1.2;
 $borderRadius  : 50rem;
 $borderWidth   : 1px;
@@ -22,18 +22,17 @@ $button-colors : (
 );
 
 .button {
+  @extend .d-inline-flex;
+  @extend .align-items-center;
+  @extend .justify-content-center;
   z-index             : 1;
   position            : relative;
-  display             : inline-flex;
-  align-items         : center;
-  justify-content     : center;
   vertical-align      : middle;
   cursor              : pointer;
   font-weight         : $fontWeight;
   font-size           : $fontSize;
   line-height         : $lineHeight;
   text-decoration     : none;
-  padding             : $padding;
   background          : transparent;
   border              : $border transparent;
   border-radius       : $borderRadius;

@@ -3,9 +3,9 @@
 //-----------------------------------------------------------
 .button {
   &.fill {
-    @extend .button;
     @each $color, $hex in $button-colors {
       &.#{$color} {
+        padding : $padding;
         background : $hex;
         color      : color-contrast($hex);
 

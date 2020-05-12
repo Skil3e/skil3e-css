@@ -1,0 +1,15 @@
+.input-wrapper {
+  &__label {
+    display       : block;
+    font-size     : 75%;
+    padding       : 0 spacer("md");
+    height        : spacer("sm");
+    margin-bottom : spacer("xs");
+  }
+
+  &__error {
+    padding   : spacer("xs") spacer("md") 0;
+    font-size : 75%;
+    color     : Red();
+  }
+}

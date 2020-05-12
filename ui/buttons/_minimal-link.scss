@@ -4,8 +4,7 @@
 .button {
   &.link,
   &.minimal {
-    @extend .button;
-    padding : 0 !important;
+    padding : 0;
     border  : none;
     @each $color, $hex in $button-colors {
       &.#{$color} {

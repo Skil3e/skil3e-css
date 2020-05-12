@@ -1,5 +1,10 @@
 @import "mixins/mixins";
 
+.flex-center {
+  @extend .d-flex;
+  @extend .align-items-center;
+}
+
 @include display(null);
 @include spacers(null);
 @include text(null);
