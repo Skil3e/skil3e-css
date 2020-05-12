@@ -4,9 +4,9 @@
   "description": "A simple CSS Lib",
   "main": "index.js",
   "scripts": {
-    "build": "node-sass skil3e.scss > skil3e.min.css --output-style compressed",
-    "debug": "node-sass skil3e.scss > skil3e.css --output-style expanded",
-    "build-all": "node-sass skil3e.scss > skil3e.min.css --output-style compressed & node-sass skil3e.scss > skil3e.css --output-style expanded"
+    "build": "node-sass src/skil3e.scss > dist/skil3e.min.css --output-style compressed",
+    "debug": "node-sass src/skil3e.scss > dist/skil3e.css --output-style expanded",
+    "build-all": "node-sass src/skil3e.scss > dist/skil3e.min.css --output-style compressed & node-sass src/skil3e.scss > dist/skil3e.css --output-style expanded"
   },
   "repository": {
     "type": "git",
