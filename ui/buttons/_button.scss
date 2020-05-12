@@ -13,7 +13,7 @@ $borderStyle  : solid !default;
 $border       : 2px solid !default;
 $transition   : 200ms ease-in-out !default;
 
-.button {
+.button, button {
   @extend .d-inline-flex;
   @extend .align-items-center;
   @extend .justify-content-center;

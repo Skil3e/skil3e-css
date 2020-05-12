@@ -1,9 +1,22 @@
 * {
-  margin  : 0;
-  padding : 0;
+  margin      : 0;
+  padding     : 0;
   font-family : $bodyFont;
-  line-height: 1.2;
+  line-height : 1.2;
 }
+
+body {
+  --body : #{$gray-95};
+  --text : #{$gray-10};
+  --bg   : #{$gray-85};
+}
+
+body[data-theme="dark"] {
+  --body : #{$gray-10};
+  --text : #{$gray-95};
+  --bg   : #{$gray-5};
+}
+
 
 *,
 ::after,
@@ -18,4 +31,10 @@ img {
 h1, h2, h3, h4, h5, h6 {
   margin      : 0;
   font-family : $headingFont;
+}
+
+body {
+  background-color : var(--body);
+  color            : var(--text);
+
 }

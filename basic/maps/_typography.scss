@@ -1,11 +1,11 @@
 $font-sizes : (
-        'small': 80%,
-        'h6' : 125%,
-        'h5' : 150%,
-        'h4' : 175%,
-        'h3' : 200%,
-        'h2' : 250%,
-        'h1' : 300%,
+        'small': $small,
+        'h6' : $h6,
+        'h5' : $h5,
+        'h4' : $h4,
+        'h3' : $h3,
+        'h2' : $h2,
+        'h1' : $h1
 );
 @function fontSize($var) {
   @return map-get($font-sizes, $var);

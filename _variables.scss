@@ -1,0 +1,57 @@
+//-----------------------------------------------------------
+//Breakpoints
+//-----------------------------------------------------------
+$phone       : 480px !default;
+$tablet      : 768px !default;
+$laptop      : 992px !default;
+$desktop     : 1200px !default;
+
+//-----------------------------------------------------------
+//Colors
+//-----------------------------------------------------------
+$gray-5      : hsl(212, 10%, 5%) !default;
+$gray-10     : hsl(212, 10%, 10%) !default;
+$gray-15     : hsl(212, 10%, 15%) !default;
+$gray-20     : hsl(212, 10%, 20%) !default;
+$gray-30     : hsl(212, 10%, 30%) !default;
+$gray-40     : hsl(212, 10%, 40%) !default;
+$gray-50     : hsl(212, 10%, 50%) !default;
+$gray-60     : hsl(212, 10%, 60%) !default;
+$gray-70     : hsl(212, 10%, 70%) !default;
+$gray-80     : hsl(212, 10%, 80%) !default;
+$gray-85     : hsl(212, 10%, 85%) !default;
+$gray-90     : hsl(212, 10%, 90%) !default;
+$gray-95     : hsl(212, 10%, 95%) !default;
+$white       : hsl(212, 10%, 100%) !default;
+
+$primary     : hsl(212, 50%, 50%) !default;
+$secondary   : hsl(212, 30%, 50%) !default;
+$danger      : hsl(0, 70%, 50%) !default;
+$success     : hsl(150, 70%, 30%) !default;
+$warning     : hsl(30, 100%, 50%) !default;
+
+$colors      : (
+        "primary" : $primary,
+        "secondary" : $secondary,
+        "danger" : $danger,
+        "success" : $success,
+        "warning" : $warning
+);
+
+
+//-----------------------------------------------------------
+//Typography
+//-----------------------------------------------------------
+$systemFonts : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$headingFont : $systemFonts;
+$bodyFont    : $systemFonts;
+//-----------------------------------------------------------
+//Font sizes
+//-----------------------------------------------------------
+$h6          : 1.25em;
+$h5          : 1.5em;
+$h4          : 1.75em;
+$h3          : 2em;
+$h2          : 2.5em;
+$h1          : 3em;
+$small       : .75em;
