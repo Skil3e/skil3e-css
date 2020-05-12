@@ -5,11 +5,12 @@
   &.fill {
     @each $color, $hex in $button-colors {
       &.#{$color} {
-        padding : $padding;
+        padding    : $padding;
         background : $hex;
+        min-height : 42px;
         color      : color-contrast($hex);
 
-        .icon {
+        .icon, .loader {
           fill : color-contrast($hex);
         }
 
