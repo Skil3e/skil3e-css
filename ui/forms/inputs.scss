@@ -1,11 +1,18 @@
 input {
+  @extend .px-15;
+  @extend .py-10;
   width            : 100%;
   max-width        : 100%;
-  padding          : 10px 15px;
-  transition       : padding 300ms ease;
   border           : none;
   border-radius    : 50rem;
-  background-color : $gray-90;
+  background-color : $gray-95;
+  transition: box-shadow 200ms ease;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px $gray-70;
+  }
+
 }
 
 textarea {

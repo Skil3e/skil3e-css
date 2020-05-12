@@ -21,7 +21,7 @@
     "url": "https://github.com/Skil3e/skil3e-css/issues"
   },
   "homepage": "https://github.com/Skil3e/skil3e-css#readme",
-  "dependencies": {
+  "devDependencies": {
     "node-sass": "^4.14.1"
   }
 }

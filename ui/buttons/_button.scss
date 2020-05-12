@@ -1,17 +1,17 @@
 //-----------------------------------------------------------
 //Variables
 //-----------------------------------------------------------
-$paddingX      : 1.5rem;
-$paddingY      : .625rem;
-$padding       : $paddingY $paddingX;
-$fontSize      : 100%;
-$fontWeight    : 500;
-$lineHeight    : 1.2;
-$borderRadius  : 50rem;
-$borderWidth   : 1px;
-$borderStyle   : solid;
-$border        : 2px solid;
-$transition    : 200ms ease-in-out;
+$paddingX     : 1.5rem !default;
+$paddingY     : .625rem !default;
+$padding      : $paddingY $paddingX !default;
+$fontSize     : 100% !default;
+$fontWeight   : 500 !default;
+$lineHeight   : 1.2 !default;
+$borderRadius : 50rem !default;
+$borderWidth  : 1px !default;
+$borderStyle  : solid !default;
+$border       : 2px solid !default;
+$transition   : 200ms ease-in-out !default;
 
 .button {
   @extend .d-inline-flex;

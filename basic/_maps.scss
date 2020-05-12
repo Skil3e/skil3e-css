@@ -2,3 +2,10 @@
 @import "maps/z-index";
 @import "maps/spacers";
 @import "maps/typography";
+
+$breakpoints : (
+        'sm_': $phone,
+        'md_': $tablet,
+        'lg_': $laptop,
+        'xl_': $desktop,
+);

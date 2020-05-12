@@ -5,6 +5,21 @@
   @extend .align-items-center;
 }
 
+$style-attribute: (
+        'text' : color,
+        'border': border-color,
+        'bg' : background,
+        'fill' : fill,
+);
+
+@each $color, $hex in $colors {
+  @each $name, $atr in $style-attribute {
+    .#{$name}-#{$color} {
+      #{$atr}: $hex;
+    }
+  }
+}
+
 @include display(null);
 @include spacers(null);
 @include text(null);

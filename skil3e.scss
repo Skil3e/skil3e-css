@@ -7,31 +7,26 @@ $tablet      : 768px !default;
 $laptop      : 992px !default;
 $desktop     : 1200px !default;
 
-$breakpoints : (
-        'sm_': $phone,
-        'md_': $tablet,
-        'lg_': $laptop,
-        'xl_': $desktop,
-);
 //-----------------------------------------------------------
 //Colors
 //-----------------------------------------------------------
-$gray-10     : hsl(212, 0%, 10%);
-$gray-20     : hsl(212, 0%, 20%);
-$gray-30     : hsl(212, 0%, 30%);
-$gray-40     : hsl(212, 0%, 40%);
-$gray-50     : hsl(212, 0%, 50%);
-$gray-60     : hsl(212, 0%, 60%);
-$gray-70     : hsl(212, 0%, 70%);
-$gray-80     : hsl(212, 0%, 80%);
-$gray-90     : hsl(212, 0%, 90%);
-$white       : hsl(212, 0%, 100%);
+$gray-10     : hsl(212, 0%, 10%) !default;
+$gray-20     : hsl(212, 0%, 20%) !default;
+$gray-30     : hsl(212, 0%, 30%) !default;
+$gray-40     : hsl(212, 0%, 40%) !default;
+$gray-50     : hsl(212, 0%, 50%) !default;
+$gray-60     : hsl(212, 0%, 60%) !default;
+$gray-70     : hsl(212, 0%, 70%) !default;
+$gray-80     : hsl(212, 0%, 80%) !default;
+$gray-90     : hsl(212, 0%, 90%) !default;
+$gray-95     : hsl(212, 0%, 95%) !default;
+$white       : hsl(212, 0%, 100%) !default;
 
-$primary     : hsl(212, 50%, 50%);
-$secondary   : hsl(212, 30%, 50%);
-$danger      : hsl(0, 70%, 50%);
-$success     : hsl(150, 70%, 30%);
-$warning     : hsl(30, 100%, 50%);
+$primary     : hsl(212, 50%, 50%) !default;
+$secondary   : hsl(212, 30%, 50%) !default;
+$danger      : hsl(0, 70%, 50%) !default;
+$success     : hsl(150, 70%, 30%) !default;
+$warning     : hsl(30, 100%, 50%) !default;
 
 $colors      : (
         "primary" : $primary,
@@ -52,8 +47,9 @@ $bodyFont    : $systemFonts;
 @import "basic/maps";
 @import "basic/init";
 @import "basic/classes";
-
-//Optional
+//-----------------------------------------------------------
+// Optional imports
+//-----------------------------------------------------------
 //Buttons
 @import "ui/buttons/_button";
 @import "ui/buttons/minimal-link";
