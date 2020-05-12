@@ -5,7 +5,7 @@ input {
   transition       : padding 300ms ease;
   border           : none;
   border-radius    : 50rem;
-  background-color : Gray(95);
+  background-color : $gray-90;
 }
 
 textarea {
