@@ -1,0 +1,11 @@
+body {
+  --body : #{$gray-95};
+  --text : #{$gray-10};
+  --bg   : #{$gray-85};
+}
+
+body[data-theme="dark"] {
+  --body : #{$gray-10};
+  --text : #{$gray-95};
+  --bg   : #{$gray-5};
+}
