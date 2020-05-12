@@ -1,13 +1,15 @@
 body {
   --body: #f1f2f4;
-  --text: #17191c;
   --bg: #d5d8dd;
+  --text: #17191c;
+  --textDimed: #454c54;
 }
 
 body[data-theme="dark"] {
   --body: #17191c;
-  --text: #f1f2f4;
   --bg: #0b0d0e;
+  --text: #e3e5e8;
+  --textDimed: #8f98a3;
 }
 
 * {
@@ -3844,6 +3846,99 @@ select {
   background-repeat: no-repeat, repeat;
   background-position: right 1.25em top 50%, 0 0;
   background-size: 0.65em auto, 100%;
+}
+
+.switch-checkbox {
+  height: 0;
+  width: 0;
+  display: none;
+}
+
+.switch-checkbox:checked + .switch-label {
+  background: #407bbf;
+}
+
+.switch-checkbox:checked + .switch-label .switch-button {
+  left: calc(100% - 2px);
+  transform: translateX(-100%);
+}
+
+.switch-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background: #737f8c;
+  border-radius: 50rem;
+  position: relative;
+  transition: background 300ms ease;
+}
+
+.switch-label .switch-button {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 50rem;
+  transition: 200ms;
+  background: #fff;
+  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.3);
+}
+
+.switch-label.sm {
+  width: 40px;
+  height: 24px;
+}
+
+.switch-label.sm .switch-button {
+  width: 20px;
+  height: 20px;
+}
+
+.switch-label.sm .switch-button:active {
+  width: 30px;
+}
+
+.switch-label.md {
+  width: 50px;
+  height: 29px;
+}
+
+.switch-label.md .switch-button {
+  width: 25px;
+  height: 25px;
+}
+
+.switch-label.md .switch-button:active {
+  width: 35px;
+}
+
+.switch-label.lg {
+  width: 60px;
+  height: 34px;
+}
+
+.switch-label.lg .switch-button {
+  width: 30px;
+  height: 30px;
+}
+
+.switch-label.lg .switch-button:active {
+  width: 40px;
+}
+
+.switch-label.xl {
+  width: 70px;
+  height: 39px;
+}
+
+.switch-label.xl .switch-button {
+  width: 35px;
+  height: 35px;
+}
+
+.switch-label.xl .switch-button:active {
+  width: 45px;
 }
 
 .input-wrapper__label {
