@@ -14,6 +14,16 @@ $breakpoints : (
         'xl_': $desktop,
 );
 //-----------------------------------------------------------
+//Colors
+//-----------------------------------------------------------
+$colors      : (
+        "primary" : #003049,
+        "secondary" : #2D596D,
+        "danger" : #D62828,
+        "success" : #286542,
+        "warning" : #F77F00
+);
+//-----------------------------------------------------------
 //Typography
 //-----------------------------------------------------------
 $systemFonts : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;

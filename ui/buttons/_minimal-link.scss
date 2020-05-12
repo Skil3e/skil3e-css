@@ -6,7 +6,7 @@
   &.minimal {
     padding : 0;
     border  : none;
-    @each $color, $hex in $button-colors {
+    @each $color, $hex in $colors {
       &.#{$color} {
         color : $hex;
 

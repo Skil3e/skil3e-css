@@ -13,14 +13,6 @@ $borderStyle   : solid;
 $border        : 2px solid;
 $transition    : 200ms ease-in-out;
 
-$button-colors : (
-        "primary" : Primary(),
-        "secondary" : Primary($s : 30),
-        "danger" : Red(),
-        "success" : Green(),
-        "warning" : Orange(),
-);
-
 .button {
   @extend .d-inline-flex;
   @extend .align-items-center;
