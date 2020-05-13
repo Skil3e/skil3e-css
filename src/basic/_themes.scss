@@ -4,16 +4,16 @@ body {
   --border    : #{$gray-85};
 
   --text      : #{$gray-10};
-  --textDimed : #{$gray-30};
+  --textDimed : #{$gray-60};
   --primary   : #{$primary};
 }
 
 body[data-theme="dark"] {
-  --body      : #{$gray-10};
-  --bg        : #{$gray-5};
+  --body      : #{$gray-5};
+  --bg        : #{$gray-10};
   --border    : #{$gray-15};
   --text      : #{$gray-90};
-  --textDimed : #{$gray-60};
+  --textDimed : #{$gray-40};
   --primary   : #{$primary};
 }
 

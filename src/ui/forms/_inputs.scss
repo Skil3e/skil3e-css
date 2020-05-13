@@ -1,5 +1,11 @@
 body {
-  --input : #{$gray-85}
+  --input : #{$gray-85};
+  --inputBorder : #{$gray-80};
+}
+
+body[data-theme="dark"] {
+  --input : #{$gray-15};
+  --inputBorder : #{$gray-20};
 }
 
 input {
@@ -14,7 +20,7 @@ input {
 
   &:focus {
     outline    : none;
-    box-shadow : 0 0 0 2px $gray-70;
+    box-shadow : 0 0 0 2px var(--inputBorder);
   }
 
 }
@@ -38,8 +44,44 @@ select {
 
 legend {
   @extend .d-block;
-  @extend .h3;
+  @extend .h2;
   @extend .mb-md;
   @extend .font-bold;
   @extend .text-primary;
+}
+
+.password-input {
+  position : relative;
+
+  input {
+    @extend .pr-xxl;
+  }
+
+  .button {
+    @extend .m-0;
+    position  : absolute;
+    right     : 10px;
+    top       : 50%;
+    transform : translateY(-50%);
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+select:-webkit-autofill,
+select:-webkit-autofill:hover
+ {
+  border: 1px solid var(--input);
+  -webkit-text-fill-color: var(--text);
+  -webkit-box-shadow: 0 0 0 1000px var(--input) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text);
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-box-shadow : 0 0 0 2px var(--inputBorder), 0 0 0 1000px var(--input) inset;
 }
