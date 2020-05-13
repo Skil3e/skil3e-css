@@ -3,8 +3,8 @@
     @extend .mb-xs;
     @extend .px-md;
     @extend .d-block;
-    font-size     : 75%;
-    height        : spacer("sm");
+    @extend .small;
+    //height : spacer("sm");
   }
 
   &__error {
@@ -12,5 +12,12 @@
     @extend .pt-xs;
     @extend .px-md;
     font-size : 75%;
+  }
+
+  &__description {
+    @extend .small;
+    @extend .px-md;
+    @extend .mt-xs;
+    color: var(--textDimed);
   }
 }

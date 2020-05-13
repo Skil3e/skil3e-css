@@ -1,0 +1,23 @@
+.curved-shadow {
+  position : relative;
+
+  &::before, &:after {
+    content            : "";
+    z-index            : -1;
+    position           : absolute;
+    bottom             : 15px;
+    left               : 10px;
+    width              : 50%;
+    top                : 80%;
+    max-width          : 300px;
+    background         : #777;
+    box-shadow         : 0 15px 10px hsla(212, 10%, 5%, .3);
+    transform          : rotate(-3deg);
+  }
+
+  &:after {
+    transform         : rotate(3deg);
+    right             : 10px;
+    left              : auto;
+  }
+}

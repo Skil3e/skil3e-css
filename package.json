@@ -4,6 +4,7 @@
   "description": "A simple CSS Lib",
   "main": "index.js",
   "scripts": {
+    "build-autoprefix": "node-sass src/skil3e.scss > dist/skil3e.min.css --output-style compressed && npx postcss dist/skil3e.min.css --use autoprefixer -d dist/ --no-map",
     "build": "node-sass src/skil3e.scss > dist/skil3e.min.css --output-style compressed",
     "build-basic": "node-sass src/basic.scss > dist/basic.min.css --output-style compressed",
     "debug": "node-sass src/skil3e.scss > dist/skil3e.css --output-style expanded",
@@ -20,6 +21,8 @@
   },
   "homepage": "https://github.com/Skil3e/skil3e-css#readme",
   "devDependencies": {
-    "node-sass": "^4.14.1"
+    "node-sass": "^4.14.1",
+    "autoprefixer": "^9.7.6",
+    "postcss-cli": "^7.1.1"
   }
 }
