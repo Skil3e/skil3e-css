@@ -3,6 +3,8 @@ body {
   --bg: #d5d8dd;
   --text: #17191c;
   --textDimed: #454c54;
+  --primary: #407bbf
+;
 }
 
 body[data-theme="dark"] {
@@ -10,6 +12,8 @@ body[data-theme="dark"] {
   --bg: #0b0d0e;
   --text: #e3e5e8;
   --textDimed: #8f98a3;
+  --primary: #407bbf
+;
 }
 
 * {
@@ -837,27 +841,27 @@ select {
 }
 
 .h6, h6 {
-  font-size: 1.25em !important;
+  font-size: 1em !important;
 }
 
 .h5, h5 {
-  font-size: 1.5em !important;
+  font-size: 1.25em !important;
 }
 
 .h4, h4 {
-  font-size: 1.75em !important;
+  font-size: 1.5em !important;
 }
 
 .h3, h3 {
-  font-size: 2em !important;
+  font-size: 1.75em !important;
 }
 
 .h2, h2 {
-  font-size: 2.5em !important;
+  font-size: 2em !important;
 }
 
 .h1, h1 {
-  font-size: 3em !important;
+  font-size: 2.25em !important;
 }
 
 .flex-row {
