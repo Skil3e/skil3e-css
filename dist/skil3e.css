@@ -1,19 +1,24 @@
 body {
   --body: #f1f2f4;
-  --bg: #d5d8dd;
+  --bg: #e3e5e8;
+  --border: #d5d8dd;
   --text: #17191c;
   --textDimed: #454c54;
-  --primary: #407bbf
-;
+  --primary: #407bbf;
 }
 
 body[data-theme="dark"] {
   --body: #17191c;
   --bg: #0b0d0e;
+  --border: #22262a;
   --text: #e3e5e8;
   --textDimed: #8f98a3;
-  --primary: #407bbf
-;
+  --primary: #407bbf;
+}
+
+body {
+  background-color: var(--body);
+  color: var(--text);
 }
 
 * {
@@ -33,17 +38,7 @@ img {
   max-width: 100%;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-body {
-  background-color: var(--body);
-  color: var(--text);
-}
-
-.text-primary {
+.text-primary, legend {
   color: #407bbf;
 }
 
@@ -127,7 +122,7 @@ body {
   display: none !important;
 }
 
-.d-block, .input-wrapper__label {
+.d-block, legend, .input-wrapper__label {
   display: block !important;
 }
 
@@ -360,7 +355,7 @@ body {
   margin-top: 0.9375rem !important;
 }
 
-.mb-md,
+.mb-md, h1, h2, h3, h4, h5, h6, legend,
 .my-md {
   margin-bottom: 0.9375rem !important;
 }
@@ -845,23 +840,43 @@ select {
 }
 
 .h5, h5 {
-  font-size: 1.25em !important;
+  font-size: 1.125em !important;
 }
 
 .h4, h4 {
+  font-size: 1.25em !important;
+}
+
+.h3, legend, h3 {
   font-size: 1.5em !important;
 }
 
-.h3, h3 {
+.h2, h2 {
   font-size: 1.75em !important;
 }
 
-.h2, h2 {
+.h1, h1 {
   font-size: 2em !important;
 }
 
-.h1, h1 {
-  font-size: 2.25em !important;
+.font-light {
+  font-weight: 300 !important;
+}
+
+.font-regular {
+  font-weight: 500 !important;
+}
+
+.font-medium {
+  font-weight: 700 !important;
+}
+
+.font-bold, legend {
+  font-weight: 700 !important;
+}
+
+.font-black {
+  font-weight: 900 !important;
 }
 
 .flex-row {
@@ -3600,6 +3615,19 @@ select {
   }
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+p {
+  line-height: 1.5;
+}
+
+mark {
+  background-color: #bee8ff;
+}
+
 .button, button {
   z-index: 1;
   position: relative;
@@ -3823,12 +3851,17 @@ select {
   fill: black;
 }
 
+body {
+  --input: #d5d8dd
+;
+}
+
 input, textarea, select {
   width: 100%;
   max-width: 100%;
   border: none;
   border-radius: 50rem;
-  background-color: #f1f2f4;
+  background-color: var(--input);
   transition: box-shadow 200ms ease;
 }
 

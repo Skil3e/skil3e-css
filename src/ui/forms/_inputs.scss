@@ -1,3 +1,7 @@
+body {
+  --input : #{$gray-85}
+}
+
 input {
   @extend .px-15;
   @extend .py-10;
@@ -5,12 +9,12 @@ input {
   max-width        : 100%;
   border           : none;
   border-radius    : 50rem;
-  background-color : $gray-95;
-  transition: box-shadow 200ms ease;
+  background-color : var(--input);
+  transition       : box-shadow 200ms ease;
 
   &:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px $gray-70;
+    outline    : none;
+    box-shadow : 0 0 0 2px $gray-70;
   }
 
 }
@@ -30,4 +34,12 @@ select {
   background-repeat   : no-repeat, repeat;
   background-position : right 1.25em top 50%, 0 0;
   background-size     : 0.65em auto, 100%;
+}
+
+legend {
+  @extend .d-block;
+  @extend .h3;
+  @extend .mb-md;
+  @extend .font-bold;
+  @extend .text-primary;
 }

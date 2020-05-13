@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node-sass src/skil3e.scss > dist/skil3e.min.css --output-style compressed",
+    "build-basic": "node-sass src/basic.scss > dist/basic.min.css --output-style compressed",
     "debug": "node-sass src/skil3e.scss > dist/skil3e.css --output-style expanded",
     "build-all": "node-sass src/skil3e.scss > dist/skil3e.min.css --output-style compressed & node-sass src/skil3e.scss > dist/skil3e.css --output-style expanded"
   },

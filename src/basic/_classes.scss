@@ -5,7 +5,7 @@
   @extend .align-items-center;
 }
 
-$style-attribute: (
+$style-attribute : (
         'text' : color,
         'border': border-color,
         'bg' : background,
@@ -25,6 +25,7 @@ $style-attribute: (
 @include text(null);
 @include margin-auto(null);
 @include fontSizes(null);
+@include fontWeights(null);
 // Flex Utilities
 @include flex-row-col(null);
 @include flex-wrap(null);
