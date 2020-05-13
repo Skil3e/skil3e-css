@@ -4,11 +4,8 @@
   "description": "A simple CSS Lib",
   "main": "index.js",
   "scripts": {
-    "build-autoprefix": "node-sass src/skil3e.scss > dist/skil3e.min.css --output-style compressed && npx postcss dist/skil3e.min.css --use autoprefixer -d dist/ --no-map",
-    "build": "node-sass src/skil3e.scss > dist/skil3e.min.css --output-style compressed",
-    "build-basic": "node-sass src/basic.scss > dist/basic.min.css --output-style compressed",
-    "debug": "node-sass src/skil3e.scss > dist/skil3e.css --output-style expanded",
-    "build-all": "node-sass src/skil3e.scss > dist/skil3e.min.css --output-style compressed & node-sass src/skil3e.scss > dist/skil3e.css --output-style expanded"
+    "dev": "node-sass src/skil3e.scss > dist/skil3e.css --output-style expanded",
+    "build": "node-sass src/skil3e.scss > dist/skil3e.min.css --output-style compressed && npx postcss dist/skil3e.min.css --use autoprefixer -d dist/ --no-map"
   },
   "repository": {
     "type": "git",
@@ -21,8 +18,23 @@
   },
   "homepage": "https://github.com/Skil3e/skil3e-css#readme",
   "devDependencies": {
-    "node-sass": "^4.14.1",
     "autoprefixer": "^9.7.6",
+    "browserslist": "^4.12.0",
+    "node-sass": "^4.14.1",
     "postcss-cli": "^7.1.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all",
+      "since 2010"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "last 1 ie version"
+    ]
   }
 }
