@@ -20,6 +20,9 @@ body[data-theme="dark"] {
 body {
   background-color : var(--body);
   color            : var(--text);
+  &.transition{
+    transition: all 400ms ease-in-out;
+  }
 }
 
 //@media (prefers-color-scheme: light) {
