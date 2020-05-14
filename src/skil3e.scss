@@ -1,20 +1,20 @@
-@import "src/variables";
-@import "src/basic/color-functions";
-@import "src/basic/themes";
-@import "src/basic/maps";
-@import "src/basic/init";
-@import "src/basic/classes";
+@import "variables";
+@import "basic/color-functions";
+@import "basic/themes";
+@import "basic/maps";
+@import "basic/init";
+@import "basic/classes";
 //-----------------------------------------------------------
 // Optional imports
 //-----------------------------------------------------------
 //Buttons
-@import "src/ui/typography";
-@import "src/ui/shadows";
-@import "src/ui/buttons/button";
-@import "src/ui/buttons/minimal-link";
-@import "src/ui/buttons/fill";
+@import "ui/typography";
+@import "ui/shadows";
+@import "ui/buttons/button";
+@import "ui/buttons/minimal-link";
+@import "ui/buttons/fill";
 //Forms
-@import "src/ui/forms/inputs";
-@import "src/ui/forms/switch";
-@import "src/ui/forms/input-wrappers";
+@import "ui/forms/inputs";
+@import "ui/forms/switch";
+@import "ui/forms/input-wrappers";
 

@@ -1,7 +1,7 @@
-@import "src/basic/maps/display";
-@import "src/basic/maps/z-index";
-@import "src/basic/maps/spacers";
-@import "src/basic/maps/typography";
+@import "maps/display";
+@import "maps/z-index";
+@import "maps/spacers";
+@import "maps/typography";
 
 $breakpoints : (
         'sm_': $phone,
