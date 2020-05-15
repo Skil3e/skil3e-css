@@ -1,21 +1,22 @@
 //-----------------------------------------------------------
-// Button Fill
+// Button Outline
 //-----------------------------------------------------------
 .button {
-  &.fill {
+  &.outline {
     @each $color, $hex in $colors {
       &.#{$color} {
         padding    : $btn_padding;
         min-height : 42px;
-        background : $hex;
-        color      : color-contrast($hex);
+        border-color : $hex;
+        color        : $hex;
 
-        .icon, .loader {
-          fill : color-contrast($hex);
+        .icon {
+          fill : $hex;
         }
 
         &:hover {
-          background : set-btn-hover-color($hex);
+          background : $hex;
+          color      : color-contrast($hex);
 
           .icon {
             fill : color-contrast($hex);
