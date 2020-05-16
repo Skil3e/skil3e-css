@@ -14,7 +14,7 @@
           fill : $hex;
         }
 
-        &:hover {
+        &:not(:disabled):hover {
           color : set-btn-hover-color($hex);
 
           .icon {

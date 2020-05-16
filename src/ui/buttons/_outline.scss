@@ -14,7 +14,7 @@
           fill : $hex;
         }
 
-        &:hover {
+        &:not(:disabled):hover {
           background : $hex;
           color      : color-contrast($hex);
 

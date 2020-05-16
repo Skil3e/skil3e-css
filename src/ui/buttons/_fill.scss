@@ -14,7 +14,7 @@
           fill : color-contrast($hex);
         }
 
-        &:hover {
+        &:not(:disabled):hover {
           background : set-btn-hover-color($hex);
 
           .icon {
