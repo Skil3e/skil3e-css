@@ -13,7 +13,7 @@
 @mixin fontSizes($breakpoint) {
   @each $type, $value in $font-sizes {
     .#{$breakpoint}#{$type}, #{$type} {
-      font-size : $value !important;
+      font-size : $value;
     }
   }
 }
@@ -21,7 +21,7 @@
 @mixin fontWeights($breakpoint) {
   @each $type, $value in (light: 300, regular: 500, medium: 700, bold: 700, black: 900) {
     .#{$breakpoint}font-#{$type} {
-      font-weight : $value !important;
+      font-weight : $value;
     }
 
   }

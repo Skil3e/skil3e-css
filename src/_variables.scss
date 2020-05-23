@@ -43,15 +43,15 @@ $colors      : (
 //Typography
 //-----------------------------------------------------------
 $systemFonts : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$headingFont : $systemFonts;
-$bodyFont    : $systemFonts;
+$headingFont : $systemFonts !default;
+$bodyFont    : $systemFonts !default;
 //-----------------------------------------------------------
 //Font sizes
 //-----------------------------------------------------------
-$h1          : 2em;
-$h2          : 1.75em;
-$h3          : 1.5em;
-$h4          : 1.25em;
-$h5          : 1.125em;
-$h6          : 1em;
-$small       : .75em;
+$h1          : 2em!default;
+$h2          : 1.75em!default;
+$h3          : 1.5em!default;
+$h4          : 1.25em!default;
+$h5          : 1.125em!default;
+$h6          : 1em!default;
+$small       : .75em!default;

@@ -16,11 +16,12 @@
 
 
 <script>
+    //Get image dimensions
     const input = document.getElementById("fileupload");
     const wrapper = document.getElementById("gallery");
     const _URL = window.URL || window.webkitURL;
     const images = []
-
+    
     input.addEventListener("change", (e) => {
         console.log(e.target.files)
 
