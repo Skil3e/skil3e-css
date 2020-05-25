@@ -20,9 +20,16 @@ body[data-theme="dark"] {
 body {
   background-color : var(--body);
   color            : var(--text);
-  &.transition{
-    transition: all 400ms ease-in-out;
+
+  &.transition {
+	transition : all 400ms ease-in-out;
   }
+}
+
+a {
+  text-decoration : none;
+  color           : var(--primary);
+  transition      : color 250ms ease;
 }
 
 //@media (prefers-color-scheme: light) {
