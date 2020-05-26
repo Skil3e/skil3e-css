@@ -1,7 +1,7 @@
 # skil3e-css
 CSS utility framework
 ## CDN
-```
+```html
 <link rel="stylesheet" href="https://unpkg.com/skil3e-css@1.0.4/dist/skil3e.min.css" crossorigin="anonymous">
 ```
 ## NPM
@@ -12,13 +12,13 @@ npm install skil3e-css
 
 #### Import all the library.
 On your main scss file:
-```
+```SCSS
 @import "~skil3e-css/src/skil3e";
 ```
 #### Importing the basic.
 
 On your main scss file:
-```
+```SCSS
 @import "~skil3e-css/src/basic";
 ```
 #### Manual import
