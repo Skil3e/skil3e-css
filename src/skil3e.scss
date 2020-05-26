@@ -1,21 +1,19 @@
 @import "variables";
-@import "basic/color-functions";
-@import "basic/themes";
-@import "basic/maps";
-@import "basic/init";
-@import "basic/classes";
-@import "basic/mixins/media-queries";
+@import "basic";
 //-----------------------------------------------------------
 // Optional imports
 //-----------------------------------------------------------
-//Buttons
-@import "ui/typography";
 @import "ui/shadows";
+//-----------------------------------------------------------
+// 1. Buttons
+//-----------------------------------------------------------
 @import "ui/buttons/button";
 @import "ui/buttons/minimal-link";
 @import "ui/buttons/fill";
 @import "ui/buttons/outline";
-//Forms
+//-----------------------------------------------------------
+// 2. Forms
+//-----------------------------------------------------------
 @import "ui/forms/inputs";
 @import "ui/forms/switch";
 @import "ui/forms/input-wrappers";

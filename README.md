@@ -3,3 +3,39 @@ CSS utility framework
 ```
 npm install skil3e-css
 ```
+## Usage
+
+### Import all the library.
+
+On your main scss file:
+```
+@import "~skil3e-css/src/skil3e";
+```
+### Importing the basic.
+
+On your main scss file:
+```
+@import "~skil3e-css/src/basic";
+```
+## Manual import
+```
+@import "~skil3e-css/src/variables";
+@import "~skil3e-css/src/basic";
+//-----------------------------------------------------------
+// Optional imports
+//-----------------------------------------------------------
+@import "~skil3e-css/src/ui/shadows";
+//-----------------------------------------------------------
+// 1.Buttons
+//-----------------------------------------------------------
+@import "~skil3e-css/src/ui/buttons/button";
+@import "~skil3e-css/src/ui/buttons/minimal-link";
+@import "~skil3e-css/src/ui/buttons/fill";
+@import "~skil3e-css/src/ui/buttons/outline";
+//-----------------------------------------------------------
+// 2.Forms
+//-----------------------------------------------------------
+@import "~skil3e-css/src/ui/forms/inputs";
+@import "~skil3e-css/src/ui/forms/switch";
+@import "~skil3e-css/src/ui/forms/input-wrappers";
+```
