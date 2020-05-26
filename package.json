@@ -1,8 +1,8 @@
 {
   "name": "skil3e-css",
   "version": "1.0.0",
-  "description": "A simple CSS Lib",
-  "main": "index.js",
+  "description": "A simple utility CSS Lib",
+  "main": "src/index.js",
   "scripts": {
     "dev": "node-sass src/skil3e.scss > dist/skil3e.css --output-style expanded",
     "build": "node-sass src/skil3e.scss > dist/skil3e.min.css --output-style compressed && npx postcss dist/skil3e.min.css --use autoprefixer -d dist/ --no-map"
