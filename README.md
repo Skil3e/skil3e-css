@@ -2,7 +2,7 @@
 CSS utility framework
 ## CDN
 ```html
-<link rel="stylesheet" href="https://unpkg.com/skil3e-css@1.0.4/dist/skil3e.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/skil3e-css@latest/dist/skil3e.min.css" crossorigin="anonymous">
 ```
 ## NPM
 ```
