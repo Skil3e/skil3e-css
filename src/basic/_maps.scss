@@ -4,8 +4,8 @@
 @import "maps/typography";
 
 $breakpoints : (
-        'sm_': $phone,
-        'md_': $tablet,
-        'lg_': $laptop,
-        'xl_': $desktop,
+        'sm__': $phone,
+        'md__': $tablet,
+        'lg__': $laptop,
+        'xl__': $desktop,
 );
