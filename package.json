@@ -1,7 +1,9 @@
 {
   "name": "skil3e-css",
   "version": "1.0.0",
+  "author": "Skil3e",
   "description": "A simple utility CSS Lib",
+  "license": "MIT",
   "main": "src/index.js",
   "scripts": {
     "dev": "node-sass src/skil3e.scss > src/_debug/skil3e.css --output-style expanded",
@@ -11,8 +13,6 @@
     "type": "git",
     "url": "git+https://github.com/Skil3e/skil3e-css.git"
   },
-  "author": "Skil3e",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Skil3e/skil3e-css/issues"
   },
