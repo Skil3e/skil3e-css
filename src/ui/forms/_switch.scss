@@ -4,11 +4,11 @@
 	width   : 0;
 	display : none;
 
-	&:checked + .switch-label {
+	&:checked + .switch__label {
 	  background : $primary;
 	}
 
-	&:checked + .switch-label .switch-button {
+	&:checked + .switch__label .switch__button {
 	  left      : calc(100% - 2px);
 	  transform : translateX(-100%);
 	}
@@ -24,7 +24,7 @@
 	position        : relative;
 	transition      : background 300ms ease;
 
-	.switch-button {
+	.switch__button {
 	  content       : "";
 	  position      : absolute;
 	  top           : 2px;
@@ -39,7 +39,7 @@
 	  width  : 40px;
 	  height : 24px;
 
-	  .switch-button {
+	  .switch__button {
 		width  : 20px;
 		height : 20px;
 
@@ -53,7 +53,7 @@
 	  width  : 50px;
 	  height : 29px;
 
-	  .switch-button {
+	  .switch__button {
 		width  : 25px;
 		height : 25px;
 
@@ -67,7 +67,7 @@
 	  width  : 60px;
 	  height : 34px;
 
-	  .switch-button {
+	  .switch__button {
 		width  : 30px;
 		height : 30px;
 
@@ -81,7 +81,7 @@
 	  width  : 70px;
 	  height : 39px;
 
-	  .switch-button {
+	  .switch__button {
 		width  : 35px;
 		height : 35px;
 
