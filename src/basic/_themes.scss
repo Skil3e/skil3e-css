@@ -1,7 +1,8 @@
 body {
   --body      : #{$gray-95};
   --bg        : #{$gray-90};
-  --border    : #{$gray-85};
+  --bgDimed   : #{$gray-85};
+  --border    : #{$gray-80};
 
   --text      : #{$gray-10};
   --textDimed : #{$gray-60};
@@ -11,7 +12,9 @@ body {
 body[data-theme="dark"] {
   --body      : #{$gray-5};
   --bg        : #{$gray-10};
+  --bgDimed   : #{$gray-20};
   --border    : #{$gray-15};
+
   --text      : #{$gray-90};
   --textDimed : #{$gray-40};
   --primary   : #{$primary};
