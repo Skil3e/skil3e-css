@@ -7,8 +7,8 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "sass src/skil3e.scss:src/_debug/skil3e.css --no-source-map",
-    "build-basic": "sass src/basic.scss:dist/skil3e-v2-basic.min.css --no-source-map --style compressed && npx postcss dist/skil3e-v2-basic.min.css --use autoprefixer -d dist/ --no-map",
-    "build": "sass src/skil3e.scss:dist/skil3e-v2.min.css --no-source-map --style compressed && npx postcss dist/skil3e-v2.min.css --use autoprefixer -d dist/ --no-map",
+    "build-basic": "sass src/basic.scss:dist/skil3e-basic.min.css --no-source-map --style compressed && npx postcss dist/skil3e-basic.min.css --use autoprefixer -d dist/ --no-map",
+    "build": "sass src/skil3e.scss:dist/skil3e.min.css --no-source-map --style compressed && npx postcss dist/skil3e.min.css --use autoprefixer -d dist/ --no-map",
     "pub": "npm run build && npm run build-basic && npm publish"
   },
   "repository": {
