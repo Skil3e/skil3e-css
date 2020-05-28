@@ -1,14 +1,17 @@
 @use "../../_util/acc-colors" as acc;
 @use "../../globals";
 @use "button";
+
+$colors  : globals.$colors !default;
+$padding : button.$padding !default;
 //-----------------------------------------------------------
 // Button Fill
 //-----------------------------------------------------------
 .button {
   &.fill {
-	@each $color, $hex in globals.$colors {
+	@each $color, $hex in $colors {
 	  &.#{$color} {
-		padding    : button.$padding;
+		padding    : $padding;
 		min-height : 42px;
 		background : $hex;
 		color      : acc.color-contrast($hex);

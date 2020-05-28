@@ -1,13 +1,18 @@
 @use "../../basic/util-constructor";
 @use "../../globals";
+
+$clrInput           : globals.$gray-85 !default;
+$clrInputDark       : globals.$gray-15 !default;
+$clrInputBorder     : globals.$gray-80 !default;
+$clrInputBorderDark : globals.$gray-20 !default;
 body {
-  --input       : #{globals.$gray-85};
-  --inputBorder : #{globals.$gray-80};
+  --input       : #{$clrInput};
+  --inputBorder : #{$clrInputBorder};
 }
 
 body[data-theme="dark"] {
-  --input       : #{globals.$gray-15};
-  --inputBorder : #{globals.$gray-20};
+  --input       : #{$clrInputDark};
+  --inputBorder : #{$clrInputBorderDark};
 }
 
 input {
@@ -22,8 +27,8 @@ input {
   transition       : box-shadow 200ms ease;
 
   &:focus {
-    outline    : none;
-    box-shadow : 0 0 0 2px var(--inputBorder);
+	outline    : none;
+	box-shadow : 0 0 0 2px var(--inputBorder);
   }
 
 }
@@ -57,15 +62,15 @@ legend {
   position : relative;
 
   input {
-    @extend .pr-xxl;
+	@extend .pr-xxl;
   }
 
   .button {
-    @extend .m-0;
-    position  : absolute;
-    right     : 10px;
-    top       : 50%;
-    transform : translateY(-50%);
+	@extend .m-0;
+	position  : absolute;
+	right     : 10px;
+	top       : 50%;
+	transform : translateY(-50%);
   }
 }
 

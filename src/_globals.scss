@@ -12,7 +12,7 @@ $breakpoints     : (
 	'md__': $tablet,
 	'lg__': $laptop,
 	'xl__': $desktop,
-);
+)!default;
 
 //-----------------------------------------------------------
 // Colors
@@ -44,12 +44,12 @@ $colors      : (
         "danger" : $danger,
         "success" : $success,
         "warning" : $warning
-);
+)!default;
 //-----------------------------------------------------------
 // Utils
 //-----------------------------------------------------------
-$borderWidth: 1px;
-$borderType: solid;
+$borderWidth: 1px!default;
+$borderType: solid!default;
 //-----------------------------------------------------------
 // Typography
 //-----------------------------------------------------------

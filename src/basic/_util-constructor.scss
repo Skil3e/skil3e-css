@@ -1,5 +1,10 @@
 @use "../_util/mixins" as *;
-@use "../globals" as *;
+@use "../globals";
+$colors : globals.$colors!default
+$borderWidth: globals.$borderWidth!default;
+$borderType: globals.$borderType!default;
+$style-attribute: globals.$style-attribute!default;
+$breakpoints: globals.$breakpoints!default;
 
 .flex-center {
   @extend .d-flex;

@@ -1,5 +1,6 @@
 @use "../../_util/acc-colors" as acc;
 @use "../../globals";
+$colors: globals.$colors;
 //-----------------------------------------------------------
 // Button Link & Minimal Defaults
 //-----------------------------------------------------------
@@ -8,7 +9,7 @@
   &.minimal {
     padding : 0;
     border  : none;
-    @each $color, $hex in globals.$colors {
+    @each $color, $hex in $colors {
       &.#{$color} {
         color : $hex;
 
