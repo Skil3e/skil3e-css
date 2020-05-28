@@ -1,0 +1,30 @@
+@use "../../_util/acc-colors" as acc;
+@use "../../globals";
+@use "button";
+//-----------------------------------------------------------
+// Button Fill
+//-----------------------------------------------------------
+.button {
+  &.fill {
+	@each $color, $hex in globals.$colors {
+	  &.#{$color} {
+		padding    : button.$padding;
+		min-height : 42px;
+		background : $hex;
+		color      : acc.color-contrast($hex);
+
+		.icon, .loader {
+		  fill : acc.color-contrast($hex);
+		}
+
+		&:not(:disabled):hover {
+		  background : acc.set-hover-color($hex);
+
+		  .icon {
+			fill : acc.color-contrast($hex);
+		  }
+		}
+	  }
+	}
+  }
+}

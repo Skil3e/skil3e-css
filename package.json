@@ -1,15 +1,14 @@
 {
-  "name": "skil3e-css",
-  "version": "1.0.16",
+  "name": "skil3e-scss-v2",
+  "version": "2.0.0",
   "author": "Skil3e",
-  "description": "A simple utility CSS Lib",
+  "description": "A simple utility SCSS Lib using SASS modules. Supports @use and @forward",
   "license": "MIT",
   "main": "src/index.js",
   "scripts": {
-    "dev": "node-sass src/skil3e.scss > src/_debug/skil3e.css --output-style expanded",
-    "build": "node-sass src/skil3e.scss > dist/skil3e.min.css --output-style compressed && npx postcss dist/skil3e.min.css --use autoprefixer -d dist/ --no-map",
-    "build-basic": "node-sass src/basic.scss > dist/skil3e-basic.min.css --output-style compressed && npx postcss dist/skil3e-basic.min.css --use autoprefixer -d dist/ --no-map",
-    "sass-raw": "sass src/basic.scss:dist/basic.min.css --no-source-map --style compressed && npx postcss dist/basic.min.css --use autoprefixer -d dist/ --no-map",
+    "dev": "sass src/skil3e.scss:src/_debug/skil3e.css --no-source-map",
+    "build-basic": "sass src/basic.scss:dist/skil3e-v2-basic.min.css --no-source-map --style compressed && npx postcss dist/skil3e-v2-basic.min.css --use autoprefixer -d dist/ --no-map",
+    "build": "sass src/skil3e.scss:dist/skil3e-v2.min.css --no-source-map --style compressed && npx postcss dist/skil3e-v2.min.css --use autoprefixer -d dist/ --no-map",
     "pub": "npm run build && npm run build-basic && npm publish"
   },
   "repository": {
@@ -23,8 +22,8 @@
   "devDependencies": {
     "autoprefixer": "^9.7.6",
     "browserslist": "^4.12.0",
-    "node-sass": "^4.14.1",
-    "postcss-cli": "^7.1.1"
+    "postcss-cli": "^7.1.1",
+    "sass": "^1.26.5"
   },
   "browserslist": {
     "production": [

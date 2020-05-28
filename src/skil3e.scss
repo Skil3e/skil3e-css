@@ -1,18 +1,10 @@
-@import "basic";
-//-----------------------------------------------------------
-// Optional imports
-//-----------------------------------------------------------
-@import "ui/shadows";
-//-----------------------------------------------------------
-// 1. Buttons
-//-----------------------------------------------------------
-@import "ui/buttons/button";
-@import "ui/buttons/minimal-link";
-@import "ui/buttons/fill";
-@import "ui/buttons/outline";
-//-----------------------------------------------------------
-// 2. Forms
-//-----------------------------------------------------------
-@import "ui/forms/inputs";
-@import "ui/forms/switch";
-@import "ui/forms/input-wrappers";
+@use "basic";
+//Buttons
+@use "components/buttons/button";
+@use "components/buttons/minimal-link";
+@use "components/buttons/fill";
+@use "components/buttons/outline";
+//Inputs
+@use "components/forms/inputs";
+@use "components/forms/input-wrappers";
+@use "components/forms/switch";

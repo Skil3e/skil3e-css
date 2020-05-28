@@ -1,11 +1,13 @@
+@use "../../basic/util-constructor";
+@use "../../globals";
 body {
-  --input       : #{$gray-85};
-  --inputBorder : #{$gray-80};
+  --input       : #{globals.$gray-85};
+  --inputBorder : #{globals.$gray-80};
 }
 
 body[data-theme="dark"] {
-  --input       : #{$gray-15};
-  --inputBorder : #{$gray-20};
+  --input       : #{globals.$gray-15};
+  --inputBorder : #{globals.$gray-20};
 }
 
 input {

@@ -1,3 +1,7 @@
+@use "../../globals";
+$activeBG: globals.$primary !default;
+$inactiveBG : globals.$gray-50 !default;
+$buttonColor: #fff !default;
 .switch {
   &__checkbox {
 	height  : 0;
@@ -5,7 +9,7 @@
 	display : none;
 
 	&:checked + .switch__label {
-	  background : $primary;
+	  background : $activeBG;
 	}
 
 	&:checked + .switch__label .switch__button {
@@ -19,7 +23,7 @@
 	align-items     : center;
 	justify-content : space-between;
 	cursor          : pointer;
-	background      : $gray-50;
+	background      : $inactiveBG;
 	border-radius   : 50rem;
 	position        : relative;
 	transition      : background 300ms ease;
@@ -31,7 +35,7 @@
 	  left          : 2px;
 	  border-radius : 50rem;
 	  transition    : 200ms;
-	  background    : #fff;
+	  background    : $buttonColor;
 	  box-shadow    : 0 0 2px 0 rgba(10, 10, 10, 0.3);
 	}
 

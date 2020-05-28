@@ -1,11 +1,14 @@
+@use "../../_util/acc-colors" as acc;
+@use "../../globals";
+@use "button";
 //-----------------------------------------------------------
 // Button Outline
 //-----------------------------------------------------------
 .button {
   &.outline {
-    @each $color, $hex in $colors {
+    @each $color, $hex in globals.$colors {
       &.#{$color} {
-        padding    : $btn_padding;
+        padding    : button.$padding;
         min-height : 42px;
         border-color : $hex;
         color        : $hex;
@@ -16,10 +19,10 @@
 
         &:not(:disabled):hover {
           background : $hex;
-          color      : color-contrast($hex);
+          color      : acc.color-contrast($hex);
 
           .icon {
-            fill : color-contrast($hex);
+            fill : acc.color-contrast($hex);
           }
         }
       }

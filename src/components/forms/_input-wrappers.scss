@@ -1,10 +1,10 @@
+@use "../../basic/util-constructor";
 .input-wrapper {
   &__label {
     @extend .mb-xs;
     @extend .px-md;
     @extend .d-block;
     @extend .small;
-    //height : spacer("sm");
   }
 
   &__error {

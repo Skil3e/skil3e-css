@@ -1,5 +1,5 @@
-@use "mixins" as *;
-@use "../variables" as *;
+@use "../_util/mixins" as *;
+@use "../globals" as *;
 
 .flex-center {
   @extend .d-flex;

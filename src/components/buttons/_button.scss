@@ -1,0 +1,58 @@
+@use "../../basic/util-constructor";
+//-----------------------------------------------------------
+//Variables
+//-----------------------------------------------------------
+$pX            : 1.5rem !default;
+$pY            : .625rem !default;
+$padding       : $pY $pX !default;
+$textTransform : initial !default;
+$fontSize      : 100% !default;
+$fontWeight    : 500 !default;
+$lineHeight    : 1.2 !default;
+$borderRadius  : 50rem !default;
+$borderWidth   : 1px !default;
+$borderStyle   : solid !default;
+$border        : 2px solid !default;
+$transition    : 200ms ease-in-out !default;
+
+.button, button {
+  @extend .d-inline-flex;
+  @extend .align-items-center;
+  @extend .justify-content-center;
+  z-index             : 1;
+  position            : relative;
+  vertical-align      : middle;
+  cursor              : pointer;
+  text-transform      : $textTransform;
+  font-weight         : $fontWeight;
+  font-size           : $fontSize;
+  line-height         : $lineHeight;
+  text-decoration     : none;
+  background          : transparent;
+  border              : $border transparent;
+  border-radius       : $borderRadius;
+  transition          : $transition;
+  transition-property : background, color, border;
+
+  .icon {
+    transition : fill $transition;
+  }
+
+  &.disabled, &:disabled {
+    opacity : .65;
+    cursor  : not-allowed;
+  }
+
+  &:focus {
+    outline : none;
+
+    &::after,
+    &::before {
+      outline : none;
+    }
+  }
+
+  &.fullwidth {
+    width : 100%;
+  }
+}
