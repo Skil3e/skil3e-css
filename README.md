@@ -1,4 +1,4 @@
-# skil3e-css-v2
+# skil3e-css
 CSS utility framework
 ## CDN
 ```html
