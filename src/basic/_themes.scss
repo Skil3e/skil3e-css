@@ -1,24 +1,43 @@
-@use "../globals" as *;
-body {
-  --body      : #{$gray-95};
-  --bg        : #{$gray-90};
-  --bgDimed   : #{$gray-85};
-  --border    : #{$gray-80};
+@use "../globals";
 
-  --text      : #{$gray-10};
-  --textDimed : #{$gray-60};
+$body           : globals.$gray-95 !default;
+$bg             : globals.$gray-90 !default;
+$bgDimmed       : globals.$gray-85 !default;
+$border         : globals.$gray-80 !default;
+
+$text           : globals.$gray-10 !default;
+$textDimmed     : globals.$gray-60 !default;
+$primary        : globals.$primary !default;
+
+$bodyDark       : globals.$gray-5 !default;
+$bgDark         : globals.$gray-10 !default;
+$bgDimmedDark   : globals.$gray-15 !default;
+$borderDark     : globals.$gray-20 !default;
+
+$textDark       : globals.$gray-90 !default;
+$textDimmedDark : globals.$gray-40 !default;
+$primaryDark    : globals.$primary !default;
+
+body {
+  --body      : #{$body};
+  --bg        : #{$bg};
+  --bgDimmed  : #{$bgDimmed};
+  --border    : #{$border};
+
+  --text      : #{$text};
+  --textDimed : #{$textDimmed};
   --primary   : #{$primary};
 }
 
 body[data-theme="dark"] {
-  --body      : #{$gray-5};
-  --bg        : #{$gray-10};
-  --bgDimed   : #{$gray-15};
-  --border    : #{$gray-20};
+  --body      : #{$bodyDark};
+  --bg        : #{$bgDark};
+  --bgDimmed  : #{$bgDimmedDark};
+  --border    : #{$borderDark};
 
-  --text      : #{$gray-90};
-  --textDimed : #{$gray-40};
-  --primary   : #{$primary};
+  --text      : #{$textDark};
+  --textDimed : #{$textDimmedDark};
+  --primary   : #{$primaryDark};
 }
 
 body {
@@ -26,7 +45,7 @@ body {
   color            : var(--text);
 
   &.transition {
-	transition : all 400ms ease-in-out;
+    transition : all 400ms ease-in-out;
   }
 }
 

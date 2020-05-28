@@ -1,98 +1,99 @@
 @use "../../globals";
-$activeBG: globals.$primary !default;
-$inactiveBG : globals.$gray-50 !default;
-$buttonColor: #fff !default;
+
+$activeBG    : globals.$primary !default;
+$inactiveBG  : globals.$gray-50 !default;
+$buttonColor : #fff !default;
 .switch {
   &__checkbox {
-	height  : 0;
-	width   : 0;
-	display : none;
+    height  : 0;
+    width   : 0;
+    display : none;
 
-	&:checked + .switch__label {
-	  background : $activeBG;
-	}
+    &:checked + .switch__label {
+      background : $activeBG;
+    }
 
-	&:checked + .switch__label .switch__button {
-	  left      : calc(100% - 2px);
-	  transform : translateX(-100%);
-	}
+    &:checked + .switch__label .switch__button {
+      left      : calc(100% - 2px);
+      transform : translateX(-100%);
+    }
   }
 
   &__label {
-	display         : flex;
-	align-items     : center;
-	justify-content : space-between;
-	cursor          : pointer;
-	background      : $inactiveBG;
-	border-radius   : 50rem;
-	position        : relative;
-	transition      : background 300ms ease;
+    display         : flex;
+    align-items     : center;
+    justify-content : space-between;
+    cursor          : pointer;
+    background      : $inactiveBG;
+    border-radius   : 50rem;
+    position        : relative;
+    transition      : background 300ms ease;
 
-	.switch__button {
-	  content       : "";
-	  position      : absolute;
-	  top           : 2px;
-	  left          : 2px;
-	  border-radius : 50rem;
-	  transition    : 200ms;
-	  background    : $buttonColor;
-	  box-shadow    : 0 0 2px 0 rgba(10, 10, 10, 0.3);
-	}
+    .switch__button {
+      content       : "";
+      position      : absolute;
+      top           : 2px;
+      left          : 2px;
+      border-radius : 50rem;
+      transition    : 200ms;
+      background    : $buttonColor;
+      box-shadow    : 0 0 2px 0 rgba(10, 10, 10, 0.3);
+    }
 
-	&.sm {
-	  width  : 40px;
-	  height : 24px;
+    &.sm {
+      width  : 40px;
+      height : 24px;
 
-	  .switch__button {
-		width  : 20px;
-		height : 20px;
+      .switch__button {
+        width  : 20px;
+        height : 20px;
 
-		&:active {
-		  width : 30px;
-		}
-	  }
-	}
+        &:active {
+          width : 30px;
+        }
+      }
+    }
 
-	&.md {
-	  width  : 50px;
-	  height : 29px;
+    &.md {
+      width  : 50px;
+      height : 29px;
 
-	  .switch__button {
-		width  : 25px;
-		height : 25px;
+      .switch__button {
+        width  : 25px;
+        height : 25px;
 
-		&:active {
-		  width : 35px;
-		}
-	  }
-	}
+        &:active {
+          width : 35px;
+        }
+      }
+    }
 
-	&.lg {
-	  width  : 60px;
-	  height : 34px;
+    &.lg {
+      width  : 60px;
+      height : 34px;
 
-	  .switch__button {
-		width  : 30px;
-		height : 30px;
+      .switch__button {
+        width  : 30px;
+        height : 30px;
 
-		&:active {
-		  width : 40px;
-		}
-	  }
-	}
+        &:active {
+          width : 40px;
+        }
+      }
+    }
 
-	&.xl {
-	  width  : 70px;
-	  height : 39px;
+    &.xl {
+      width  : 70px;
+      height : 39px;
 
-	  .switch__button {
-		width  : 35px;
-		height : 35px;
+      .switch__button {
+        width  : 35px;
+        height : 35px;
 
-		&:active {
-		  width : 45px;
-		}
-	  }
-	}
+        &:active {
+          width : 45px;
+        }
+      }
+    }
   }
 }

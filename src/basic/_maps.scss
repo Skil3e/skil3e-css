@@ -1,65 +1,113 @@
+@use "../globals";
+
+$phone           : globals.$phone !default;
+$tablet          : globals.$tablet !default;
+$laptop          : globals.$laptop !default;
+$desktop         : globals.$desktop !default;
+
+$primary         : globals.$primary !default;
+$secondary       : globals.$secondary !default;
+$danger          : globals.$danger !default;
+$success         : globals.$success !default;
+$warning         : globals.$warning !default;
+$white           : #fff !default;
+$black           : #000 !default;
+
+$small           : globals.$small !default;
+$h6              : globals.$h6 !default;
+$h5              : globals.$h5 !default;
+$h4              : globals.$h4 !default;
+$h3              : globals.$h3 !default;
+$h2              : globals.$h2 !default;
+$h1              : globals.$h1 !default;
+
+$breakpoints     : (
+        'sm__': $phone,
+        'md__': $tablet,
+        'lg__': $laptop,
+        'xl__': $desktop,
+) !default;
+
+$colors          : (
+        "primary" : $primary,
+        "secondary" : $secondary,
+        "danger" : $danger,
+        "success" : $success,
+        "warning" : $warning
+) !default;
+
+$font-sizes      : (
+        'small': $small,
+        'h6' : $h6,
+        'h5' : $h5,
+        'h4' : $h4,
+        'h3' : $h3,
+        'h2' : $h2,
+        'h1' : $h1
+) !default;
+
 $spacers         : (
-	'0' : 0,
-	'5' : 0.3125rem, // 5px
-	'10' : 0.625rem, // 10px
-	'15' : 0.9375rem, // 15px
-	'20' : 1.25rem, // 20px
-	'25' : 1.5625rem, // 25px
-	'xs' : 0.375rem, // 6px
-	'sm' : 0.75rem, // 12px
-	'md' : 0.9375rem, // 15px
-	'lg' : 1.3125rem, // 21px
-	'xl' : 1.875rem, // 30px
-	'xxl': 2.5rem, // 40px
-);
+        '0' : 0,
+        '5' : 0.3125rem, // 5px
+        '10' : 0.625rem, // 10px
+        '15' : 0.9375rem, // 15px
+        '20' : 1.25rem, // 20px
+        '25' : 1.5625rem, // 25px
+        'xs' : 0.375rem, // 6px
+        'sm' : 0.75rem, // 12px
+        'md' : 0.9375rem, // 15px
+        'lg' : 1.3125rem, // 21px
+        'xl' : 1.875rem, // 30px
+        'xxl': 2.5rem, // 40px
+) !default;
 
 $style-attribute : (
-	'text' : color,
-	'border': border-color,
-	'bg' : background,
-	'fill' : fill,
-);
-
-$display-classes : (
-	'none' : none,
-	'block' : block,
-	'inline' : inline,
-	'inline-block': inline-block,
-	'table' : table,
-	'table-cell' : table-cell,
-	'table-row' : table-row,
-	'flex' : flex,
-	'inline-flex' : inline-flex,
-	'grid': grid,
-	'inline-grid': inline-grid,
-);
+        'text' : color,
+        'border': border-color,
+        'bg' : background,
+        'fill' : fill,
+) !default;
 
 $z-index         : (
-	'1': 1000,
-	'2': 2000,
-	'3': 3000,
-	'4': 4000,
-	'5': 5000,
-	'6': 6000,
-	'7': 7000,
-	'8': 8000,
-	'9': 9000,
+        '1': 1000,
+        '2': 2000,
+        '3': 3000,
+        '4': 4000,
+        '5': 5000,
+        '6': 6000,
+        '7': 7000,
+        '8': 8000,
+        '9': 9000,
+) !default;
+
+$display-classes : (
+        'none' : none,
+        'block' : block,
+        'inline' : inline,
+        'inline-block': inline-block,
+        'table' : table,
+        'table-cell' : table-cell,
+        'table-row' : table-row,
+        'flex' : flex,
+        'inline-flex' : inline-flex,
+        'grid': grid,
+        'inline-grid': inline-grid,
 );
 
 $align           : (
-	'center' : center,
-	'start' : flex-start,
-	'end' : flex-end,
-	'stretch' : stretch,
-	'baseline': baseline,
+        'center' : center,
+        'start' : flex-start,
+        'end' : flex-end,
+        'stretch' : stretch,
+        'baseline': baseline,
 );
 
 $justify         : (
-	'center' : center,
-	'start' : flex-start,
-	'end' : flex-end,
-	'stretch': stretch,
-	'between': space-between,
-	'around' : space-around,
+        'center' : center,
+        'start' : flex-start,
+        'end' : flex-end,
+        'stretch': stretch,
+        'between': space-between,
+        'around' : space-around,
 );
 

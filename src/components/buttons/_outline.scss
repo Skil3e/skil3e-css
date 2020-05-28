@@ -1,34 +1,34 @@
 @use "../../_util/acc-colors" as acc;
-@use "../../globals";
+@use "../../basic/maps";
 @use "button";
 
-$colors  : globals.$colors !default;
+$colors  : maps.$colors !default;
 $padding : button.$padding !default;
 //-----------------------------------------------------------
 // Button Outline
 //-----------------------------------------------------------
 .button {
   &.outline {
-	@each $color, $hex in $colors {
-	  &.#{$color} {
-		padding      : $padding;
-		min-height   : 42px;
-		border-color : $hex;
-		color        : $hex;
+    @each $color, $hex in $colors {
+      &.#{$color} {
+        padding      : $padding;
+        min-height   : 42px;
+        border-color : $hex;
+        color        : $hex;
 
-		.icon {
-		  fill : $hex;
-		}
+        .icon {
+          fill : $hex;
+        }
 
-		&:not(:disabled):hover {
-		  background : $hex;
-		  color      : acc.color-contrast($hex);
+        &:not(:disabled):hover {
+          background : $hex;
+          color      : acc.color-contrast($hex);
 
-		  .icon {
-			fill : acc.color-contrast($hex);
-		  }
-		}
-	  }
-	}
+          .icon {
+            fill : acc.color-contrast($hex);
+          }
+        }
+      }
+    }
   }
 }

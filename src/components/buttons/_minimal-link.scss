@@ -1,6 +1,7 @@
 @use "../../_util/acc-colors" as acc;
-@use "../../globals";
-$colors: globals.$colors;
+@use "../../basic/maps";
+
+$colors : maps.$colors !default;
 //-----------------------------------------------------------
 // Button Link & Minimal Defaults
 //-----------------------------------------------------------

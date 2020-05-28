@@ -1,10 +1,12 @@
-@use "../_util/mixins" as *;
+@use "maps";
+@use "../_util/mixins" as mx;
 @use "../globals";
-$colors : globals.$colors!default;
-$borderWidth: globals.$borderWidth!default;
-$borderType: globals.$borderType!default;
-$style-attribute: globals.$style-attribute!default;
-$breakpoints: globals.$breakpoints!default;
+
+$colors          : maps.$colors !default;
+$borderWidth     : globals.$borderWidth !default;
+$borderType      : globals.$borderType !default;
+$style-attribute : maps.$style-attribute !default;
+$breakpoints     : maps.$breakpoints !default;
 
 .flex-center {
   @extend .d-flex;
@@ -12,53 +14,53 @@ $breakpoints: globals.$breakpoints!default;
 }
 
 @each $color, $hex in $colors {
-  @each $name, $atr in ("border": border,"border-top": border-top, "border-right":border-right, "border-bottom":border-bottom, "border-left":border-left) {
-	.#{$name}-#{$color} {
-	  #{$atr}: $borderWidth $borderType $hex;
-	}
+  @each $name, $atr in ("border": border, "border-top": border-top, "border-right":border-right, "border-bottom":border-bottom, "border-left":border-left) {
+    .#{$name}-#{$color} {
+      #{$atr}: $borderWidth $borderType $hex;
+    }
   }
 }
 
 
 @each $color, $hex in $colors {
   @each $name, $atr in $style-attribute {
-	.#{$name}-#{$color} {
-	  #{$atr}: $hex;
-	}
+    .#{$name}-#{$color} {
+      #{$atr}: $hex;
+    }
   }
 }
 
-@include display(null);
-@include spacers(null);
-@include text(null);
-@include margin-auto(null);
-@include fontSizes(null);
-@include fontWeights(null);
+@include mx.display(null);
+@include mx.spacers(null);
+@include mx.text(null);
+@include mx.margin-auto(null);
+@include mx.fontSizes(null);
+@include mx.fontWeights(null);
 // Flex Utilities
-@include flex-row-col(null);
-@include flex-wrap(null);
-@include flex-fill(null);
-@include flex-grow(null);
-@include flex-shrink(null);
-@include align-items(null);
-@include align-content(null);
-@include justify-content(null);
-@include align-self(null);
+@include mx.flex-row-col(null);
+@include mx.flex-wrap(null);
+@include mx.flex-fill(null);
+@include mx.flex-grow(null);
+@include mx.flex-shrink(null);
+@include mx.align-items(null);
+@include mx.align-content(null);
+@include mx.justify-content(null);
+@include mx.align-self(null);
 
 @each $name, $size in $breakpoints {
   @media (min-width : $size) {
-	@include display($name);
-	@include spacers($name);
-	@include margin-auto($name);
+    @include mx.display($name);
+    @include mx.spacers($name);
+    @include mx.margin-auto($name);
 
-	@include flex-row-col($name);
-	@include flex-wrap($name);
-	@include flex-fill($name);
-	@include flex-grow($name);
-	@include flex-shrink($name);
-	@include align-items($name);
-	@include align-content($name);
-	@include justify-content($name);
-	@include align-self($name);
+    @include mx.flex-row-col($name);
+    @include mx.flex-wrap($name);
+    @include mx.flex-fill($name);
+    @include mx.flex-grow($name);
+    @include mx.flex-shrink($name);
+    @include mx.align-items($name);
+    @include mx.align-content($name);
+    @include mx.justify-content($name);
+    @include mx.align-self($name);
   }
 }
