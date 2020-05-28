@@ -5,6 +5,22 @@
   @extend .d-flex;
   @extend .align-items-center;
 }
+[class*=border] {
+  border : 1px solid;
+}
+
+[class*=border-bottom] {
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom : 1px solid;
+}
+[class*=border-top] {
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top : 1px solid;
+}
 
 @each $color, $hex in $colors {
   @each $name, $atr in $style-attribute {
