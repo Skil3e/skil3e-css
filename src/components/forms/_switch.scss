@@ -4,6 +4,7 @@ $activeBG    : globals.$primary !default;
 $inactiveBG  : globals.$gray-50 !default;
 $buttonColor : #fff !default;
 .switch {
+  overflow: hidden;
   &__checkbox {
     height  : 0;
     width   : 0;

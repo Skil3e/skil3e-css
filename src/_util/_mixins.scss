@@ -4,7 +4,14 @@ $display-classes : maps.$display-classes !default;
 $align           : maps.$align !default;
 $justify         : maps.$justify !default;
 $spacers         : maps.$spacers !default;
-
+//-----------------------------
+// Theme css var generator
+//-----------------------------
+@mixin themeVarGenerator($theme) {
+  @each $color, $hex in $theme {
+    --#{$color}: #{$hex};
+  }
+}
 //-----------------------------
 // Typography Classes
 //-----------------------------
@@ -23,7 +30,6 @@ $spacers         : maps.$spacers !default;
     }
   }
 }
-
 //-----------------------------
 // Display Classes
 //-----------------------------
