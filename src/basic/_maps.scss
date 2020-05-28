@@ -1,11 +1,65 @@
-@import "maps/display";
-@import "maps/z-index";
-@import "maps/spacers";
-@import "maps/typography";
-
-$breakpoints : (
-        'sm__': $phone,
-        'md__': $tablet,
-        'lg__': $laptop,
-        'xl__': $desktop,
+$spacers         : (
+	'0' : 0,
+	'5' : 0.3125rem, // 5px
+	'10' : 0.625rem, // 10px
+	'15' : 0.9375rem, // 15px
+	'20' : 1.25rem, // 20px
+	'25' : 1.5625rem, // 25px
+	'xs' : 0.375rem, // 6px
+	'sm' : 0.75rem, // 12px
+	'md' : 0.9375rem, // 15px
+	'lg' : 1.3125rem, // 21px
+	'xl' : 1.875rem, // 30px
+	'xxl': 2.5rem, // 40px
 );
+
+$style-attribute : (
+	'text' : color,
+	'border': border-color,
+	'bg' : background,
+	'fill' : fill,
+);
+
+$display-classes : (
+	'none' : none,
+	'block' : block,
+	'inline' : inline,
+	'inline-block': inline-block,
+	'table' : table,
+	'table-cell' : table-cell,
+	'table-row' : table-row,
+	'flex' : flex,
+	'inline-flex' : inline-flex,
+	'grid': grid,
+	'inline-grid': inline-grid,
+);
+
+$z-index         : (
+	'1': 1000,
+	'2': 2000,
+	'3': 3000,
+	'4': 4000,
+	'5': 5000,
+	'6': 6000,
+	'7': 7000,
+	'8': 8000,
+	'9': 9000,
+);
+
+$align           : (
+	'center' : center,
+	'start' : flex-start,
+	'end' : flex-end,
+	'stretch' : stretch,
+	'baseline': baseline,
+);
+
+$justify         : (
+	'center' : center,
+	'start' : flex-start,
+	'end' : flex-end,
+	'stretch': stretch,
+	'between': space-between,
+	'around' : space-around,
+);
+

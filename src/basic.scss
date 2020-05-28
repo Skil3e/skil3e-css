@@ -1,8 +1,3 @@
-@import "variables";
-@import "basic/mixins/media-queries";
-@import "basic/color-functions";
-@import "basic/themes";
-@import "basic/maps";
-@import "basic/init";
-@import "basic/classes";
-@import "basic/typography";
+@use "basic/init";
+@use "basic/themes";
+@use "basic/classes";

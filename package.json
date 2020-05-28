@@ -9,6 +9,7 @@
     "dev": "node-sass src/skil3e.scss > src/_debug/skil3e.css --output-style expanded",
     "build": "node-sass src/skil3e.scss > dist/skil3e.min.css --output-style compressed && npx postcss dist/skil3e.min.css --use autoprefixer -d dist/ --no-map",
     "build-basic": "node-sass src/basic.scss > dist/skil3e-basic.min.css --output-style compressed && npx postcss dist/skil3e-basic.min.css --use autoprefixer -d dist/ --no-map",
+    "sass-raw": "sass src/basic.scss:dist/basic.min.css --no-source-map --style compressed && npx postcss dist/basic.min.css --use autoprefixer -d dist/ --no-map",
     "pub": "npm run build && npm run build-basic && npm publish"
   },
   "repository": {

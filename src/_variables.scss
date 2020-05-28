@@ -1,3 +1,4 @@
+@forward "basic/maps";
 //-----------------------------------------------------------
 //Breakpoints
 //-----------------------------------------------------------
@@ -5,6 +6,13 @@ $phone       : 480px !default;
 $tablet      : 768px !default;
 $laptop      : 992px !default;
 $desktop     : 1200px !default;
+
+$breakpoints     : (
+	'sm__': $phone,
+	'md__': $tablet,
+	'lg__': $laptop,
+	'xl__': $desktop,
+);
 
 //-----------------------------------------------------------
 //Colors
@@ -38,7 +46,6 @@ $colors      : (
         "warning" : $warning
 );
 
-
 //-----------------------------------------------------------
 //Typography
 //-----------------------------------------------------------
@@ -55,3 +62,14 @@ $h4          : 1.25rem!default;
 $h5          : 1.125rem!default;
 $h6          : 1rem!default;
 $small       : .75rem!default;
+
+$font-sizes      : (
+	'small': $small,
+	'h6' : $h6,
+	'h5' : $h5,
+	'h4' : $h4,
+	'h3' : $h3,
+	'h2' : $h2,
+	'h1' : $h1
+);
+

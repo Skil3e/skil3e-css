@@ -1,16 +1,10 @@
-@import "mixins/mixins";
+@use "mixins" as *;
+@use "../variables" as *;
 
 .flex-center {
   @extend .d-flex;
   @extend .align-items-center;
 }
-
-$style-attribute : (
-        'text' : color,
-        'border': border-color,
-        'bg' : background,
-        'fill' : fill,
-);
 
 @each $color, $hex in $colors {
   @each $name, $atr in $style-attribute {
