@@ -1,5 +1,5 @@
 {
-  "name": "skil3e-scss-v2",
+  "name": "skil3e-css-v2",
   "version": "2.0.0",
   "author": "Skil3e",
   "description": "A simple utility SCSS Lib using SASS modules. Supports @use and @forward",
