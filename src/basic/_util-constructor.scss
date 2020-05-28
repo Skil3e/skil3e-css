@@ -5,28 +5,21 @@
   @extend .d-flex;
   @extend .align-items-center;
 }
-[class*=border] {
-  border : 1px solid;
+
+@each $color, $hex in $colors {
+  @each $name, $atr in ("border": border,"border-top": border-top, "border-right":border-right, "border-bottom":border-bottom, "border-left":border-left) {
+	.#{$name}-#{$color} {
+	  #{$atr}: $borderWidth $borderType $hex;
+	}
+  }
 }
 
-[class*=border-bottom] {
-  border-top: none !important;
-  border-left: none !important;
-  border-right: none !important;
-  border-bottom : 1px solid;
-}
-[class*=border-top] {
-  border-bottom: none !important;
-  border-left: none !important;
-  border-right: none !important;
-  border-top : 1px solid;
-}
 
 @each $color, $hex in $colors {
   @each $name, $atr in $style-attribute {
-    .#{$name}-#{$color} {
-      #{$atr}: $hex;
-    }
+	.#{$name}-#{$color} {
+	  #{$atr}: $hex;
+	}
   }
 }
 
@@ -49,18 +42,18 @@
 
 @each $name, $size in $breakpoints {
   @media (min-width : $size) {
-    @include display($name);
-    @include spacers($name);
-    @include margin-auto($name);
+	@include display($name);
+	@include spacers($name);
+	@include margin-auto($name);
 
-    @include flex-row-col($name);
-    @include flex-wrap($name);
-    @include flex-fill($name);
-    @include flex-grow($name);
-    @include flex-shrink($name);
-    @include align-items($name);
-    @include align-content($name);
-    @include justify-content($name);
-    @include align-self($name);
+	@include flex-row-col($name);
+	@include flex-wrap($name);
+	@include flex-fill($name);
+	@include flex-grow($name);
+	@include flex-shrink($name);
+	@include align-items($name);
+	@include align-content($name);
+	@include justify-content($name);
+	@include align-self($name);
   }
 }
