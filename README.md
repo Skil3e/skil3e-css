@@ -13,10 +13,10 @@ npm install skil3e-css
 #### Import all the library.
 On your main scss file:
 ```SCSS
-@use "~skil3e-css-v2/src/skil3e";
+@use "~skil3e-css/src/skil3e";
 
 //or define Variables
-@use "~skil3e-css-v2/src/skil3e" with (
+@use "~skil3e-css/src/skil3e" with (
   //set all variable changes found on "_globals.scss"
 );
 ```
@@ -24,23 +24,23 @@ On your main scss file:
 
 On your main scss file:
 ```SCSS
-@use "~skil3e-css-v2/src/basic";
+@use "~skil3e-css/src/basic";
 
 //or define Variables
-@use "~skil3e-css-v2/src/basic" with (
+@use "~skil3e-css/src/basic" with (
   //set all variable changes found on "_globals.scss"
 );
 ```
 #### Manual import
 ```SCSS
-@use "~skil3e-css-v2/src/basic";
+@use "~skil3e-css/src/basic";
 //Buttons
-@use "~skil3e-css-v2/src/components/buttons/button";
-@use "~skil3e-css-v2/src/components/buttons/minimal-link";
-@use "~skil3e-css-v2/src/components/buttons/fill";
-@use "~skil3e-css-v2/src/components/buttons/outline";
+@use "~skil3e-css/src/components/buttons/button";
+@use "~skil3e-css/src/components/buttons/minimal-link";
+@use "~skil3e-css/src/components/buttons/fill";
+@use "~skil3e-css/src/components/buttons/outline";
 //Inputs
-@use "~skil3e-css-v2/src/components/forms/inputs";
-@use "~skil3e-css-v2/src/components/forms/input-wrappers";
-@use "~skil3e-css-v2/src/components/forms/switch";
+@use "~skil3e-css/src/components/forms/inputs";
+@use "~skil3e-css/src/components/forms/input-wrappers";
+@use "~skil3e-css/src/components/forms/switch";
 ```
