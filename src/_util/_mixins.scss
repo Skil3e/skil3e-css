@@ -1,9 +1,15 @@
 @use "../maps";
+@use "../globals";
+
 $font-sizes      : maps.$font-sizes !default;
 $display-classes : maps.$display-classes !default;
 $align           : maps.$align !default;
 $justify         : maps.$justify !default;
 $spacers         : maps.$spacers !default;
+$colors          : maps.$colors !default;
+$borderWidth     : globals.$borderWidth !default;
+$borderType      : globals.$borderType !default;
+$style-attribute : maps.$style-attribute !default;
 //-----------------------------
 // Theme css var generator
 //-----------------------------
@@ -12,6 +18,33 @@ $spacers         : maps.$spacers !default;
     --#{$color}: #{$hex};
   }
 }
+
+//-----------------------------
+// Borders
+//-----------------------------
+@mixin borders($breakpoint) {
+  @each $color, $hex in $colors {
+    @each $name, $atr in ("border": border, "border-top": border-top, "border-right":border-right, "border-bottom":border-bottom, "border-left":border-left) {
+      .#{$name}-#{$color} {
+        #{$atr}: $borderWidth $borderType $hex;
+      }
+    }
+  }
+}
+
+//-----------------------------
+// Styles
+//-----------------------------
+@mixin styles($breakpoint) {
+  @each $color, $hex in $colors {
+    @each $name, $atr in $style-attribute {
+      .#{$name}-#{$color} {
+        #{$atr}: $hex;
+      }
+    }
+  }
+}
+
 //-----------------------------
 // Typography Classes
 //-----------------------------
@@ -30,12 +63,13 @@ $spacers         : maps.$spacers !default;
     }
   }
 }
+
 //-----------------------------
 // Display Classes
 //-----------------------------
 @mixin display($breakpoint) {
   @each $type, $value in $display-classes {
-    .#{$breakpoint}d-#{$value} {
+    .#{$breakpoint}#{$value} {
       display : $value !important;
     }
   }
@@ -89,7 +123,7 @@ $spacers         : maps.$spacers !default;
 // Flex Grow
 //-----------------------------
 @mixin flex-grow($breakpoint) {
-  @each $type, $value in (grow-0: 0, grow-1: 1) {
+  @each $type, $value in (grow-0: 0, grow: 1) {
     .#{$breakpoint}flex-#{$type} {
       flex-grow : $value;
     }
@@ -100,7 +134,7 @@ $spacers         : maps.$spacers !default;
 // Flex Shrink
 //-----------------------------
 @mixin flex-shrink($breakpoint) {
-  @each $type, $value in (shrink-0: 0, shrink-1: 1) {
+  @each $type, $value in (shrink-0: 0, shrink: 1) {
     .#{$breakpoint}flex-#{$type} {
       flex-shrink : $value;
     }
@@ -108,34 +142,39 @@ $spacers         : maps.$spacers !default;
 }
 
 //-----------------------------
-// Flex Align Items
+// Align / Justify Items
 //-----------------------------
 @mixin align-items($breakpoint) {
   @each $type, $value in $align {
-    .#{$breakpoint}align-items-#{$type} {
+    .#{$breakpoint}al-it-#{$type} {
       align-items : $value;
     }
   }
 }
 
-//-----------------------------
-// Flex Justify Content
-//-----------------------------
-@mixin justify-content($breakpoint) {
-  @each $type, $value in $justify {
-    .#{$breakpoint}justify-content-#{$type} {
-      justify-content : $value;
+@mixin justify-items($breakpoint) {
+  @each $type, $value in map-remove($justify, "between", "around") {
+    .#{$breakpoint}jf-it-#{$type} {
+      justify-items : $value;
     }
   }
 }
 
 //-----------------------------
-// Flex Align Content
+// Align / Justify Content
 //-----------------------------
 @mixin align-content($breakpoint) {
+  @each $type, $value in $align {
+    .#{$breakpoint}al-cnt-#{$type} {
+      align-items : $value;
+    }
+  }
+}
+
+@mixin justify-content($breakpoint) {
   @each $type, $value in $justify {
-    .#{$breakpoint}align-content-#{$type} {
-      align-content : $value;
+    .#{$breakpoint}jf-cnt-#{$type} {
+      justify-content : $value;
     }
   }
 }
@@ -146,7 +185,16 @@ $spacers         : maps.$spacers !default;
 @mixin align-self($breakpoint) {
   $align : map-merge($align, ("auto": auto));
   @each $type, $value in $align {
-    .#{$breakpoint}align-self-#{$type} {
+    .#{$breakpoint}al-self-#{$type} {
+      align-self : $value;
+    }
+  }
+}
+
+@mixin justify-self($breakpoint) {
+  $align : map-merge($align, ("auto": auto));
+  @each $type, $value in map-remove($justify, "between", "around") {
+    .#{$breakpoint}jf-self-#{$type} {
       align-self : $value;
     }
   }

@@ -16,9 +16,9 @@ $border        : 2px solid !default;
 $transition    : 200ms ease-in-out !default;
 
 .button, button {
-  @extend .d-inline-flex;
-  @extend .align-items-center;
-  @extend .justify-content-center;
+  @extend .inline-flex;
+  @extend .al-it-center;
+  @extend .jf-cnt-center;
   z-index             : 1;
   position            : relative;
   vertical-align      : middle;

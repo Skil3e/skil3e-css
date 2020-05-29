@@ -1,4 +1,6 @@
 # skil3e-css
+[![npm version](https://badge.fury.io/js/skil3e-css.svg)](https://badge.fury.io/js/skil3e-css)
+
 CSS utility framework.
 
 🤏 Full documentation coming soon...
