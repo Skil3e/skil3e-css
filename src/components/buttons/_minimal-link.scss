@@ -1,5 +1,5 @@
 @use "../../_util/acc-colors" as acc;
-@use "../../basic/maps";
+@use "../../maps";
 
 $colors : maps.$colors !default;
 //-----------------------------------------------------------

@@ -1,15 +1,17 @@
-@use "../basic/maps";
+@use "../maps";
 @use "../_util/mixins" as mx;
 
-$ThemeLight : maps.$ThemeLight !default;
-$ThemeDark  : maps.$ThemeDark !default;
+$themeLight : maps.$themeLight !default;
+$themeDark  : maps.$themeLight !default;
+$colors     : maps.$colors !default;
 
 body {
-  @include mx.themeVarGenerator($ThemeLight)
+  @include mx.themeVarGenerator($colors);
+  @include mx.themeVarGenerator($themeLight);
 }
 
 body[data-theme="dark"] {
-  @include mx.themeVarGenerator($ThemeDark)
+  @include mx.themeVarGenerator($themeDark)
 }
 
 body {
@@ -17,7 +19,7 @@ body {
   color            : var(--text);
 
   &.transition {
-	transition : all 400ms ease-in-out;
+    transition : all 400ms ease-in-out;
   }
 }
 

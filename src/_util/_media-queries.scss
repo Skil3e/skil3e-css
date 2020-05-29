@@ -1,40 +1,41 @@
+@use "../globals";
 @mixin phone-only {
-  @media (min-width: $phone) {
+  @media (min-width: globals.$phone) {
     @content;
   }
 }
 @mixin phone-down {
-  @media (max-width: $phone) {
+  @media (max-width: globals.$phone) {
     @content;
   }
 }
 @mixin tablet-up {
-  @media (min-width: $tablet) {
+  @media (min-width: globals.$tablet) {
     @content;
   }
 }
 @mixin laptop-up {
-  @media (min-width: $laptop) {
+  @media (min-width: globals.$laptop) {
     @content;
   }
 }
 @mixin desktop-up {
-  @media (min-width: $desktop) {
+  @media (min-width: globals.$desktop) {
     @content;
   }
 }
 @mixin tablet-down {
-  @media (max-width: $tablet) {
+  @media (max-width: globals.$tablet) {
     @content;
   }
 }
 @mixin laptop-down {
-  @media (max-width: $laptop) {
+  @media (max-width: globals.$laptop) {
     @content;
   }
 }
 @mixin desktop-down {
-  @media (max-width: $desktop) {
+  @media (max-width: globals.$desktop) {
     @content;
   }
 }

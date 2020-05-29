@@ -1,20 +1,22 @@
 @use "sass:color";
 @use "../globals";
 
-$HFont           : globals.$headingFont !default;
-$HFontLineHeight : 1 !default;
-$PLineHeight     : 1.5 !default;
-$MarkBG          : color.adjust(globals.$primary, $alpha : -.5) !default;
+$headingFont         : globals.$headingFont !default;
+$headingLineHeight   : globals.$headingLineHeight !default;
+$headingFontWeight   : globals.$headingFontWeight !default;
+$paragraphLineHeight : globals.$paragraphLineHeight !default;
+$highlight           : globals.$highlight !default;
 
 h1, h2, h3, h4, h5, h6 {
-  font-family : $HFont;
-  line-height : $HFontLineHeight;
+  font-family : $headingFont;
+  line-height : $headingLineHeight;
+  font-weight : $headingFontWeight;
 }
 
 p {
-  line-height : $PLineHeight;
+  line-height : $paragraphLineHeight;
 }
 
 mark {
-  background-color : $MarkBG;
+  background-color : $highlight;
 }
