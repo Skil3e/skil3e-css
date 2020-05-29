@@ -1,31 +1,12 @@
-@use "../globals";
+@use "../basic/maps";
 @use "../_util/mixins" as mx;
-$ThemeLight     : (
-        "body" : globals.$gray-95,
-        "bg" : globals.$gray-90,
-        "bgDimmed" : globals.$gray-85,
-        "border" : globals.$gray-80,
-        "text" : globals.$gray-10,
-        "textDimmed" : globals.$gray-60,
-        "primary" : globals.$primary,
-) !default;
-
-$ThemeDark      : (
-        "body" : globals.$gray-5,
-        "bg" : globals.$gray-10,
-        "bgDimmed" : globals.$gray-15,
-        "border" : globals.$gray-20,
-        "text" : globals.$gray-90,
-        "textDimmed" : globals.$gray-40,
-        "primary" : globals.$primary,
-) !default;
 
 body {
-  @include mx.themeVarGenerator($ThemeLight)
+  @include mx.themeVarGenerator(maps.$ThemeLight)
 }
 
 body[data-theme="dark"] {
-  @include mx.themeVarGenerator($ThemeDark)
+  @include mx.themeVarGenerator(maps.$ThemeDark)
 }
 
 body {
