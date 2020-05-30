@@ -1,16 +1,19 @@
 @use "../maps";
 @use "../globals";
 
+$borderWidth     : globals.$borderWidth !default;
+$borderType      : globals.$borderType !default;
+$colors          : maps.$colors !default;
+$style-attribute : maps.$style-attribute !default;
 $font-sizes      : maps.$font-sizes !default;
+$z-index         : maps.$z-index !default;
+$width           : maps.$width !default;
+$positions       : maps.$positions !default;
 $display-classes : maps.$display-classes !default;
 $align           : maps.$align !default;
 $justify         : maps.$justify !default;
 $spacers         : maps.$spacers !default;
-$colors          : maps.$colors !default;
-$borderWidth     : globals.$borderWidth !default;
-$borderType      : globals.$borderType !default;
-$style-attribute : maps.$style-attribute !default;
-$width           : maps.$width !default;
+
 //-----------------------------
 // Theme css var generator
 //-----------------------------
@@ -75,6 +78,25 @@ $width           : maps.$width !default;
   }
 }
 
+@mixin text($breakpoint) {
+  @each $type, $value in (left: left, right: right, center: center) {
+    .#{$breakpoint}text-#{$value} {
+      text-align : $value;
+    }
+  }
+}
+
+//-----------------------------
+// Z Index
+//-----------------------------
+@mixin zIndex($breakpoint) {
+  @each $name, $index in $z-index {
+    .z#{$name} {
+      z-index : $index;
+    }
+  }
+}
+
 //-----------------------------
 // Width
 //-----------------------------
@@ -82,6 +104,17 @@ $width           : maps.$width !default;
   @each $name, $w in $width {
     .#{$name} {
       width : $w;
+    }
+  }
+}
+
+//-----------------------------
+// Position
+//-----------------------------
+@mixin position($breakpoint) {
+  @each $name, $pos in $positions {
+    .#{$name} {
+      position : $pos;
     }
   }
 }
@@ -97,16 +130,6 @@ $width           : maps.$width !default;
   }
 }
 
-//-----------------------------
-// Text Classes
-//-----------------------------
-@mixin text($breakpoint) {
-  @each $type, $value in (left: left, right: right, center: center) {
-    .#{$breakpoint}text-#{$value} {
-      text-align : $value;
-    }
-  }
-}
 
 //-----------------------------
 // Spacers Classes

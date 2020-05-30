@@ -91,6 +91,14 @@ $width           : (
         "vw25" : 25vh,
 )!default;
 
+$positions   : (
+        "static" : static,
+        "relative": relative,
+        "fixed" : fixed,
+        "absolute" : absolute,
+        "sticky": sticky
+)!default;
+
 $display-classes : (
         'none' : none,
         'block' : block,
@@ -103,7 +111,7 @@ $display-classes : (
         'inline-flex' : inline-flex,
         'grid': grid,
         'inline-grid': inline-grid,
-);
+)!default;
 
 $align           : (
         'center' : center,
@@ -113,7 +121,7 @@ $align           : (
         'end' : end,
         'stretch' : stretch,
         'baseline': baseline,
-);
+)!default;
 
 $justify         : (
         'center' : center,
@@ -124,5 +132,5 @@ $justify         : (
         'stretch': stretch,
         'between': space-between,
         'around' : space-around,
-);
+)!default;
 

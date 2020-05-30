@@ -8,17 +8,20 @@ $breakpoints : maps.$breakpoints !default;
   @extend .al_it-center;
 }
 
-@include mx.styles(null);
 @include mx.borders(null);
+@include mx.styles(null);
 
-@include mx.text(null);
 @include mx.fontSizes(null);
 @include mx.fontWeights(null);
+@include mx.text(null);
+
+@include mx.zIndex(null);
+@include mx.width(null);
+@include mx.position(null);
 
 @include mx.display(null);
 @include mx.spacers(null);
 @include mx.margin-auto(null);
-@include mx.width(null);
 
 @include mx.flex-row-col(null);
 @include mx.flex-wrap(null);
