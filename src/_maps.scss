@@ -1,32 +1,141 @@
 @use "globals";
+//--------------------------------------------------------------//
+//  Align
+//  Borders
+//  Breakpoints
+//  Colors
+//  Display
+//  Justify
+//  Object Fit
+//  Positions
+//  Spacers
+//  Style Attribute
+//  Themes
+//  Typography
+//  Width
+//  Z-index
+//--------------------------------------------------------------//
 
+//--------------------------------------------------------------//
+// Align
+//--------------------------------------------------------------//
+$align           : (
+        'center' : center,
+        'flex-start' : flex-start,
+        'flex-end' : flex-end,
+        'start' : start,
+        'end' : end,
+        'stretch' : stretch,
+        'baseline': baseline,
+) !default;
+//--------------------------------------------------------------//
+// Borders
+//--------------------------------------------------------------//
+$borders         : (
+        "brd" : border,
+        "brd_t" : border-top,
+        "brd_r" : border-right,
+        "brd_b" : border-bottom,
+        "brd_l" : border-left,
+) !default;
+
+//--------------------------------------------------------------//
+// Breakpoints
+//--------------------------------------------------------------//
 $breakpoints     : (
         'sm__': globals.$phone,
         'md__': globals.$tablet,
         'lg__': globals.$laptop,
         'xl__': globals.$desktop,
 ) !default;
-
+//--------------------------------------------------------------//
+// Colors
+//--------------------------------------------------------------//
 $colors          : (
         "primary" : globals.$primary,
-        "secondary" : globals.$secondary,
         "danger" : globals.$danger,
         "success" : globals.$success,
-        "warning" : globals.$warning,
         "black" : globals.$black,
         "white" : globals.$white
 ) !default;
-
-$font-sizes      : (
-        'small': globals.$small,
-        'h6' : globals.$h6,
-        'h5' : globals.$h5,
-        'h4' : globals.$h4,
-        'h3' : globals.$h3,
-        'h2' : globals.$h2,
-        'h1' : globals.$h1
+//--------------------------------------------------------------//
+// Display
+//--------------------------------------------------------------//
+$display         : (
+        'none' : none,
+        'block' : block,
+        'inline' : inline,
+        'inline-block': inline-block,
+        'table' : table,
+        'table-cell' : table-cell,
+        'table-row' : table-row,
+        'flex' : flex,
+        'inline-flex' : inline-flex,
+        'grid': grid,
+        'inline-grid': inline-grid,
 ) !default;
-
+//--------------------------------------------------------------//
+// Justify
+//--------------------------------------------------------------//
+$justify         : (
+        'center' : center,
+        'flex-start' : flex-start,
+        'flex-end' : flex-end,
+        'start' : start,
+        'end' : end,
+        'stretch': stretch,
+        'between': space-between,
+        'around' : space-around,
+) !default;
+//--------------------------------------------------------------//
+// Object Fit
+//--------------------------------------------------------------//
+$objectFit       : (
+        "contain" : contain,
+        "cover" : cover,
+        "fill" : fill,
+        "none" : none,
+        "scale-down" : scale-down
+) !default;
+//--------------------------------------------------------------//
+// Positions
+//--------------------------------------------------------------//
+$positions       : (
+        "static" : static,
+        "relative": relative,
+        "fixed" : fixed,
+        "absolute" : absolute,
+        "sticky": sticky
+) !default;
+//--------------------------------------------------------------//
+// Spacers
+//--------------------------------------------------------------//
+$spacers         : (
+        '0' : 0,
+  //'5' : 0.3125rem, // 5px
+  //'10' : 0.625rem, // 10px
+  //'15' : 0.9375rem, // 15px
+  //'20' : 1.25rem, // 20px
+  //'25' : 1.5625rem, // 25px
+        'xs' : 0.375rem, // 6px
+        'sm' : 0.75rem, // 12px
+        'md' : 0.9375rem, // 15px
+        'lg' : 1.3125rem, // 21px
+        'xl' : 1.875rem, // 30px
+        'xxl': 2.5rem, // 40px
+) !default;
+//--------------------------------------------------------------//
+// Style Attribute
+//--------------------------------------------------------------//
+$style-attribute : (
+        'text' : color,
+        'bg' : background,
+        'fill' : fill,
+        'brd' : border-color
+) !default;
+//--------------------------------------------------------------//
+// Themes
+//--------------------------------------------------------------//
 $themeLight      : (
         "body" : globals.$gray-95,
         "bg" : globals.$gray-90,
@@ -46,28 +155,34 @@ $themeDark       : (
         "textDimmed" : globals.$gray-40,
         "accent" : globals.$primary,
 ) !default;
-
-$spacers         : (
-        '0' : 0,
-        '5' : 0.3125rem, // 5px
-        '10' : 0.625rem, // 10px
-        '15' : 0.9375rem, // 15px
-        '20' : 1.25rem, // 20px
-        '25' : 1.5625rem, // 25px
-        'xs' : 0.375rem, // 6px
-        'sm' : 0.75rem, // 12px
-        'md' : 0.9375rem, // 15px
-        'lg' : 1.3125rem, // 21px
-        'xl' : 1.875rem, // 30px
-        'xxl': 2.5rem, // 40px
+//--------------------------------------------------------------//
+// Typography
+//--------------------------------------------------------------//
+$font-sizes      : (
+        'small': globals.$small,
+        'h6' : globals.$h6,
+        'h5' : globals.$h5,
+        'h4' : globals.$h4,
+        'h3' : globals.$h3,
+        'h2' : globals.$h2,
+        'h1' : globals.$h1
 ) !default;
-
-$style-attribute : (
-        'text' : color,
-        'bg' : background,
-        'fill' : fill,
+//--------------------------------------------------------------//
+// Width
+//--------------------------------------------------------------//
+$width           : (
+        "w100" : 100%,
+        "vw100" : 100vh,
+        "w75" : 75%,
+        "vw75" : 75vh,
+        "w50" : 50%,
+        "vw50" : 50vh,
+        "w25" : 25%,
+        "vw25" : 25vh,
 ) !default;
-
+//--------------------------------------------------------------//
+// Z-index
+//--------------------------------------------------------------//
 $z-index         : (
         '1': 1000,
         '2': 2000,
@@ -79,58 +194,3 @@ $z-index         : (
         '8': 8000,
         '9': 9000,
 ) !default;
-
-$width           : (
-        "w100" : 100%,
-        "vw100" : 100vh,
-        "w75" : 75%,
-        "vw75" : 75vh,
-        "w50" : 50%,
-        "vw50" : 50vh,
-        "w25" : 25%,
-        "vw25" : 25vh,
-)!default;
-
-$positions   : (
-        "static" : static,
-        "relative": relative,
-        "fixed" : fixed,
-        "absolute" : absolute,
-        "sticky": sticky
-)!default;
-
-$display-classes : (
-        'none' : none,
-        'block' : block,
-        'inline' : inline,
-        'inline-block': inline-block,
-        'table' : table,
-        'table-cell' : table-cell,
-        'table-row' : table-row,
-        'flex' : flex,
-        'inline-flex' : inline-flex,
-        'grid': grid,
-        'inline-grid': inline-grid,
-)!default;
-
-$align           : (
-        'center' : center,
-        'flex-start' : flex-start,
-        'flex-end' : flex-end,
-        'start' : start,
-        'end' : end,
-        'stretch' : stretch,
-        'baseline': baseline,
-)!default;
-
-$justify         : (
-        'center' : center,
-        'flex-start' : flex-start,
-        'flex-end' : flex-end,
-        'start' : start,
-        'end' : end,
-        'stretch': stretch,
-        'between': space-between,
-        'around' : space-around,
-)!default;
-

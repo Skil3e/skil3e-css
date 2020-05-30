@@ -1,139 +1,210 @@
 @use "../maps";
 @use "../globals";
-
-$borderWidth     : globals.$borderWidth !default;
-$borderType      : globals.$borderType !default;
-$colors          : maps.$colors !default;
-$style-attribute : maps.$style-attribute !default;
-$font-sizes      : maps.$font-sizes !default;
-$z-index         : maps.$z-index !default;
-$width           : maps.$width !default;
-$positions       : maps.$positions !default;
-$display-classes : maps.$display-classes !default;
+//--------------------------------------------------------------//
+//  Align / Justify
+//  Borders
+//  Colors
+//  Display
+//  Flex Direction
+//  Flex Fill
+//  Flex Grow
+//  Flex Shrink
+//  Flex Wrap
+//  Object Fit
+//  Position
+//  Spacers
+//  Theme Generator
+//  Typography
+//  Width
+//  Z Index
+//--------------------------------------------------------------//
 $align           : maps.$align !default;
 $justify         : maps.$justify !default;
+$borders         : maps.$borders !default;
+$colors          : maps.$colors !default;
+$style-attribute : maps.$style-attribute !default;
+$display         : maps.$display !default;
+$objectFit       : maps.$objectFit !default;
+$positions       : maps.$positions !default;
 $spacers         : maps.$spacers !default;
-
-//-----------------------------
-// Theme css var generator
-//-----------------------------
-@mixin themeVarGenerator($theme, $themeName: null) {
-  @if ($themeName) {
-    body[data-theme=#{$themeName}] {
-      @each $color, $hex in $theme {
-        --#{$color}: #{$hex};
-      }
-    }
-  } @else {
-    body {
-      @each $color, $hex in $theme {
-        --#{$color}: #{$hex};
-      }
+$font-sizes      : maps.$font-sizes !default;
+$width           : maps.$width !default;
+$z-index         : maps.$z-index !default;
+//--------------------------------------------------------------///
+// Align / Justify
+//--------------------------------------------------------------///
+//Items
+@mixin align-items($breakpoint) {
+  @each $type, $value in $align {
+    .#{$breakpoint}al_it-#{$type} {
+      align-items : $value;
     }
   }
 }
 
-//-----------------------------
+@mixin justify-items($breakpoint) {
+  @each $type, $value in map-remove($justify, "between", "around") {
+    .#{$breakpoint}jf_it-#{$type} {
+      justify-items : $value;
+    }
+  }
+}
+
+//Content
+@mixin align-content($breakpoint) {
+  @each $type, $value in $align {
+    .#{$breakpoint}al_cnt-#{$type} {
+      align-items : $value;
+    }
+  }
+}
+
+@mixin justify-content($breakpoint) {
+  @each $type, $value in $justify {
+    .#{$breakpoint}jf_cnt-#{$type} {
+      justify-content : $value;
+    }
+  }
+}
+
+//Self
+@mixin align-self($breakpoint) {
+  $align : map-merge($align, ("auto": auto));
+  @each $type, $value in $align {
+    .#{$breakpoint}al_self-#{$type} {
+      align-self : $value;
+    }
+  }
+}
+
+@mixin justify-self($breakpoint) {
+  $align : map-merge($align, ("auto": auto));
+  @each $type, $value in map-remove($justify, "between", "around") {
+    .#{$breakpoint}jf_self-#{$type} {
+      align-self : $value;
+    }
+  }
+}
+
+//--------------------------------------------------------------//
 // Borders
-//-----------------------------
+//--------------------------------------------------------------//
 @mixin borders($breakpoint) {
-  @each $color, $hex in $colors {
-    @each $name, $atr in ("border": border, "border-top": border-top, "border-right":border-right, "border-bottom":border-bottom, "border-left":border-left) {
-      .#{$name}-#{$color} {
-        #{$atr}: $borderWidth $borderType $hex;
+  @each $num, $value in ("": 1px, "-2": 2px, "-3": 3px, "-4": 4px, "-5": 5px, "-0": 0) {
+    @each $name, $atr in $borders {
+      @if ($value == 0) {
+        .#{$breakpoint}#{$name}#{$num} {
+          #{$atr}: none !important;
+        }
+      } @else {
+        .#{$breakpoint}#{$name}#{$num} {
+          #{$atr}: $value solid;
+        }
       }
     }
   }
 }
 
-//-----------------------------
-// Styles
-//-----------------------------
-@mixin styles($breakpoint) {
-  @each $color, $hex in $colors {
-    @each $name, $atr in $style-attribute {
-      .#{$name}-#{$color} {
-        #{$atr}: $hex;
-      }
+@mixin bordersRadius($breakpoint) {
+  @each $num, $value in ("-xs": 0.1875rem, "-sm": .3125rem, "-md": .625rem, "-lg": .9375rem, "-circle": 1000rem, "": .25rem) {
+    .#{$breakpoint}round#{$num} {
+      border-radius : $value;
     }
   }
 }
 
-//-----------------------------
-// Typography Classes
-//-----------------------------
-@mixin fontSizes($breakpoint) {
-  @each $type, $value in $font-sizes {
-    .#{$breakpoint}#{$type}, #{$type} {
-      font-size : $value;
-    }
-  }
-}
-
-@mixin fontWeights($breakpoint) {
-  @each $type, $value in ("light": 300, "regular": 500, "medium": 700, "bold": 700, "black": 900) {
-    .#{$breakpoint}font-#{$type} {
-      font-weight : $value;
-    }
-  }
-}
-
-@mixin text($breakpoint) {
-  @each $type, $value in (left: left, right: right, center: center) {
-    .#{$breakpoint}text-#{$value} {
-      text-align : $value;
-    }
-  }
-}
-
-//-----------------------------
-// Z Index
-//-----------------------------
-@mixin zIndex($breakpoint) {
-  @each $name, $index in $z-index {
-    .z#{$name} {
-      z-index : $index;
-    }
-  }
-}
-
-//-----------------------------
-// Width
-//-----------------------------
-@mixin width($breakpoint) {
-  @each $name, $w in $width {
-    .#{$name} {
-      width : $w;
-    }
-  }
-}
-
-//-----------------------------
-// Position
-//-----------------------------
-@mixin position($breakpoint) {
-  @each $name, $pos in $positions {
-    .#{$name} {
-      position : $pos;
-    }
-  }
-}
-
-//-----------------------------
-// Display Classes
-//-----------------------------
+//--------------------------------------------------------------//
+// Display
+//--------------------------------------------------------------//
 @mixin display($breakpoint) {
-  @each $type, $value in $display-classes {
+  @each $type, $value in $display {
     .#{$breakpoint}#{$value} {
       display : $value !important;
     }
   }
 }
 
+//--------------------------------------------------------------//
+// Flex Direction
+//--------------------------------------------------------------//
+@mixin flex-direction($breakpoint) {
+  @each $type, $value in (row: row, column: column, row-reverse: row-reverse, column-reverse: column-reverse) {
+    .#{$breakpoint}flex-#{$type} {
+      flex-direction : $value;
+    }
+  }
+}
 
-//-----------------------------
-// Spacers Classes
-//-----------------------------
+//--------------------------------------------------------------//
+// Flex Fill
+//--------------------------------------------------------------//
+@mixin flex-fill($breakpoint) {
+  @each $type, $value in (fill: 1 1 auto) {
+    .#{$breakpoint}flex-#{$type} {
+      flex : $value;
+    }
+  }
+}
+
+//--------------------------------------------------------------//
+// Flex Grow
+//--------------------------------------------------------------//
+@mixin flex-grow($breakpoint) {
+  @each $type, $value in (grow-0: 0, grow: 1) {
+    .#{$breakpoint}flex-#{$type} {
+      flex-grow : $value;
+    }
+  }
+}
+
+//--------------------------------------------------------------//
+// Flex Shrink
+//--------------------------------------------------------------//
+@mixin flex-shrink($breakpoint) {
+  @each $type, $value in (shrink-0: 0, shrink: 1) {
+    .#{$breakpoint}flex-#{$type} {
+      flex-shrink : $value;
+    }
+  }
+}
+
+//--------------------------------------------------------------//
+// Flex Wrap
+//--------------------------------------------------------------//
+@mixin flex-wrap($breakpoint) {
+  @each $type, $value in (wrap: wrap, nowrap: nowrap, wrap-reverse: wrap-reverse) {
+    .#{$breakpoint}flex-#{$type} {
+      flex-wrap : $value;
+    }
+  }
+}
+
+//--------------------------------------------------------------//
+// Object Fit
+//--------------------------------------------------------------//
+
+@mixin object-fit($breakpoint) {
+  @each $type, $value in $objectFit {
+    .#{$breakpoint}obj-#{$type} {
+      object-fit : $value;
+    }
+  }
+}
+
+//--------------------------------------------------------------//
+// Position
+//--------------------------------------------------------------//
+@mixin position($breakpoint) {
+  @each $name, $pos in $positions {
+    .#{$breakpoint}#{$name} {
+      position : $pos !important;
+    }
+  }
+}
+
+//--------------------------------------------------------------//
+// Spacers
+//--------------------------------------------------------------//
 @mixin spacers($breakpoint) {
   @each $prop, $prefix in (margin: m, padding: p) {
     @each $num, $value in $spacers {
@@ -160,9 +231,7 @@ $spacers         : maps.$spacers !default;
   }
 }
 
-//-----------------------------
 // Auto Margins
-//-----------------------------
 @mixin margin-auto($breakpoint) {
   .#{$breakpoint}mt-auto,
   .#{$breakpoint}my-auto {
@@ -186,118 +255,83 @@ $spacers         : maps.$spacers !default;
   }
 }
 
-//-----------------------------
-// Flex Wrap
-//-----------------------------
-@mixin flex-row-col($breakpoint) {
-  @each $type, $value in (row: row, column: column, row-reverse: row-reverse, column-reverse: column-reverse) {
-    .#{$breakpoint}flex-#{$type} {
-      flex-direction : $value;
+//--------------------------------------------------------------//
+// Colors Styles
+//--------------------------------------------------------------//
+@mixin color-styles($breakpoint) {
+  @each $color, $hex in $colors {
+    @each $name, $atr in $style-attribute {
+      .#{$breakpoint}#{$name}-#{$color} {
+        #{$atr}: $hex !important;
+      }
     }
   }
 }
 
-//-----------------------------
-// Flex Wrap
-//-----------------------------
-@mixin flex-wrap($breakpoint) {
-  @each $type, $value in (wrap: wrap, nowrap: nowrap, wrap-reverse: wrap-reverse) {
-    .#{$breakpoint}flex-#{$type} {
-      flex-wrap : $value;
+//--------------------------------------------------------------//
+// Theme Generator
+//--------------------------------------------------------------//
+@mixin themeVarGenerator($theme, $themeName: null) {
+  @if ($themeName) {
+    body[data-theme=#{$themeName}] {
+      @each $color, $hex in $theme {
+        --#{$color}: #{$hex};
+      }
+    }
+  } @else {
+    body {
+      @each $color, $hex in $theme {
+        --#{$color}: #{$hex};
+      }
     }
   }
 }
 
-//-----------------------------
-// Flex Fill
-//-----------------------------
-@mixin flex-fill($breakpoint) {
-  @each $type, $value in (fill: 1 1 auto) {
-    .#{$breakpoint}flex-#{$type} {
-      flex : $value;
+//--------------------------------------------------------------//
+// Typography
+//--------------------------------------------------------------//
+@mixin fontSizes($breakpoint) {
+  @each $type, $value in $font-sizes {
+    .#{$breakpoint}#{$type}, #{$type} {
+      font-size : $value;
     }
   }
 }
 
-//-----------------------------
-// Flex Grow
-//-----------------------------
-@mixin flex-grow($breakpoint) {
-  @each $type, $value in (grow-0: 0, grow: 1) {
-    .#{$breakpoint}flex-#{$type} {
-      flex-grow : $value;
+@mixin fontWeights($breakpoint) {
+  @each $type, $value in ("light": 300, "regular": 500, "medium": 700, "bold": 700, "black": 900) {
+    .#{$breakpoint}font-#{$type} {
+      font-weight : $value;
     }
   }
 }
 
-//-----------------------------
-// Flex Shrink
-//-----------------------------
-@mixin flex-shrink($breakpoint) {
-  @each $type, $value in (shrink-0: 0, shrink: 1) {
-    .#{$breakpoint}flex-#{$type} {
-      flex-shrink : $value;
+@mixin text-align($breakpoint) {
+  @each $type, $value in (left: left, right: right, center: center) {
+    .#{$breakpoint}text-#{$value} {
+      text-align : $value;
     }
   }
 }
 
-//-----------------------------
-// Align / Justify Items
-//-----------------------------
-@mixin align-items($breakpoint) {
-  @each $type, $value in $align {
-    .#{$breakpoint}al_it-#{$type} {
-      align-items : $value;
+//--------------------------------------------------------------//
+// Width
+//--------------------------------------------------------------//
+@mixin width($breakpoint) {
+  @each $name, $w in $width {
+    .#{$breakpoint}#{$name} {
+      width : $w;
     }
   }
 }
 
-@mixin justify-items($breakpoint) {
-  @each $type, $value in map-remove($justify, "between", "around") {
-    .#{$breakpoint}jf_it-#{$type} {
-      justify-items : $value;
+//--------------------------------------------------------------//
+// Z Index
+//--------------------------------------------------------------//
+@mixin zIndex($breakpoint) {
+  @each $name, $index in $z-index {
+    .#{$breakpoint}z#{$name} {
+      z-index : $index;
     }
   }
 }
-
-//-----------------------------
-// Align / Justify Content
-//-----------------------------
-@mixin align-content($breakpoint) {
-  @each $type, $value in $align {
-    .#{$breakpoint}al_cnt-#{$type} {
-      align-items : $value;
-    }
-  }
-}
-
-@mixin justify-content($breakpoint) {
-  @each $type, $value in $justify {
-    .#{$breakpoint}jf_cnt-#{$type} {
-      justify-content : $value;
-    }
-  }
-}
-
-//-----------------------------
-// Flex Align Self
-//-----------------------------
-@mixin align-self($breakpoint) {
-  $align : map-merge($align, ("auto": auto));
-  @each $type, $value in $align {
-    .#{$breakpoint}al_self-#{$type} {
-      align-self : $value;
-    }
-  }
-}
-
-@mixin justify-self($breakpoint) {
-  $align : map-merge($align, ("auto": auto));
-  @each $type, $value in map-remove($justify, "between", "around") {
-    .#{$breakpoint}jf_self-#{$type} {
-      align-self : $value;
-    }
-  }
-}
-
-

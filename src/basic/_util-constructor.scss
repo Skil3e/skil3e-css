@@ -8,51 +8,54 @@ $breakpoints : maps.$breakpoints !default;
   @extend .al_it-center;
 }
 
-@include mx.borders(null);
-@include mx.styles(null);
-
-@include mx.fontSizes(null);
-@include mx.fontWeights(null);
-@include mx.text(null);
-
-@include mx.zIndex(null);
-@include mx.width(null);
-@include mx.position(null);
-
-@include mx.display(null);
-@include mx.spacers(null);
-@include mx.margin-auto(null);
-
-@include mx.flex-row-col(null);
-@include mx.flex-wrap(null);
-@include mx.flex-fill(null);
-@include mx.flex-grow(null);
-@include mx.flex-shrink(null);
-
 @include mx.align-items(null);
 @include mx.justify-items(null);
 @include mx.align-content(null);
 @include mx.justify-content(null);
 @include mx.align-self(null);
 @include mx.justify-self(null);
+@include mx.borders(null);
+@include mx.color-styles(null);
+@include mx.display(null);
+@include mx.flex-direction(null);
+@include mx.flex-fill(null);
+@include mx.flex-grow(null);
+@include mx.flex-shrink(null);
+@include mx.flex-wrap(null);
+@include mx.object-fit(null);
+@include mx.position(null);
+@include mx.spacers(null);
+@include mx.margin-auto(null);
+@include mx.fontSizes(null);
+@include mx.fontWeights(null);
+@include mx.text-align(null);
+@include mx.width(null);
+@include mx.zIndex(null);
 
 @each $name, $size in $breakpoints {
   @media (min-width : $size) {
-    @include mx.display($name);
-    @include mx.spacers($name);
-    @include mx.margin-auto($name);
-
-    @include mx.flex-row-col($name);
-    @include mx.flex-wrap($name);
-    @include mx.flex-fill($name);
-    @include mx.flex-grow($name);
-    @include mx.flex-shrink($name);
-
     @include mx.align-items($name);
     @include mx.justify-items($name);
     @include mx.align-content($name);
     @include mx.justify-content($name);
     @include mx.align-self($name);
     @include mx.justify-self($name);
+    @include mx.borders($name);
+    @include mx.color-styles($name);
+    @include mx.display($name);
+    @include mx.flex-direction($name);
+    @include mx.flex-fill($name);
+    @include mx.flex-grow($name);
+    @include mx.flex-shrink($name);
+    @include mx.flex-wrap($name);
+    @include mx.object-fit($name);
+    @include mx.position($name);
+    @include mx.spacers($name);
+    @include mx.margin-auto($name);
+    @include mx.fontSizes($name);
+    @include mx.fontWeights($name);
+    @include mx.text-align($name);
+    @include mx.width($name);
+    @include mx.zIndex($name);
   }
 }

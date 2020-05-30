@@ -16,8 +16,8 @@ body[data-theme="dark"] {
 }
 
 input {
-  @extend .px-15;
-  @extend .py-10;
+  @extend .px-md;
+  @extend .py-sm;
   width            : 100%;
   max-width        : 100%;
   border           : none;
