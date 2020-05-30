@@ -17,8 +17,8 @@ $transition    : 200ms ease-in-out !default;
 
 .button, button {
   @extend .inline-flex;
-  @extend .al-it-center;
-  @extend .jf-cnt-center;
+  @extend .al_it-center;
+  @extend .jf_cnt-center;
   z-index             : 1;
   position            : relative;
   vertical-align      : middle;

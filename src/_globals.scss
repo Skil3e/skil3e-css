@@ -36,6 +36,13 @@ $warning             : hsl(30, 100%, 50%) !default;
 //-----------------------------------------------------------
 $borderWidth         : 1px !default;
 $borderType          : solid !default;
+// Align / Justify Options
+$use-align-items     : true !default;
+$use-justify-items   : true !default;
+$use-align-content   : true !default;
+$use-justify-content : true !default;
+$use-align-self      : true !default;
+$use-justify-self    : true !default;
 //-----------------------------------------------------------
 // Typography
 //-----------------------------------------------------------

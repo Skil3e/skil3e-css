@@ -1,11 +1,11 @@
 @use "../maps";
 @use "../_util/mixins" as mx;
 
-$breakpoints     : maps.$breakpoints !default;
+$breakpoints : maps.$breakpoints !default;
 
 .flex-center {
   @extend .flex;
-  @extend .al-it-center;
+  @extend .al_it-center;
 }
 
 @include mx.styles(null);
@@ -15,16 +15,17 @@ $breakpoints     : maps.$breakpoints !default;
 @include mx.fontSizes(null);
 @include mx.fontWeights(null);
 
-
 @include mx.display(null);
 @include mx.spacers(null);
 @include mx.margin-auto(null);
-// Flex Utilities
+@include mx.width(null);
+
 @include mx.flex-row-col(null);
 @include mx.flex-wrap(null);
 @include mx.flex-fill(null);
 @include mx.flex-grow(null);
 @include mx.flex-shrink(null);
+
 @include mx.align-items(null);
 @include mx.justify-items(null);
 @include mx.align-content(null);
@@ -43,6 +44,7 @@ $breakpoints     : maps.$breakpoints !default;
     @include mx.flex-fill($name);
     @include mx.flex-grow($name);
     @include mx.flex-shrink($name);
+
     @include mx.align-items($name);
     @include mx.justify-items($name);
     @include mx.align-content($name);

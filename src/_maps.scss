@@ -80,6 +80,17 @@ $z-index         : (
         '9': 9000,
 ) !default;
 
+$width           : (
+        "w100" : 100%,
+        "vw100" : 100vh,
+        "w75" : 75%,
+        "vw75" : 75vh,
+        "w50" : 50%,
+        "vw50" : 50vh,
+        "w25" : 25%,
+        "vw25" : 25vh,
+)!default;
+
 $display-classes : (
         'none' : none,
         'block' : block,

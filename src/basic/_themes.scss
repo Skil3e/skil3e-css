@@ -5,14 +5,8 @@ $themeLight : maps.$themeLight !default;
 $themeDark  : maps.$themeLight !default;
 $colors     : maps.$colors !default;
 
-body {
-  @include mx.themeVarGenerator($colors);
-  @include mx.themeVarGenerator($themeLight);
-}
-
-body[data-theme="dark"] {
-  @include mx.themeVarGenerator($themeDark)
-}
+@include mx.themeVarGenerator(map-merge($colors, $themeLight));
+@include mx.themeVarGenerator($themeDark, "dark");
 
 body {
   background-color : var(--body);

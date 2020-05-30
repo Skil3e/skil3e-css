@@ -10,12 +10,23 @@ $colors          : maps.$colors !default;
 $borderWidth     : globals.$borderWidth !default;
 $borderType      : globals.$borderType !default;
 $style-attribute : maps.$style-attribute !default;
+$width           : maps.$width !default;
 //-----------------------------
 // Theme css var generator
 //-----------------------------
-@mixin themeVarGenerator($theme) {
-  @each $color, $hex in $theme {
-    --#{$color}: #{$hex};
+@mixin themeVarGenerator($theme, $themeName: null) {
+  @if ($themeName) {
+    body[data-theme=#{$themeName}] {
+      @each $color, $hex in $theme {
+        --#{$color}: #{$hex};
+      }
+    }
+  } @else {
+    body {
+      @each $color, $hex in $theme {
+        --#{$color}: #{$hex};
+      }
+    }
   }
 }
 
@@ -65,6 +76,17 @@ $style-attribute : maps.$style-attribute !default;
 }
 
 //-----------------------------
+// Width
+//-----------------------------
+@mixin width($breakpoint) {
+  @each $name, $w in $width {
+    .#{$name} {
+      width : $w;
+    }
+  }
+}
+
+//-----------------------------
 // Display Classes
 //-----------------------------
 @mixin display($breakpoint) {
@@ -83,6 +105,61 @@ $style-attribute : maps.$style-attribute !default;
     .#{$breakpoint}text-#{$value} {
       text-align : $value;
     }
+  }
+}
+
+//-----------------------------
+// Spacers Classes
+//-----------------------------
+@mixin spacers($breakpoint) {
+  @each $prop, $prefix in (margin: m, padding: p) {
+    @each $num, $value in $spacers {
+      .#{$breakpoint}#{$prefix}-#{$num} {
+        #{$prop}: $value !important;
+      }
+      .#{$breakpoint}#{$prefix}t-#{$num},
+      .#{$breakpoint}#{$prefix}y-#{$num} {
+        #{$prop}-top : $value !important;
+      }
+      .#{$breakpoint}#{$prefix}b-#{$num},
+      .#{$breakpoint}#{$prefix}y-#{$num} {
+        #{$prop}-bottom : $value !important;
+      }
+      .#{$breakpoint}#{$prefix}l-#{$num},
+      .#{$breakpoint}#{$prefix}x-#{$num} {
+        #{$prop}-left : $value !important;
+      }
+      .#{$breakpoint}#{$prefix}r-#{$num},
+      .#{$breakpoint}#{$prefix}x-#{$num} {
+        #{$prop}-right : $value !important;
+      }
+    }
+  }
+}
+
+//-----------------------------
+// Auto Margins
+//-----------------------------
+@mixin margin-auto($breakpoint) {
+  .#{$breakpoint}mt-auto,
+  .#{$breakpoint}my-auto {
+    margin-top : auto !important;
+  }
+  .#{$breakpoint}mb-auto,
+  .#{$breakpoint}my-auto {
+    margin-bottom : auto !important;
+  }
+  .#{$breakpoint}ml-auto,
+  .#{$breakpoint}mx-auto {
+    margin-left : auto !important;
+  }
+  .#{$breakpoint}mr-auto,
+  .#{$breakpoint}mx-auto {
+    margin-right : auto !important;
+  }
+  .#{$breakpoint}m-auto,
+  .#{$breakpoint}m-auto {
+    margin : auto !important;
   }
 }
 
@@ -146,7 +223,7 @@ $style-attribute : maps.$style-attribute !default;
 //-----------------------------
 @mixin align-items($breakpoint) {
   @each $type, $value in $align {
-    .#{$breakpoint}al-it-#{$type} {
+    .#{$breakpoint}al_it-#{$type} {
       align-items : $value;
     }
   }
@@ -154,7 +231,7 @@ $style-attribute : maps.$style-attribute !default;
 
 @mixin justify-items($breakpoint) {
   @each $type, $value in map-remove($justify, "between", "around") {
-    .#{$breakpoint}jf-it-#{$type} {
+    .#{$breakpoint}jf_it-#{$type} {
       justify-items : $value;
     }
   }
@@ -165,7 +242,7 @@ $style-attribute : maps.$style-attribute !default;
 //-----------------------------
 @mixin align-content($breakpoint) {
   @each $type, $value in $align {
-    .#{$breakpoint}al-cnt-#{$type} {
+    .#{$breakpoint}al_cnt-#{$type} {
       align-items : $value;
     }
   }
@@ -173,7 +250,7 @@ $style-attribute : maps.$style-attribute !default;
 
 @mixin justify-content($breakpoint) {
   @each $type, $value in $justify {
-    .#{$breakpoint}jf-cnt-#{$type} {
+    .#{$breakpoint}jf_cnt-#{$type} {
       justify-content : $value;
     }
   }
@@ -185,7 +262,7 @@ $style-attribute : maps.$style-attribute !default;
 @mixin align-self($breakpoint) {
   $align : map-merge($align, ("auto": auto));
   @each $type, $value in $align {
-    .#{$breakpoint}al-self-#{$type} {
+    .#{$breakpoint}al_self-#{$type} {
       align-self : $value;
     }
   }
@@ -194,63 +271,10 @@ $style-attribute : maps.$style-attribute !default;
 @mixin justify-self($breakpoint) {
   $align : map-merge($align, ("auto": auto));
   @each $type, $value in map-remove($justify, "between", "around") {
-    .#{$breakpoint}jf-self-#{$type} {
+    .#{$breakpoint}jf_self-#{$type} {
       align-self : $value;
     }
   }
 }
 
-//-----------------------------
-// Spacers Classes
-//-----------------------------
-@mixin spacers($breakpoint) {
-  @each $prop, $prefix in (margin: m, padding: p) {
-    @each $num, $value in $spacers {
-      .#{$breakpoint}#{$prefix}-#{$num} {
-        #{$prop}: $value !important;
-      }
-      .#{$breakpoint}#{$prefix}t-#{$num},
-      .#{$breakpoint}#{$prefix}y-#{$num} {
-        #{$prop}-top : $value !important;
-      }
-      .#{$breakpoint}#{$prefix}b-#{$num},
-      .#{$breakpoint}#{$prefix}y-#{$num} {
-        #{$prop}-bottom : $value !important;
-      }
-      .#{$breakpoint}#{$prefix}l-#{$num},
-      .#{$breakpoint}#{$prefix}x-#{$num} {
-        #{$prop}-left : $value !important;
-      }
-      .#{$breakpoint}#{$prefix}r-#{$num},
-      .#{$breakpoint}#{$prefix}x-#{$num} {
-        #{$prop}-right : $value !important;
-      }
-    }
-  }
-}
 
-//-----------------------------
-// Auto Margins
-//-----------------------------
-@mixin margin-auto($breakpoint) {
-  .#{$breakpoint}mt-auto,
-  .#{$breakpoint}my-auto {
-    margin-top : auto !important;
-  }
-  .#{$breakpoint}mb-auto,
-  .#{$breakpoint}my-auto {
-    margin-bottom : auto !important;
-  }
-  .#{$breakpoint}ml-auto,
-  .#{$breakpoint}mx-auto {
-    margin-left : auto !important;
-  }
-  .#{$breakpoint}mr-auto,
-  .#{$breakpoint}mx-auto {
-    margin-right : auto !important;
-  }
-  .#{$breakpoint}m-auto,
-  .#{$breakpoint}m-auto {
-    margin : auto !important;
-  }
-}
