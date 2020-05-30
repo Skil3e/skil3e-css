@@ -32,11 +32,11 @@ $align           : (
 // Borders
 //--------------------------------------------------------------//
 $borders         : (
-        "brd" : border,
-        "brd_t" : border-top,
-        "brd_r" : border-right,
-        "brd_b" : border-bottom,
-        "brd_l" : border-left,
+        'brd' : border,
+        'brd_t' : border-top,
+        'brd_r' : border-right,
+        'brd_b' : border-bottom,
+        'brd_l' : border-left,
 ) !default;
 
 //--------------------------------------------------------------//
@@ -52,11 +52,11 @@ $breakpoints     : (
 // Colors
 //--------------------------------------------------------------//
 $colors          : (
-        "primary" : globals.$primary,
-        "danger" : globals.$danger,
-        "success" : globals.$success,
-        "black" : globals.$black,
-        "white" : globals.$white
+        'primary' : globals.$primary,
+        'danger' : globals.$danger,
+        'success' : globals.$success,
+        'black' : globals.$black,
+        'white' : globals.$white
 ) !default;
 //--------------------------------------------------------------//
 // Display
@@ -69,6 +69,7 @@ $display         : (
         'table' : table,
         'table-cell' : table-cell,
         'table-row' : table-row,
+        'flow-root' : flow-root,
         'flex' : flex,
         'inline-flex' : inline-flex,
         'grid': grid,
@@ -91,21 +92,32 @@ $justify         : (
 // Object Fit
 //--------------------------------------------------------------//
 $objectFit       : (
-        "contain" : contain,
-        "cover" : cover,
-        "fill" : fill,
-        "none" : none,
-        "scale-down" : scale-down
+        'contain' : contain,
+        'cover' : cover,
+        'fill' : fill,
+        'none' : none,
+        'scale-down' : scale-down
+) !default;
+$object-position : (
+        'center' : center,
+        'top' : top,
+        'bottom' : bottom,
+        'left' : left,
+        'right' : right,
+        'left-top' : left top,
+        'left-bottom' : left bottom,
+        'right-top' : right top,
+        'right-bottom' : right bottom,
 ) !default;
 //--------------------------------------------------------------//
 // Positions
 //--------------------------------------------------------------//
 $positions       : (
-        "static" : static,
-        "relative": relative,
-        "fixed" : fixed,
-        "absolute" : absolute,
-        "sticky": sticky
+        'static' : static,
+        'relative': relative,
+        'fixed' : fixed,
+        'absolute' : absolute,
+        'sticky': sticky
 ) !default;
 //--------------------------------------------------------------//
 // Spacers
@@ -137,23 +149,23 @@ $style-attribute : (
 // Themes
 //--------------------------------------------------------------//
 $themeLight      : (
-        "body" : globals.$gray-95,
-        "bg" : globals.$gray-90,
-        "bgDimmed" : globals.$gray-85,
-        "border" : globals.$gray-80,
-        "text" : globals.$gray-10,
-        "textDimmed" : globals.$gray-60,
-        "accent" : globals.$primary,
+        'body' : globals.$gray-95,
+        'bg' : globals.$gray-90,
+        'bgDimmed' : globals.$gray-85,
+        'border' : globals.$gray-80,
+        'text' : globals.$gray-10,
+        'textDimmed' : globals.$gray-60,
+        'accent' : globals.$primary,
 ) !default;
 
 $themeDark       : (
-        "body" : globals.$gray-5,
-        "bg" : globals.$gray-10,
-        "bgDimmed" : globals.$gray-15,
-        "border" : globals.$gray-20,
-        "text" : globals.$gray-90,
-        "textDimmed" : globals.$gray-40,
-        "accent" : globals.$primary,
+        'body' : globals.$gray-5,
+        'bg' : globals.$gray-10,
+        'bgDimmed' : globals.$gray-15,
+        'border' : globals.$gray-20,
+        'text' : globals.$gray-90,
+        'textDimmed' : globals.$gray-40,
+        'accent' : globals.$primary,
 ) !default;
 //--------------------------------------------------------------//
 // Typography
@@ -171,14 +183,14 @@ $font-sizes      : (
 // Width
 //--------------------------------------------------------------//
 $width           : (
-        "w100" : 100%,
-        "vw100" : 100vh,
-        "w75" : 75%,
-        "vw75" : 75vh,
-        "w50" : 50%,
-        "vw50" : 50vh,
-        "w25" : 25%,
-        "vw25" : 25vh,
+        'w100' : 100%,
+        'vw100' : 100vh,
+        'w75' : 75%,
+        'vw75' : 75vh,
+        'w50' : 50%,
+        'vw50' : 50vh,
+        'w25' : 25%,
+        'vw25' : 25vh,
 ) !default;
 //--------------------------------------------------------------//
 // Z-index

@@ -32,18 +32,6 @@ $success             : hsl(150, 70%, 30%) !default;
 $warning             : hsl(30, 100%, 50%) !default;
 
 //-----------------------------------------------------------
-// Utils
-//-----------------------------------------------------------
-$borderWidth         : 1px !default;
-$borderType          : solid !default;
-// Align / Justify Options
-$use-align-items     : true !default;
-$use-justify-items   : true !default;
-$use-align-content   : true !default;
-$use-justify-content : true !default;
-$use-align-self      : true !default;
-$use-justify-self    : true !default;
-//-----------------------------------------------------------
 // Typography
 //-----------------------------------------------------------
 $systemFonts         : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;

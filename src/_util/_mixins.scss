@@ -10,7 +10,7 @@
 //  Flex Grow
 //  Flex Shrink
 //  Flex Wrap
-//  Object Fit
+//  Object
 //  Position
 //  Spacers
 //  Theme Generator
@@ -25,6 +25,7 @@ $colors          : maps.$colors !default;
 $style-attribute : maps.$style-attribute !default;
 $display         : maps.$display !default;
 $objectFit       : maps.$objectFit !default;
+$object-position : maps.$object-position !default;
 $positions       : maps.$positions !default;
 $spacers         : maps.$spacers !default;
 $font-sizes      : maps.$font-sizes !default;
@@ -34,54 +35,66 @@ $z-index         : maps.$z-index !default;
 // Align / Justify
 //--------------------------------------------------------------///
 //Items
-@mixin align-items($breakpoint) {
-  @each $type, $value in $align {
-    .#{$breakpoint}al_it-#{$type} {
-      align-items : $value;
+@mixin align-items($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $type, $value in $align {
+      .#{$breakpoint}al_it-#{$type} {
+        align-items : $value;
+      }
     }
   }
 }
 
-@mixin justify-items($breakpoint) {
-  @each $type, $value in map-remove($justify, "between", "around") {
-    .#{$breakpoint}jf_it-#{$type} {
-      justify-items : $value;
+@mixin justify-items($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $type, $value in map-remove($justify, "between", "around") {
+      .#{$breakpoint}jf_it-#{$type} {
+        justify-items : $value;
+      }
     }
   }
 }
 
 //Content
-@mixin align-content($breakpoint) {
-  @each $type, $value in $align {
-    .#{$breakpoint}al_cnt-#{$type} {
-      align-items : $value;
+@mixin align-content($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $type, $value in $align {
+      .#{$breakpoint}al_cnt-#{$type} {
+        align-items : $value;
+      }
     }
   }
 }
 
-@mixin justify-content($breakpoint) {
-  @each $type, $value in $justify {
-    .#{$breakpoint}jf_cnt-#{$type} {
-      justify-content : $value;
+@mixin justify-content($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $type, $value in $justify {
+      .#{$breakpoint}jf_cnt-#{$type} {
+        justify-content : $value;
+      }
     }
   }
 }
 
 //Self
-@mixin align-self($breakpoint) {
-  $align : map-merge($align, ("auto": auto));
-  @each $type, $value in $align {
-    .#{$breakpoint}al_self-#{$type} {
-      align-self : $value;
+@mixin align-self($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    $align : map-merge($align, ("auto": auto));
+    @each $type, $value in $align {
+      .#{$breakpoint}al_self-#{$type} {
+        align-self : $value;
+      }
     }
   }
 }
 
-@mixin justify-self($breakpoint) {
-  $align : map-merge($align, ("auto": auto));
-  @each $type, $value in map-remove($justify, "between", "around") {
-    .#{$breakpoint}jf_self-#{$type} {
-      align-self : $value;
+@mixin justify-self($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    $align : map-merge($align, ("auto": auto));
+    @each $type, $value in map-remove($justify, "between", "around") {
+      .#{$breakpoint}jf_self-#{$type} {
+        align-self : $value;
+      }
     }
   }
 }
@@ -89,26 +102,30 @@ $z-index         : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Borders
 //--------------------------------------------------------------//
-@mixin borders($breakpoint) {
-  @each $num, $value in ("": 1px, "-2": 2px, "-3": 3px, "-4": 4px, "-5": 5px, "-0": 0) {
-    @each $name, $atr in $borders {
-      @if ($value == 0) {
-        .#{$breakpoint}#{$name}#{$num} {
-          #{$atr}: none !important;
-        }
-      } @else {
-        .#{$breakpoint}#{$name}#{$num} {
-          #{$atr}: $value solid;
+@mixin borders($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $num, $value in ("": 1px, "-2": 2px, "-3": 3px, "-4": 4px, "-5": 5px, "-0": 0) {
+      @each $name, $atr in $borders {
+        @if ($value == 0) {
+          .#{$breakpoint}#{$name}#{$num} {
+            #{$atr}: none !important;
+          }
+        } @else {
+          .#{$breakpoint}#{$name}#{$num} {
+            #{$atr}: $value solid;
+          }
         }
       }
     }
   }
 }
 
-@mixin bordersRadius($breakpoint) {
-  @each $num, $value in ("-xs": 0.1875rem, "-sm": .3125rem, "-md": .625rem, "-lg": .9375rem, "-circle": 1000rem, "": .25rem) {
-    .#{$breakpoint}round#{$num} {
-      border-radius : $value;
+@mixin bordersRadius($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $num, $value in ("-xs": 0.1875rem, "-sm": .3125rem, "-md": .625rem, "-lg": .9375rem, "-circle": 1000rem, "": .25rem) {
+      .#{$breakpoint}round#{$num} {
+        border-radius : $value;
+      }
     }
   }
 }
@@ -116,10 +133,12 @@ $z-index         : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Display
 //--------------------------------------------------------------//
-@mixin display($breakpoint) {
-  @each $type, $value in $display {
-    .#{$breakpoint}#{$value} {
-      display : $value !important;
+@mixin display($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $type, $value in $display {
+      .#{$breakpoint}#{$value} {
+        display : $value !important;
+      }
     }
   }
 }
@@ -127,10 +146,12 @@ $z-index         : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Flex Direction
 //--------------------------------------------------------------//
-@mixin flex-direction($breakpoint) {
-  @each $type, $value in (row: row, column: column, row-reverse: row-reverse, column-reverse: column-reverse) {
-    .#{$breakpoint}flex-#{$type} {
-      flex-direction : $value;
+@mixin flex-direction($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $type, $value in (row: row, column: column, row-reverse: row-reverse, column-reverse: column-reverse) {
+      .#{$breakpoint}flex-#{$type} {
+        flex-direction : $value;
+      }
     }
   }
 }
@@ -138,10 +159,12 @@ $z-index         : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Flex Fill
 //--------------------------------------------------------------//
-@mixin flex-fill($breakpoint) {
-  @each $type, $value in (fill: 1 1 auto) {
-    .#{$breakpoint}flex-#{$type} {
-      flex : $value;
+@mixin flex-fill($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $type, $value in (fill: 1 1 auto) {
+      .#{$breakpoint}flex-#{$type} {
+        flex : $value;
+      }
     }
   }
 }
@@ -149,10 +172,12 @@ $z-index         : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Flex Grow
 //--------------------------------------------------------------//
-@mixin flex-grow($breakpoint) {
-  @each $type, $value in (grow-0: 0, grow: 1) {
-    .#{$breakpoint}flex-#{$type} {
-      flex-grow : $value;
+@mixin flex-grow($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $type, $value in (grow-0: 0, grow: 1) {
+      .#{$breakpoint}flex-#{$type} {
+        flex-grow : $value;
+      }
     }
   }
 }
@@ -160,10 +185,12 @@ $z-index         : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Flex Shrink
 //--------------------------------------------------------------//
-@mixin flex-shrink($breakpoint) {
-  @each $type, $value in (shrink-0: 0, shrink: 1) {
-    .#{$breakpoint}flex-#{$type} {
-      flex-shrink : $value;
+@mixin flex-shrink($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $type, $value in (shrink-0: 0, shrink: 1) {
+      .#{$breakpoint}flex-#{$type} {
+        flex-shrink : $value;
+      }
     }
   }
 }
@@ -171,22 +198,36 @@ $z-index         : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Flex Wrap
 //--------------------------------------------------------------//
-@mixin flex-wrap($breakpoint) {
-  @each $type, $value in (wrap: wrap, nowrap: nowrap, wrap-reverse: wrap-reverse) {
-    .#{$breakpoint}flex-#{$type} {
-      flex-wrap : $value;
+@mixin flex-wrap($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $type, $value in (wrap: wrap, nowrap: nowrap, wrap-reverse: wrap-reverse) {
+      .#{$breakpoint}flex-#{$type} {
+        flex-wrap : $value;
+      }
     }
   }
 }
 
 //--------------------------------------------------------------//
-// Object Fit
+// Object
 //--------------------------------------------------------------//
 
-@mixin object-fit($breakpoint) {
-  @each $type, $value in $objectFit {
-    .#{$breakpoint}obj-#{$type} {
-      object-fit : $value;
+@mixin object-fit($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $type, $value in $objectFit {
+      .#{$breakpoint}obj-#{$type} {
+        object-fit : $value;
+      }
+    }
+  }
+}
+
+@mixin object-position($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $type, $value in $object-position {
+      .#{$breakpoint}obj-#{$type} {
+        object-position : $value;
+      }
     }
   }
 }
@@ -194,10 +235,12 @@ $z-index         : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Position
 //--------------------------------------------------------------//
-@mixin position($breakpoint) {
-  @each $name, $pos in $positions {
-    .#{$breakpoint}#{$name} {
-      position : $pos !important;
+@mixin position($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $name, $pos in $positions {
+      .#{$breakpoint}#{$name} {
+        position : $pos !important;
+      }
     }
   }
 }
@@ -205,64 +248,70 @@ $z-index         : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Spacers
 //--------------------------------------------------------------//
-@mixin spacers($breakpoint) {
-  @each $prop, $prefix in (margin: m, padding: p) {
-    @each $num, $value in $spacers {
-      .#{$breakpoint}#{$prefix}-#{$num} {
-        #{$prop}: $value !important;
-      }
-      .#{$breakpoint}#{$prefix}t-#{$num},
-      .#{$breakpoint}#{$prefix}y-#{$num} {
-        #{$prop}-top : $value !important;
-      }
-      .#{$breakpoint}#{$prefix}b-#{$num},
-      .#{$breakpoint}#{$prefix}y-#{$num} {
-        #{$prop}-bottom : $value !important;
-      }
-      .#{$breakpoint}#{$prefix}l-#{$num},
-      .#{$breakpoint}#{$prefix}x-#{$num} {
-        #{$prop}-left : $value !important;
-      }
-      .#{$breakpoint}#{$prefix}r-#{$num},
-      .#{$breakpoint}#{$prefix}x-#{$num} {
-        #{$prop}-right : $value !important;
+@mixin spacers($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $prop, $prefix in (margin: m, padding: p) {
+      @each $num, $value in $spacers {
+        .#{$breakpoint}#{$prefix}-#{$num} {
+          #{$prop}: $value !important;
+        }
+        .#{$breakpoint}#{$prefix}t-#{$num},
+        .#{$breakpoint}#{$prefix}y-#{$num} {
+          #{$prop}-top : $value !important;
+        }
+        .#{$breakpoint}#{$prefix}b-#{$num},
+        .#{$breakpoint}#{$prefix}y-#{$num} {
+          #{$prop}-bottom : $value !important;
+        }
+        .#{$breakpoint}#{$prefix}l-#{$num},
+        .#{$breakpoint}#{$prefix}x-#{$num} {
+          #{$prop}-left : $value !important;
+        }
+        .#{$breakpoint}#{$prefix}r-#{$num},
+        .#{$breakpoint}#{$prefix}x-#{$num} {
+          #{$prop}-right : $value !important;
+        }
       }
     }
   }
 }
 
 // Auto Margins
-@mixin margin-auto($breakpoint) {
-  .#{$breakpoint}mt-auto,
-  .#{$breakpoint}my-auto {
-    margin-top : auto !important;
-  }
-  .#{$breakpoint}mb-auto,
-  .#{$breakpoint}my-auto {
-    margin-bottom : auto !important;
-  }
-  .#{$breakpoint}ml-auto,
-  .#{$breakpoint}mx-auto {
-    margin-left : auto !important;
-  }
-  .#{$breakpoint}mr-auto,
-  .#{$breakpoint}mx-auto {
-    margin-right : auto !important;
-  }
-  .#{$breakpoint}m-auto,
-  .#{$breakpoint}m-auto {
-    margin : auto !important;
+@mixin margin-auto($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    .#{$breakpoint}mt-auto,
+    .#{$breakpoint}my-auto {
+      margin-top : auto !important;
+    }
+    .#{$breakpoint}mb-auto,
+    .#{$breakpoint}my-auto {
+      margin-bottom : auto !important;
+    }
+    .#{$breakpoint}ml-auto,
+    .#{$breakpoint}mx-auto {
+      margin-left : auto !important;
+    }
+    .#{$breakpoint}mr-auto,
+    .#{$breakpoint}mx-auto {
+      margin-right : auto !important;
+    }
+    .#{$breakpoint}m-auto,
+    .#{$breakpoint}m-auto {
+      margin : auto !important;
+    }
   }
 }
 
 //--------------------------------------------------------------//
 // Colors Styles
 //--------------------------------------------------------------//
-@mixin color-styles($breakpoint) {
-  @each $color, $hex in $colors {
-    @each $name, $atr in $style-attribute {
-      .#{$breakpoint}#{$name}-#{$color} {
-        #{$atr}: $hex !important;
+@mixin color-styles($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $color, $hex in $colors {
+      @each $name, $atr in $style-attribute {
+        .#{$breakpoint}#{$name}-#{$color} {
+          #{$atr}: $hex !important;
+        }
       }
     }
   }
@@ -290,26 +339,32 @@ $z-index         : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Typography
 //--------------------------------------------------------------//
-@mixin fontSizes($breakpoint) {
-  @each $type, $value in $font-sizes {
-    .#{$breakpoint}#{$type}, #{$type} {
-      font-size : $value;
+@mixin fontSizes($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $type, $value in $font-sizes {
+      .#{$breakpoint}#{$type}, #{$type} {
+        font-size : $value;
+      }
     }
   }
 }
 
-@mixin fontWeights($breakpoint) {
-  @each $type, $value in ("light": 300, "regular": 500, "medium": 700, "bold": 700, "black": 900) {
-    .#{$breakpoint}font-#{$type} {
-      font-weight : $value;
+@mixin fontWeights($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $type, $value in ("light": 300, "regular": 500, "medium": 700, "bold": 700, "black": 900) {
+      .#{$breakpoint}font-#{$type} {
+        font-weight : $value;
+      }
     }
   }
 }
 
-@mixin text-align($breakpoint) {
-  @each $type, $value in (left: left, right: right, center: center) {
-    .#{$breakpoint}text-#{$value} {
-      text-align : $value;
+@mixin text-align($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $type, $value in (left: left, right: right, center: center) {
+      .#{$breakpoint}text-#{$value} {
+        text-align : $value;
+      }
     }
   }
 }
@@ -317,10 +372,12 @@ $z-index         : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Width
 //--------------------------------------------------------------//
-@mixin width($breakpoint) {
-  @each $name, $w in $width {
-    .#{$breakpoint}#{$name} {
-      width : $w;
+@mixin width($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $name, $w in $width {
+      .#{$breakpoint}#{$name} {
+        width : $w;
+      }
     }
   }
 }
@@ -328,10 +385,12 @@ $z-index         : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Z Index
 //--------------------------------------------------------------//
-@mixin zIndex($breakpoint) {
-  @each $name, $index in $z-index {
-    .#{$breakpoint}z#{$name} {
-      z-index : $index;
+@mixin zIndex($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $name, $index in $z-index {
+      .#{$breakpoint}z#{$name} {
+        z-index : $index;
+      }
     }
   }
 }
