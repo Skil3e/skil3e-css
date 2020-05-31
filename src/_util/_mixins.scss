@@ -48,7 +48,7 @@ $z-index          : maps.$z-index !default;
 
 @mixin justify-items($breakpoint: null, $enable: true) {
   @if ($enable) {
-    @each $type, $value in map-remove($justify, "between", "around") {
+    @each $type, $value in map-remove($justify, "between", "around", "evenly", "flex-start", "flex-end") {
       .#{$breakpoint}jf_it-#{$type} {
         justify-items : $value;
       }
@@ -91,8 +91,8 @@ $z-index          : maps.$z-index !default;
 
 @mixin justify-self($breakpoint: null, $enable: true) {
   @if ($enable) {
-    $align : map-merge($align, ("auto": auto));
-    @each $type, $value in map-remove($justify, "between", "around") {
+    $justify : map-merge($align, ("auto": auto));
+    @each $type, $value in map-remove($justify, "between", "around", "evenly") {
       .#{$breakpoint}jf_self-#{$type} {
         align-self : $value;
       }
