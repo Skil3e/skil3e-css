@@ -1,68 +1,80 @@
-$use-align-items                 : true !default;
-$align-items-use-breakpoints     : true !default;
+//--------------------------------------------------------------//
+// Utilities Options
+//--------------------------------------------------------------//
+$use__align-items                 : true !default;
+$align-items__use-breakpoints     : true !default;
 
-$use-justify-items               : true !default;
-$justify-items-use-breakpoints   : true !default;
+$use__justify-items               : true !default;
+$justify-items__use-breakpoints   : true !default;
 
-$use-align-content               : true !default;
-$align-content-use-breakpoints   : true !default;
+$use__align-content               : true !default;
+$align-content__use-breakpoints   : true !default;
 
-$use-justify-content             : true !default;
-$justify-content-use-breakpoints : true !default;
+$use__justify-content             : true !default;
+$justify-content__use-breakpoints : true !default;
 
-$use-align-self                  : true !default;
-$align-self-use-breakpoints      : true !default;
+$use__align-self                  : true !default;
+$align-self__use-breakpoints      : true !default;
 
-$use-justify-self                : true !default;
-$justify-self-use-breakpoints    : true !default;
+$use__justify-self                : true !default;
+$justify-self__use-breakpoints    : true !default;
 
-$use-borders                     : true !default;
-$borders-use-breakpoints         : false !default;
+$use__borders                     : true !default;
+$borders__use-breakpoints         : false !default;
 
-$use-color-styles                : true !default;
-$color-styles-use-breakpoints    : false !default;
+$use__border-radius               : true !default;
+$border-radius__use-breakpoints   : false !default;
 
-$use-display                     : true !default;
-$display-use-breakpoints         : true !default;
+$use__color-styles                : true !default;
+$color-styles__use-breakpoints    : false !default;
 
-$use-flex-direction              : true !default;
-$flex-direction-use-breakpoints  : true !default;
+$use__display                     : true !default;
+$display__use-breakpoints         : true !default;
 
-$use-flex-fill                   : true !default;
-$flex-fill-use-breakpoints       : true !default;
+$use__flex-direction              : true !default;
+$flex-direction__use-breakpoints  : true !default;
 
-$use-flex-grow                   : true !default;
-$flex-grow-use-breakpoints       : true !default;
+$use__flex-fill                   : true !default;
+$flex-fill__use-breakpoints       : true !default;
 
-$use-flex-shrink                 : true !default;
-$flex-shrink-use-breakpoints     : true !default;
+$use__flex-grow                   : true !default;
+$flex-grow__use-breakpoints       : true !default;
 
-$use-flex-wrap                   : true !default;
-$flex-wrap-use-breakpoints       : true !default;
+$use__flex-shrink                 : true !default;
+$flex-shrink__use-breakpoints     : true !default;
 
-$use-object-fit                  : true !default;
-$object-fit-use-breakpoints      : true !default;
+$use__flex-wrap                   : true !default;
+$flex-wrap__use-breakpoints       : true !default;
 
-$use-object-position             : true !default;
-$object-position-use-breakpoints : true !default;
+$use__object-fit                  : true !default;
+$object-fit__use-breakpoints      : true !default;
 
-$use-position                    : true !default;
-$position-use-breakpoints        : true !default;
+$use__object-position             : true !default;
+$object-position__use-breakpoints : true !default;
 
-$use-spacers                     : true !default;
-$spacers-use-breakpoints         : true !default;
+$use__position                    : true !default;
+$position__use-breakpoints        : true !default;
 
-$use-fontSizes                   : true !default;
-$fontSizes-use-breakpoints       : true !default;
+$use__pos-placement               : true !default;
+$pos-placement__use-breakpoints   : true !default;
 
-$use-fontWeights                 : true !default;
-$fontWeights-use-breakpoints     : true !default;
+$use__screen-readers              : true !default;
+$screen-readers__use-breakpoints  : true !default;
 
-$use-text-align                  : true !default;
-$text-align-use-breakpoints      : true !default;
+$use__spacers                     : true !default;
+$spacers__use-breakpoints         : true !default;
 
-$use-width                       : true !default;
-$width-use-breakpoints           : true !default;
+$use__fontSizes                   : true !default;
+$fontSizes__use-breakpoints       : true !default;
 
-$use-zIndex                      : true !default;
-$zIndex-use-breakpoints          : false !default;
+$use__fontWeights                 : true !default;
+$fontWeights__use-breakpoints     : true !default;
+
+$use__text-align                  : true !default;
+$text-align__use-breakpoints      : true !default;
+
+$use__width                       : true !default;
+$width__use-breakpoints           : true !default;
+
+$use__zIndex                      : true !default;
+$zIndex__use-breakpoints          : false !default;

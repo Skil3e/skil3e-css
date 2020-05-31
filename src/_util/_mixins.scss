@@ -12,28 +12,30 @@
 //  Flex Wrap
 //  Object
 //  Position
+//  Screen Readers
 //  Spacers
 //  Theme Generator
 //  Typography
 //  Width
 //  Z Index
 //--------------------------------------------------------------//
-$align           : maps.$align !default;
-$justify         : maps.$justify !default;
-$borders         : maps.$borders !default;
-$colors          : maps.$colors !default;
-$style-attribute : maps.$style-attribute !default;
-$display         : maps.$display !default;
-$objectFit       : maps.$objectFit !default;
-$object-position : maps.$object-position !default;
-$positions       : maps.$positions !default;
-$spacers         : maps.$spacers !default;
-$font-sizes      : maps.$font-sizes !default;
-$width           : maps.$width !default;
-$z-index         : maps.$z-index !default;
-//--------------------------------------------------------------///
+$align            : maps.$align !default;
+$justify          : maps.$justify !default;
+$borders          : maps.$borders !default;
+$colors           : maps.$colors !default;
+$style-attribute  : maps.$style-attribute !default;
+$display          : maps.$display !default;
+$objectFit        : maps.$objectFit !default;
+$object-position  : maps.$object-position !default;
+$positions        : maps.$positions !default;
+$positions-values : maps.$positions-values !default;
+$spacers          : maps.$spacers !default;
+$font-sizes       : maps.$font-sizes !default;
+$width            : maps.$width !default;
+$z-index          : maps.$z-index !default;
+//--------------------------------------------------------------//
 // Align / Justify
-//--------------------------------------------------------------///
+//--------------------------------------------------------------//
 //Items
 @mixin align-items($breakpoint: null, $enable: true) {
   @if ($enable) {
@@ -120,9 +122,9 @@ $z-index         : maps.$z-index !default;
   }
 }
 
-@mixin bordersRadius($breakpoint: null, $enable: true) {
+@mixin border-radius($breakpoint: null, $enable: true) {
   @if ($enable) {
-    @each $num, $value in ("-xs": 0.1875rem, "-sm": .3125rem, "-md": .625rem, "-lg": .9375rem, "-circle": 1000rem, "": .25rem) {
+    @each $num, $value in ("-xs": 0.1875rem, "-sm": .3125rem, "-md": .625rem, "-lg": .9375rem, "-circle": 1000rem, "": .25rem, '0' : 0) {
       .#{$breakpoint}round#{$num} {
         border-radius : $value;
       }
@@ -242,6 +244,81 @@ $z-index         : maps.$z-index !default;
         position : $pos !important;
       }
     }
+    .#{$breakpoint}absolute-center {
+      position  : absolute !important;
+      left      : 50%;
+      top       : 50%;
+      transform : translate(-50%, -50%);
+    }
+    .#{$breakpoint}absolute-x-center {
+      position  : absolute !important;
+      left      : 50%;
+      transform : translateX(-50%);
+    }
+    .#{$breakpoint}absolute-y-center {
+      position  : absolute !important;
+      top       : 50%;
+      transform : translateY(-50%);
+    }
+  }
+}
+
+@mixin pos-placement($breakpoint: null, $enable: true) {
+  @if ($enable) {
+    @each $num, $value in $positions-values {
+      @each $name, $pos in ('top' : top, 'right' : right, 'bottom' : bottom, 'left' : left) {
+        .#{$breakpoint}#{$name}-#{$num} {
+          #{$pos} : #{$value}
+        }
+      }
+      .#{$breakpoint}inset-#{$num} {
+        top    : #{$value};
+        right  : #{$value};
+        bottom : #{$value};
+        left   : #{$value};
+      }
+      .#{$breakpoint}inset-x-#{$num} {
+        right : #{$value};
+        left  : #{$value};
+      }
+      .#{$breakpoint}inset-y-#{$num} {
+        top    : #{$value};
+        bottom : #{$value};
+      }
+    }
+  }
+}
+
+//--------------------------------------------------------------//
+// Screen Readers
+//--------------------------------------------------------------//
+@mixin screen-readers($breakpoint: null, $enable: true) {
+  .#{$breakpoint}sr-only {
+    position : absolute;
+    width    : 1px;
+    height   : 1px;
+    padding  : 0;
+    margin   : -1px;
+    overflow : hidden;
+    clip     : rect(0, 0, 0, 0);
+    border   : 0;
+  }
+
+  .#{$breakpoint}not-sr-only {
+    position : static;
+    width    : auto;
+    height   : auto;
+    padding  : 0;
+    margin   : 0;
+    overflow : visible;
+    clip     : auto;
+    border   : 0;
+  }
+
+  .#{$breakpoint}sr-only-focusable:focus {
+    position : relative;
+    width    : auto;
+    height   : auto;
   }
 }
 
@@ -250,7 +327,7 @@ $z-index         : maps.$z-index !default;
 //--------------------------------------------------------------//
 @mixin spacers($breakpoint: null, $enable: true) {
   @if ($enable) {
-    @each $prop, $prefix in (margin: m, padding: p) {
+    @each $prefix, $prop in ('m': margin, 'p': padding) {
       @each $num, $value in $spacers {
         .#{$breakpoint}#{$prefix}-#{$num} {
           #{$prop}: $value !important;
@@ -311,6 +388,7 @@ $z-index         : maps.$z-index !default;
       @each $name, $atr in $style-attribute {
         .#{$breakpoint}#{$name}-#{$color} {
           #{$atr}: $hex !important;
+          #{$atr}: var(--#{$color}) !important;
         }
       }
     }
@@ -320,15 +398,15 @@ $z-index         : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Theme Generator
 //--------------------------------------------------------------//
-@mixin themeVarGenerator($theme, $themeName: null) {
+@mixin themeVarGenerator($theme, $themeName: null, $element: body) {
   @if ($themeName) {
-    body[data-theme=#{$themeName}] {
+  #{$element}[data-theme=#{$themeName}] {
       @each $color, $hex in $theme {
         --#{$color}: #{$hex};
       }
     }
   } @else {
-    body {
+    #{$element} {
       @each $color, $hex in $theme {
         --#{$color}: #{$hex};
       }

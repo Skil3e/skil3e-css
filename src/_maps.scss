@@ -119,6 +119,10 @@ $positions       : (
         'absolute' : absolute,
         'sticky': sticky
 ) !default;
+$positions-values       : (
+        '0' : 0,
+        'auto': auto
+) !default;
 //--------------------------------------------------------------//
 // Spacers
 //--------------------------------------------------------------//

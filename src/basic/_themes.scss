@@ -3,9 +3,8 @@
 
 $themeLight : maps.$themeLight !default;
 $themeDark  : maps.$themeLight !default;
-$colors     : maps.$colors !default;
 
-@include mx.themeVarGenerator(map-merge($colors, $themeLight));
+@include mx.themeVarGenerator($themeLight);
 @include mx.themeVarGenerator($themeDark, "dark");
 
 body {
