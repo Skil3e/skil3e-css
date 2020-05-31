@@ -1,11 +1,10 @@
 @use "globals";
 //--------------------------------------------------------------//
-//  Align
+//  Align / Justify
 //  Borders
 //  Breakpoints
 //  Colors
 //  Display
-//  Justify
 //  Object Fit
 //  Positions
 //  Spacers
@@ -19,6 +18,7 @@
 //--------------------------------------------------------------//
 // Align
 //--------------------------------------------------------------//
+// Todo create unique maps for Align / Justify
 $align            : (
         'center' : center,
         'flex-start' : flex-start,
@@ -27,6 +27,18 @@ $align            : (
         'end' : end,
         'stretch' : stretch,
         'baseline': baseline,
+) !default;
+
+$justify          : (
+        'center' : center,
+        'flex-start' : flex-start,
+        'flex-end' : flex-end,
+        'start' : start,
+        'end' : end,
+        'stretch' : stretch,
+        'between' : space-between,
+        'around' : space-around,
+        'evenly': space-evenly
 ) !default;
 //--------------------------------------------------------------//
 // Borders
@@ -74,20 +86,6 @@ $display          : (
         'inline-flex' : inline-flex,
         'grid': grid,
         'inline-grid': inline-grid,
-) !default;
-//--------------------------------------------------------------//
-// Justify
-//--------------------------------------------------------------//
-$justify          : (
-        'center' : center,
-        'flex-start' : flex-start,
-        'flex-end' : flex-end,
-        'start' : start,
-        'end' : end,
-        'stretch' : stretch,
-        'between' : space-between,
-        'around' : space-around,
-        'evenly': space-evenly
 ) !default;
 //--------------------------------------------------------------//
 // Object Fit
