@@ -18,7 +18,6 @@ $breakpoints : maps.$breakpoints !default;
 @include mx.borders($enable : opt.$use__borders);
 @include mx.border-radius($enable : opt.$use__border-radius);
 @include mx.color-styles($enable : opt.$use__color-styles);
-@include mx.themeVarGenerator(maps.$colors, $element: ":root");
 @include mx.display($enable : opt.$use__display);
 @include mx.flex-direction($enable : opt.$use__flex-direction);
 @include mx.flex-fill($enable : opt.$use__flex-fill);

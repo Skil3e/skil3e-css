@@ -3,7 +3,7 @@
 //--------------------------------------------------------------//
 //  Align / Justify
 //  Borders
-//  Colors
+//  Colors Styles
 //  Display
 //  Flex Direction
 //  Flex Fill
@@ -14,7 +14,6 @@
 //  Position
 //  Screen Readers
 //  Spacers
-//  Theme Generator
 //  Typography
 //  Width
 //  Z Index
@@ -114,7 +113,8 @@ $z-index          : maps.$z-index !default;
           }
         } @else {
           .#{$breakpoint}#{$name}#{$num} {
-            #{$atr}: $value solid;
+            #{$atr}-width: $value;
+            #{$atr}-style: solid;
           }
         }
       }
@@ -382,35 +382,40 @@ $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Colors Styles
 //--------------------------------------------------------------//
-@mixin color-styles($breakpoint: null, $enable: true) {
+@mixin color-styles($breakpoint: null, $enable: true, $map: $colors, $createVars: true, $createClasses: true, $themeName: null, $element: ":root", $useFallback: false) {
   @if ($enable) {
-    @each $color, $hex in $colors {
-      @each $name, $atr in $style-attribute {
-        .#{$breakpoint}#{$name}-#{$color} {
-          #{$atr}: $hex !important;
-          #{$atr}: var(--#{$color}) !important;
+
+    @if ($createVars) {
+      @if ($themeName) {
+        #{$element}[data-theme=#{$themeName}] {
+          @each $color, $hex in $map {
+            --#{$color}: #{$hex};
+          }
+        }
+      } @else {
+        #{$element} {
+          @each $color, $hex in $map {
+            --#{$color}: #{$hex};
+          }
         }
       }
     }
-  }
-}
 
-//--------------------------------------------------------------//
-// Theme Generator
-//--------------------------------------------------------------//
-@mixin themeVarGenerator($theme, $themeName: null, $element: body) {
-  @if ($themeName) {
-  #{$element}[data-theme=#{$themeName}] {
-      @each $color, $hex in $theme {
-        --#{$color}: #{$hex};
+    @if ($createClasses) {
+      @each $color, $hex in $map {
+        @each $name, $atr in $style-attribute {
+          .#{$breakpoint}#{$name}-#{$color} {
+            @if ($useFallback) {
+              #{$atr}: $hex;
+            }
+            @if ($createVars) {
+              #{$atr}: var(--#{$color});
+            }
+          }
+        }
       }
     }
-  } @else {
-    #{$element} {
-      @each $color, $hex in $theme {
-        --#{$color}: #{$hex};
-      }
-    }
+
   }
 }
 

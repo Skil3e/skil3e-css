@@ -4,8 +4,8 @@
 $themeLight : maps.$themeLight !default;
 $themeDark  : maps.$themeLight !default;
 
-@include mx.themeVarGenerator($themeLight);
-@include mx.themeVarGenerator($themeDark, "dark");
+@include mx.color-styles($map: $themeLight, $element: body);
+@include mx.color-styles($map: $themeDark, $element: body, $themeName: dark, $createClasses: false);
 
 body {
   background-color : var(--body);

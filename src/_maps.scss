@@ -19,7 +19,7 @@
 //--------------------------------------------------------------//
 // Align
 //--------------------------------------------------------------//
-$align           : (
+$align            : (
         'center' : center,
         'flex-start' : flex-start,
         'flex-end' : flex-end,
@@ -31,7 +31,7 @@ $align           : (
 //--------------------------------------------------------------//
 // Borders
 //--------------------------------------------------------------//
-$borders         : (
+$borders          : (
         'brd' : border,
         'brd_t' : border-top,
         'brd_r' : border-right,
@@ -42,7 +42,7 @@ $borders         : (
 //--------------------------------------------------------------//
 // Breakpoints
 //--------------------------------------------------------------//
-$breakpoints     : (
+$breakpoints      : (
         'sm__': globals.$phone,
         'md__': globals.$tablet,
         'lg__': globals.$laptop,
@@ -51,7 +51,7 @@ $breakpoints     : (
 //--------------------------------------------------------------//
 // Colors
 //--------------------------------------------------------------//
-$colors          : (
+$colors           : (
         'primary' : globals.$primary,
         'danger' : globals.$danger,
         'success' : globals.$success,
@@ -61,7 +61,7 @@ $colors          : (
 //--------------------------------------------------------------//
 // Display
 //--------------------------------------------------------------//
-$display         : (
+$display          : (
         'none' : none,
         'block' : block,
         'inline' : inline,
@@ -78,27 +78,27 @@ $display         : (
 //--------------------------------------------------------------//
 // Justify
 //--------------------------------------------------------------//
-$justify         : (
+$justify          : (
         'center' : center,
         'flex-start' : flex-start,
         'flex-end' : flex-end,
         'start' : start,
         'end' : end,
-        'stretch': stretch,
-        'between': space-between,
+        'stretch' : stretch,
+        'between' : space-between,
         'around' : space-around,
 ) !default;
 //--------------------------------------------------------------//
 // Object Fit
 //--------------------------------------------------------------//
-$objectFit       : (
+$objectFit        : (
         'contain' : contain,
         'cover' : cover,
         'fill' : fill,
         'none' : none,
         'scale-down' : scale-down
 ) !default;
-$object-position : (
+$object-position  : (
         'center' : center,
         'top' : top,
         'bottom' : bottom,
@@ -112,21 +112,21 @@ $object-position : (
 //--------------------------------------------------------------//
 // Positions
 //--------------------------------------------------------------//
-$positions       : (
+$positions        : (
         'static' : static,
         'relative': relative,
         'fixed' : fixed,
         'absolute' : absolute,
         'sticky': sticky
 ) !default;
-$positions-values       : (
+$positions-values : (
         '0' : 0,
         'auto': auto
 ) !default;
 //--------------------------------------------------------------//
 // Spacers
 //--------------------------------------------------------------//
-$spacers         : (
+$spacers          : (
         '0' : 0,
   //'5' : 0.3125rem, // 5px
   //'10' : 0.625rem, // 10px
@@ -143,7 +143,7 @@ $spacers         : (
 //--------------------------------------------------------------//
 // Style Attribute
 //--------------------------------------------------------------//
-$style-attribute : (
+$style-attribute  : (
         'text' : color,
         'bg' : background,
         'fill' : fill,
@@ -152,7 +152,7 @@ $style-attribute : (
 //--------------------------------------------------------------//
 // Themes
 //--------------------------------------------------------------//
-$themeLight      : (
+$themeLight       : (
         'body' : globals.$gray-95,
         'bg' : globals.$gray-90,
         'bgDimmed' : globals.$gray-85,
@@ -162,7 +162,7 @@ $themeLight      : (
         'accent' : globals.$primary,
 ) !default;
 
-$themeDark       : (
+$themeDark        : (
         'body' : globals.$gray-5,
         'bg' : globals.$gray-10,
         'bgDimmed' : globals.$gray-15,
@@ -174,7 +174,7 @@ $themeDark       : (
 //--------------------------------------------------------------//
 // Typography
 //--------------------------------------------------------------//
-$font-sizes      : (
+$font-sizes       : (
         'small': globals.$small,
         'h6' : globals.$h6,
         'h5' : globals.$h5,
@@ -186,7 +186,7 @@ $font-sizes      : (
 //--------------------------------------------------------------//
 // Width
 //--------------------------------------------------------------//
-$width           : (
+$width            : (
         'w100' : 100%,
         'vw100' : 100vh,
         'w75' : 75%,
@@ -199,7 +199,7 @@ $width           : (
 //--------------------------------------------------------------//
 // Z-index
 //--------------------------------------------------------------//
-$z-index         : (
+$z-index          : (
         '1': 1000,
         '2': 2000,
         '3': 3000,

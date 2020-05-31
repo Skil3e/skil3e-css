@@ -9,21 +9,22 @@ $desktop             : 1200px !default;
 //-----------------------------------------------------------
 // Colors
 //-----------------------------------------------------------
-$black               : hsl(190, 10%, 0%) !default;
-$gray-5              : hsl(190, 10%, 5%) !default;
-$gray-10             : hsl(190, 10%, 10%) !default;
-$gray-15             : hsl(190, 10%, 15%) !default;
-$gray-20             : hsl(190, 10%, 20%) !default;
-$gray-30             : hsl(190, 10%, 30%) !default;
-$gray-40             : hsl(190, 10%, 40%) !default;
-$gray-50             : hsl(190, 10%, 50%) !default;
-$gray-60             : hsl(190, 10%, 60%) !default;
-$gray-70             : hsl(190, 10%, 70%) !default;
-$gray-80             : hsl(190, 10%, 80%) !default;
-$gray-85             : hsl(190, 11%, 85%) !default;
-$gray-90             : hsl(190, 10%, 90%) !default;
-$gray-95             : hsl(190, 10%, 95%) !default;
-$white               : hsl(190, 10%, 100%) !default;
+$gray-hue            : 220 !default;
+$black               : hsl($gray-hue, 10%, 0%) !default;
+$gray-5              : hsl($gray-hue, 10%, 5%) !default;
+$gray-10             : hsl($gray-hue, 10%, 10%) !default;
+$gray-15             : hsl($gray-hue, 10%, 15%) !default;
+$gray-20             : hsl($gray-hue, 10%, 20%) !default;
+$gray-30             : hsl($gray-hue, 10%, 30%) !default;
+$gray-40             : hsl($gray-hue, 10%, 40%) !default;
+$gray-50             : hsl($gray-hue, 10%, 50%) !default;
+$gray-60             : hsl($gray-hue, 10%, 60%) !default;
+$gray-70             : hsl($gray-hue, 10%, 70%) !default;
+$gray-80             : hsl($gray-hue, 10%, 80%) !default;
+$gray-85             : hsl($gray-hue, 11%, 85%) !default;
+$gray-90             : hsl($gray-hue, 10%, 90%) !default;
+$gray-95             : hsl($gray-hue, 10%, 95%) !default;
+$white               : hsl($gray-hue, 10%, 100%) !default;
 
 $primary             : hsl(190, 65%, 40%) !default;
 $secondary           : hsl(190, 30%, 50%) !default;
