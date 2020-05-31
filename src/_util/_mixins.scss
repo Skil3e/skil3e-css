@@ -61,7 +61,7 @@ $z-index          : maps.$z-index !default;
   @if ($enable) {
     @each $type, $value in $align {
       .#{$breakpoint}al_cnt-#{$type} {
-        align-items : $value;
+        align-content : $value;
       }
     }
   }
