@@ -91,10 +91,10 @@ $z-index          : maps.$z-index !default;
 
 @mixin justify-self($breakpoint: null, $enable: true) {
   @if ($enable) {
-    $justify : map-merge($align, ("auto": auto));
+    $justify : map-merge($justify, ("auto": auto, "self-start": self-start, "self-end": self-end,));
     @each $type, $value in map-remove($justify, "between", "around", "evenly") {
       .#{$breakpoint}jf_self-#{$type} {
-        align-self : $value;
+        justify-self : $value;
       }
     }
   }
@@ -113,8 +113,8 @@ $z-index          : maps.$z-index !default;
           }
         } @else {
           .#{$breakpoint}#{$name}#{$num} {
-            #{$atr}-width: $value;
-            #{$atr}-style: solid;
+            #{$atr}-width : $value;
+            #{$atr}-style : solid;
           }
         }
       }
