@@ -1,5 +1,6 @@
 @use "../maps";
 @use "../globals";
+@use "../options" as opt;
 //--------------------------------------------------------------//
 //  Align / Justify
 //  Borders
@@ -41,7 +42,7 @@ $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
 
 // Align Content
-@mixin align-content($breakpoint: null, $enable: true, $prefix: "al_cnt-") {
+@mixin align-content($breakpoint: null, $enable: true, $prefix: opt.$align-content__prefix) {
   @if ($enable) {
 	@each $type, $value in $align-content {
 	  .#{$breakpoint}#{$prefix}#{$type} {
@@ -55,7 +56,7 @@ $z-index          : maps.$z-index !default;
 }
 
 // Align Items
-@mixin align-items($breakpoint: null, $enable: true, $prefix: "al_it-") {
+@mixin align-items($breakpoint: null, $enable: true, $prefix : opt.$align-items__prefix) {
   @if ($enable) {
 	@each $type, $value in $align-item {
 	  .#{$breakpoint}#{$prefix}#{$type} {
@@ -69,7 +70,7 @@ $z-index          : maps.$z-index !default;
 }
 
 // Align Self
-@mixin align-self($breakpoint: null, $enable: true, $prefix: "al_self-") {
+@mixin align-self($breakpoint: null, $enable: true, $prefix : opt.$align-self__prefix) {
   @if ($enable) {
 	@each $type, $value in $align-self {
 	  .#{$breakpoint}#{$prefix}#{$type} {
@@ -83,7 +84,7 @@ $z-index          : maps.$z-index !default;
 }
 
 // Justify Content
-@mixin justify-content($breakpoint: null, $enable: true, $prefix: "jf_cnt-") {
+@mixin justify-content($breakpoint: null, $enable: true, $prefix : opt.$justify-content__prefix) {
   @if ($enable) {
 	@each $type, $value in $justify-content {
 	  .#{$breakpoint}#{$prefix}#{$type} {
@@ -97,7 +98,7 @@ $z-index          : maps.$z-index !default;
 }
 
 // Justify Items
-@mixin justify-items($breakpoint: null, $enable: true, $prefix: "jf_it-") {
+@mixin justify-items($breakpoint: null, $enable: true, $prefix : opt.$justify-items__prefix) {
   @if ($enable) {
 	@each $type, $value in $justify-item {
 	  .#{$breakpoint}#{$prefix}#{$type} {
@@ -111,7 +112,7 @@ $z-index          : maps.$z-index !default;
 }
 
 // Justify Self
-@mixin justify-self($breakpoint: null, $enable: true, $prefix: "jf_self-") {
+@mixin justify-self($breakpoint: null, $enable: true, $prefix : opt.$justify-self__prefix) {
   @if ($enable) {
 	@each $type, $value in $justify-self {
 	  .#{$breakpoint}#{$prefix}#{$type} {
@@ -127,7 +128,7 @@ $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Borders
 //--------------------------------------------------------------//
-@mixin borders($breakpoint: null, $enable: true, $prefix: "brd-") {
+@mixin borders($breakpoint: null, $enable: true, $prefix : opt.$borders__prefix) {
   @if ($enable) {
 	@each $num, $value in ("": 1px, "-2": 2px, "-3": 3px, "-4": 4px, "-5": 5px, "-0": 0) {
 	  @each $name, $atr in $borders {
@@ -146,7 +147,7 @@ $z-index          : maps.$z-index !default;
   }
 }
 
-@mixin border-radius($breakpoint: null, $enable: true, $prefix: "round") {
+@mixin border-radius($breakpoint: null, $enable: true, $prefix : opt.$border-radius__prefix) {
   @if ($enable) {
 	@each $num, $value in ("-xs": 0.1875rem, "-sm": .3125rem, "-md": .625rem, "-lg": .9375rem, "-circle": 1000rem, "": .25rem, '0' : 0) {
 	  .#{$breakpoint}#{$prefix}#{$num} {
@@ -199,7 +200,7 @@ $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Display
 //--------------------------------------------------------------//
-@mixin display($breakpoint: null, $enable: true, $prefix: null) {
+@mixin display($breakpoint: null, $enable: true, $prefix : opt.$display__prefix) {
   @if ($enable) {
 	@each $type, $value in $display {
 	  .#{$breakpoint}#{$prefix}#{$value} {
@@ -212,7 +213,7 @@ $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Flex Direction
 //--------------------------------------------------------------//
-@mixin flex-direction($breakpoint: null, $enable: true, $prefix: "flex-") {
+@mixin flex-direction($breakpoint: null, $enable: true, $prefix : opt.$flex-direction__prefix) {
   @if ($enable) {
 	@each $type, $value in (row: row, column: column, row-reverse: row-reverse, column-reverse: column-reverse) {
 	  .#{$breakpoint}#{$prefix}#{$type} {
@@ -225,7 +226,7 @@ $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Flex Fill
 //--------------------------------------------------------------//
-@mixin flex-fill($breakpoint: null, $enable: true, $prefix: "flex-") {
+@mixin flex-fill($breakpoint: null, $enable: true, $prefix : opt.$flex-fill__prefix) {
   @if ($enable) {
 	@each $type, $value in (fill: 1 1 auto) {
 	  .#{$breakpoint}#{$prefix}#{$type} {
@@ -238,7 +239,7 @@ $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Flex Grow
 //--------------------------------------------------------------//
-@mixin flex-grow($breakpoint: null, $enable: true, $prefix: "flex-") {
+@mixin flex-grow($breakpoint: null, $enable: true, $prefix : opt.$flex-grow__prefix) {
   @if ($enable) {
 	@each $type, $value in (grow-0: 0, grow: 1) {
 	  .#{$breakpoint}#{$prefix}#{$type} {
@@ -251,7 +252,7 @@ $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Flex Shrink
 //--------------------------------------------------------------//
-@mixin flex-shrink($breakpoint: null, $enable: true, $prefix: "flex-") {
+@mixin flex-shrink($breakpoint: null, $enable: true, $prefix : opt.$flex-shrink__prefix) {
   @if ($enable) {
 	@each $type, $value in (shrink-0: 0, shrink: 1) {
 	  .#{$breakpoint}#{$prefix}#{$type} {
@@ -264,7 +265,7 @@ $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Flex Wrap
 //--------------------------------------------------------------//
-@mixin flex-wrap($breakpoint: null, $enable: true, $prefix: "flex-") {
+@mixin flex-wrap($breakpoint: null, $enable: true, $prefix : opt.$flex-wrap__prefix) {
   @if ($enable) {
 	@each $type, $value in (wrap: wrap, nowrap: nowrap, wrap-reverse: wrap-reverse) {
 	  .#{$breakpoint}#{$prefix}#{$type} {
@@ -278,7 +279,7 @@ $z-index          : maps.$z-index !default;
 // Object
 //--------------------------------------------------------------//
 
-@mixin object-fit($breakpoint: null, $enable: true, $prefix: "obj-") {
+@mixin object-fit($breakpoint: null, $enable: true, $prefix : opt.$object-fit__prefix) {
   @if ($enable) {
 	@each $type, $value in $objectFit {
 	  .#{$breakpoint}#{$prefix}#{$type} {
@@ -288,7 +289,7 @@ $z-index          : maps.$z-index !default;
   }
 }
 
-@mixin object-position($breakpoint: null, $enable: true, $prefix: "obj-" ) {
+@mixin object-position($breakpoint: null, $enable: true, $prefix : opt.$object-position__prefix) {
   @if ($enable) {
 	@each $type, $value in $object-position {
 	  .#{$breakpoint}#{$prefix}#{$type} {
@@ -456,7 +457,7 @@ $z-index          : maps.$z-index !default;
   }
 }
 
-@mixin fontWeights($breakpoint: null, $enable: true, $prefix: "font-") {
+@mixin fontWeights($breakpoint: null, $enable: true, $prefix : opt.$fontWeights__prefix) {
   @if ($enable) {
 	@each $type, $value in ("light": 300, "regular": 500, "medium": 700, "bold": 700, "black": 900) {
 	  .#{$breakpoint}#{$prefix}#{$type} {
@@ -466,7 +467,7 @@ $z-index          : maps.$z-index !default;
   }
 }
 
-@mixin text-align($breakpoint: null, $enable: true, $prefix: "text-") {
+@mixin text-align($breakpoint: null, $enable: true, $prefix : opt.$text-align__prefix) {
   @if ($enable) {
 	@each $type, $value in (left: left, right: right, center: center) {
 	  .#{$breakpoint}#{$prefix}#{$value} {
@@ -492,7 +493,7 @@ $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
 // Z Index
 //--------------------------------------------------------------//
-@mixin zIndex($breakpoint: null, $enable: true, $prefix: "z") {
+@mixin zIndex($breakpoint: null, $enable: true, $prefix : opt.$zIndex__prefix) {
   @if ($enable) {
 	@each $name, $index in $z-index {
 	  .#{$breakpoint}#{$prefix}#{$name} {

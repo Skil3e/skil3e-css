@@ -11,70 +11,54 @@ $breakpoints : maps.$breakpoints !default;
 
 @include mx.align-content(
 	$enable : opt.$use__align-content,
-	$prefix: opt.$align-content__prefix
 );
 @include mx.align-items(
 	$enable : opt.$use__align-items,
-	$prefix: opt.$align-items__prefix
 );
 @include mx.align-self(
 	$enable : opt.$use__align-self,
-	$prefix: opt.$align-self__prefix
 );
 @include mx.justify-content(
 	$enable : opt.$use__justify-content,
-	$prefix: opt.$justify-content__prefix
 );
 @include mx.justify-items(
 	$enable : opt.$use__justify-items,
-	$prefix: opt.$justify-items__prefix
 );
 @include mx.justify-self(
 	$enable : opt.$use__justify-self,
-	$prefix: opt.$justify-self__prefix
 );
 @include mx.borders(
 	$enable : opt.$use__borders,
-	$prefix: opt.$borders__prefix
 );
 @include mx.border-radius(
 	$enable : opt.$use__border-radius,
-	$prefix: opt.$border-radius__prefix
 );
 @include mx.color-styles(
 	$enable : opt.$use__color-styles
 );
 @include mx.display(
 	$enable : opt.$use__display,
-	$prefix: opt.$display__prefix
 );
 @include mx.flex-direction(
 	$enable : opt.$use__flex-direction,
-	$prefix: opt.$flex-direction__prefix
 );
 @include mx.flex-fill(
 	$enable : opt.$use__flex-fill,
-	$prefix: opt.$flex-fill__prefix
 );
 @include mx.flex-grow(
 	$enable : opt.$use__flex-grow,
-	$prefix: opt.$flex-grow__prefix
 );
 @include mx.flex-shrink(
 	$enable : opt.$use__flex-shrink,
-	$prefix: opt.$flex-shrink__prefix
 );
 @include mx.flex-wrap(
 	$enable : opt.$use__flex-wrap,
-	$prefix: opt.$flex-wrap__prefix
 );
 @include mx.object-fit(
 	$enable : opt.$use__object-fit,
-	$prefix: opt.$object-fit__prefix
 );
 @include mx.object-position(
 	$enable : opt.$use__object-position,
-	$prefix: opt.$object-position__prefix
 );
 @include mx.position(
 	$enable : opt.$use__position
@@ -96,129 +80,99 @@ $breakpoints : maps.$breakpoints !default;
 );
 @include mx.fontWeights(
 	$enable : opt.$use__fontWeights,
-	$prefix: opt.$fontWeights__prefix
 );
 @include mx.text-align(
 	$enable : opt.$use__text-align,
-	$prefix: opt.$text-align__prefix
 );
 @include mx.width(
 	$enable : opt.$use__width
 );
 @include mx.zIndex(
 	$enable : opt.$use__zIndex,
-	$prefix: opt.$zIndex__prefix
 );
 
 @each $name, $size in $breakpoints {
   @media (min-width : $size) {
-	@include mx.align-items($name,
-	$enable : opt.$use__align-items
-	and opt.$align-items__use-breakpoints
-	);
-	@include mx.justify-items($name,
-	$enable : opt.$use__justify-items
-	and opt.$justify-items__use-breakpoints
-	);
 	@include mx.align-content($name,
-	$enable : opt.$use__align-content
-	and opt.$align-content__use-breakpoints
+	$enable : opt.$use__align-content and opt.$align-content__use-breakpoints,
 	);
-	@include mx.justify-content($name,
-	$enable : opt.$use__justify-content
-	and opt.$justify-content__use-breakpoints
+	@include mx.align-items($name,
+	$enable : opt.$use__align-items and opt.$align-items__use-breakpoints,
 	);
 	@include mx.align-self($name,
-	$enable : opt.$use__align-self
-	and opt.$align-self__use-breakpoints
+	$enable : opt.$use__align-self and opt.$align-self__use-breakpoints,
+	);
+	@include mx.justify-content($name,
+	$enable : opt.$use__justify-content	and opt.$justify-content__use-breakpoints,
+	);
+	@include mx.justify-items($name,
+	$enable : opt.$use__justify-items and opt.$justify-items__use-breakpoints,
 	);
 	@include mx.justify-self($name,
-	$enable : opt.$use__justify-self
-	and opt.$justify-self__use-breakpoints
+	$enable : opt.$use__justify-self and opt.$justify-self__use-breakpoints,
 	);
 	@include mx.borders($name,
-	$enable : opt.$use__borders
-	and opt.$borders__use-breakpoints
+	$enable : opt.$use__borders	and opt.$borders__use-breakpoints,
 	);
 	@include mx.border-radius($name,
-	$enable : opt.$use__border-radius
-	and opt.$border-radius__use-breakpoints
+	$enable : opt.$use__border-radius and opt.$border-radius__use-breakpoints,
 	);
 	@include mx.color-styles($name,
-	$enable : opt.$use__color-styles
-	and opt.$color-styles__use-breakpoints
+	$enable : opt.$use__color-styles and opt.$color-styles__use-breakpoints
 	);
 	@include mx.display($name,
-	$enable : opt.$use__display
-	and opt.$display__use-breakpoints
+	$enable : opt.$use__display	and opt.$display__use-breakpoints,
 	);
 	@include mx.flex-direction($name,
-	$enable : opt.$use__flex-direction
-	and opt.$flex-direction__use-breakpoints
+	$enable : opt.$use__flex-direction and opt.$flex-direction__use-breakpoints,
 	);
 	@include mx.flex-fill($name,
-	$enable : opt.$use__flex-fill
-	and opt.$flex-fill__use-breakpoints
+	$enable : opt.$use__flex-fill and opt.$flex-fill__use-breakpoints,
 	);
 	@include mx.flex-grow($name,
-	$enable : opt.$use__flex-grow
-	and opt.$flex-grow__use-breakpoints
+	$enable : opt.$use__flex-grow and opt.$flex-grow__use-breakpoints,
 	);
 	@include mx.flex-shrink($name,
-	$enable : opt.$use__flex-shrink
-	and opt.$flex-shrink__use-breakpoints
+	$enable : opt.$use__flex-shrink	and opt.$flex-shrink__use-breakpoints,
 	);
 	@include mx.flex-wrap($name,
-	$enable : opt.$use__flex-wrap
-	and opt.$flex-wrap__use-breakpoints
+	$enable : opt.$use__flex-wrap and opt.$flex-wrap__use-breakpoints,
 	);
 	@include mx.object-fit($name,
-	$enable : opt.$use__object-fit
-	and opt.$object-fit__use-breakpoints
+	$enable : opt.$use__object-fit and opt.$object-fit__use-breakpoints,
 	);
 	@include mx.object-position($name,
-	$enable : opt.$use__object-position
-	and opt.$object-position__use-breakpoints
+	$enable : opt.$use__object-position	and opt.$object-position__use-breakpoints,
 	);
 	@include mx.position($name,
-	$enable : opt.$use__position
-	and opt.$position__use-breakpoints
+	$enable : opt.$use__position and opt.$position__use-breakpoints
 	);
 	@include mx.pos-placement($name,
-	$enable : opt.$use__pos-placement
-	and opt.$pos-placement__use-breakpoints
+	$enable : opt.$use__pos-placement and opt.$pos-placement__use-breakpoints
 	);
 	@include mx.screen-readers($name,
-	$enable : opt.$use__screen-readers
-	and opt.$screen-readers__use-breakpoints
+	$enable : opt.$use__screen-readers and opt.$screen-readers__use-breakpoints
 	);
 	@include mx.spacers($name,
-	$enable : opt.$use__spacers
-	and opt.$spacers__use-breakpoints
+	$enable : opt.$use__spacers and opt.$spacers__use-breakpoints
 	);
 	@include mx.margin-auto($name,
-	$enable : opt.$use__spacers
-	and opt.$spacers__use-breakpoints
+	$enable : opt.$use__spacers and opt.$spacers__use-breakpoints
 	);
 	@include mx.fontSizes($name,
-	$enable : opt.$use__fontSizes
-	and opt.$fontSizes__use-breakpoints
+	$enable : opt.$use__fontSizes and opt.$fontSizes__use-breakpoints
 	);
 	@include mx.fontWeights($name,
-	$enable : opt.$use__fontWeights
-	and opt.$fontWeights__use-breakpoints
+	$enable : opt.$use__fontWeights and opt.$fontWeights__use-breakpoints,
 	);
 	@include mx.text-align($name,
-	$enable : opt.$use__text-align
-	and opt.$text-align__use-breakpoints
+	$enable : opt.$use__text-align and opt.$text-align__use-breakpoints,
 	);
 	@include mx.width($name,
-	$enable : opt.$use__width
-	and opt.$width__use-breakpoints
+	$enable : opt.$use__width and opt.$width__use-breakpoints
 	);
 	@include mx.zIndex($name,
-	$enable : opt.$use__zIndex
-	and opt.$zIndex__use-breakpoints
+	$enable : opt.$use__zIndex and opt.$zIndex__use-breakpoints,
 	);
   }
 }
