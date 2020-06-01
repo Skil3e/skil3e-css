@@ -93,86 +93,113 @@ $breakpoints : maps.$breakpoints !default;
 
 @each $name, $size in $breakpoints {
   @media (min-width : $size) {
-	@include mx.align-content($name,
-	$enable : opt.$use__align-content and opt.$align-content__use-breakpoints,
+	@include mx.align-content(
+		$breakpoint : $name,
+		$enable     : opt.$use__align-content and opt.$align-content__use-breakpoints,
 	);
-	@include mx.align-items($name,
-	$enable : opt.$use__align-items and opt.$align-items__use-breakpoints,
+	@include mx.align-items(
+		$breakpoint : $name,
+		$enable     : opt.$use__align-items and opt.$align-items__use-breakpoints,
 	);
-	@include mx.align-self($name,
-	$enable : opt.$use__align-self and opt.$align-self__use-breakpoints,
+	@include mx.align-self(
+		$breakpoint : $name,
+		$enable     : opt.$use__align-self and opt.$align-self__use-breakpoints,
 	);
-	@include mx.justify-content($name,
-	$enable : opt.$use__justify-content	and opt.$justify-content__use-breakpoints,
+	@include mx.justify-content(
+		$breakpoint : $name,
+		$enable     : opt.$use__justify-content	and opt.$justify-content__use-breakpoints,
 	);
-	@include mx.justify-items($name,
-	$enable : opt.$use__justify-items and opt.$justify-items__use-breakpoints,
+	@include mx.justify-items(
+		$breakpoint : $name,
+		$enable     : opt.$use__justify-items and opt.$justify-items__use-breakpoints,
 	);
-	@include mx.justify-self($name,
-	$enable : opt.$use__justify-self and opt.$justify-self__use-breakpoints,
+	@include mx.justify-self(
+		$breakpoint : $name,
+		$enable     : opt.$use__justify-self and opt.$justify-self__use-breakpoints,
 	);
-	@include mx.borders($name,
-	$enable : opt.$use__borders	and opt.$borders__use-breakpoints,
+	@include mx.borders(
+		$breakpoint : $name,
+		$enable     : opt.$use__borders	and opt.$borders__use-breakpoints,
 	);
-	@include mx.border-radius($name,
-	$enable : opt.$use__border-radius and opt.$border-radius__use-breakpoints,
+	@include mx.border-radius(
+		$breakpoint : $name,
+		$enable     : opt.$use__border-radius and opt.$border-radius__use-breakpoints,
 	);
-	@include mx.color-styles($name,
-	$enable : opt.$use__color-styles and opt.$color-styles__use-breakpoints
+	@include mx.color-styles(
+		$breakpoint : $name,
+		$enable     : opt.$use__color-styles and opt.$color-styles__use-breakpoints
 	);
-	@include mx.display($name,
-	$enable : opt.$use__display	and opt.$display__use-breakpoints,
+	@include mx.display(
+		$breakpoint : $name,
+		$enable     : opt.$use__display	and opt.$display__use-breakpoints,
 	);
-	@include mx.flex-direction($name,
-	$enable : opt.$use__flex-direction and opt.$flex-direction__use-breakpoints,
+	@include mx.flex-direction(
+		$breakpoint : $name,
+		$enable     : opt.$use__flex-direction and opt.$flex-direction__use-breakpoints,
 	);
-	@include mx.flex-fill($name,
-	$enable : opt.$use__flex-fill and opt.$flex-fill__use-breakpoints,
+	@include mx.flex-fill(
+		$breakpoint : $name,
+		$enable     : opt.$use__flex-fill and opt.$flex-fill__use-breakpoints,
 	);
-	@include mx.flex-grow($name,
-	$enable : opt.$use__flex-grow and opt.$flex-grow__use-breakpoints,
+	@include mx.flex-grow(
+		$breakpoint : $name,
+		$enable     : opt.$use__flex-grow and opt.$flex-grow__use-breakpoints,
 	);
-	@include mx.flex-shrink($name,
-	$enable : opt.$use__flex-shrink	and opt.$flex-shrink__use-breakpoints,
+	@include mx.flex-shrink(
+		$breakpoint : $name,
+		$enable     : opt.$use__flex-shrink	and opt.$flex-shrink__use-breakpoints,
 	);
-	@include mx.flex-wrap($name,
-	$enable : opt.$use__flex-wrap and opt.$flex-wrap__use-breakpoints,
+	@include mx.flex-wrap(
+		$breakpoint : $name,
+		$enable     : opt.$use__flex-wrap and opt.$flex-wrap__use-breakpoints,
 	);
-	@include mx.object-fit($name,
-	$enable : opt.$use__object-fit and opt.$object-fit__use-breakpoints,
+	@include mx.object-fit(
+		$breakpoint : $name,
+		$enable     : opt.$use__object-fit and opt.$object-fit__use-breakpoints,
 	);
-	@include mx.object-position($name,
-	$enable : opt.$use__object-position	and opt.$object-position__use-breakpoints,
+	@include mx.object-position(
+		$breakpoint : $name,
+		$enable     : opt.$use__object-position	and opt.$object-position__use-breakpoints,
 	);
-	@include mx.position($name,
-	$enable : opt.$use__position and opt.$position__use-breakpoints
+	@include mx.position(
+		$breakpoint : $name,
+		$enable     : opt.$use__position and opt.$position__use-breakpoints
 	);
-	@include mx.pos-placement($name,
-	$enable : opt.$use__pos-placement and opt.$pos-placement__use-breakpoints
+	@include mx.pos-placement(
+		$breakpoint : $name,
+		$enable     : opt.$use__pos-placement and opt.$pos-placement__use-breakpoints
 	);
-	@include mx.screen-readers($name,
-	$enable : opt.$use__screen-readers and opt.$screen-readers__use-breakpoints
+	@include mx.screen-readers(
+		$breakpoint : $name,
+		$enable     : opt.$use__screen-readers and opt.$screen-readers__use-breakpoints
 	);
-	@include mx.spacers($name,
-	$enable : opt.$use__spacers and opt.$spacers__use-breakpoints
+	@include mx.spacers(
+		$breakpoint : $name,
+		$enable     : opt.$use__spacers and opt.$spacers__use-breakpoints
 	);
-	@include mx.margin-auto($name,
-	$enable : opt.$use__spacers and opt.$spacers__use-breakpoints
+	@include mx.margin-auto(
+		$breakpoint : $name,
+		$enable     : opt.$use__spacers and opt.$spacers__use-breakpoints
 	);
-	@include mx.fontSizes($name,
-	$enable : opt.$use__fontSizes and opt.$fontSizes__use-breakpoints
+	@include mx.fontSizes(
+		$breakpoint : $name,
+		$enable     : opt.$use__fontSizes and opt.$fontSizes__use-breakpoints
 	);
-	@include mx.fontWeights($name,
-	$enable : opt.$use__fontWeights and opt.$fontWeights__use-breakpoints,
+	@include mx.fontWeights(
+		$breakpoint : $name,
+		$enable     : opt.$use__fontWeights and opt.$fontWeights__use-breakpoints,
 	);
-	@include mx.text-align($name,
-	$enable : opt.$use__text-align and opt.$text-align__use-breakpoints,
+	@include mx.text-align(
+		$breakpoint : $name,
+		$enable     : opt.$use__text-align and opt.$text-align__use-breakpoints,
 	);
-	@include mx.width($name,
-	$enable : opt.$use__width and opt.$width__use-breakpoints
+	@include mx.width(
+		$breakpoint : $name,
+		$enable     : opt.$use__width and opt.$width__use-breakpoints
 	);
-	@include mx.zIndex($name,
-	$enable : opt.$use__zIndex and opt.$zIndex__use-breakpoints,
+	@include mx.zIndex(
+		$breakpoint : $name,
+		$enable     : opt.$use__zIndex and opt.$zIndex__use-breakpoints,
 	);
   }
 }

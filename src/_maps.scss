@@ -66,10 +66,10 @@ $justify-self     : (
 //--------------------------------------------------------------//
 $borders          : (
 	'' : border,
-	'top' : border-top,
-	'right' : border-right,
-	'bottom' : border-bottom,
-	'left' : border-left,
+	'-top' : border-top,
+	'-right' : border-right,
+	'-bottom' : border-bottom,
+	'-left' : border-left,
 ) !default;
 
 //--------------------------------------------------------------//
