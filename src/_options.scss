@@ -1,56 +1,72 @@
 //--------------------------------------------------------------//
 // Utilities Options
 //--------------------------------------------------------------//
-$use__align-items                 : true !default;
-$align-items__use-breakpoints     : true !default;
-
-$use__justify-items               : true !default;
-$justify-items__use-breakpoints   : true !default;
-
 $use__align-content               : true !default;
 $align-content__use-breakpoints   : true !default;
+$align-content__prefix            : "al_cnt-" !default;
 
-$use__justify-content             : true !default;
-$justify-content__use-breakpoints : true !default;
+$use__align-items                 : true !default;
+$align-items__use-breakpoints     : true !default;
+$align-items__prefix              : "al_it-" !default;
 
 $use__align-self                  : true !default;
 $align-self__use-breakpoints      : true !default;
+$align-self__prefix               : "al_self-" !default;
+
+$use__justify-content             : true !default;
+$justify-content__use-breakpoints : true !default;
+$justify-content__prefix          : "jf_cnt-" !default;
+
+$use__justify-items               : true !default;
+$justify-items__use-breakpoints   : true !default;
+$justify-items__prefix            : "jf_it-" !default;
 
 $use__justify-self                : true !default;
 $justify-self__use-breakpoints    : true !default;
+$justify-self__prefix             : "jf_self-" !default;
 
 $use__borders                     : true !default;
 $borders__use-breakpoints         : false !default;
+$borders__prefix                  : "brd-" !default;
 
 $use__border-radius               : true !default;
 $border-radius__use-breakpoints   : false !default;
+$border-radius__prefix            : "round" !default;
 
 $use__color-styles                : true !default;
 $color-styles__use-breakpoints    : false !default;
 
 $use__display                     : true !default;
 $display__use-breakpoints         : true !default;
+$display__prefix                  : null !default;
 
 $use__flex-direction              : true !default;
 $flex-direction__use-breakpoints  : true !default;
+$flex-direction__prefix           : "flex-" !default;
 
 $use__flex-fill                   : true !default;
 $flex-fill__use-breakpoints       : true !default;
+$flex-fill__prefix                : "flex-" !default;
 
 $use__flex-grow                   : true !default;
 $flex-grow__use-breakpoints       : true !default;
+$flex-grow__prefix                : "flex-" !default;
 
 $use__flex-shrink                 : true !default;
 $flex-shrink__use-breakpoints     : true !default;
+$flex-shrink__prefix              : "flex-" !default;
 
 $use__flex-wrap                   : true !default;
 $flex-wrap__use-breakpoints       : true !default;
+$flex-wrap__prefix                : "flex-" !default;
 
 $use__object-fit                  : true !default;
 $object-fit__use-breakpoints      : true !default;
+$object-fit__prefix               : "obj-" !default;
 
 $use__object-position             : true !default;
 $object-position__use-breakpoints : true !default;
+$object-position__prefix          : "obj-" !default;
 
 $use__position                    : true !default;
 $position__use-breakpoints        : true !default;
@@ -69,12 +85,15 @@ $fontSizes__use-breakpoints       : true !default;
 
 $use__fontWeights                 : true !default;
 $fontWeights__use-breakpoints     : true !default;
+$fontWeights__prefix              : "font-" !default;
 
 $use__text-align                  : true !default;
 $text-align__use-breakpoints      : true !default;
+$text-align__prefix               : "text-" !default;
 
 $use__width                       : true !default;
 $width__use-breakpoints           : true !default;
 
 $use__zIndex                      : true !default;
 $zIndex__use-breakpoints          : false !default;
+$zIndex__prefix                   : "z" !default;
