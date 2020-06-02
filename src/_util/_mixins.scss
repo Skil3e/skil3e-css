@@ -215,6 +215,7 @@ $z-index          : maps.$z-index !default;
   @if ($enable) {
     @each $type, $value in (row: row, column: column, row-reverse: row-reverse, column-reverse: column-reverse) {
       .#{$breakpoint}#{$prefix}#{$type} {
+        display: flex;
         flex-direction : $value;
       }
     }
@@ -228,6 +229,7 @@ $z-index          : maps.$z-index !default;
   @if ($enable) {
     @each $type, $value in (fill: 1 1 auto) {
       .#{$breakpoint}#{$prefix}#{$type} {
+        display: flex;
         flex : $value;
       }
     }
@@ -241,6 +243,7 @@ $z-index          : maps.$z-index !default;
   @if ($enable) {
     @each $type, $value in (grow-0: 0, grow: 1) {
       .#{$breakpoint}#{$prefix}#{$type} {
+        display: flex;
         flex-grow : $value;
       }
     }
@@ -254,6 +257,7 @@ $z-index          : maps.$z-index !default;
   @if ($enable) {
     @each $type, $value in (shrink-0: 0, shrink: 1) {
       .#{$breakpoint}#{$prefix}#{$type} {
+        display: flex;
         flex-shrink : $value;
       }
     }
@@ -267,6 +271,7 @@ $z-index          : maps.$z-index !default;
   @if ($enable) {
     @each $type, $value in (wrap: wrap, nowrap: nowrap, wrap-reverse: wrap-reverse) {
       .#{$breakpoint}#{$prefix}#{$type} {
+        display: flex;
         flex-wrap : $value;
       }
     }
@@ -277,18 +282,17 @@ $z-index          : maps.$z-index !default;
 // Grid
 //--------------------------------------------------------------//
 
-@mixin grid($breakpoint: null, $enable: true, $prefix: opt.$grid-columns__prefix) {
+@mixin grid($breakpoint: null, $enable: true, $prefix: opt.$flex-grid-columns__prefix) {
   @if ($enable) {
     @for $i from 1 through $grid-columns {
-      .#{$breakpoint}#{$prefix} {$i}
-    {
-      flex : 0 0 100% / $grid-columns  * $i
-    }
+      .#{$breakpoint}#{$prefix}#{$i} {
+        flex : 0 0 100% / $grid-columns  * $i
+      }
     }
   }
 }
 
-@mixin grid-offset($breakpoint: null, $enable: true, $prefix: opt.$grid-offset__prefix) {
+@mixin grid-offset($breakpoint: null, $enable: true, $prefix: opt.$flex-grid-offset__prefix) {
   @if ($enable) {
     @for $i from 0 through ($grid-columns - 1) {
       .#{$breakpoint}#{$prefix}#{$i} {

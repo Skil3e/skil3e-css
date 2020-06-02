@@ -60,10 +60,10 @@ $breakpoints : maps.$breakpoints !default;
         $enable : opt.$enable__flex-wrap
 );
 @include mx.grid(
-        $enable     : opt.$enable__grid
+        $enable     : opt.$enable__flex-grid
 );
 @include mx.grid-offset(
-        $enable     : opt.$enable__grid-offset
+        $enable     : opt.$enable__flex-grid-offset
 );
 @include mx.object-fit(
         $enable : opt.$enable__object-fit
@@ -166,11 +166,11 @@ $breakpoints : maps.$breakpoints !default;
     );
     @include mx.grid(
             $breakpoint : $name,
-            $enable     : opt.$enable__grid and opt.$grid__use-breakpoints
+            $enable     : opt.$enable__flex-grid and opt.$flex-grid__use-breakpoints
     );
     @include mx.grid-offset(
             $breakpoint : $name,
-            $enable     : opt.$enable__grid-offset and opt.$grid-offset__use-breakpoints
+            $enable     : opt.$enable__flex-grid-offset and opt.$flex-grid-offset__use-breakpoints
     );
     @include mx.object-fit(
             $breakpoint : $name,
