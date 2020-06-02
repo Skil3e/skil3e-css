@@ -60,6 +60,14 @@ $enable__flex-wrap                : true !default;
 $flex-wrap__use-breakpoints       : true !default;
 $flex-wrap__prefix                : "flex-" !default;
 
+$enable__grid                     : true !default;
+$grid__use-breakpoints            : true !default;
+$grid-columns__prefix             : "col__" !default;
+
+$enable__grid-offset              : true !default;
+$grid-offset__use-breakpoints     : true !default;
+$grid-offset__prefix              : "col--offset__" !default;
+
 $enable__object-fit               : true !default;
 $object-fit__use-breakpoints      : true !default;
 $object-fit__prefix               : "obj-" !default;
