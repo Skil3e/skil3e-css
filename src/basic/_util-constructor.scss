@@ -8,6 +8,11 @@ $breakpoints : maps.$breakpoints !default;
   @extend .flex;
   @extend .al_it-center;
 }
+.flex-center-middle {
+  @extend .flex;
+  @extend .al_it-center;
+  @extend .jf_cnt-center;
+}
 
 @include mx.align-content(
         $enable : opt.$enable__align-content,
