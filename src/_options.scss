@@ -1,107 +1,111 @@
 //--------------------------------------------------------------//
 // Utilities Options
 //--------------------------------------------------------------//
-$enable__align-content            : true !default;
-$align-content__use-breakpoints   : true !default;
-$align-content__prefix            : "al_cnt-" !default;
+$enable__align-content               : true !default;
+$align-content__use-breakpoints      : true !default;
+$align-content__prefix               : "al_cnt-" !default;
 
-$enable__align-items              : true !default;
-$align-items__use-breakpoints     : true !default;
-$align-items__prefix              : "al_it-" !default;
+$enable__align-items                 : true !default;
+$align-items__use-breakpoints        : true !default;
+$align-items__prefix                 : "al_it-" !default;
 
-$enable__align-self               : true !default;
-$align-self__use-breakpoints      : true !default;
-$align-self__prefix               : "al_self-" !default;
+$enable__align-self                  : true !default;
+$align-self__use-breakpoints         : true !default;
+$align-self__prefix                  : "al_self-" !default;
 
-$enable__justify-content          : true !default;
-$justify-content__use-breakpoints : true !default;
-$justify-content__prefix          : "jf_cnt-" !default;
+$enable__justify-content             : true !default;
+$justify-content__use-breakpoints    : true !default;
+$justify-content__prefix             : "jf_cnt-" !default;
 
-$enable__justify-items            : true !default;
-$justify-items__use-breakpoints   : true !default;
-$justify-items__prefix            : "jf_it-" !default;
+$enable__justify-items               : true !default;
+$justify-items__use-breakpoints      : true !default;
+$justify-items__prefix               : "jf_it-" !default;
 
-$enable__justify-self             : true !default;
-$justify-self__use-breakpoints    : true !default;
-$justify-self__prefix             : "jf_self-" !default;
+$enable__justify-self                : true !default;
+$justify-self__use-breakpoints       : true !default;
+$justify-self__prefix                : "jf_self-" !default;
 
-$enable__borders                  : true !default;
-$borders__use-breakpoints         : false !default;
-$borders__prefix                  : "brd" !default;
+$enable__borders                     : true !default;
+$borders__use-breakpoints            : false !default;
+$borders__prefix                     : "brd" !default;
 
-$enable__border-radius            : true !default;
-$border-radius__use-breakpoints   : false !default;
-$border-radius__prefix            : "round" !default;
+$enable__border-radius               : true !default;
+$border-radius__use-breakpoints      : false !default;
+$border-radius__prefix               : "round" !default;
 
-$enable__color-styles             : true !default;
-$color-styles__use-breakpoints    : false !default;
+$enable__color-styles                : true !default;
+$color-styles__use-breakpoints       : false !default;
 
-$enable__display                  : true !default;
-$display__use-breakpoints         : true !default;
-$display__prefix                  : null !default;
+$enable__cursor                      : true !default;
+$cursor__use-breakpoints             : false !default;
+$cursor__prefix                      : "cursor-" !default;
 
-$enable__flex-direction           : true !default;
-$flex-direction__use-breakpoints  : true !default;
-$flex-direction__prefix           : "flex-" !default;
+$enable__display                     : true !default;
+$display__use-breakpoints            : true !default;
+$display__prefix                     : null !default;
 
-$enable__flex-fill                : true !default;
-$flex-fill__use-breakpoints       : true !default;
-$flex-fill__prefix                : "flex-" !default;
+$enable__flex-direction              : true !default;
+$flex-direction__use-breakpoints     : true !default;
+$flex-direction__prefix              : "flex-" !default;
 
-$enable__flex-grow                : true !default;
-$flex-grow__use-breakpoints       : true !default;
-$flex-grow__prefix                : "flex-" !default;
+$enable__flex-fill                   : true !default;
+$flex-fill__use-breakpoints          : true !default;
+$flex-fill__prefix                   : "flex-" !default;
 
-$enable__flex-shrink              : true !default;
-$flex-shrink__use-breakpoints     : true !default;
-$flex-shrink__prefix              : "flex-" !default;
+$enable__flex-grow                   : true !default;
+$flex-grow__use-breakpoints          : true !default;
+$flex-grow__prefix                   : "flex-" !default;
 
-$enable__flex-wrap                : true !default;
-$flex-wrap__use-breakpoints       : true !default;
-$flex-wrap__prefix                : "flex-" !default;
+$enable__flex-shrink                 : true !default;
+$flex-shrink__use-breakpoints        : true !default;
+$flex-shrink__prefix                 : "flex-" !default;
 
-$enable__flex-grid                     : true !default;
-$flex-grid__use-breakpoints            : true !default;
-$flex-grid-columns__prefix             : "col__" !default;
+$enable__flex-wrap                   : true !default;
+$flex-wrap__use-breakpoints          : true !default;
+$flex-wrap__prefix                   : "flex-" !default;
 
-$enable__flex-grid-offset              : true !default;
-$flex-grid-offset__use-breakpoints     : true !default;
-$flex-grid-offset__prefix              : "col--offset__" !default;
+$enable__flex-grid                   : true !default;
+$flex-grid__use-breakpoints          : true !default;
+$flex-grid__prefix                   : "col__" !default;
 
-$enable__object-fit               : true !default;
-$object-fit__use-breakpoints      : true !default;
-$object-fit__prefix               : "obj-" !default;
+$enable__flex-grid-offset            : true !default;
+$flex-grid-offset__use-breakpoints   : true !default;
+$flex-grid-offset__prefix            : "col--offset__" !default;
 
-$enable__object-position          : true !default;
-$object-position__use-breakpoints : true !default;
-$object-position__prefix          : "obj-" !default;
+$enable__object-fit                  : true !default;
+$object-fit__use-breakpoints         : true !default;
+$object-fit__prefix                  : "obj-" !default;
 
-$enable__position                 : true !default;
-$position__use-breakpoints        : true !default;
+$enable__object-position             : true !default;
+$object-position__use-breakpoints    : true !default;
+$object-position__prefix             : "obj-" !default;
 
-$enable__pos-placement            : true !default;
-$pos-placement__use-breakpoints   : true !default;
+$enable__position                    : true !default;
+$position__use-breakpoints           : true !default;
 
-$enable__screen-readers           : true !default;
-$screen-readers__use-breakpoints  : true !default;
+$enable__position-placement          : true !default;
+$position-placement__use-breakpoints : true !default;
 
-$enable__spacers                  : true !default;
-$spacers__use-breakpoints         : true !default;
+$enable__screen-readers              : true !default;
+$screen-readers__use-breakpoints     : true !default;
 
-$enable__fontSizes                : true !default;
-$fontSizes__use-breakpoints       : true !default;
+$enable__spacers                     : true !default;
+$spacers__use-breakpoints            : true !default;
 
-$enable__fontWeights              : true !default;
-$fontWeights__use-breakpoints     : true !default;
-$fontWeights__prefix              : "font-" !default;
+$enable__fontSizes                   : true !default;
+$fontSizes__use-breakpoints          : true !default;
 
-$enable__text-align               : true !default;
-$text-align__use-breakpoints      : true !default;
-$text-align__prefix               : "text-" !default;
+$enable__fontWeights                 : true !default;
+$fontWeights__use-breakpoints        : true !default;
+$fontWeights__prefix                 : "font-" !default;
 
-$enable__width                    : true !default;
-$width__use-breakpoints           : true !default;
+$enable__text-align                  : true !default;
+$text-align__use-breakpoints         : true !default;
+$text-align__prefix                  : "text-" !default;
 
-$enable__zIndex                   : true !default;
-$zIndex__use-breakpoints          : false !default;
-$zIndex__prefix                   : "z" !default;
+$enable__width                       : true !default;
+$width__use-breakpoints              : true !default;
+
+$enable__zIndex                      : true !default;
+$zIndex__use-breakpoints             : false !default;
+$zIndex__prefix                      : "z" !default;

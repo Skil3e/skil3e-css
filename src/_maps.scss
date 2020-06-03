@@ -4,6 +4,7 @@
 //  Borders
 //  Breakpoints
 //  Colors
+//  Cursor
 //  Display
 //  Object Fit
 //  Positions
@@ -16,7 +17,7 @@
 //--------------------------------------------------------------//
 
 //--------------------------------------------------------------//
-// Align
+//  Align
 //--------------------------------------------------------------//
 $align-item       : (
 	'center' : center,
@@ -62,7 +63,7 @@ $justify-self     : (
 	'stretch' : stretch
 ) !default;
 //--------------------------------------------------------------//
-// Borders
+//  Borders
 //--------------------------------------------------------------//
 $borders          : (
 	'' : border,
@@ -73,7 +74,7 @@ $borders          : (
 ) !default;
 
 //--------------------------------------------------------------//
-// Breakpoints
+//  Breakpoints
 //--------------------------------------------------------------//
 $breakpoints      : (
 	'sm__': globals.$phone,
@@ -82,7 +83,7 @@ $breakpoints      : (
 	'xl__': globals.$desktop,
 ) !default;
 //--------------------------------------------------------------//
-// Colors
+//  Colors
 //--------------------------------------------------------------//
 $colors           : (
 	'primary' : globals.$primary,
@@ -92,7 +93,56 @@ $colors           : (
 	'white' : globals.$white
 ) !default;
 //--------------------------------------------------------------//
-// Display
+//  Cursor
+//--------------------------------------------------------------//
+$cursors-basic    : (
+	"auto": auto,
+	"grab": grab,
+	"grabbing": grabbing,
+	"none": none,
+	"not-allowed": not-allowed,
+	"pointer": pointer,
+) !default;
+
+$cursors-extended          : (
+	"alias": alias,
+	"all-scroll": all-scroll,
+	"auto": auto,
+	"cell": cell,
+	"context-menu": ontext-menu,
+	"col-resize": col-resize,
+	"copy": copy,
+	"crosshair": crosshair,
+	"default": default,
+	"e-resize": e-resize,
+	"ew-resize": ew-resize,
+	"grab": grab,
+	"grabbing": grabbing,
+	"help": help,
+	"move": move,
+	"n-resize": n-resize,
+	"ne-resize": ne-resize,
+	"nesw-resize": nesw-resize,
+	"ns-resize": ns-resize,
+	"nw-resize": nw-resize,
+	"nwse-resize": nwse-resize,
+	"no-drop": no-drop,
+	"none": none,
+	"not-allowed": not-allowed,
+	"pointer": pointer,
+	"progress": progress,
+	"row-resize": row-resize,
+	"s-resize": s-resize,
+	"se-resize": se-resize,
+	"sw-resize": sw-resize,
+	"text": text,
+	"w-resize": w-resize,
+	"wait": wait,
+	"zoom-in": zoom-in,
+	"zoom-out": zoom-out,
+) !default;
+//--------------------------------------------------------------//
+//  Display
 //--------------------------------------------------------------//
 $display          : (
 	'none' : none,
@@ -109,7 +159,7 @@ $display          : (
 	'inline-grid': inline-grid,
 ) !default;
 //--------------------------------------------------------------//
-// Object Fit
+//  Object Fit
 //--------------------------------------------------------------//
 $objectFit        : (
 	'contain' : contain,
@@ -130,7 +180,7 @@ $object-position  : (
 	'right-bottom' : right bottom,
 ) !default;
 //--------------------------------------------------------------//
-// Positions
+//  Positions
 //--------------------------------------------------------------//
 $positions        : (
 	'static' : static,
@@ -144,7 +194,7 @@ $positions-values : (
 	'auto': auto
 ) !default;
 //--------------------------------------------------------------//
-// Spacers
+//  Spacers
 //--------------------------------------------------------------//
 $spacers          : (
 	'0' : 0,
@@ -170,7 +220,7 @@ $style-attribute  : (
 	'brd' : border-color
 ) !default;
 //--------------------------------------------------------------//
-// Themes
+//  Themes
 //--------------------------------------------------------------//
 $themeLight       : (
 	'body' : globals.$gray-95,
@@ -192,7 +242,7 @@ $themeDark        : (
 	'accent' : globals.$primary,
 ) !default;
 //--------------------------------------------------------------//
-// Typography
+//  Typography
 //--------------------------------------------------------------//
 $font-sizes       : (
 	'small': globals.$small,
@@ -217,7 +267,7 @@ $width            : (
 	'vw25' : 25vh,
 ) !default;
 //--------------------------------------------------------------//
-// Z-index
+//  Z-index
 //--------------------------------------------------------------//
 $z-index          : (
 	'1': 1000,
