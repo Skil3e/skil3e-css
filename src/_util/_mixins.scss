@@ -2,7 +2,7 @@
 @use "../globals";
 @use "../options" as opt;
 //--------------------------------------------------------------//
-//  Align / Justify
+//  Align
 //  Borders
 //  Colors Styles
 //  Cursor
@@ -12,6 +12,7 @@
 //  Flex Grow
 //  Flex Shrink
 //  Flex Wrap
+//  Justify
 //  Object
 //  Position
 //  Screen Readers
@@ -41,9 +42,8 @@ $font-sizes       : maps.$font-sizes !default;
 $width            : maps.$width !default;
 $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
-//  Align / Justify
+//  Align
 //--------------------------------------------------------------//
-
 // Align Content
 @mixin align-content($breakpoint: null, $enable: true, $prefix: opt.$align-content__prefix) {
   @if ($enable) {
@@ -78,48 +78,6 @@ $z-index          : maps.$z-index !default;
 	@each $type, $value in $align-self {
 	  .#{$breakpoint}#{$prefix}#{$type} {
 		align-self : $value;
-		@if ($value == start or $value == end) {
-		  align-items : flex-#{$value};
-		}
-	  }
-	}
-  }
-}
-
-// Justify Content
-@mixin justify-content($breakpoint: null, $enable: true, $prefix : opt.$justify-content__prefix) {
-  @if ($enable) {
-	@each $type, $value in $justify-content {
-	  .#{$breakpoint}#{$prefix}#{$type} {
-		justify-content : $value;
-		@if ($value == start or $value == end) {
-		  justify-content : flex-#{$value};
-		}
-	  }
-	}
-  }
-}
-
-// Justify Items
-@mixin justify-items($breakpoint: null, $enable: true, $prefix : opt.$justify-items__prefix) {
-  @if ($enable) {
-	@each $type, $value in $justify-item {
-	  .#{$breakpoint}#{$prefix}#{$type} {
-		justify-items : $value;
-		@if ($value == start or $value == end) {
-		  justify-items : flex-#{$value};
-		}
-	  }
-	}
-  }
-}
-
-// Justify Self
-@mixin justify-self($breakpoint: null, $enable: true, $prefix : opt.$justify-self__prefix) {
-  @if ($enable) {
-	@each $type, $value in $justify-self {
-	  .#{$breakpoint}#{$prefix}#{$type} {
-		justify-self : $value;
 		@if ($value == start or $value == end) {
 		  align-items : flex-#{$value};
 		}
@@ -311,6 +269,50 @@ $z-index          : maps.$z-index !default;
 	@for $i from 0 through ($grid-columns - 1) {
 	  .#{$breakpoint}#{$prefix}#{$i} {
 		margin-left : 100% / $grid-columns  * $i
+	  }
+	}
+  }
+}
+//--------------------------------------------------------------//
+//  Justify
+//--------------------------------------------------------------//
+// Justify Content
+@mixin justify-content($breakpoint: null, $enable: true, $prefix : opt.$justify-content__prefix) {
+  @if ($enable) {
+	@each $type, $value in $justify-content {
+	  .#{$breakpoint}#{$prefix}#{$type} {
+		justify-content : $value;
+		@if ($value == start or $value == end) {
+		  justify-content : flex-#{$value};
+		}
+	  }
+	}
+  }
+}
+
+// Justify Items
+@mixin justify-items($breakpoint: null, $enable: true, $prefix : opt.$justify-items__prefix) {
+  @if ($enable) {
+	@each $type, $value in $justify-item {
+	  .#{$breakpoint}#{$prefix}#{$type} {
+		justify-items : $value;
+		@if ($value == start or $value == end) {
+		  justify-items : flex-#{$value};
+		}
+	  }
+	}
+  }
+}
+
+// Justify Self
+@mixin justify-self($breakpoint: null, $enable: true, $prefix : opt.$justify-self__prefix) {
+  @if ($enable) {
+	@each $type, $value in $justify-self {
+	  .#{$breakpoint}#{$prefix}#{$type} {
+		justify-self : $value;
+		@if ($value == start or $value == end) {
+		  align-items : flex-#{$value};
+		}
 	  }
 	}
   }

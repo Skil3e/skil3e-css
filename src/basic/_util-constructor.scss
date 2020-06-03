@@ -24,15 +24,6 @@ $breakpoints : maps.$breakpoints !default;
 @include mx.align-self(
 	$enable : opt.$enable__align-self,
 );
-@include mx.justify-content(
-	$enable : opt.$enable__justify-content,
-);
-@include mx.justify-items(
-	$enable : opt.$enable__justify-items,
-);
-@include mx.justify-self(
-	$enable : opt.$enable__justify-self,
-);
 @include mx.borders(
 	$enable : opt.$enable__borders,
 );
@@ -68,6 +59,15 @@ $breakpoints : maps.$breakpoints !default;
 );
 @include mx.grid-offset(
 	$enable : opt.$enable__flex-grid-offset
+);
+@include mx.justify-content(
+	$enable : opt.$enable__justify-content,
+);
+@include mx.justify-items(
+	$enable : opt.$enable__justify-items,
+);
+@include mx.justify-self(
+	$enable : opt.$enable__justify-self,
 );
 @include mx.object-fit(
 	$enable : opt.$enable__object-fit
@@ -120,18 +120,6 @@ $breakpoints : maps.$breakpoints !default;
 		$breakpoint : $name,
 		$enable     : opt.$enable__align-self and opt.$align-self__use-breakpoints
 	);
-	@include mx.justify-content(
-		$breakpoint : $name,
-		$enable     : opt.$enable__justify-content	and opt.$justify-content__use-breakpoints
-	);
-	@include mx.justify-items(
-		$breakpoint : $name,
-		$enable     : opt.$enable__justify-items and opt.$justify-items__use-breakpoints
-	);
-	@include mx.justify-self(
-		$breakpoint : $name,
-		$enable     : opt.$enable__justify-self and opt.$justify-self__use-breakpoints
-	);
 	@include mx.borders(
 		$breakpoint : $name,
 		$enable     : opt.$enable__borders	and opt.$borders__use-breakpoints
@@ -179,6 +167,18 @@ $breakpoints : maps.$breakpoints !default;
 	@include mx.grid-offset(
 		$breakpoint : $name,
 		$enable     : opt.$enable__flex-grid-offset and opt.$flex-grid-offset__use-breakpoints
+	);
+	@include mx.justify-content(
+		$breakpoint : $name,
+		$enable     : opt.$enable__justify-content	and opt.$justify-content__use-breakpoints
+	);
+	@include mx.justify-items(
+		$breakpoint : $name,
+		$enable     : opt.$enable__justify-items and opt.$justify-items__use-breakpoints
+	);
+	@include mx.justify-self(
+		$breakpoint : $name,
+		$enable     : opt.$enable__justify-self and opt.$justify-self__use-breakpoints
 	);
 	@include mx.object-fit(
 		$breakpoint : $name,
