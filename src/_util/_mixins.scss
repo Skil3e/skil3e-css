@@ -51,7 +51,7 @@ $z-index          : maps.$z-index !default;
 	  .#{$breakpoint}#{$prefix}#{$type} {
 		align-content : $value;
 		@if ($value == start or $value == end) {
-		  align-items : flex-#{$value};
+		  align-content : flex-#{$value};
 		}
 	  }
 	}
@@ -79,7 +79,7 @@ $z-index          : maps.$z-index !default;
 	  .#{$breakpoint}#{$prefix}#{$type} {
 		align-self : $value;
 		@if ($value == start or $value == end) {
-		  align-items : flex-#{$value};
+		  align-self : flex-#{$value};
 		}
 	  }
 	}
@@ -311,7 +311,7 @@ $z-index          : maps.$z-index !default;
 	  .#{$breakpoint}#{$prefix}#{$type} {
 		justify-self : $value;
 		@if ($value == start or $value == end) {
-		  align-items : flex-#{$value};
+		  align-self : flex-#{$value};
 		}
 	  }
 	}
