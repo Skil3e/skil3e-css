@@ -1,5 +1,5 @@
-@use "../maps";
-@use "../_util/mixins" as mx;
+@use "maps";
+@use "functions-mixins/mixins" as mx;
 
 $themeLight : maps.$themeLight !default;
 $themeDark  : maps.$themeLight !default;

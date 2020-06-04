@@ -1,6 +1,6 @@
-@use "../maps";
-@use "../options" as opt;
-@use "../_util/mixins" as mx;
+@use "maps";
+@use "options" as opt;
+@use "functions-mixins/mixins" as mx;
 
 $breakpoints : maps.$breakpoints !default;
 

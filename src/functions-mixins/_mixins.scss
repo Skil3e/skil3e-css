@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../maps";
 @use "../globals";
 @use "../options" as opt;
@@ -24,21 +25,23 @@
 $align-item       : maps.$align-item !default;
 $align-content    : maps.$align-content !default;
 $align-self       : maps.$align-self !default;
-$justify-item     : maps.$justify-item !default;
-$justify-content  : maps.$justify-content !default;
-$justify-self     : maps.$justify-self !default;
 $borders          : maps.$borders !default;
+$border-widths    : maps.$border-widths !default;
 $colors           : maps.$colors !default;
 $cursors          : maps.$cursors-basic !default;
 $style-attribute  : maps.$style-attribute !default;
 $display          : maps.$display !default;
 $grid-columns     : 12 !default;
+$justify-item     : maps.$justify-item !default;
+$justify-content  : maps.$justify-content !default;
+$justify-self     : maps.$justify-self !default;
 $objectFit        : maps.$objectFit !default;
 $object-position  : maps.$object-position !default;
 $positions        : maps.$positions !default;
 $positions-values : maps.$positions-values !default;
 $spacers          : maps.$spacers !default;
-$font-sizes       : maps.$font-sizes !default;
+$font-sizes       : map-merge(maps.$typography, maps.$font-sizes) !default;
+$typography       : maps.$typography !default;
 $width            : maps.$width !default;
 $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
@@ -91,17 +94,37 @@ $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
 @mixin borders($breakpoint: null, $enable: true, $prefix : opt.$borders__prefix) {
   @if ($enable) {
-	@each $num, $value in ("": 1px, "-2": 2px, "-3": 3px, "-4": 4px, "-5": 5px, "-0": 0) {
-	  @each $name, $atr in $borders {
-		@if ($value == 0) {
+	@each $num, $value in $border-widths {
+	  @if ($value == 0) {
+		@each $name in (-top, -bottom, -left, -right, null) {
 		  .#{$breakpoint}#{$prefix}#{$name}#{$num} {
-			#{$atr}: none !important;
+			border : none !important;
 		  }
-		} @else {
-		  .#{$breakpoint}#{$prefix}#{$name}#{$num} {
-			#{$atr}-width : $value;
-			#{$atr}-style : solid;
-		  }
+		}
+	  } @else {
+		.#{$breakpoint}#{$prefix}#{$num} {
+		  border-width : $value;
+		  border-style : solid;
+		}
+		.#{$breakpoint}#{$prefix}-top#{$num},
+		.#{$breakpoint}#{$prefix}-y#{$num} {
+		  border-top-width : $value;
+		  border-top-style : solid;
+		}
+		.#{$breakpoint}#{$prefix}-bottom#{$num},
+		.#{$breakpoint}#{$prefix}-y#{$num} {
+		  border-bottom-width : $value;
+		  border-bottom-style : solid;
+		}
+		.#{$breakpoint}#{$prefix}-left#{$num},
+		.#{$breakpoint}#{$prefix}-x#{$num} {
+		  border-left-width : $value;
+		  border-left-style : solid;
+		}
+		.#{$breakpoint}#{$prefix}-right#{$num},
+		.#{$breakpoint}#{$prefix}-x#{$num} {
+		  border-right-width : $value;
+		  border-right-style : solid;
 		}
 	  }
 	}
@@ -273,6 +296,7 @@ $z-index          : maps.$z-index !default;
 	}
   }
 }
+
 //--------------------------------------------------------------//
 //  Justify
 //--------------------------------------------------------------//
@@ -492,9 +516,17 @@ $z-index          : maps.$z-index !default;
 @mixin fontSizes($breakpoint: null, $enable: true) {
   @if ($enable) {
 	@each $type, $value in $font-sizes {
-	  .#{$breakpoint}#{$type}, #{$type} {
+	  .#{$breakpoint}#{$type} {
 		font-size : $value;
 	  }
+	}
+  }
+}
+
+@mixin typography() {
+  @each $type, $value in $typography {
+	#{$type} {
+	  font-size : $value;
 	}
   }
 }
