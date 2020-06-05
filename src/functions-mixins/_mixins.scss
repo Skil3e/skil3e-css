@@ -395,18 +395,18 @@ $z-index          : maps.$z-index !default;
 		position : $pos !important;
 	  }
 	}
-	.#{$breakpoint}absolute-center {
+	.#{$breakpoint}absolute--center {
 	  position  : absolute !important;
 	  left      : 50%;
 	  top       : 50%;
 	  transform : translate(-50%, -50%);
 	}
-	.#{$breakpoint}absolute-x-center {
+	.#{$breakpoint}absolute-x--center {
 	  position  : absolute !important;
 	  left      : 50%;
 	  transform : translateX(-50%);
 	}
-	.#{$breakpoint}absolute-y-center {
+	.#{$breakpoint}absolute-y--center {
 	  position  : absolute !important;
 	  top       : 50%;
 	  transform : translateY(-50%);
@@ -418,21 +418,21 @@ $z-index          : maps.$z-index !default;
   @if ($enable) {
 	@each $num, $value in $positions-values {
 	  @each $name, $pos in ('top' : top, 'right' : right, 'bottom' : bottom, 'left' : left) {
-		.#{$breakpoint}#{$name}-#{$num} {
+		.#{$breakpoint}#{$name}--#{$num} {
 		  #{$pos} : #{$value}
 		}
 	  }
-	  .#{$breakpoint}inset-#{$num} {
+	  .#{$breakpoint}inset--#{$num} {
 		top    : #{$value};
 		right  : #{$value};
 		bottom : #{$value};
 		left   : #{$value};
 	  }
-	  .#{$breakpoint}inset-x-#{$num} {
+	  .#{$breakpoint}inset-x--#{$num} {
 		right : #{$value};
 		left  : #{$value};
 	  }
-	  .#{$breakpoint}inset-y-#{$num} {
+	  .#{$breakpoint}inset-y--#{$num} {
 		top    : #{$value};
 		bottom : #{$value};
 	  }
@@ -507,24 +507,24 @@ $z-index          : maps.$z-index !default;
 // Auto Margins
 @mixin margin-auto($breakpoint: null, $enable: true) {
   @if ($enable) {
-	.#{$breakpoint}mt-auto,
-	.#{$breakpoint}my-auto {
+	.#{$breakpoint}mt--auto,
+	.#{$breakpoint}my--auto {
 	  margin-top : auto !important;
 	}
-	.#{$breakpoint}mb-auto,
-	.#{$breakpoint}my-auto {
+	.#{$breakpoint}mb--auto,
+	.#{$breakpoint}my--auto {
 	  margin-bottom : auto !important;
 	}
-	.#{$breakpoint}ml-auto,
-	.#{$breakpoint}mx-auto {
+	.#{$breakpoint}ml--auto,
+	.#{$breakpoint}mx--auto {
 	  margin-left : auto !important;
 	}
-	.#{$breakpoint}mr-auto,
-	.#{$breakpoint}mx-auto {
+	.#{$breakpoint}mr--auto,
+	.#{$breakpoint}mx--auto {
 	  margin-right : auto !important;
 	}
-	.#{$breakpoint}m-auto,
-	.#{$breakpoint}m-auto {
+	.#{$breakpoint}m--auto,
+	.#{$breakpoint}m--auto {
 	  margin : auto !important;
 	}
   }
