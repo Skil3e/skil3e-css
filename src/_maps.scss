@@ -72,12 +72,12 @@ $borders          : (
 	'-bottom' : border-bottom,
 	'-left' : border-left,
 ) !default;
-$border-widths: (
+$border-widths    : (
 	"-0": 0,
 	"": 1px,
 	"-2": 2px,
 	"-3": 3px,
-)!default;
+) !default;
 //--------------------------------------------------------------//
 //  Breakpoints
 //--------------------------------------------------------------//
@@ -109,7 +109,7 @@ $cursors-basic    : (
 	"pointer": pointer,
 ) !default;
 
-$cursors-extended          : (
+$cursors-extended : (
 	"alias": alias,
 	"all-scroll": all-scroll,
 	"auto": auto,

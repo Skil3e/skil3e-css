@@ -4,15 +4,15 @@
 $themeLight : maps.$themeLight !default;
 $themeDark  : maps.$themeLight !default;
 
-@include mx.color-styles($map: $themeLight, $element: body);
-@include mx.color-styles($map: $themeDark, $element: body, $themeName: dark, $createClasses: false);
+@include mx.color-styles($map : $themeLight, $element : body);
+@include mx.color-styles($map : $themeDark, $element : body, $themeName : dark, $createClasses : false);
 
 body {
   background-color : var(--body);
   color            : var(--text);
 
   &.transition {
-    transition : all 400ms ease-in-out;
+	transition : all 400ms ease-in-out;
   }
 }
 
