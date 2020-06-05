@@ -25,8 +25,8 @@
 $align-item       : maps.$align-item !default;
 $align-content    : maps.$align-content !default;
 $align-self       : maps.$align-self !default;
-$borders          : maps.$borders !default;
 $border-widths    : maps.$border-widths !default;
+$border-radius    : maps.$border-radius !default;
 $colors           : maps.$colors !default;
 $cursors          : maps.$cursors-basic !default;
 $style-attribute  : maps.$style-attribute !default;
@@ -133,9 +133,29 @@ $z-index          : maps.$z-index !default;
 
 @mixin border-radius($breakpoint: null, $enable: true, $prefix : opt.$border-radius__prefix) {
   @if ($enable) {
-	@each $num, $value in ("-xs": 0.1875rem, "-sm": .3125rem, "-md": .625rem, "-lg": .9375rem, "-circle": 1000rem, "": .25rem, '0' : 0) {
+	@each $num, $value in $border-radius {
 	  .#{$breakpoint}#{$prefix}#{$num} {
 		border-radius : $value;
+	  }
+	  .#{$breakpoint}#{$prefix}--top-left#{$num},
+	  .#{$breakpoint}#{$prefix}--top#{$num},
+	  .#{$breakpoint}#{$prefix}--left#{$num} {
+		border-top-left-radius : $value;
+	  }
+	  .#{$breakpoint}#{$prefix}--top-right#{$num},
+	  .#{$breakpoint}#{$prefix}--top#{$num},
+	  .#{$breakpoint}#{$prefix}--right#{$num} {
+		border-top-right-radius : $value;
+	  }
+	  .#{$breakpoint}#{$prefix}--bottom-left#{$num},
+	  .#{$breakpoint}#{$prefix}--bottom#{$num},
+	  .#{$breakpoint}#{$prefix}--left#{$num} {
+		border-bottom-left-radius : $value;
+	  }
+	  .#{$breakpoint}#{$prefix}--bottom-right#{$num},
+	  .#{$breakpoint}#{$prefix}--bottom#{$num},
+	  .#{$breakpoint}#{$prefix}--right#{$num} {
+		border-bottom-right-radius : $value;
 	  }
 	}
   }
@@ -164,7 +184,7 @@ $z-index          : maps.$z-index !default;
 	@if ($createClasses) {
 	  @each $color, $hex in $map {
 		@each $name, $atr in $style-attribute {
-		  .#{$breakpoint}#{$name}-#{$color} {
+		  .#{$breakpoint}#{$name}--#{$color} {
 			@if ($useFallback) {
 			  #{$atr}: $hex;
 			}
@@ -460,23 +480,23 @@ $z-index          : maps.$z-index !default;
   @if ($enable) {
 	@each $prefix, $prop in ('m': margin, 'p': padding) {
 	  @each $num, $value in $spacers {
-		.#{$breakpoint}#{$prefix}-#{$num} {
+		.#{$breakpoint}#{$prefix}--#{$num} {
 		  #{$prop}: $value !important;
 		}
-		.#{$breakpoint}#{$prefix}t-#{$num},
-		.#{$breakpoint}#{$prefix}y-#{$num} {
+		.#{$breakpoint}#{$prefix}t--#{$num},
+		.#{$breakpoint}#{$prefix}y--#{$num} {
 		  #{$prop}-top : $value !important;
 		}
-		.#{$breakpoint}#{$prefix}b-#{$num},
-		.#{$breakpoint}#{$prefix}y-#{$num} {
+		.#{$breakpoint}#{$prefix}b--#{$num},
+		.#{$breakpoint}#{$prefix}y--#{$num} {
 		  #{$prop}-bottom : $value !important;
 		}
-		.#{$breakpoint}#{$prefix}l-#{$num},
-		.#{$breakpoint}#{$prefix}x-#{$num} {
+		.#{$breakpoint}#{$prefix}l--#{$num},
+		.#{$breakpoint}#{$prefix}x--#{$num} {
 		  #{$prop}-left : $value !important;
 		}
-		.#{$breakpoint}#{$prefix}r-#{$num},
-		.#{$breakpoint}#{$prefix}x-#{$num} {
+		.#{$breakpoint}#{$prefix}r--#{$num},
+		.#{$breakpoint}#{$prefix}x--#{$num} {
 		  #{$prop}-right : $value !important;
 		}
 	  }

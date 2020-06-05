@@ -1,4 +1,5 @@
 @use "../../util-constructor";
+@use "../../options" as opt;
 //-----------------------------------------------------------
 //Variables
 //-----------------------------------------------------------
@@ -17,8 +18,8 @@ $transition    : 200ms ease-in-out !default;
 
 .button, button {
   @extend .inline-flex;
-  @extend .al_it-center;
-  @extend .jf_cnt-center;
+  @extend .#{opt.$align-content__prefix}center;
+  @extend .#{opt.$justify-content__prefix}center;
   z-index             : 1;
   position            : relative;
   vertical-align      : middle;

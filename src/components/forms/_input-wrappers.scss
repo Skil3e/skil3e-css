@@ -1,23 +1,23 @@
 @use "../../util-constructor";
 .input-wrapper {
   &__label {
-    @extend .mb-xs;
-    @extend .px-md;
+    @extend .mb--xs;
+    @extend .px--md;
     @extend .block;
     @extend .small;
   }
 
   &__error {
-    @extend .text-danger;
-    @extend .pt-xs;
-    @extend .px-md;
+    @extend .text--danger;
+    @extend .pt--xs;
+    @extend .px--md;
     font-size : 75%;
   }
 
   &__description {
     @extend .small;
-    @extend .px-md;
-    @extend .mt-xs;
+    @extend .px--md;
+    @extend .mt--xs;
     color: var(--textDimmed);
   }
 }

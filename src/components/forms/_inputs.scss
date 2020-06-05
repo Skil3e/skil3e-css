@@ -16,8 +16,8 @@ body[data-theme="dark"] {
 }
 
 input {
-  @extend .px-md;
-  @extend .py-sm;
+  @extend .px--15;
+  @extend .py--10;
   width            : 100%;
   max-width        : 100%;
   border           : none;
@@ -53,20 +53,20 @@ select {
 legend {
   @extend .block;
   @extend .h2;
-  @extend .mb-md;
-  @extend .font-bold;
-  @extend .text-primary;
+  @extend .mb--md;
+  @extend .font--bold;
+  @extend .text--primary;
 }
 
 .password-input {
   position : relative;
 
   input {
-	@extend .pr-xxl;
+	@extend .pr--xxl;
   }
 
   .button {
-	@extend .m-0;
+	@extend .m--0;
 	position  : absolute;
 	right     : 10px;
 	top       : 50%;
