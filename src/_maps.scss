@@ -68,15 +68,13 @@ $justify-self     : (
 $border-widths    : (
 	"--0": 0,
 	"": 1px,
-	"--2": 2px,
-	"--3": 3px,
+	"--md": 2px,
+	"--lg": 3px,
 ) !default;
 
 $border-radius    : (
 	"": .25rem,
 	'--0' : 0,
-	"--xs": 0.1875rem,
-	"--sm": .3125rem,
 	"--md": .625rem,
 	"--lg": .9375rem,
 	"--circle": 1000rem
@@ -220,7 +218,7 @@ $spacers          : (
 //--------------------------------------------------------------//
 $style-attribute  : (
 	'text' : color,
-	'bg' : background,
+	'bg' : background-color,
 	'fill' : fill,
 	'brd' : border-color
 ) !default;

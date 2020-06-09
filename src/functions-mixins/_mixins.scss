@@ -2,6 +2,7 @@
 @use "../maps";
 @use "../globals";
 @use "../options" as opt;
+@use "../functions-mixins/acc-colors" as acc;
 //--------------------------------------------------------------//
 //  Align
 //  Borders
@@ -98,7 +99,7 @@ $z-index          : maps.$z-index !default;
 	  @if ($value == 0) {
 		@each $name in (-top, -bottom, -left, -right, null) {
 		  .#{$breakpoint}#{$prefix}#{$name}#{$num} {
-			border : none !important;
+			border#{$name} : none !important;
 		  }
 		}
 	  } @else {
@@ -164,7 +165,7 @@ $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
 //  Colors Styles
 //--------------------------------------------------------------//
-@mixin color-styles($breakpoint: null, $enable: true, $map: $colors, $createVars: true, $createClasses: true, $themeName: null, $element: ":root", $useFallback: false) {
+@mixin color-styles($breakpoint: null, $enable: true, $map: $colors, $createVars: true, $createClasses: true, $themeName: null, $element: ":root", $useFallback: false, $useBgText: opt.$color-styles__use-bgText) {
   @if ($enable) {
 	@if ($createVars) {
 	  @if ($themeName) {
@@ -187,6 +188,9 @@ $z-index          : maps.$z-index !default;
 		  .#{$breakpoint}#{$name}--#{$color} {
 			@if ($useFallback) {
 			  #{$atr}: $hex;
+			}
+			@if ($useBgText and $atr == background-color){
+			  color: acc.color-contrast($hex);
 			}
 			@if ($createVars) {
 			  #{$atr}: var(--#{$color});
