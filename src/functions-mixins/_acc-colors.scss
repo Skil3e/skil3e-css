@@ -14,14 +14,22 @@ $linear-channel-values : 0 .0003035269835488375 .000607053967097675 .00091058095
   @return max($backLum, $foreLum) / min($backLum, $foreLum);
 }
 
-@function color-contrast($color) {
+@function color-contrast($color, $useVar: false) {
   $lightContrast : contrast($color, white);
   $darkContrast : contrast($color, black);
 
   @if ($lightContrast > $darkContrast) {
-	@return white;
+    @if($useVar) {
+      @return var(--body);
+    } @else {
+      @return #eeeeee;
+    }
   } @else {
-	@return black;
+    @if($useVar) {
+      @return var(--text);
+    } @else {
+      @return #222222;
+    }
   }
 }
 
