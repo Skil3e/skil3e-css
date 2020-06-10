@@ -189,8 +189,8 @@ $z-index          : maps.$z-index !default;
 			@if ($useFallback) {
 			  #{$atr}: $hex;
 			}
-			@if ($useBgText and $atr == background-color){
-			  color: acc.color-contrast($hex);
+			@if ($useBgText and $atr == background-color) {
+			  color : acc.color-contrast($hex);
 			}
 			@if ($createVars) {
 			  #{$atr}: var(--#{$color});
@@ -233,7 +233,7 @@ $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
 @mixin flex-direction($breakpoint: null, $enable: true, $prefix : opt.$flex-direction__prefix) {
   @if ($enable) {
-	@each $type, $value in (row: row, column: column, row-reverse: row-reverse, column-reverse: column-reverse) {
+	@each $type, $value in ('row': row, 'column': column, 'row-reverse': row-reverse, 'column-reverse': column-reverse) {
 	  .#{$breakpoint}#{$prefix}#{$type} {
 		display        : flex;
 		flex-direction : $value;
@@ -249,8 +249,7 @@ $z-index          : maps.$z-index !default;
   @if ($enable) {
 	@each $type, $value in (fill: 1 1 auto) {
 	  .#{$breakpoint}#{$prefix}#{$type} {
-		display : flex;
-		flex    : $value;
+		flex : $value;
 	  }
 	}
   }
@@ -263,7 +262,6 @@ $z-index          : maps.$z-index !default;
   @if ($enable) {
 	@each $type, $value in (grow-0: 0, grow: 1) {
 	  .#{$breakpoint}#{$prefix}#{$type} {
-		display   : flex;
 		flex-grow : $value;
 	  }
 	}
@@ -277,7 +275,6 @@ $z-index          : maps.$z-index !default;
   @if ($enable) {
 	@each $type, $value in (shrink-0: 0, shrink: 1) {
 	  .#{$breakpoint}#{$prefix}#{$type} {
-		display     : flex;
 		flex-shrink : $value;
 	  }
 	}
@@ -304,9 +301,14 @@ $z-index          : maps.$z-index !default;
 @mixin grid($breakpoint: null, $enable: true, $prefix: opt.$flex-grid__prefix) {
   @if ($enable) {
 	@for $i from 1 through $grid-columns {
-	  .#{$breakpoint}#{$prefix}#{$i} {
-		flex : 0 0 100% / $grid-columns  * $i
+	  .#{$breakpoint}#{$prefix}--#{$i} {
+		flex      : 0 0 100% / $grid-columns  * $i;
+		max-width : 100% / $grid-columns * $i;
 	  }
+	}
+	.#{$breakpoint}#{$prefix} {
+	  flex      : 1 0 100%;
+	  max-width : 100%;
 	}
   }
 }

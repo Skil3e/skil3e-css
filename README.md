@@ -4,6 +4,10 @@
 Skil3e-css a simple modular css utility framework. It utilizes the new SASS [at-rules](https://sass-lang.com/documentation/at-rules]) that allows you to use only the part you need, the way you need them.
 
 Use [dart-sass](https://sass-lang.com/dart-sass) to compile.
+For compatibility with node-sass:
+```
+npm install node-sass@npm:sass
+```
 
 🤏 Full documentation coming soon...
 ## CDN
