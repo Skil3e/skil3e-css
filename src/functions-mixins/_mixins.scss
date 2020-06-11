@@ -20,7 +20,7 @@
 //  Screen Readers
 //  Spacers
 //  Typography
-//  Width
+//  Width / Height
 //  Z Index
 //--------------------------------------------------------------//
 $align-item       : maps.$align-item !default;
@@ -44,6 +44,9 @@ $spacers          : maps.$spacers !default;
 $font-sizes       : map-merge(maps.$typography, maps.$font-sizes) !default;
 $typography       : maps.$typography !default;
 $width            : maps.$width !default;
+$vWidth           : maps.$vWidth !default;
+$height           : maps.$height !default;
+$vHeight           : maps.$vHeight !default;
 $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
 //  Align
@@ -472,10 +475,21 @@ $z-index          : maps.$z-index !default;
 	border   : 0;
   }
 
-  .#{$breakpoint}sr-only-focusable:focus {
-	position : relative;
-	width    : auto;
-	height   : auto;
+  .#{$breakpoint}sr-only-focusable {
+	position : absolute;
+	width    : 1px;
+	height   : 1px;
+	padding  : 0;
+	margin   : -1px;
+	overflow : hidden;
+	clip     : rect(0, 0, 0, 0);
+	border   : 0;
+
+	&:focus {
+	  position : relative;
+	  width    : auto;
+	  height   : auto;
+	}
   }
 }
 
@@ -578,13 +592,45 @@ $z-index          : maps.$z-index !default;
 }
 
 //--------------------------------------------------------------//
-//  Width
+//  Width / Height
 //--------------------------------------------------------------//
 @mixin width($breakpoint: null, $enable: true) {
   @if ($enable) {
 	@each $name, $w in $width {
-	  .#{$breakpoint}#{$name} {
+	  .#{$breakpoint}#{opt.$width__prefix}#{$name} {
 		width : $w;
+	  }
+	  .#{$breakpoint}max__#{opt.$width__prefix}#{$name} {
+		max-width : $w;
+	  }
+	}
+	@each $name, $w in $vWidth {
+	  .#{$breakpoint}view__#{opt.$width__prefix}#{$name} {
+		width : #{$w}vw;
+	  }
+	  .#{$breakpoint}max__view__#{opt.$width__prefix}#{$name} {
+		max-width : #{$w}vw;
+	  }
+	}
+  }
+}
+
+@mixin width($breakpoint: null, $enable: true) {
+  @if ($enable) {
+	@each $name, $h in $height {
+	  .#{$breakpoint}#{opt.$height__prefix}#{$name} {
+		height : $h;
+	  }
+	  .#{$breakpoint}max__#{opt.$height__prefix}#{$name} {
+		max-height : $h;
+	  }
+	}
+	@each $name, $h in $vHeight {
+	  .#{$breakpoint}view__#{opt.$height__prefix}#{$name} {
+		height : #{$h}vw;
+	  }
+	  .#{$breakpoint}max__view__#{opt.$height__prefix}#{$name} {
+		max-height : #{$h}vw;
 	  }
 	}
   }

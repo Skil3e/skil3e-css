@@ -23,7 +23,7 @@ $border-radius__prefix               : "round" !default;
 
 $enable__color-styles                : true !default;
 $color-styles__use-breakpoints       : false !default;
-$color-styles__use-bgText             : true !default;
+$color-styles__use-bgText            : true !default;
 
 $enable__cursor                      : true !default;
 $cursor__use-breakpoints             : false !default;
@@ -75,11 +75,11 @@ $justify-self__prefix                : "jf__self--" !default;
 
 $enable__object-fit                  : true !default;
 $object-fit__use-breakpoints         : true !default;
-$object-fit__prefix                  : "obj--" !default;
+$object-fit__prefix                  : "obj__fit--" !default;
 
 $enable__object-position             : true !default;
 $object-position__use-breakpoints    : true !default;
-$object-position__prefix             : "obj--" !default;
+$object-position__prefix             : "obj__pos--" !default;
 
 $enable__position                    : true !default;
 $position__use-breakpoints           : true !default;
@@ -106,6 +106,12 @@ $text-align__prefix                  : "text--" !default;
 
 $enable__width                       : true !default;
 $width__use-breakpoints              : true !default;
+$width__prefix                       : "w--" !default;
+
+$enable__height                       : true !default;
+$height__use-breakpoints              : true !default;
+$height__prefix                       : "h--" !default;
+
 
 $enable__zIndex                      : true !default;
 $zIndex__use-breakpoints             : false !default;
