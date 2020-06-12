@@ -594,43 +594,37 @@ $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
 //  Width / Height
 //--------------------------------------------------------------//
-@mixin width($breakpoint: null, $enable: true) {
+@mixin width($breakpoint: null, $enable: true, $prefix: opt.$width__prefix) {
   @if ($enable) {
 	@each $name, $w in $width {
-	  .#{$breakpoint}#{opt.$width__prefix}#{$name} {
+	  .#{$breakpoint}#{$prefix}#{$name} {
 		width : $w;
 	  }
-	  .#{$breakpoint}max__#{opt.$width__prefix}#{$name} {
+	  .#{$breakpoint}max__#{$prefix}#{$name} {
 		max-width : $w;
 	  }
 	}
 	@each $name, $w in $vWidth {
-	  .#{$breakpoint}view__#{opt.$width__prefix}#{$name} {
+	  .#{$breakpoint}view__#{$prefix}#{$name} {
 		width : #{$w}vw;
-	  }
-	  .#{$breakpoint}max__view__#{opt.$width__prefix}#{$name} {
-		max-width : #{$w}vw;
 	  }
 	}
   }
 }
 
-@mixin width($breakpoint: null, $enable: true) {
+@mixin height($breakpoint: null, $enable: true, $prefix: opt.$height__prefix) {
   @if ($enable) {
 	@each $name, $h in $height {
-	  .#{$breakpoint}#{opt.$height__prefix}#{$name} {
+	  .#{$breakpoint}#{$prefix}#{$name} {
 		height : $h;
 	  }
-	  .#{$breakpoint}max__#{opt.$height__prefix}#{$name} {
+	  .#{$breakpoint}max__#{$prefix}#{$name} {
 		max-height : $h;
 	  }
 	}
 	@each $name, $h in $vHeight {
-	  .#{$breakpoint}view__#{opt.$height__prefix}#{$name} {
+	  .#{$breakpoint}view__#{$prefix}#{$name} {
 		height : #{$h}vw;
-	  }
-	  .#{$breakpoint}max__view__#{opt.$height__prefix}#{$name} {
-		max-height : #{$h}vw;
 	  }
 	}
   }
