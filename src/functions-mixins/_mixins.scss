@@ -603,6 +603,9 @@ $z-index          : maps.$z-index !default;
 	  .#{$breakpoint}max__#{$prefix}#{$name} {
 		max-width : $w;
 	  }
+	  .#{$breakpoint}min__#{$prefix}#{$name} {
+		min-width : $w;
+	  }
 	}
 	@each $name, $w in $vWidth {
 	  .#{$breakpoint}view__#{$prefix}#{$name} {
@@ -620,6 +623,9 @@ $z-index          : maps.$z-index !default;
 	  }
 	  .#{$breakpoint}max__#{$prefix}#{$name} {
 		max-height : $h;
+	  }
+	  .#{$breakpoint}min__#{$prefix}#{$name} {
+		min-height : $h;
 	  }
 	}
 	@each $name, $h in $vHeight {
