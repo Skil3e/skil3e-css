@@ -43,7 +43,7 @@ $positions-values : maps.$positions-values !default;
 $spacers          : maps.$spacers !default;
 $font-sizes       : maps.$font-sizes !default;
 $typography       : maps.$typography !default;
-$type-sizes       : map-merge(maps.$typography, maps.$font-sizes) !default;
+$type-sizes       : map-merge(maps.$typography, $font-sizes) !default;
 $width            : maps.$width !default;
 $vWidth           : maps.$vWidth !default;
 $height           : maps.$height !default;
