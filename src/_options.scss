@@ -105,6 +105,10 @@ $enable__text-align                  : true !default;
 $text-align__use-breakpoints         : true !default;
 $text-align__prefix                  : "text--" !default;
 
+$enable__transitions                  : true !default;
+$transitions__use-breakpoints         : false !default;
+$transitions__prefix                  : "transition--" !default;
+
 $enable__width                       : true !default;
 $width__use-breakpoints              : true !default;
 $width__prefix                       : "w--" !default;
@@ -112,7 +116,6 @@ $width__prefix                       : "w--" !default;
 $enable__height                      : true !default;
 $height__use-breakpoints             : true !default;
 $height__prefix                      : "h--" !default;
-
 
 $enable__zIndex                      : true !default;
 $zIndex__use-breakpoints             : false !default;

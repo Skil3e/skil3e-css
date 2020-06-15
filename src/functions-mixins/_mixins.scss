@@ -19,6 +19,7 @@
 //  Position
 //  Screen Readers
 //  Spacers
+//  Transitions
 //  Typography
 //  Width / Height
 //  Z Index
@@ -213,7 +214,6 @@ $z-index          : maps.$z-index !default;
           @if ($hover) {
             .#{$breakpoint}hover\:#{$name}--#{$color}:hover {
               #{$atr}: var(--#{$color});
-              transition: #{$atr} 250ms ease-in-out;
             }
           }
         }
@@ -568,6 +568,19 @@ $z-index          : maps.$z-index !default;
 }
 
 //--------------------------------------------------------------//
+//  Transitions
+//--------------------------------------------------------------//
+@mixin transitions($breakpoint: null, $enable: true, $transition-timing: globals.$transition-timing, $prefix : opt.$transitions__prefix) {
+  @if ($enable) {
+    @each $name, $atr in $style-attribute {
+      .#{$breakpoint}#{$prefix}#{$name} {
+        transition: $atr $transition-timing;
+      }
+    }
+  }
+}
+
+//--------------------------------------------------------------//
 //  Typography
 //--------------------------------------------------------------//
 @mixin fontSizes($breakpoint: null, $enable: true) {
@@ -613,43 +626,43 @@ $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
 @mixin width($breakpoint: null, $enable: true, $prefix: opt.$width__prefix) {
   @if ($enable) {
-	@each $name, $w in $width {
-	  .#{$breakpoint}#{$prefix}#{$name} {
-		width : $w;
-	  }
-	  .#{$breakpoint}max__#{$prefix}#{$name} {
-		max-width : $w;
-	  }
-	  .#{$breakpoint}min__#{$prefix}#{$name} {
-		min-width : $w;
-	  }
-	}
-	@each $name, $w in $vWidth {
-	  .#{$breakpoint}view__#{$prefix}#{$name} {
-		width : #{$w};
-	  }
-	}
+    @each $name, $w in $width {
+      .#{$breakpoint}#{$prefix}#{$name} {
+        width : $w;
+      }
+      .#{$breakpoint}max__#{$prefix}#{$name} {
+        max-width : $w;
+      }
+      .#{$breakpoint}min__#{$prefix}#{$name} {
+        min-width : $w;
+      }
+    }
+    @each $name, $w in $vWidth {
+      .#{$breakpoint}view__#{$prefix}#{$name} {
+        width : #{$w};
+      }
+    }
   }
 }
 
 @mixin height($breakpoint: null, $enable: true, $prefix: opt.$height__prefix) {
   @if ($enable) {
-	@each $name, $h in $height {
-	  .#{$breakpoint}#{$prefix}#{$name} {
-		height : $h;
-	  }
-	  .#{$breakpoint}max__#{$prefix}#{$name} {
-		max-height : $h;
-	  }
-	  .#{$breakpoint}min__#{$prefix}#{$name} {
-		min-height : $h;
-	  }
-	}
-	@each $name, $h in $vHeight {
-	  .#{$breakpoint}view__#{$prefix}#{$name} {
-		height : #{$h};
-	  }
-	}
+    @each $name, $h in $height {
+      .#{$breakpoint}#{$prefix}#{$name} {
+        height : $h;
+      }
+      .#{$breakpoint}max__#{$prefix}#{$name} {
+        max-height : $h;
+      }
+      .#{$breakpoint}min__#{$prefix}#{$name} {
+        min-height : $h;
+      }
+    }
+    @each $name, $h in $vHeight {
+      .#{$breakpoint}view__#{$prefix}#{$name} {
+        height : #{$h};
+      }
+    }
   }
 }
 
