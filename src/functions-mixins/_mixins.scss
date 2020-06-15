@@ -42,6 +42,7 @@ $object-position  : maps.$object-position !default;
 $positions        : maps.$positions !default;
 $positions-values : maps.$positions-values !default;
 $spacers          : maps.$spacers !default;
+$transitions      : maps.$transitions !default;
 $font-sizes       : maps.$font-sizes !default;
 $typography       : maps.$typography !default;
 $type-sizes       : map-merge(maps.$typography, $font-sizes) !default;
@@ -572,9 +573,10 @@ $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
 @mixin transitions($breakpoint: null, $enable: true, $transition-timing: globals.$transition-timing, $prefix : opt.$transitions__prefix) {
   @if ($enable) {
-    @each $name, $atr in $style-attribute {
+    @each $name, $atr in $transitions {
       .#{$breakpoint}#{$prefix}#{$name} {
-        transition: $atr $transition-timing;
+        transition          : $transition-timing;
+        transition-property : #{$atr};
       }
     }
   }
