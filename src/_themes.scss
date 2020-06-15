@@ -2,7 +2,7 @@
 @use "functions-mixins/mixins" as mx;
 
 $themeLight : maps.$themeLight !default;
-$themeDark  : maps.$themeLight !default;
+$themeDark  : maps.$themeDark !default;
 
 @include mx.color-styles($map : $themeLight, $element : body);
 @include mx.color-styles($map : $themeDark, $element : body, $themeName : dark, $createClasses : false);

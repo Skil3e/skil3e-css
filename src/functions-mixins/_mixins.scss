@@ -597,37 +597,43 @@ $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
 @mixin width($breakpoint: null, $enable: true, $prefix: opt.$width__prefix) {
   @if ($enable) {
-    @each $name, $w in $width {
-      .#{$breakpoint}#{$prefix}#{$name} {
-        width : $w;
-      }
-      .#{$breakpoint}max__#{$prefix}#{$name} {
-        max-width : $w;
-      }
-    }
-    @each $name, $w in $vWidth {
-      .#{$breakpoint}view__#{$prefix}#{$name} {
-        width : #{$w}vw;
-      }
-    }
+	@each $name, $w in $width {
+	  .#{$breakpoint}#{$prefix}#{$name} {
+		width : $w;
+	  }
+	  .#{$breakpoint}max__#{$prefix}#{$name} {
+		max-width : $w;
+	  }
+	  .#{$breakpoint}min__#{$prefix}#{$name} {
+		min-width : $w;
+	  }
+	}
+	@each $name, $w in $vWidth {
+	  .#{$breakpoint}view__#{$prefix}#{$name} {
+		width : #{$w};
+	  }
+	}
   }
 }
 
 @mixin height($breakpoint: null, $enable: true, $prefix: opt.$height__prefix) {
   @if ($enable) {
-    @each $name, $h in $height {
-      .#{$breakpoint}#{$prefix}#{$name} {
-        height : $h;
-      }
-      .#{$breakpoint}max__#{$prefix}#{$name} {
-        max-height : $h;
-      }
-    }
-    @each $name, $h in $vHeight {
-      .#{$breakpoint}view__#{$prefix}#{$name} {
-        height : #{$h}vw;
-      }
-    }
+	@each $name, $h in $height {
+	  .#{$breakpoint}#{$prefix}#{$name} {
+		height : $h;
+	  }
+	  .#{$breakpoint}max__#{$prefix}#{$name} {
+		max-height : $h;
+	  }
+	  .#{$breakpoint}min__#{$prefix}#{$name} {
+		min-height : $h;
+	  }
+	}
+	@each $name, $h in $vHeight {
+	  .#{$breakpoint}view__#{$prefix}#{$name} {
+		height : #{$h};
+	  }
+	}
   }
 }
 
