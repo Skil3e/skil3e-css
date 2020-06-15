@@ -1,7 +1,7 @@
-@use "../..//functions-mixins/acc-colors" as acc;
-@use "../../maps";
+@use "../../functions-mixins/acc-colors" as acc;
+@use "button";
 
-$colors : maps.$colors !default;
+$colors  : button.$colors !default;
 //-----------------------------------------------------------
 // Button Link & Minimal Defaults
 //-----------------------------------------------------------

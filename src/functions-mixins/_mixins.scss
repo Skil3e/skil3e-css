@@ -169,7 +169,17 @@ $z-index          : maps.$z-index !default;
 //--------------------------------------------------------------//
 //  Colors Styles
 //--------------------------------------------------------------//
-@mixin color-styles($breakpoint: null, $enable: true, $map: $colors, $createVars: true, $createClasses: true, $themeName: null, $element: ":root", $useFallback: false, $useBgText: opt.$color-styles__use-bgText) {
+@mixin color-styles(
+  $breakpoint: null,
+  $enable: true,
+  $map: $colors,
+  $createVars: true,
+  $createClasses: true,
+  $themeName: null,
+  $element: ":root",
+  $useFallback: false,
+  $hover: opt.$color-styles__use-hover,
+  $useBgText: opt.$color-styles__use-bgText) {
   @if ($enable) {
     @if ($createVars) {
       @if ($themeName) {
@@ -198,6 +208,12 @@ $z-index          : maps.$z-index !default;
             }
             @if ($createVars) {
               #{$atr}: var(--#{$color});
+            }
+          }
+          @if ($hover) {
+            .#{$breakpoint}hover\:#{$name}--#{$color}:hover {
+              #{$atr}: var(--#{$color});
+              transition: #{$atr} 250ms ease-in-out;
             }
           }
         }

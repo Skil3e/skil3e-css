@@ -1,8 +1,7 @@
 @use "../../functions-mixins/acc-colors" as acc;
-@use "../../maps";
 @use "button";
 
-$colors  : maps.$colors !default;
+$colors  : button.$colors !default;
 $padding : button.$padding !default;
 //-----------------------------------------------------------
 // Button Fill

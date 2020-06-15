@@ -1,5 +1,6 @@
 @use "../../util-constructor";
 @use "../../options" as opt;
+@use "../../maps";
 //-----------------------------------------------------------
 //Variables
 //-----------------------------------------------------------
@@ -15,6 +16,7 @@ $borderWidth   : 1px !default;
 $borderStyle   : solid !default;
 $border        : 2px solid !default;
 $transition    : 200ms ease-in-out !default;
+$colors        : maps.$colors !default;
 
 .button, button {
   @extend .inline-flex;

@@ -24,6 +24,7 @@ $border-radius__prefix               : "round" !default;
 $enable__color-styles                : true !default;
 $color-styles__use-breakpoints       : false !default;
 $color-styles__use-bgText            : true !default;
+$color-styles__use-hover             : true !default;
 
 $enable__cursor                      : true !default;
 $cursor__use-breakpoints             : false !default;
@@ -108,9 +109,9 @@ $enable__width                       : true !default;
 $width__use-breakpoints              : true !default;
 $width__prefix                       : "w--" !default;
 
-$enable__height                       : true !default;
-$height__use-breakpoints              : true !default;
-$height__prefix                       : "h--" !default;
+$enable__height                      : true !default;
+$height__use-breakpoints             : true !default;
+$height__prefix                      : "h--" !default;
 
 
 $enable__zIndex                      : true !default;
