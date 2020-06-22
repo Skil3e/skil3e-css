@@ -1,0 +1,61 @@
+$size          : 50px !default;
+$dot-width     : 15% !default;
+$dot-height    : 15% !default;
+$dot-color     : black !default;
+$dot-size-open : 80% !default;
+$top-bottom    : 20% !default;
+
+.menu-toggle {
+  position   : relative;
+  width      : $size;
+  height     : $size;
+  transition : transform 300ms cubic-bezier(0.4, -0.6, 0.6, 1.6);
+
+  &__dot {
+	width               : $dot-width;
+	height              : $dot-height;
+	background          : $dot-color;
+	border-radius       : 50rem;
+	position            : absolute;
+	left                : 50%;
+	transform           : translateX(-50%);
+	transition          : 300ms ease-in-out;
+	transition-property : transform, opacity, top, bottom, width;
+
+	&:nth-child(1) {
+	  top : $top-bottom
+	}
+
+	&:nth-child(2) {
+	  top       : 50%;
+	  transform : translate(-50%, -50%);
+	}
+
+	&:nth-child(3) {
+	  bottom : $top-bottom
+	}
+  }
+
+  &--open {
+	transform : rotate(180deg);
+
+	.menu-toggle__dot {
+	  width : $dot-size-open;
+
+	  &:nth-child(1) {
+		top       : 50%;
+		transform : translate(-50%, -50%) rotate(45deg);
+	  }
+
+	  &:nth-child(2) {
+		width   : 0;
+		opacity : 0;
+	  }
+
+	  &:nth-child(3) {
+		bottom    : 50%;
+		transform : translate(-50%, 50%) rotate(-45deg);
+	  }
+	}
+  }
+}
