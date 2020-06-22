@@ -1,7 +1,7 @@
 $size          : 50px !default;
 $dot-width     : 15% !default;
 $dot-height    : 15% !default;
-$dot-color     : black !default;
+$dot-color     : var(--text) !default;
 $dot-size-open : 80% !default;
 $top-bottom    : 20% !default;
 
