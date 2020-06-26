@@ -1,4 +1,5 @@
 @use "../../util-constructor";
+@use "../../globals";
 @use "../../options" as opt;
 @use "../../maps";
 //-----------------------------------------------------------
@@ -11,51 +12,49 @@ $textTransform : initial !default;
 $fontSize      : 100% !default;
 $fontWeight    : 500 !default;
 $lineHeight    : 1.2 !default;
-$borderRadius  : 3px !default;
-$borderWidth   : 1px !default;
+$border-radius : globals.$border-radius !default;
+$border-width  : globals.$border-width !default;
 $borderStyle   : solid !default;
-$border        : 2px solid !default;
-$transition    : 200ms ease-in-out !default;
+$border        : $border-width solid !default;
 $colors        : maps.$colors !default;
 
 .button, button {
   @extend .inline-flex;
   @extend .#{opt.$align-content__prefix}center;
   @extend .#{opt.$justify-content__prefix}center;
-  z-index             : 1;
-  position            : relative;
-  vertical-align      : middle;
-  cursor              : pointer;
-  text-transform      : $textTransform;
-  font-weight         : $fontWeight;
-  font-size           : $fontSize;
-  line-height         : $lineHeight;
-  text-decoration     : none;
-  background          : transparent;
-  border              : $border transparent;
-  border-radius       : $borderRadius;
-  transition          : $transition;
-  transition-property : background, color, border;
+  @extend .relative;
+  @extend .cursor--pointer;
+  @extend .transition--colors;
+  z-index         : 1;
+  vertical-align  : middle;
+  text-transform  : $textTransform;
+  font-weight     : $fontWeight;
+  font-size       : $fontSize;
+  line-height     : $lineHeight;
+  text-decoration : none;
+  background      : transparent;
+  border          : $border transparent;
+  border-radius   : $border-radius;
 
   .icon {
-    transition : fill $transition;
+	@extend .transition--colors;
   }
 
   &.disabled, &:disabled {
-    opacity : .65;
-    cursor  : not-allowed;
+	@extend .cursor--not-allowed;
+	opacity : .65;
   }
 
   &:focus {
-    outline : none;
+	outline : none;
 
-    &::after,
-    &::before {
-      outline : none;
-    }
+	&::after,
+	&::before {
+	  outline : none;
+	}
   }
 
   &.fullwidth {
-    width : 100%;
+	@extend .w--100;
   }
 }
