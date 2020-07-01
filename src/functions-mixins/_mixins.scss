@@ -422,22 +422,25 @@ $z-index          : maps.$z-index !default;
         position : $pos !important;
       }
     }
-    .#{$breakpoint}absolute--center {
-      position  : absolute !important;
-      left      : 50%;
-      top       : 50%;
-      transform : translate(-50%, -50%);
+    @each $type in (absolute, fixed) {
+      .#{$breakpoint}#{$type}--center {
+        position  : #{$type} !important;
+        left      : 50%;
+        top       : 50%;
+        transform : translate(-50%, -50%);
+      }
+      .#{$breakpoint}#{$type}-x--center {
+        position  : #{$type} !important;
+        left      : 50%;
+        transform : translateX(-50%);
+      }
+      .#{$breakpoint}#{$type}-y--center {
+        position  : #{$type} !important;
+        top       : 50%;
+        transform : translateY(-50%);
+      }
     }
-    .#{$breakpoint}absolute-x--center {
-      position  : absolute !important;
-      left      : 50%;
-      transform : translateX(-50%);
-    }
-    .#{$breakpoint}absolute-y--center {
-      position  : absolute !important;
-      top       : 50%;
-      transform : translateY(-50%);
-    }
+
   }
 }
 
