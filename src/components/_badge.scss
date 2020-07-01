@@ -1,0 +1,24 @@
+@use "../util-constructor";
+@use "../functions-mixins/acc-colors" as acc;
+@use "../maps";
+
+$colors : maps.$colors !default;
+
+.badge {
+  @extend .inline-flex;
+  @extend .py--xs;
+  @extend .px--sm;
+  @extend .transition--colors;
+  @extend .round;
+
+  @each $color, $hex in $colors {
+	&.#{$color} {
+	  color      : acc.color-contrast($hex);
+	  background : $hex;
+
+	  &:hover {
+		background : acc.set-hover-color($hex)
+	  }
+	}
+  }
+}
