@@ -2,8 +2,11 @@
 @use "functions-mixins/reset";
 
 * {
-  margin      : 0;
-  padding     : 0;
+  margin  : 0;
+  padding : 0;
+}
+
+body {
   font-family : globals.$bodyFont;
   line-height : globals.$lineHeight;
 }
