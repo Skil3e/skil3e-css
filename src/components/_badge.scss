@@ -10,6 +10,8 @@ $colors : maps.$colors !default;
   @extend .px--sm;
   @extend .transition--colors;
   @extend .round;
+  line-height: 1.5;
+  vertical-align: middle;
 
   @each $color, $hex in $colors {
 	&.#{$color} {
