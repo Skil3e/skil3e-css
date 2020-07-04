@@ -36,12 +36,13 @@ $transition-timing   : 250ms ease-in-out !default;
 //-----------------------------------------------------------
 // Typography
 //-----------------------------------------------------------
+$baseFontSize        : 16px;
 $systemFonts         : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 $bodyFont            : $systemFonts !default;
 $headingFont         : $systemFonts !default;
 $headingLineHeight   : 1 !default;
 $headingFontWeight   : 500 !default;
-$paragraphLineHeight : 1.5 !default;
+$paragraphLineHeight : ($baseFontSize / 16px) * 27px !default;
 $highlight           : hsla(213, 80%, 50%, 0.5) !default;
 //-----------------------------------------------------------
 // Font sizes
