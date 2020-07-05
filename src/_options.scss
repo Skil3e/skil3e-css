@@ -62,6 +62,10 @@ $enable__flex-grid-offset            : true !default;
 $flex-grid-offset__use-breakpoints   : true !default;
 $flex-grid-offset__prefix            : "col__offset--" !default;
 
+$enable__flex-grid-order            : true !default;
+$flex-grid-order__use-breakpoints   : true !default;
+$flex-grid-order__prefix            : "col__order--" !default;
+
 $enable__justify-content             : true !default;
 $justify-content__use-breakpoints    : true !default;
 $justify-content__prefix             : "jf__cnt--" !default;

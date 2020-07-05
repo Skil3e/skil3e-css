@@ -60,6 +60,9 @@ $breakpoints : maps.$breakpoints !default;
 @include mx.grid-offset(
         $enable : opt.$enable__flex-grid-offset
 );
+@include mx.grid-order(
+    $enable : opt.$enable__flex-grid-order
+);
 @include mx.height(
         $enable : opt.$enable__height
 );
@@ -173,6 +176,10 @@ $breakpoints : maps.$breakpoints !default;
     @include mx.grid-offset(
             $breakpoint : $name,
             $enable     : opt.$enable__flex-grid-offset and opt.$flex-grid-offset__use-breakpoints
+    );
+    @include mx.grid-order(
+        $breakpoint : $name,
+        $enable : opt.$enable__flex-grid-order and opt.$flex-grid-order__use-breakpoints
     );
     @include mx.height(
             $breakpoint : $name,
