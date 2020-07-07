@@ -1,25 +1,36 @@
 @use "../../util-constructor";
+@use "../../themes";
 @use "../../functions-mixins/acc-colors" as acc;
 @use "../../globals";
 
 .check-badge {
-  &__label{
+  &__label {
 	@extend .inline-flex;
 	@extend .py--xs;
 	@extend .px--sm;
 	@extend .brd;
-	@extend .transition--colors;
+	@extend .transition;
 	@extend .round;
-	@extend .brd--textDimmed;
-	@extend .text--textDimmed;
+	@extend .brd--text;
+	@extend .text--text;
 	@extend .cursor--pointer;
+	opacity : .65;
+
+	&:hover {
+	  opacity      : 1;
+	  color        : acc.color-contrast(globals.$primary);
+	  background   : globals.$primary;
+	  border-color : globals.$primary;
+	}
   }
-  &__checkbox{
+
+  &__checkbox {
 	height  : 0;
 	width   : 0;
 	display : none;
 
 	&:checked + .check-badge__label {
+	  opacity    : 1;
 	  color      : acc.color-contrast(globals.$primary);
 	  background : globals.$primary;
 	}
