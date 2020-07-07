@@ -1,0 +1,27 @@
+@use "../../util-constructor";
+@use "../../functions-mixins/acc-colors" as acc;
+@use "../../globals";
+
+.check-badge {
+  &__label{
+	@extend .inline-flex;
+	@extend .py--xs;
+	@extend .px--sm;
+	@extend .brd;
+	@extend .transition--colors;
+	@extend .round;
+	@extend .brd--textDimmed;
+	@extend .text--textDimmed;
+	@extend .cursor--pointer;
+  }
+  &__checkbox{
+	height  : 0;
+	width   : 0;
+	display : none;
+
+	&:checked + .check-badge__label {
+	  color      : acc.color-contrast(globals.$primary);
+	  background : globals.$primary;
+	}
+  }
+}
