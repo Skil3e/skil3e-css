@@ -30,9 +30,10 @@
 	display : none;
 
 	&:checked + .check-badge__label {
-	  opacity    : 1;
-	  color      : acc.color-contrast(globals.$primary);
-	  background : globals.$primary;
+	  opacity      : 1;
+	  color        : acc.color-contrast(globals.$primary);
+	  background   : globals.$primary;
+	  border-color : globals.$primary;
 	}
   }
 }
