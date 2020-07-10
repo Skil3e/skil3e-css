@@ -19,10 +19,11 @@ body[data-theme="dark"] {
 
 input {
   @extend .px--15;
-  @extend .py--10;
+  @extend .py--0;
   @extend .w--100;
   @extend .max__w--100;
   @extend .brd--0;
+  min-height       : 42px;
   border-radius    : $border-radius;
   background-color : var(--input);
   color            : var(--text);
