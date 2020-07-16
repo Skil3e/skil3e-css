@@ -59,6 +59,33 @@ $colorsDark      : maps.$colorsDark !default;
 	@extend .w--100;
   }
 
+  &.xs {
+	@extend .px--sm;
+	@extend .py--xs;
+	font-size : .75rem;
+  }
+
+  &.sm {
+	@extend .px--sm;
+	@extend .py--xs;
+  }
+
+  &.md {
+	@extend .px--lg;
+	@extend .py--10;
+  }
+
+  &.lg {
+	@extend .px--lg;
+	@extend .py--10;
+	font-size : 1.25rem;
+  }
+
+  &.xl {
+	@extend .px--xxl;
+	@extend .py--md;
+	font-size : 1.5rem;
+  }
 }
 
 //-----------------------------------------------------------
@@ -66,8 +93,6 @@ $colorsDark      : maps.$colorsDark !default;
 //-----------------------------------------------------------
 @if ($makeFill) {
   .button.fill {
-	padding    : $padding;
-	min-height : 42px;
 	@each $color, $hex in $colorsLight {
 	  @include btnMx.makeFillButton($color, $hex);
 	}
@@ -86,8 +111,9 @@ $colorsDark      : maps.$colorsDark !default;
 @if ($makeMinimalLink) {
   .button.link,
   .button.minimal {
-	padding : 0;
-	border  : none;
+	padding    : 0;
+	min-height : 0;
+	border     : none;
 	@each $color, $hex in $colorsLight {
 	  @include btnMx.makeMinimalLinkButton($color, $hex);
 	}
@@ -95,7 +121,7 @@ $colorsDark      : maps.$colorsDark !default;
   body[data-theme="dark"] {
 	.button.link, .button.minimal {
 	  @each $color, $hex in $colorsDark {
-		@include btnMx.makeFillButton($color, $hex);
+		@include btnMx.makeMinimalLinkButton($color, $hex);
 	  }
 	}
   }
@@ -111,16 +137,12 @@ $colorsDark      : maps.$colorsDark !default;
 //-----------------------------------------------------------
 @if ($makeOutline) {
   .button.outline {
-	padding    : $padding;
-	min-height : 42px;
 	@each $color, $hex in $colorsLight {
 	  @include btnMx.makeOutlineButton($color, $hex);
 	}
   }
 
   body[data-theme="dark"] .button.outline {
-	padding    : $padding;
-	min-height : 42px;
 	@each $color, $hex in $colorsDark {
 	  @include btnMx.makeOutlineButton($color, $hex);
 	}

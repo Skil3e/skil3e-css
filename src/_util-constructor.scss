@@ -156,17 +156,6 @@ body[data-theme="dark"] {
 @each $name, $size in $breakpoints {
   @media (min-width : $size) {
 
-	.#{$name}flex--center {
-	  @extend .flex;
-	  @extend .#{opt.$align-items__prefix}center;
-	}
-
-	.#{$name}flex--center-middle {
-	  @extend .flex;
-	  @extend .#{opt.$align-items__prefix}center;
-	  @extend .#{opt.$justify-content__prefix}center;
-	}
-
 	@include mx.align-content(
 		$breakpoint : $name,
 		$enable     : opt.$enable__align-content and opt.$align-content__use-breakpoints
