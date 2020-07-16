@@ -1,4 +1,5 @@
 @use "../../functions-mixins/acc-colors" as acc;
+@use "../../themes";
 @use "button";
 
 $colors  : button.$colors !default;
