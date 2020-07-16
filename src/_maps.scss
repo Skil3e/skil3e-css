@@ -94,16 +94,18 @@ $breakpoints      : (
 //--------------------------------------------------------------//
 $colorsLight      : (
 	'accent' : #0B5FFF,
-	'primary' : globals.$primary,
+	'info' : globals.$info,
 	'danger' : globals.$danger,
 	'success' : globals.$success,
+	'warning' : globals.$warning,
 ) !default;
 
 $colorsDark       : (
 	"accent": #1FB6FF,
-	'primary' : globals.$primary,
+	'info' : globals.$info,
 	'danger' : globals.$danger,
 	'success' : globals.$success,
+	'warning' : globals.$warning,
 ) !default;
 //--------------------------------------------------------------//
 //  Color Themes
