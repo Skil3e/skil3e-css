@@ -58,34 +58,6 @@ $colorsDark      : maps.$colorsDark !default;
   &.fullwidth {
 	@extend .w--100;
   }
-
-  &.xs {
-	@extend .px--sm;
-	@extend .py--xs;
-	font-size : .75rem;
-  }
-
-  &.sm {
-	@extend .px--sm;
-	@extend .py--xs;
-  }
-
-  &.md {
-	@extend .px--lg;
-	@extend .py--10;
-  }
-
-  &.lg {
-	@extend .px--lg;
-	@extend .py--10;
-	font-size : 1.25rem;
-  }
-
-  &.xl {
-	@extend .px--xxl;
-	@extend .py--md;
-	font-size : 1.5rem;
-  }
 }
 
 //-----------------------------------------------------------
@@ -96,8 +68,32 @@ $colorsDark      : maps.$colorsDark !default;
 	@each $color, $hex in $colorsLight {
 	  @include btnMx.makeFillButton($color, $hex);
 	}
-  }
+	@extend .px--lg;
+	@extend .py--10;
+	&.xs {
+	  @extend .px--sm;
+	  @extend .py--xs;
+	  font-size : .75rem;
+	}
 
+	&.sm {
+	  font-size : .9rem;
+	  @extend .px--10;
+	  @extend .py--sm;
+	}
+
+	&.lg {
+	  @extend .px--lg;
+	  @extend .py--10;
+	  font-size : 1.5rem;
+	}
+
+	&.xl {
+	  @extend .px--xxl;
+	  @extend .py--md;
+	  font-size : 1.75rem;
+	}
+  }
   body[data-theme="dark"] .button.fill {
 	@each $color, $hex in $colorsDark {
 	  @include btnMx.makeFillButton($color, $hex);
@@ -116,6 +112,22 @@ $colorsDark      : maps.$colorsDark !default;
 	border     : none;
 	@each $color, $hex in $colorsLight {
 	  @include btnMx.makeMinimalLinkButton($color, $hex);
+	}
+
+	&.xs {
+	  font-size : .75rem;
+	}
+
+	&.sm {
+	  font-size : .9rem;
+	}
+
+	&.lg {
+	  font-size : 1.5rem;
+	}
+
+	&.xl {
+	  font-size : 1.75rem;
 	}
   }
   body[data-theme="dark"] {
@@ -140,6 +152,31 @@ $colorsDark      : maps.$colorsDark !default;
 	@each $color, $hex in $colorsLight {
 	  @include btnMx.makeOutlineButton($color, $hex);
 	}
+	@extend .px--lg;
+	@extend .py--10;
+	&.xs {
+	  @extend .px--sm;
+	  @extend .py--xs;
+	  font-size : .75rem;
+	}
+
+	&.sm {
+	  font-size : .9rem;
+	  @extend .px--10;
+	  @extend .py--sm;
+	}
+
+	&.lg {
+	  @extend .px--lg;
+	  @extend .py--10;
+	  font-size : 1.5rem;
+	}
+
+	&.xl {
+	  @extend .px--xxl;
+	  @extend .py--md;
+	  font-size : 1.75rem;
+	}
   }
 
   body[data-theme="dark"] .button.outline {
@@ -147,4 +184,5 @@ $colorsDark      : maps.$colorsDark !default;
 	  @include btnMx.makeOutlineButton($color, $hex);
 	}
   }
+
 }
