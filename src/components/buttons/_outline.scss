@@ -51,7 +51,7 @@ $padding : button.$padding !default;
   }
 }
 
-body[data-theme="datk"] {
+body[data-theme="dark"] {
   .button.outline.accent {
 	$accent      : map-get(themes.$themeLight, "accent");
 	color        : $accent;

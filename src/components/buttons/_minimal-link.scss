@@ -45,7 +45,7 @@ $colors : button.$colors !default;
   }
 }
 
-body[data-theme="datk"] {
+body[data-theme="dark"] {
   .button.link.accent,
   .button.minimal.accent {
 	$accent : map-get(themes.$themeDark, "accent");

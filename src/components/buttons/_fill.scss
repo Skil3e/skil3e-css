@@ -48,7 +48,7 @@ $padding : button.$padding !default;
   }
 }
 
-body[data-theme="datk"] .button.fill {
+body[data-theme="dark"] .button.fill {
   &.accent {
 	$accent    : map-get(themes.$themeDark, "accent");
 	background : $accent;
