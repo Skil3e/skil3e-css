@@ -3,7 +3,6 @@
 $size          : 50px !default;
 $dot-width     : 15% !default;
 $dot-height    : 15% !default;
-$dot-color     : var(--text) !default;
 $dot-size-open : 80% !default;
 $top-bottom    : 20% !default;
 
@@ -19,7 +18,6 @@ $top-bottom    : 20% !default;
 	@extend .round--circle;
 	width               : $dot-width;
 	height              : $dot-height;
-	background          : $dot-color;
 	transition          : 300ms ease-in-out;
 	transition-property : transform, opacity, top, bottom, width;
 
