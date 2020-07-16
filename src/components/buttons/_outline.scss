@@ -53,7 +53,7 @@ $padding : button.$padding !default;
 
 body[data-theme="dark"] {
   .button.outline.accent {
-	$accent      : map-get(themes.$themeLight, "accent");
+	$accent      : map-get(themes.$themeDark, "accent");
 	color        : $accent;
 	border-color : $accent;
 
