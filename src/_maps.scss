@@ -4,13 +4,13 @@
 //  Borders
 //  Breakpoints
 //  Colors
+//  Color Themes
 //  Cursor
 //  Display
 //  Object Fit
 //  Positions
 //  Spacers
 //  Style Attribute
-//  Themes
 //  Transitions
 //  Typography
 //  Width
@@ -92,12 +92,38 @@ $breakpoints      : (
 //--------------------------------------------------------------//
 //  Colors
 //--------------------------------------------------------------//
-$colors           : (
+$colorsLight      : (
+	'accent' : #0B5FFF,
 	'primary' : globals.$primary,
 	'danger' : globals.$danger,
 	'success' : globals.$success,
-	'black' : globals.$black,
-	'white' : globals.$white
+) !default;
+
+$colorsDark       : (
+	"accent": #1FB6FF,
+	'primary' : globals.$primary,
+	'danger' : globals.$danger,
+	'success' : globals.$success,
+) !default;
+//--------------------------------------------------------------//
+//  Color Themes
+//--------------------------------------------------------------//
+$themeLight       : (
+	'body' : globals.$gray-95,
+	'bg' : globals.$gray-90,
+	'bgDimmed' : globals.$gray-85,
+	'border' : globals.$gray-80,
+	'text' : globals.$gray-10,
+	'textDimmed' : globals.$gray-60,
+) !default;
+
+$themeDark        : (
+	'body' : globals.$gray-5,
+	'bg' : globals.$gray-10,
+	'bgDimmed' : globals.$gray-15,
+	'border' : globals.$gray-20,
+	'text' : globals.$gray-90,
+	'textDimmed' : globals.$gray-40,
 ) !default;
 //--------------------------------------------------------------//
 //  Cursor
@@ -222,28 +248,6 @@ $style-attribute  : (
 	'bg' : background-color,
 	'fill' : fill,
 	'brd' : border-color
-) !default;
-//--------------------------------------------------------------//
-//  Themes
-//--------------------------------------------------------------//
-$themeLight       : (
-	'body' : globals.$gray-95,
-	'bg' : globals.$gray-90,
-	'bgDimmed' : globals.$gray-85,
-	'border' : globals.$gray-80,
-	'text' : globals.$gray-10,
-	'textDimmed' : globals.$gray-60,
-	'accent' : globals.$primary,
-) !default;
-
-$themeDark        : (
-	'body' : globals.$gray-5,
-	'bg' : globals.$gray-10,
-	'bgDimmed' : globals.$gray-15,
-	'border' : globals.$gray-20,
-	'text' : globals.$gray-90,
-	'textDimmed' : globals.$gray-40,
-	'accent' : globals.$primary,
 ) !default;
 
 //--------------------------------------------------------------//

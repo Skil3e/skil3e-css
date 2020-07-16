@@ -2,21 +2,24 @@
 @use "../../globals";
 @use "../../options" as opt;
 @use "../../maps";
+@use "button-mixins" as btnMx;
 //-----------------------------------------------------------
 //Variables
 //-----------------------------------------------------------
-$pX            : 1.5rem !default;
-$pY            : .625rem !default;
-$padding       : $pY $pX !default;
-$textTransform : initial !default;
-$fontSize      : 100% !default;
-$fontWeight    : 500 !default;
-$lineHeight    : 1.2 !default;
-$border-radius : globals.$border-radius !default;
-$border-width  : globals.$border-width !default;
-$borderStyle   : solid !default;
-$border        : $border-width solid !default;
-$colors        : maps.$colors !default;
+$makeFill        : true !default;
+$makeMinimalLink : true !default;
+$makeOutline     : true !default;
+$pX              : 1.5rem !default;
+$pY              : .625rem !default;
+$padding         : $pY $pX !default;
+$textTransform   : initial !default;
+$lineHeight      : 1.2 !default;
+$border-radius   : globals.$border-radius !default;
+$border-width    : globals.$border-width !default;
+$borderStyle     : solid !default;
+$border          : $border-width solid !default;
+$colorsLight     : maps.$colorsLight !default;
+$colorsDark      : maps.$colorsDark !default;
 
 .button, button {
   @extend .inline-flex;
@@ -28,8 +31,6 @@ $colors        : maps.$colors !default;
   z-index         : 1;
   vertical-align  : middle;
   text-transform  : $textTransform;
-  font-weight     : $fontWeight;
-  font-size       : $fontSize;
   line-height     : $lineHeight;
   text-decoration : none;
   background      : transparent;
@@ -56,5 +57,72 @@ $colors        : maps.$colors !default;
 
   &.fullwidth {
 	@extend .w--100;
+  }
+
+}
+
+//-----------------------------------------------------------
+// Button Fill
+//-----------------------------------------------------------
+@if ($makeFill) {
+  .button.fill {
+	padding    : $padding;
+	min-height : 42px;
+	@each $color, $hex in $colorsLight {
+	  @include btnMx.makeFillButton($color, $hex);
+	}
+  }
+
+  body[data-theme="dark"] .button.fill {
+	@each $color, $hex in $colorsDark {
+	  @include btnMx.makeFillButton($color, $hex);
+	}
+  }
+}
+
+//-----------------------------------------------------------
+// Button Link & Minimal Defaults
+//-----------------------------------------------------------
+@if ($makeMinimalLink) {
+  .button.link,
+  .button.minimal {
+	padding : 0;
+	border  : none;
+	@each $color, $hex in $colorsLight {
+	  @include btnMx.makeMinimalLinkButton($color, $hex);
+	}
+  }
+  body[data-theme="dark"] {
+	.button.link, .button.minimal {
+	  @each $color, $hex in $colorsDark {
+		@include btnMx.makeFillButton($color, $hex);
+	  }
+	}
+  }
+  .button.link {
+	display         : inline;
+	vertical-align  : baseline;
+	text-decoration : underline;
+  }
+}
+
+//-----------------------------------------------------------
+// Button Outline
+//-----------------------------------------------------------
+@if ($makeOutline) {
+  .button.outline {
+	padding    : $padding;
+	min-height : 42px;
+	@each $color, $hex in $colorsLight {
+	  @include btnMx.makeOutlineButton($color, $hex);
+	}
+  }
+
+  body[data-theme="dark"] .button.outline {
+	padding    : $padding;
+	min-height : 42px;
+	@each $color, $hex in $colorsDark {
+	  @include btnMx.makeOutlineButton($color, $hex);
+	}
   }
 }

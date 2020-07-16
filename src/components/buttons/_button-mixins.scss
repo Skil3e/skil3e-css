@@ -1,0 +1,58 @@
+@use "../../functions-mixins/acc-colors" as acc;
+
+@mixin makeFillButton($color, $hex) {
+  &.#{$color} {
+	background : $hex;
+	color      : acc.color-contrast($hex);
+
+	.icon, .loader {
+	  fill : acc.color-contrast($hex);
+	}
+
+	&:not(:disabled):hover {
+	  background : acc.set-hover-color($hex);
+
+	  .icon {
+		fill : acc.color-contrast($hex);
+	  }
+	}
+  }
+}
+
+@mixin makeMinimalLinkButton($color, $hex) {
+  &.#{$color} {
+	color : $hex;
+
+	.icon, .loader {
+	  fill : $hex;
+	}
+
+	&:not(:disabled):hover {
+	  color : acc.set-hover-color($hex);
+
+	  .icon {
+		fill : acc.set-hover-color($hex);
+	  }
+	}
+  }
+}
+
+@mixin makeOutlineButton($color, $hex) {
+  &.#{$color} {
+	border-color : $hex;
+	color        : $hex;
+
+	.icon {
+	  fill : $hex;
+	}
+
+	&:not(:disabled):hover {
+	  background : $hex;
+	  color      : acc.color-contrast($hex);
+
+	  .icon {
+		fill : acc.color-contrast($hex);
+	  }
+	}
+  }
+}
