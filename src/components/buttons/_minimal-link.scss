@@ -1,37 +1,72 @@
 @use "../../functions-mixins/acc-colors" as acc;
+@use "../../themes";
 @use "button";
 
-$colors  : button.$colors !default;
+$colors : button.$colors !default;
 //-----------------------------------------------------------
 // Button Link & Minimal Defaults
 //-----------------------------------------------------------
-.button {
-  &.link,
-  &.minimal {
-    padding : 0;
-    border  : none;
-    @each $color, $hex in $colors {
-      &.#{$color} {
-        color : $hex;
+.button.link,
+.button.minimal {
+  padding : 0;
+  border  : none;
+  @each $color, $hex in $colors {
+	&.#{$color} {
+	  color : $hex;
 
-        .icon {
-          fill : $hex;
-        }
+	  .icon, .loader {
+		fill : $hex;
+	  }
 
-        &:not(:disabled):hover {
-          color : acc.set-hover-color($hex);
+	  &:not(:disabled):hover {
+		color : acc.set-hover-color($hex);
 
-          .icon {
-            fill : acc.set-hover-color($hex);
-          }
-        }
-      }
-    }
+		.icon {
+		  fill : acc.set-hover-color($hex);
+		}
+	  }
+	}
   }
+  &.accent {
+	$accent : map-get(themes.$themeLight, "accent");
+	color   : $accent;
 
-  &.link {
-    display         : inline;
-    vertical-align  : baseline;
-    text-decoration : underline;
+	.icon, .loader {
+	  fill : $accent;
+	}
+
+	&:not(:disabled):hover {
+	  color : acc.set-hover-color($accent);
+
+	  .icon {
+		fill : acc.set-hover-color($accent);
+	  }
+	}
   }
+}
+
+body[data-theme="datk"] {
+  .button.link.accent,
+  .button.minimal.accent {
+	$accent : map-get(themes.$themeDark, "accent");
+	color   : $accent;
+
+	.icon, .loader {
+	  fill : $accent;
+	}
+
+	&:not(:disabled):hover {
+	  color : acc.set-hover-color($accent);
+
+	  .icon {
+		fill : acc.set-hover-color($accent);
+	  }
+	}
+  }
+}
+
+.button.link {
+  display         : inline;
+  vertical-align  : baseline;
+  text-decoration : underline;
 }

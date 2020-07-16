@@ -6,28 +6,68 @@ $padding : button.$padding !default;
 //-----------------------------------------------------------
 // Button Outline
 //-----------------------------------------------------------
-.button {
-  &.outline {
-    @each $color, $hex in $colors {
-      &.#{$color} {
-        padding      : $padding;
-        min-height   : 42px;
-        border-color : $hex;
-        color        : $hex;
+.button.outline {
+  padding    : $padding;
+  min-height : 42px;
+  @each $color, $hex in $colors {
+	&.#{$color} {
+	  border-color : $hex;
+	  color        : $hex;
 
-        .icon {
-          fill : $hex;
-        }
+	  .icon {
+		fill : $hex;
+	  }
 
-        &:not(:disabled):hover {
-          background : $hex;
-          color      : acc.color-contrast($hex);
+	  &:not(:disabled):hover {
+		background : $hex;
+		color      : acc.color-contrast($hex);
 
-          .icon {
-            fill : acc.color-contrast($hex);
-          }
-        }
-      }
-    }
+		.icon {
+		  fill : acc.color-contrast($hex);
+		}
+	  }
+	}
+  }
+
+  &.accent {
+	$accent      : map-get(themes.$themeLight, "accent");
+	color        : $accent;
+	border-color : $accent;
+
+
+	.icon, .loader {
+	  fill : $accent;
+	}
+
+	&:not(:disabled):hover {
+	  background: $accent;
+	  color : acc.color-contrast($accent);
+
+	  .icon {
+		fill : acc.color-contrast($accent);
+	  }
+	}
+  }
+}
+
+body[data-theme="datk"] {
+  .button.outline.accent {
+	$accent      : map-get(themes.$themeLight, "accent");
+	color        : $accent;
+	border-color : $accent;
+
+
+	.icon, .loader {
+	  fill : $accent;
+	}
+
+	&:not(:disabled):hover {
+	  background: $accent;
+	  color : acc.color-contrast($accent);
+
+	  .icon {
+		fill : acc.color-contrast($accent);
+	  }
+	}
   }
 }

@@ -1,4 +1,5 @@
 @use "../../functions-mixins/acc-colors" as acc;
+@use "../../themes";
 @use "button";
 
 $colors  : button.$colors !default;
@@ -6,27 +7,63 @@ $padding : button.$padding !default;
 //-----------------------------------------------------------
 // Button Fill
 //-----------------------------------------------------------
-.button {
-  &.fill {
-    @each $color, $hex in $colors {
-      &.#{$color} {
-        padding    : $padding;
-        min-height : 42px;
-        background : $hex;
-        color      : acc.color-contrast($hex);
+.button.fill {
+  padding    : $padding;
+  min-height : 42px;
+  @each $color, $hex in $colors {
+	&.#{$color} {
+	  background : $hex;
+	  color      : acc.color-contrast($hex);
 
-        .icon, .loader {
-          fill : acc.color-contrast($hex);
-        }
+	  .icon, .loader {
+		fill : acc.color-contrast($hex);
+	  }
 
-        &:not(:disabled):hover {
-          background : acc.set-hover-color($hex);
+	  &:not(:disabled):hover {
+		background : acc.set-hover-color($hex);
 
-          .icon {
-            fill : acc.color-contrast($hex);
-          }
-        }
-      }
-    }
+		.icon {
+		  fill : acc.color-contrast($hex);
+		}
+	  }
+	}
+  }
+
+  &.accent {
+	$accent    : map-get(themes.$themeLight, "accent");
+	background : $accent;
+	color      : acc.color-contrast($accent);
+
+	.icon, .loader {
+	  fill : acc.color-contrast($accent);
+	}
+
+	&:not(:disabled):hover {
+	  background : acc.set-hover-color($accent);
+
+	  .icon {
+		fill : acc.color-contrast($accent);
+	  }
+	}
+  }
+}
+
+body[data-theme="datk"] .button.fill {
+  &.accent {
+	$accent    : map-get(themes.$themeDark, "accent");
+	background : $accent;
+	color      : acc.color-contrast($accent);
+
+	.icon, .loader {
+	  fill : acc.color-contrast($accent);
+	}
+
+	&:not(:disabled):hover {
+	  background : acc.set-hover-color($accent);
+
+	  .icon {
+		fill : acc.color-contrast($accent);
+	  }
+	}
   }
 }
