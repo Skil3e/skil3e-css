@@ -1,11 +1,16 @@
 @use "maps";
 @use "functions-mixins/mixins" as mx;
 
-$themeLight : maps.$themeLight !default;
-$themeDark  : maps.$themeDark !default;
+$colorsLight : maps.$colorsLight !default;
+$themeLight  : maps.$themeLight !default;
+$colorsDark  : maps.$colorsDark !default;
+$themeDark   : maps.$themeDark !default;
 
+@include mx.color-styles($map : $colorsLight, $element : body);
 @include mx.color-styles($map : $themeLight, $element : body);
-@include mx.color-styles($map : $themeDark, $element : body, $themeName : dark, $createClasses : false);
+
+@include mx.color-styles($map : $colorsDark, $element : body, $themeName : dark);
+@include mx.color-styles($map : $themeDark, $element : body, $themeName : dark);
 
 body {
   background-color : var(--body);

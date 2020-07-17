@@ -189,6 +189,28 @@ $z-index          : maps.$z-index !default;
 		  @each $color, $hex in $map {
 			--#{$color}: #{$hex};
 		  }
+		  @if ($createClasses) {
+			@each $color, $hex in $map {
+			  @each $name, $atr in $style-attribute {
+				.#{$breakpoint}#{$name}--#{$color} {
+				  @if ($useFallback) {
+					#{$atr}: $hex;
+				  }
+				  @if ($useBgText and $atr == background-color) {
+					color : acc.color-contrast($hex);
+				  }
+				  @if ($createVars) {
+					#{$atr}: var(--#{$color});
+				  }
+				}
+				@if ($hover) {
+				  .#{$breakpoint}hover\:#{$name}--#{$color}:hover {
+					#{$atr}: var(--#{$color});
+				  }
+				}
+			  }
+			}
+		  }
 		}
 	  } @else {
 		#{$element} {
@@ -196,30 +218,31 @@ $z-index          : maps.$z-index !default;
 			--#{$color}: #{$hex};
 		  }
 		}
-	  }
-	}
-	@if ($createClasses) {
-	  @each $color, $hex in $map {
-		@each $name, $atr in $style-attribute {
-		  .#{$breakpoint}#{$name}--#{$color} {
-			@if ($useFallback) {
-			  #{$atr}: $hex;
-			}
-			@if ($useBgText and $atr == background-color) {
-			  color : acc.color-contrast($hex);
-			}
-			@if ($createVars) {
-			  #{$atr}: var(--#{$color});
-			}
-		  }
-		  @if ($hover) {
-			.#{$breakpoint}hover\:#{$name}--#{$color}:hover {
-			  #{$atr}: var(--#{$color});
+		@if ($createClasses) {
+		  @each $color, $hex in $map {
+			@each $name, $atr in $style-attribute {
+			  .#{$breakpoint}#{$name}--#{$color} {
+				@if ($useFallback) {
+				  #{$atr}: $hex;
+				}
+				@if ($useBgText and $atr == background-color) {
+				  color : acc.color-contrast($hex);
+				}
+				@if ($createVars) {
+				  #{$atr}: var(--#{$color});
+				}
+			  }
+			  @if ($hover) {
+				.#{$breakpoint}hover\:#{$name}--#{$color}:hover {
+				  #{$atr}: var(--#{$color});
+				}
+			  }
 			}
 		  }
 		}
 	  }
 	}
+
   }
 }
 

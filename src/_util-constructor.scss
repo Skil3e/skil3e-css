@@ -1,7 +1,7 @@
 @use "maps";
 @use "options" as opt;
 @use "functions-mixins/mixins" as mx;
-
+@forward "themes";
 $breakpoints : maps.$breakpoints !default;
 
 .flex--center {
@@ -34,16 +34,6 @@ $breakpoints : maps.$breakpoints !default;
 @include mx.border-radius(
 	$enable : opt.$enable__border-radius,
 );
-
-@include mx.color-styles(
-	$enable : opt.$enable__color-styles
-);
-
-body[data-theme="dark"] {
-  @include mx.color-styles(
-	  $enable : opt.$enable__color-styles, $map : maps.$colorsDark
-  );
-}
 
 @include mx.cursor(
 	$enable : opt.$enable__cursor
