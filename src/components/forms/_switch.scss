@@ -1,6 +1,9 @@
 @use "../../util-constructor";
 @use "../../globals";
+@use "../../maps";
 
+$colorsLight : maps.$colorsLight !default;
+$colorsDark  : maps.$colorsDark !default;
 $activeBG    : globals.$primary !default;
 $inactiveBG  : globals.$gray-50 !default;
 $buttonColor : #fff !default;
@@ -42,6 +45,7 @@ $buttonColor : #fff !default;
 	  background : $buttonColor;
 	  box-shadow : 0 0 2px 0 rgba(10, 10, 10, 0.3);
 	}
+
 	&.xs {
 	  width  : 24px;
 	  height : 16px;
@@ -55,6 +59,7 @@ $buttonColor : #fff !default;
 		}
 	  }
 	}
+
 	&.sm {
 	  width  : 40px;
 	  height : 24px;
@@ -108,6 +113,24 @@ $buttonColor : #fff !default;
 		&:active {
 		  width : 45px;
 		}
+	  }
+	}
+  }
+}
+
+@each $name, $atr in $colorsLight {
+  .switch.#{$name} {
+	.switch__checkbox:checked + .switch__label {
+	  background : $atr;
+	}
+  }
+}
+
+@each $name, $atr in $colorsDark {
+  body[data-theme="dark"] {
+	.switch.#{$name} {
+	  .switch__checkbox:checked + .switch__label {
+		background : $atr;
 	  }
 	}
   }
