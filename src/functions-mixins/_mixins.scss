@@ -351,8 +351,9 @@ $z-index          : maps.$z-index !default;
 	  }
 	}
 	.#{$breakpoint}#{$prefix} {
-	  flex      : 1 0 100%;
+	  flex      : 1 1 0;
 	  max-width : 100%;
+	  min-width: 0;
 	}
   }
 }
