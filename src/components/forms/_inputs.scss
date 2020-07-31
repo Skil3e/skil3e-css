@@ -18,8 +18,11 @@ body[data-theme="dark"] {
 }
 
 input {
-  @extend .px--15;
-  @extend .py--10;
+  &:not(.password-input) {
+    @extend .pr--10;
+  }
+  @extend .pl--10;
+  @extend .py--15;
   @extend .w--100;
   @extend .max__w--100;
   @extend .brd--0;
@@ -27,7 +30,6 @@ input {
   background-color : var(--input);
   color            : var(--text);
   transition       : box-shadow globals.$transition-timing;
-
   &:focus {
 	outline    : none;
 	box-shadow : 0 0 0 2px var(--inputBorder);
