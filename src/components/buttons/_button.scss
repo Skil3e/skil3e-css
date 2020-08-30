@@ -23,7 +23,7 @@ $colorsDark      : maps.$colorsDark !default;
 
 .button, button {
   @extend .inline-flex;
-  @extend .#{opt.$align-content__prefix}center;
+  @extend .#{opt.$align-items__prefix}center;
   @extend .#{opt.$justify-content__prefix}center;
   @extend .relative;
   @extend .#{opt.$cursor__prefix}pointer;
