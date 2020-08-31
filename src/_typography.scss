@@ -4,7 +4,7 @@
 $headingFont       : globals.$headingFont !default;
 $headingLineHeight : globals.$headingLineHeight !default;
 $headingFontWeight : globals.$headingFontWeight !default;
-$lineHeight        : globals.$lineHeight !default;
+$lineHeight        : globals.$plineHeight !default;
 $highlight         : globals.$highlight !default;
 
 @include mx.typography();
