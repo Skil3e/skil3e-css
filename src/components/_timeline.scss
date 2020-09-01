@@ -1,0 +1,75 @@
+@use "../util-constructor";
+@use "../functions-mixins/media-queries" as mq;
+
+$maxWidth: 1100px;
+
+.timeline {
+  max-width : $maxWidth;
+  @extend .mx--auto;
+
+  &__line {
+	width : 1px;
+
+	&::after, &::before {
+	  content : "";
+	  @extend .absolute-x--center;
+	  @extend .bg--text;
+	  width   : 10px;
+	  height  : 10px;
+	}
+
+	&::before {
+	  @extend .top--0;
+	  @extend .round--circle;
+	}
+
+	&::after {
+	  @extend .bottom--0;
+	  @extend .round--circle;
+	}
+  }
+
+  &__item {
+	&::after, &::before {
+	  content : "";
+	  @extend .absolute-y--center;
+	  @extend .bg--text;
+	  top     : 40%;
+	}
+
+	&::before {
+	  @extend .round--circle;
+	  @extend .brd--md;
+	  @extend .brd--bg;
+	  width  : 16px;
+	  height : 16px;
+	  @include mq.tablet-down() {
+		left : -8px;
+	  }
+	}
+
+	&:nth-child(even)::before {
+	  right : -8px;
+	}
+
+	&:nth-child(odd)::before {
+	  left : -8px;
+	}
+
+	&::after {
+	  width  : 1.875rem;
+	  height : 1px;
+	  @include mq.tablet-down() {
+		left : 0;
+	  }
+	}
+
+	&:nth-child(even)::after {
+	  @extend .right--0;
+	}
+
+	&:nth-child(odd)::after {
+	  @extend .left--0;
+	}
+  }
+}
