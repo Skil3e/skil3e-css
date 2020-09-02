@@ -116,7 +116,7 @@ $themeLight       : (
 	'bgDimmed' : globals.$gray-85,
 	'border' : globals.$gray-80,
 	'text' : globals.$gray-10,
-	'textDimmed' : globals.$gray-60,
+	'textDimmed' : globals.$gray-40,
 ) !default;
 
 $themeDark        : (
@@ -125,7 +125,7 @@ $themeDark        : (
 	'bgDimmed' : globals.$gray-15,
 	'border' : globals.$gray-20,
 	'text' : globals.$gray-90,
-	'textDimmed' : globals.$gray-40,
+	'textDimmed' : globals.$gray-60,
 ) !default;
 //--------------------------------------------------------------//
 //  Cursor
