@@ -2,7 +2,8 @@
 @use "../functions-mixins/acc-colors" as acc;
 @use "../maps";
 
-$colors : maps.$colorsLight !default;
+$light : maps.$colorsLight !default;
+$dark  : maps.$colorsDark !default;
 
 .badge {
   @extend .inline-flex;
@@ -10,11 +11,21 @@ $colors : maps.$colorsLight !default;
   @extend .px--sm;
   @extend .transition--colors;
   @extend .round;
-  line-height: 1.5;
-  vertical-align: middle;
+  line-height    : 1.5;
+  vertical-align : middle;
 
-  @each $color, $hex in $colors {
+  @each $color, $hex in $light {
 	&.#{$color} {
+	  color      : acc.color-contrast($hex);
+	  background : $hex;
+
+	  &:hover {
+		background : acc.set-hover-color($hex)
+	  }
+	}
+  }
+  @each $color, $hex in $dark {
+	body[data-theme="dark"].#{$color} {
 	  color      : acc.color-contrast($hex);
 	  background : $hex;
 
