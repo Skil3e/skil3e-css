@@ -44,6 +44,7 @@ $positions-values : maps.$positions-values !default;
 $spacers          : maps.$spacers !default;
 $transitions      : maps.$transitions !default;
 $font-sizes       : maps.$font-sizes !default;
+$font-weights     : maps.$font-weights !default;
 $typography       : maps.$typography !default;
 $type-sizes       : map-merge(maps.$typography, $font-sizes) !default;
 $width            : maps.$width !default;
@@ -353,7 +354,7 @@ $z-index          : maps.$z-index !default;
 	.#{$breakpoint}#{$prefix} {
 	  flex      : 1 1 0;
 	  max-width : 100%;
-	  min-width: 0;
+	  min-width : 0;
 	}
   }
 }
@@ -646,7 +647,7 @@ $z-index          : maps.$z-index !default;
 
 @mixin fontWeights($breakpoint: null, $enable: true, $prefix : opt.$fontWeights__prefix) {
   @if ($enable) {
-	@each $type, $value in ("light": 300, "regular": 500, "medium": 700, "bold": 700, "black": 900) {
+	@each $type, $value in $font-weights {
 	  .#{$breakpoint}#{$prefix}#{$type} {
 		font-weight : $value;
 	  }

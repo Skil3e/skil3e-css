@@ -9,7 +9,7 @@
 	  fill : acc.color-contrast($hex);
 	}
 
-	&:not(:disabled):hover {
+	&:not(:disabled):hover, &:not(.disabled):hover {
 	  background : acc.set-hover-color($hex);
 
 	  .icon {
@@ -27,7 +27,7 @@
 	  fill : $hex;
 	}
 
-	&:not(:disabled):hover {
+	&:not(:disabled):hover, &:not(.disabled):hover {
 	  color : acc.set-hover-color($hex);
 
 	  .icon {
@@ -46,7 +46,7 @@
 	  fill : $hex;
 	}
 
-	&:not(:disabled):hover {
+	&:not(:disabled):hover, &:not(.disabled):hover {
 	  background : $hex;
 	  color      : acc.color-contrast($hex);
 
