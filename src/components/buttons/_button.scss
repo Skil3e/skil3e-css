@@ -43,6 +43,7 @@ $colorsDark      : maps.$colorsDark !default;
 
   &.disabled, &:disabled {
 	@extend .cursor--not-allowed;
+	pointer-events: none;
 	opacity : .65;
   }
 
