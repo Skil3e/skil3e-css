@@ -32,13 +32,13 @@ $colorsDark  : maps.$colorsDark !default;
   @each $color, $hex in $colorsLight {
 	&.#{$color} {
 	  .badge-label:hover {
-		opacity : 1;
+		opacity      : 1;
 		color        : acc.color-contrast($hex);
 		background   : $hex;
 		border-color : $hex;
 	  }
 
-	  .checkbox:checked + .check-badge .badge-label {
+	  .checkbox:checked + .badge-label {
 		opacity      : 1;
 		color        : acc.color-contrast($hex);
 		background   : $hex;
@@ -47,17 +47,18 @@ $colorsDark  : maps.$colorsDark !default;
 	}
   }
 }
+
 body[data-theme="dark"] .check-badge {
   @each $color, $hex in $colorsDark {
 	&.#{$color} {
 	  .badge-label:hover {
-		opacity : 1;
+		opacity      : 1;
 		color        : acc.color-contrast($hex);
 		background   : $hex;
 		border-color : $hex;
 	  }
 
-	  .checkbox:checked + .check-badge .badge-label {
+	  .checkbox:checked + .badge-label {
 		opacity      : 1;
 		color        : acc.color-contrast($hex);
 		background   : $hex;
