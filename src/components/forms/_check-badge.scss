@@ -1,10 +1,14 @@
 @use "../../util-constructor";
 @use "../../themes";
+@use "../../maps";
 @use "../../functions-mixins/acc-colors" as acc;
 @use "../../globals";
 
+$colorsLight : maps.$colorsLight !default;
+$colorsDark  : maps.$colorsDark !default;
+
 .check-badge {
-  &__label {
+  .badge-label {
 	@extend .inline-flex;
 	@extend .py--xs;
 	@extend .px--sm;
@@ -15,25 +19,50 @@
 	@extend .text--text;
 	@extend .cursor--pointer;
 	opacity : .65;
-
-	&:hover {
-	  opacity      : 1;
-	  color        : acc.color-contrast(globals.$primary);
-	  background   : globals.$primary;
-	  border-color : globals.$primary;
-	}
   }
 
-  &__checkbox {
+  .checkbox {
 	height  : 0;
 	width   : 0;
 	display : none;
+  }
+}
 
-	&:checked + .check-badge__label {
-	  opacity      : 1;
-	  color        : acc.color-contrast(globals.$primary);
-	  background   : globals.$primary;
-	  border-color : globals.$primary;
+.check-badge {
+  @each $color, $hex in $colorsLight {
+	&.#{$color} {
+	  .badge-label:hover {
+		opacity : 1;
+		color        : acc.color-contrast($hex);
+		background   : $hex;
+		border-color : $hex;
+	  }
+
+	  .checkbox:checked + .check-badge .badge-label {
+		opacity      : 1;
+		color        : acc.color-contrast($hex);
+		background   : $hex;
+		border-color : $hex;
+	  }
+	}
+  }
+}
+body[data-theme="dark"] .check-badge {
+  @each $color, $hex in $colorsDark {
+	&.#{$color} {
+	  .badge-label:hover {
+		opacity : 1;
+		color        : acc.color-contrast($hex);
+		background   : $hex;
+		border-color : $hex;
+	  }
+
+	  .checkbox:checked + .check-badge .badge-label {
+		opacity      : 1;
+		color        : acc.color-contrast($hex);
+		background   : $hex;
+		border-color : $hex;
+	  }
 	}
   }
 }
