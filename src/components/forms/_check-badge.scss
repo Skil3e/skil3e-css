@@ -9,61 +9,87 @@ $colorsDark  : maps.$colorsDark !default;
 
 .check-badge {
   .badge-label {
-	@extend .inline-flex;
-	@extend .py--xs;
-	@extend .px--sm;
-	@extend .brd;
-	@extend .transition;
-	@extend .round;
-	@extend .brd--text;
-	@extend .text--text;
-	@extend .cursor--pointer;
-	opacity : .65;
+    @extend .inline-flex;
+    @extend .px--lg;
+    @extend .py--10;
+    @extend .brd;
+    @extend .transition;
+    @extend .round;
+    @extend .brd--text;
+    @extend .text--text;
+    @extend .cursor--pointer;
+    opacity : .65;
   }
 
   .checkbox {
-	height  : 0;
-	width   : 0;
-	display : none;
+    height  : 0;
+    width   : 0;
+    display : none;
+  }
+
+  &.xs .badge-label {
+    @extend .px--sm;
+    @extend .py--xs;
+    font-size : .75rem;
+
+  }
+
+  &.sm .badge-label {
+    font-size : .9rem;
+    @extend .px--10;
+    @extend .py--sm;
+
+  }
+
+  &.lg .badge-label {
+    @extend .px--lg;
+    @extend .py--10;
+    font-size : 1.5rem;
+  }
+
+  &.xl .badge-label {
+    @extend .px--xxl;
+    @extend .py--md;
+    font-size : 1.75rem;
   }
 }
 
 .check-badge {
   @each $color, $hex in $colorsLight {
-	&.#{$color} {
-	  .badge-label:hover {
-		opacity      : 1;
-		color        : acc.color-contrast($hex);
-		background   : $hex;
-		border-color : $hex;
-	  }
+    &.#{$color} {
+      .badge-label:hover {
+        opacity      : 1;
+        color        : acc.color-contrast($hex);
+        background   : $hex;
+        border-color : $hex;
+      }
 
-	  .checkbox:checked + .badge-label {
-		opacity      : 1;
-		color        : acc.color-contrast($hex);
-		background   : $hex;
-		border-color : $hex;
-	  }
-	}
+      .checkbox:checked + .badge-label {
+        opacity      : 1;
+        color        : acc.color-contrast($hex);
+        background   : $hex;
+        border-color : $hex;
+      }
+    }
   }
 }
 
 body[data-theme="dark"] .check-badge {
   @each $color, $hex in $colorsDark {
-	&.#{$color} {
-	  .badge-label:hover {
-		opacity      : 1;
-		color        : acc.color-contrast($hex);
-		background   : $hex;
-		border-color : $hex;
-	  }
+    &.#{$color} {
+      .badge-label:hover {
+        opacity      : 1;
+        color        : acc.color-contrast($hex);
+        background   : $hex;
+        border-color : $hex;
+      }
 
-	  .checkbox:checked + .badge-label {
-		opacity      : 1;
-		color        : acc.color-contrast($hex);
-		background   : $hex;
-		border-color : $hex;
-	  }
-	}
+      .checkbox:checked + .badge-label {
+        opacity      : 1;
+        color        : acc.color-contrast($hex);
+        background   : $hex;
+        border-color : $hex;
+      }
+    }
   }
 }
