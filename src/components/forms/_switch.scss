@@ -1,10 +1,9 @@
 @use "../../util-constructor";
 @use "../../globals";
-@use "../../maps";
+@use "../../themes";
 
-$colorsLight : maps.$colorsLight !default;
-$colorsDark  : maps.$colorsDark !default;
-$activeBG    : globals.$primary !default;
+$colorsLight : themes.$colorsLight !default;
+$colorsDark  : themes.$colorsDark !default;
 $inactiveBG  : globals.$gray-50 !default;
 $buttonColor : #fff !default;
 
@@ -17,7 +16,7 @@ $buttonColor : #fff !default;
 	display : none;
 
 	&:checked + .switch__label {
-	  background : $activeBG;
+	  background : var(--accent);
 	}
 
 	&:checked + .switch__label .switch__button {

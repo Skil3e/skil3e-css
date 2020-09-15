@@ -1,9 +1,9 @@
 @use "../util-constructor";
 @use "../functions-mixins/acc-colors" as acc;
-@use "../maps";
+@use "../themes";
 
-$light : maps.$colorsLight !default;
-$dark  : maps.$colorsDark !default;
+$light : themes.$colorsLight !default;
+$dark  : themes.$colorsDark !default;
 
 .badge {
   @extend .inline-flex;

@@ -1,7 +1,7 @@
 @use "../../util-constructor";
 @use "../../globals";
 @use "../../options" as opt;
-@use "../../maps";
+@use "../../themes";
 @use "button-mixins" as btnMx;
 //-----------------------------------------------------------
 //Variables
@@ -18,8 +18,8 @@ $border-radius   : globals.$border-radius !default;
 $border-width    : globals.$border-width !default;
 $borderStyle     : solid !default;
 $border          : $border-width solid !default;
-$colorsLight     : maps.$colorsLight !default;
-$colorsDark      : maps.$colorsDark !default;
+$colorsLight     : themes.$colorsLight !default;
+$colorsDark      : themes.$colorsDark !default;
 
 .button, button {
   @extend .inline-flex;

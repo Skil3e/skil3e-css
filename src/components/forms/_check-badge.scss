@@ -1,11 +1,10 @@
 @use "../../util-constructor";
 @use "../../themes";
-@use "../../maps";
 @use "../../functions-mixins/acc-colors" as acc;
 @use "../../globals";
 
-$colorsLight : maps.$colorsLight !default;
-$colorsDark  : maps.$colorsDark !default;
+$colorsLight : themes.$colorsLight !default;
+$colorsDark  : themes.$colorsDark !default;
 
 .check-badge {
   .badge-label {
