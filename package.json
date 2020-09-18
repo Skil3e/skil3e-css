@@ -6,9 +6,9 @@
   "license": "MIT",
   "main": "src/index.js",
   "scripts": {
-    "dev": "sass src/skil3e.scss:src/debug/skil3e.css --no-source-map && npx postcss src/debug/skil3e.css --use autoprefixer -d src/debug/ --no-map",
-    "build-basic": "sass src/basic.scss:dist/skil3e-basic.min.css --no-source-map --style compressed && npx postcss dist/skil3e-basic.min.css --use autoprefixer -d dist/ --no-map",
-    "build": "sass src/skil3e.scss:dist/skil3e.min.css --no-source-map --style compressed && npx postcss dist/skil3e.min.css --use autoprefixer -d dist/ --no-map",
+    "dev": "sass src/skil3e.scss:src/debug/skil3e.css --no-source-map && npx postcss src/debug/skil3e.css --use autoprefixer --use postcss-combine-media-query -d src/debug/ --no-map",
+    "build-basic": "sass src/basic.scss:dist/skil3e-basic.min.css --no-source-map --style compressed && npx postcss dist/skil3e-basic.min.css --use autoprefixer --use postcss-combine-media-query -d dist/ --no-map",
+    "build": "sass src/skil3e.scss:dist/skil3e.min.css --no-source-map --style compressed && npx postcss dist/skil3e.min.css --use autoprefixer --use postcss-combine-media-query -d dist/ --no-map",
     "pub": "npm run build && npm run build-basic && npm publish"
   },
   "repository": {
@@ -23,6 +23,7 @@
     "autoprefixer": "^9.7.6",
     "browserslist": "^4.12.0",
     "postcss-cli": "^7.1.1",
+    "postcss-combine-media-query": "^1.0.1",
     "sass": "^1.26.5"
   },
   "browserslist": {
@@ -38,5 +39,6 @@
       "last 1 safari version",
       "last 1 ie version"
     ]
-  }
+  },
+  "dependencies": {}
 }

@@ -1,0 +1,18 @@
+@use "../maps";
+@use "mixins" as mx;
+
+$properties : () !default;
+$intents    : () !default;
+$themeDark  : () !default;
+$themeLight : () !default;
+
+$SP         : map-merge(maps.$styleProperties, $properties);
+$INTENT     : map-merge(maps.$intentColors, $intents);
+$TL         : map-merge(maps.$themeLight, map-merge($INTENT, $themeLight));
+$TD         : map-merge(maps.$themeDark, map-merge($INTENT, $themeDark));
+$Classes    : map-merge($TL, $TD);
+
+@include mx.makeColorVars($TD, "body[data-theme='dark']");
+@include mx.makeColorVars($TL, "body");
+@include mx.makeColors($SP, $Classes, "--",);
+

@@ -1,0 +1,18 @@
+@use "../maps";
+@use "mixins" as mx;
+
+$widths        : ()!default;
+$radius        : ()!default;
+$border-widths : map-merge(maps.$border-widths, $widths);
+$border-radius : map-merge(maps.$border-radius, $radius);
+
+@include mx.makeUtilPos("border", "border", $border-widths, "--", "-") {
+  border-style : solid;
+}
+@include mx.border-radius($border-radius, "round", "--", "-");
+
+@each $name, $value in maps.$breakpoints {
+  @media (min-width : $value) {
+    @include mx.border-radius($border-radius, "round", "--", "-", $name);
+  }
+}

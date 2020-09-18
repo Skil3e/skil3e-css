@@ -1,41 +1,66 @@
 @use "../globals";
-@mixin phone-only {
-  @media (min-width: globals.$phone) {
-    @content;
+
+@mixin mediaQuery($minWidth, $maxWidth) {
+  @if ($minWidth and $maxWidth) {
+	@media screen and (max-width : $maxWidth) and (min-width : $minWidth) {
+	  @content;
+	}
+  } @else if ($minWidth) {
+	@media screen and (min-width : $minWidth) {
+	  @content;
+	}
+  } @else if ($maxWidth) {
+	@media screen and (max-width : $maxWidth) {
+	  @content;
+	}
   }
 }
+
 @mixin phone-down {
-  @media (max-width: globals.$phone) {
-    @content;
+  @media (max-width : globals.$phone) {
+	@content;
   }
 }
-@mixin tablet-up {
-  @media (min-width: globals.$tablet) {
-    @content;
-  }
-}
-@mixin laptop-up {
-  @media (min-width: globals.$laptop) {
-    @content;
-  }
-}
-@mixin desktop-up {
-  @media (min-width: globals.$desktop) {
-    @content;
-  }
-}
+
 @mixin tablet-down {
-  @media (max-width: globals.$tablet) {
-    @content;
+  @media (max-width : globals.$tablet) {
+	@content;
   }
 }
+
 @mixin laptop-down {
-  @media (max-width: globals.$laptop) {
-    @content;
+  @media (max-width : globals.$laptop) {
+	@content;
   }
 }
+
 @mixin desktop-down {
-  @media (max-width: globals.$desktop) {
-    @content;
+  @media (max-width : globals.$desktop) {
+	@content;
   }
 }
+
+@mixin phone-only {
+  @media (min-width : globals.$phone) {
+	@content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width : globals.$tablet) {
+	@content;
+  }
+}
+
+@mixin laptop-up {
+  @media (min-width : globals.$laptop) {
+	@content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width : globals.$desktop) {
+	@content;
+  }
+}
+

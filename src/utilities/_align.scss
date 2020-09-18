@@ -1,0 +1,10 @@
+@use "../maps";
+@use "mixins" as mx;
+
+$align-item       : maps.$align-item !default;
+$align-content    : maps.$align-content !default;
+$align-self       : maps.$align-self !default;
+
+@include mx.makeUtil("align-items","al__it", $align-item, "--" );
+@include mx.makeUtil("align-content","al__cnt", $align-item, "--" );
+@include mx.makeUtil("align-self","al__self", $align-item, "--" );

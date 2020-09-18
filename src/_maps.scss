@@ -67,41 +67,29 @@ $justify-self     : (
 //  Borders
 //--------------------------------------------------------------//
 $border-widths    : (
-	"--0": 0,
+	"0": 0,
 	"": 1px,
-	"--md": 2px,
-	"--lg": 3px,
+	"md": 3px,
 ) !default;
 
 $border-radius    : (
 	"": .25rem,
-	'--0' : 0,
-	"--md": .625rem,
-	"--lg": .9375rem,
-	"--circle": 1000rem
+	'0' : 0,
+	"circle": 1000rem
 ) !default;
 //--------------------------------------------------------------//
 //  Breakpoints
 //--------------------------------------------------------------//
 $breakpoints      : (
-	'sm__': globals.$phone,
-	'md__': globals.$tablet,
-	'lg__': globals.$laptop,
-	'xl__': globals.$desktop,
+	sm\: : globals.$phone,
+	md\: : globals.$tablet,
+	lg\: : globals.$laptop,
+	xl\: : globals.$desktop,
 ) !default;
 //--------------------------------------------------------------//
 //  Colors
 //--------------------------------------------------------------//
-$colorsLight      : (
-	'accent' : #0B5FFF,
-	'info' : globals.$info,
-	'danger' : globals.$danger,
-	'success' : globals.$success,
-	'warning' : globals.$warning,
-) !default;
-
-$colorsDark       : (
-	"accent": #1FB6FF,
+$intentColors      : (
 	'info' : globals.$info,
 	'danger' : globals.$danger,
 	'success' : globals.$success,
@@ -111,6 +99,7 @@ $colorsDark       : (
 //  Color Themes
 //--------------------------------------------------------------//
 $themeLight       : (
+	'accent' : #0B5FFF,
 	'body' : globals.$gray-95,
 	'bg' : globals.$gray-90,
 	'bgDimmed' : globals.$gray-85,
@@ -120,6 +109,7 @@ $themeLight       : (
 ) !default;
 
 $themeDark        : (
+	"accent": #1FB6FF,
 	'body' : globals.$gray-5,
 	'bg' : globals.$gray-10,
 	'bgDimmed' : globals.$gray-15,
@@ -245,7 +235,7 @@ $spacers          : (
 //--------------------------------------------------------------//
 // Style Attribute
 //--------------------------------------------------------------//
-$style-attribute  : (
+$styleProperties  : (
 	'text' : color,
 	'bg' : background-color,
 	'fill' : fill,

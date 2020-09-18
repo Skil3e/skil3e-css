@@ -1,0 +1,13 @@
+@use "../maps";
+@use "../globals";
+@use "mixins" as mx;
+
+$spacers : maps.$spacers;
+
+@include mx.makeUtilPos("margin", "m", $spacers, "--", "");
+
+@each $name, $value in maps.$breakpoints {
+  @media (min-width : $value) {
+	@include mx.makeUtilPos("margin", "m", $spacers, "--", "", $name);
+  }
+}
