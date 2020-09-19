@@ -1,4 +1,4 @@
-@use "../globals";
+@use "../settings" as st;
 
 @mixin mediaQuery($minWidth, $maxWidth) {
   @if ($minWidth and $maxWidth) {
@@ -17,49 +17,49 @@
 }
 
 @mixin phone-down {
-  @media (max-width : globals.$phone) {
+  @media (max-width : st.$phone) {
 	@content;
   }
 }
 
 @mixin tablet-down {
-  @media (max-width : globals.$tablet) {
+  @media (max-width : st.$tablet) {
 	@content;
   }
 }
 
 @mixin laptop-down {
-  @media (max-width : globals.$laptop) {
+  @media (max-width : st.$laptop) {
 	@content;
   }
 }
 
 @mixin desktop-down {
-  @media (max-width : globals.$desktop) {
+  @media (max-width : st.$desktop) {
 	@content;
   }
 }
 
 @mixin phone-only {
-  @media (min-width : globals.$phone) {
+  @media (min-width : st.$phone) {
 	@content;
   }
 }
 
 @mixin tablet-up {
-  @media (min-width : globals.$tablet) {
+  @media (min-width : st.$tablet) {
 	@content;
   }
 }
 
 @mixin laptop-up {
-  @media (min-width : globals.$laptop) {
+  @media (min-width : st.$laptop) {
 	@content;
   }
 }
 
 @mixin desktop-up {
-  @media (min-width : globals.$desktop) {
+  @media (min-width : st.$desktop) {
 	@content;
   }
 }

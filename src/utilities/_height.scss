@@ -1,5 +1,5 @@
-@use "settings" as st;
-@use "mixins" as mx;
+@use "../settings" as st;
+@use "../functions-mixins/mixins" as mx;
 
 $withBreakPoints : true !default;
 $disableMin      : false !default;

@@ -1,6 +1,6 @@
-@use "settings" as st;
+@use "../settings" as st;
 @use "../globals";
-@use "mixins" as mx;
+@use "../functions-mixins/mixins" as mx;
 
 $withBreakPoints : true !default;
 $prefix          : "flex" !default;

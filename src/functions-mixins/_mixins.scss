@@ -1,96 +1,38 @@
-@use "sass:map";
-@use "../maps";
-@use "../globals";
-@use "../options" as opt;
-@use "../functions-mixins/acc-colors" as acc;
-//--------------------------------------------------------------//
-//  Align
-//  Borders
-//  Colors Styles
-//  Cursor
-//  Display
-//  Flex Direction
-//  Flex Fill
-//  Flex Grow
-//  Flex Shrink
-//  Flex Wrap
-//  Justify
-//  Object
-//  Position
-//  Screen Readers
-//  Spacers
-//  Transitions
-//  Typography
-//  Width / Height
-//  Z Index
-//--------------------------------------------------------------//
-$align-item       : maps.$align-item !default;
-$align-content    : maps.$align-content !default;
-$align-self       : maps.$align-self !default;
-$border-widths    : maps.$border-widths !default;
-$border-radius    : maps.$border-radius !default;
-$colors           : maps.$colorsLight !default;
-$cursors          : maps.$cursors-basic !default;
-$style-attribute  : maps.$style-attribute !default;
-$display          : maps.$display !default;
-$grid-columns     : 12 !default;
-$justify-item     : maps.$justify-item !default;
-$justify-content  : maps.$justify-content !default;
-$justify-self     : maps.$justify-self !default;
-$objectFit        : maps.$objectFit !default;
-$object-position  : maps.$object-position !default;
-$positions        : maps.$positions !default;
-$positions-values : maps.$positions-values !default;
-$spacers          : maps.$spacers !default;
-$transitions      : maps.$transitions !default;
-$font-sizes       : maps.$font-sizes !default;
-$font-weights     : maps.$font-weights !default;
-$typography       : maps.$typography !default;
-$type-sizes       : map-merge(maps.$typography, $font-sizes) !default;
-$width            : maps.$width !default;
-$vWidth           : maps.$vWidth !default;
-$height           : maps.$height !default;
-$vHeight          : maps.$vHeight !default;
-$z-index          : maps.$z-index !default;
-//--------------------------------------------------------------//
-//  Align
-//--------------------------------------------------------------//
-// Align Content
-@mixin align-content($breakpoint: null, $enable: true, $prefix: opt.$align-content__prefix) {
-  @if ($enable) {
-	@each $type, $value in $align-content {
-	  .#{$breakpoint}#{$prefix}#{$type} {
-		align-content : $value;
-		@if ($value == start or $value == end) {
-		  align-content : flex-#{$value};
-		}
-	  }
-	}
+@use "acc-colors" as acc;
+
+@function makeClass( $name, $prefix, $divider, $breakpoint, $posDivider:null, $p:null, $parent:null ) {
+  @if ($name == "" or $name == null) {
+	@return "#{$parent} .#{$breakpoint}#{$prefix}#{$posDivider}#{$p}";
+  } @else if ($prefix == "" or $prefix == null) {
+	@return "#{$parent} .#{$breakpoint}#{$posDivider}#{$p}#{$name}";
+  } @else {
+	@return "#{$parent} .#{$breakpoint}#{$prefix}#{$posDivider}#{$p}#{$divider}#{$name}";
   }
 }
 
-// Align Items
-@mixin align-items($breakpoint: null, $enable: true, $prefix : opt.$align-items__prefix) {
-  @if ($enable) {
-	@each $type, $value in $align-item {
-	  .#{$breakpoint}#{$prefix}#{$type} {
-		align-items : $value;
-		@if ($value == start or $value == end) {
-		  align-items : flex-#{$value};
-		}
-	  }
+@function removeFromMap($values, $map) {
+  $length : length($values);
+  @if ($length > 1) {
+	$restMap : $map;
+	@each $key in $values {
+	  $restMap : map-remove($restMap, $key);
 	}
+	@return $restMap;
+  } @else {
+	@return map-remove($map, $values);
   }
 }
 
-// Align Self
-@mixin align-self($breakpoint: null, $enable: true, $prefix : opt.$align-self__prefix) {
-  @if ($enable) {
-	@each $type, $value in $align-self {
-	  .#{$breakpoint}#{$prefix}#{$type} {
-		align-self : $value;
-		@if ($value == start or $value == end) {
-		  align-self : flex-#{$value};
+//--------------------------------------------------------------//
+// Make Utilities
+//--------------------------------------------------------------//
+@mixin makeUtil($property, $prefix, $values, $divider, $breakpoint: null, $disable: false, $important: false) {
+  @if ($disable != true) {
+	@each $name, $value in $values {
+	  #{makeClass($name, $prefix, $divider, $breakpoint)} {
+		#{$property}: #{$value} #{if($important, "!important", null)};
+		@if ($value != none) {
+		  @content
 		}
 	  }
 	}
@@ -98,285 +40,106 @@ $z-index          : maps.$z-index !default;
 }
 
 //--------------------------------------------------------------//
-//  Borders
+// Make Utilities with Position
 //--------------------------------------------------------------//
-@mixin borders($breakpoint: null, $enable: true, $prefix : opt.$borders__prefix) {
-  @if ($enable) {
-	@each $num, $value in $border-widths {
-	  @if ($value == 0) {
-		@each $name in (-top, -bottom, -left, -right, null) {
-		  .#{$breakpoint}#{$prefix}#{$name}#{$num} {
-			border#{$name} : none !important;
-		  }
-		}
-	  } @else {
-		.#{$breakpoint}#{$prefix}#{$num} {
-		  border-width : $value;
-		  border-style : solid;
-		}
-		.#{$breakpoint}#{$prefix}-top#{$num},
-		.#{$breakpoint}#{$prefix}-y#{$num} {
-		  border-top-width : $value;
-		  border-top-style : solid;
-		}
-		.#{$breakpoint}#{$prefix}-bottom#{$num},
-		.#{$breakpoint}#{$prefix}-y#{$num} {
-		  border-bottom-width : $value;
-		  border-bottom-style : solid;
-		}
-		.#{$breakpoint}#{$prefix}-left#{$num},
-		.#{$breakpoint}#{$prefix}-x#{$num} {
-		  border-left-width : $value;
-		  border-left-style : solid;
-		}
-		.#{$breakpoint}#{$prefix}-right#{$num},
-		.#{$breakpoint}#{$prefix}-x#{$num} {
-		  border-right-width : $value;
-		  border-right-style : solid;
-		}
-	  }
-	}
-  }
-}
+$positions : (
+	"t": "top",
+	"b": "bottom",
+	"l": "left",
+	"r": "right"
+) !default;
 
-@mixin border-radius($breakpoint: null, $enable: true, $prefix : opt.$border-radius__prefix) {
-  @if ($enable) {
-	@each $num, $value in $border-radius {
-	  .#{$breakpoint}#{$prefix}#{$num} {
-		border-radius : $value;
-	  }
-	  .#{$breakpoint}#{$prefix}--top-left#{$num},
-	  .#{$breakpoint}#{$prefix}--top#{$num},
-	  .#{$breakpoint}#{$prefix}--left#{$num} {
-		border-top-left-radius : $value;
-	  }
-	  .#{$breakpoint}#{$prefix}--top-right#{$num},
-	  .#{$breakpoint}#{$prefix}--top#{$num},
-	  .#{$breakpoint}#{$prefix}--right#{$num} {
-		border-top-right-radius : $value;
-	  }
-	  .#{$breakpoint}#{$prefix}--bottom-left#{$num},
-	  .#{$breakpoint}#{$prefix}--bottom#{$num},
-	  .#{$breakpoint}#{$prefix}--left#{$num} {
-		border-bottom-left-radius : $value;
-	  }
-	  .#{$breakpoint}#{$prefix}--bottom-right#{$num},
-	  .#{$breakpoint}#{$prefix}--bottom#{$num},
-	  .#{$breakpoint}#{$prefix}--right#{$num} {
-		border-bottom-right-radius : $value;
-	  }
-	}
+@mixin makeUtilPos($property, $prefix, $values, $divider, $posDivider, $breakpoint: null, $disable: false, $important) {
+  @include makeUtil($property, $prefix, $values, $divider, $breakpoint, $disable) {
+	@content
   }
-}
-
-//--------------------------------------------------------------//
-//  Colors Styles
-//--------------------------------------------------------------//
-@mixin color-styles(
-  $breakpoint: null,
-  $enable: true,
-  $map: $colors,
-  $createVars: true,
-  $createClasses: true,
-  $themeName: null,
-  $element: ":root",
-  $useFallback: false,
-  $hover: opt.$color-styles__use-hover,
-  $useBgText: opt.$color-styles__use-bgText) {
-  @if ($enable) {
-	@if ($createVars) {
-	  @if ($themeName) {
-		#{$element}[data-theme=#{$themeName}] {
-		  @each $color, $hex in $map {
-			--#{$color}: #{$hex};
-		  }
-		  @if ($createClasses) {
-			@each $color, $hex in $map {
-			  @each $name, $atr in $style-attribute {
-				.#{$breakpoint}#{$name}--#{$color} {
-				  @if ($useFallback) {
-					#{$atr}: $hex;
-				  }
-				  @if ($useBgText and $atr == background-color) {
-					color : acc.color-contrast($hex);
-				  }
-				  @if ($createVars) {
-					#{$atr}: var(--#{$color});
-				  }
-				}
-				@if ($hover) {
-				  .#{$breakpoint}hover\:#{$name}--#{$color}:hover {
-					#{$atr}: var(--#{$color});
-				  }
-				}
-			  }
+  @if ($disable != true) {
+	@each $name, $value in $values {
+	  @each $posName, $posValue in $positions {
+		@if ($posValue == "top" or $posValue == "bottom") {
+		  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, $posName )},
+		  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, y )} {
+			#{$property}-#{$posValue}: #{$value} #{if($important, "!important", null)};
+			@if ($value != none) {
+			  @content
 			}
 		  }
 		}
-	  } @else {
-		#{$element} {
-		  @each $color, $hex in $map {
-			--#{$color}: #{$hex};
-		  }
-		}
-		@if ($createClasses) {
-		  @each $color, $hex in $map {
-			@each $name, $atr in $style-attribute {
-			  .#{$breakpoint}#{$name}--#{$color} {
-				@if ($useFallback) {
-				  #{$atr}: $hex;
-				}
-				@if ($useBgText and $atr == background-color) {
-				  color : acc.color-contrast($hex);
-				}
-				@if ($createVars) {
-				  #{$atr}: var(--#{$color});
-				}
-			  }
-			  @if ($hover) {
-				.#{$breakpoint}hover\:#{$name}--#{$color}:hover {
-				  #{$atr}: var(--#{$color});
-				}
-			  }
+		@if ($posValue == "left" or $posValue == "right") {
+		  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, $posName )},
+		  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, x )} {
+			#{$property}-#{$posValue}: #{$value} #{if($important, "!important", null)};
+			@if ($value != none) {
+			  @content
 			}
 		  }
 		}
 	  }
 	}
-
   }
 }
 
 //--------------------------------------------------------------//
-//  Cursor
+// Border Radius
 //--------------------------------------------------------------//
-@mixin cursor($breakpoint: null, $enable: true, $prefix : opt.$cursor__prefix) {
-  @if ($enable) {
-	@each $type, $value in $cursors {
-	  .#{$breakpoint}#{$prefix}#{$value} {
-		cursor : $value;
+@mixin border-radius( $values, $prefix, $divider, $posDivider, $breakpoint: null, $disable: false, $important) {
+  @include makeUtil("border-radius", $prefix, $values, $divider, $breakpoint, $disable);
+  @if ($disable != true) {
+	@each $name, $value in $values {
+	  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, "tl" )},
+	  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, "t" )},
+	  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, "l" )}, {
+		border-top-left-radius : #{$value}  #{if($important, "!important", null)};
+	  }
+	  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, "tr" )},
+	  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, "t" )},
+	  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, "r" )} {
+		border-top-right-radius : #{$value}  #{if($important, "!important", null)};
+	  }
+	  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, "bl" )},
+	  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, "b" )},
+	  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, "l" )} {
+		border-bottom-left-radius : #{$value}  #{if($important, "!important", null)};
+	  }
+	  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, "br" )},
+	  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, "b" )},
+	  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, "r" )}, {
+		border-bottom-right-radius : #{$value}  #{if($important, "!important", null)};
 	  }
 	}
   }
 }
 
 //--------------------------------------------------------------//
-//  Display
+// Make Colors
 //--------------------------------------------------------------//
-@mixin display($breakpoint: null, $enable: true, $prefix : opt.$display__prefix) {
-  @if ($enable) {
-	@each $type, $value in $display {
-	  .#{$breakpoint}#{$prefix}#{$value} {
-		display : $value !important;
+@mixin makeColorVars($values, $selector, $namePrefix:null, $disable: false) {
+  @if ($disable != true) {
+	#{$selector} {
+	  @each $name, $value in $values {
+		--#{$namePrefix}#{$name}: #{$value};
 	  }
 	}
   }
 }
 
-//--------------------------------------------------------------//
-//  Flex Direction
-//--------------------------------------------------------------//
-@mixin flex-direction($breakpoint: null, $enable: true, $prefix : opt.$flex-direction__prefix) {
-  @if ($enable) {
-	@each $type, $value in ('row': row, 'column': column, 'row-reverse': row-reverse, 'column-reverse': column-reverse) {
-	  .#{$breakpoint}#{$prefix}#{$type} {
-		display        : flex;
-		flex-direction : $value;
-	  }
+@mixin makeColors($styleProperties, $values, $divider, $makeVarsSelector: false, $useCallback: false, $breakpoint: null, $disable: false, $important, $hover) {
+  @if ($disable != true) {
+	@if ($makeVarsSelector) {
+	  @include makeColorVars($values, $makeVarsSelector);
 	}
-  }
-}
-
-//--------------------------------------------------------------//
-//  Flex Fill
-//--------------------------------------------------------------//
-@mixin flex-fill($breakpoint: null, $enable: true, $prefix : opt.$flex-fill__prefix) {
-  @if ($enable) {
-	@each $type, $value in (fill: 1 1 auto) {
-	  .#{$breakpoint}#{$prefix}#{$type} {
-		flex : $value;
-	  }
-	}
-  }
-}
-
-//--------------------------------------------------------------//
-//  Flex Grow
-//--------------------------------------------------------------//
-@mixin flex-grow($breakpoint: null, $enable: true, $prefix : opt.$flex-grow__prefix) {
-  @if ($enable) {
-	@each $type, $value in (grow-0: 0, grow: 1) {
-	  .#{$breakpoint}#{$prefix}#{$type} {
-		flex-grow : $value;
-	  }
-	}
-  }
-}
-
-//--------------------------------------------------------------//
-//  Flex Shrink
-//--------------------------------------------------------------//
-@mixin flex-shrink($breakpoint: null, $enable: true, $prefix : opt.$flex-shrink__prefix) {
-  @if ($enable) {
-	@each $type, $value in (shrink-0: 0, shrink: 1) {
-	  .#{$breakpoint}#{$prefix}#{$type} {
-		flex-shrink : $value;
-	  }
-	}
-  }
-}
-
-//--------------------------------------------------------------//
-//  Flex Wrap
-//--------------------------------------------------------------//
-@mixin flex-wrap($breakpoint: null, $enable: true, $prefix : opt.$flex-wrap__prefix) {
-  @if ($enable) {
-	@each $type, $value in (wrap: wrap, nowrap: nowrap, wrap-reverse: wrap-reverse) {
-	  .#{$breakpoint}#{$prefix}#{$type} {
-		display   : flex;
-		flex-wrap : $value;
-	  }
-	}
-  }
-}
-
-//--------------------------------------------------------------//
-//  Grid
-//--------------------------------------------------------------//
-@mixin grid($breakpoint: null, $enable: true, $prefix: opt.$flex-grid__prefix) {
-  @if ($enable) {
-	@for $i from 1 through $grid-columns {
-	  .#{$breakpoint}#{$prefix}--#{$i} {
-		flex      : 0 0 100% / $grid-columns  * $i;
-		max-width : 100% / $grid-columns * $i;
-	  }
-	}
-	.#{$breakpoint}#{$prefix} {
-	  flex      : 1 1 0;
-	  max-width : 100%;
-	  min-width : 0;
-	}
-  }
-}
-
-@mixin grid-offset($breakpoint: null, $enable: true, $prefix: opt.$flex-grid-offset__prefix) {
-  @if ($enable) {
-	@for $i from 0 through ($grid-columns - 1) {
-	  .#{$breakpoint}#{$prefix}#{$i} {
-		margin-left : 100% / $grid-columns  * $i
-	  }
-	}
-  }
-}
-
-@mixin grid-order($breakpoint: null, $enable: true, $prefix: opt.$flex-grid-order__prefix) {
-  @if ($enable) {
-	@for $i from 0 through ($grid-columns + 1) {
-	  .#{$breakpoint}#{$prefix}#{$i} {
-		@if $i == 0 {
-		  order : -1;
-		} @else {
-		  order : $i;
+	@each $prefix, $property in $styleProperties {
+	  @each $name, $value in $values {
+		#{makeClass($name, $prefix, $divider, $breakpoint)} {
+		  @if ($useCallback) {
+			#{$property}: #{$value} #{if($important, "!important", null)};
+		  }
+		  #{$property}: var(--#{ $name }) #{if($important, "!important", null)};
+		}
+		@if ($hover) {
+		  .#{$breakpoint}hover\:#{$prefix}#{$divider}#{$name}:hover {
+			#{$property}: var(--#{$name}) #{if($important, "!important", null)};
+		  }
 		}
 	  }
 	}
@@ -384,135 +147,60 @@ $z-index          : maps.$z-index !default;
 }
 
 //--------------------------------------------------------------//
-//  Justify
+// Make XYCenter
 //--------------------------------------------------------------//
-// Justify Content
-@mixin justify-content($breakpoint: null, $enable: true, $prefix : opt.$justify-content__prefix) {
-  @if ($enable) {
-	@each $type, $value in $justify-content {
-	  .#{$breakpoint}#{$prefix}#{$type} {
-		justify-content : $value;
-		@if ($value == start or $value == end) {
-		  justify-content : flex-#{$value};
-		}
-	  }
+@mixin makeXYCenter($values, $divider, $breakpoint) {
+  @each $type in $values {
+	.#{$breakpoint}#{$type}#{$divider}center {
+	  position  : #{$type} !important;
+	  left      : 50%;
+	  top       : 50%;
+	  transform : translate(-50%, -50%);
 	}
-  }
-}
-
-// Justify Items
-@mixin justify-items($breakpoint: null, $enable: true, $prefix : opt.$justify-items__prefix) {
-  @if ($enable) {
-	@each $type, $value in $justify-item {
-	  .#{$breakpoint}#{$prefix}#{$type} {
-		justify-items : $value;
-		@if ($value == start or $value == end) {
-		  justify-items : flex-#{$value};
-		}
-	  }
+	.#{$breakpoint}#{$type}-x#{$divider}center {
+	  position  : #{$type} !important;
+	  left      : 50%;
+	  transform : translateX(-50%);
 	}
-  }
-}
-
-// Justify Self
-@mixin justify-self($breakpoint: null, $enable: true, $prefix : opt.$justify-self__prefix) {
-  @if ($enable) {
-	@each $type, $value in $justify-self {
-	  .#{$breakpoint}#{$prefix}#{$type} {
-		justify-self : $value;
-		@if ($value == start or $value == end) {
-		  align-self : flex-#{$value};
-		}
-	  }
+	.#{$breakpoint}#{$type}-y#{$divider}center {
+	  position  : #{$type} !important;
+	  top       : 50%;
+	  transform : translateY(-50%);
 	}
   }
 }
 
 //--------------------------------------------------------------//
-//  Object
+// Make Position Placement
 //--------------------------------------------------------------//
-@mixin object-fit($breakpoint: null, $enable: true, $prefix : opt.$object-fit__prefix) {
-  @if ($enable) {
-	@each $type, $value in $objectFit {
-	  .#{$breakpoint}#{$prefix}#{$type} {
-		object-fit : $value;
-	  }
-	}
-  }
-}
-
-@mixin object-position($breakpoint: null, $enable: true, $prefix : opt.$object-position__prefix) {
-  @if ($enable) {
-	@each $type, $value in $object-position {
-	  .#{$breakpoint}#{$prefix}#{$type} {
-		object-position : $value;
-	  }
-	}
-  }
-}
-
-//--------------------------------------------------------------//
-//  Position
-//--------------------------------------------------------------//
-@mixin position($breakpoint: null, $enable: true) {
-  @if ($enable) {
+@mixin makePositionPlacement($values, $positions, $divider, $breakpoint: null, $important) {
+  @each $num, $value in $values {
 	@each $name, $pos in $positions {
-	  .#{$breakpoint}#{$name} {
-		position : $pos !important;
+	  #{makeClass( $num, $name, $divider, $breakpoint )} {
+		#{$pos} : #{$value} #{if($important, "!important", null)};
 	  }
 	}
-	@each $type in (absolute, fixed) {
-	  .#{$breakpoint}#{$type}--center {
-		position  : #{$type} !important;
-		left      : 50%;
-		top       : 50%;
-		transform : translate(-50%, -50%);
-	  }
-	  .#{$breakpoint}#{$type}-x--center {
-		position  : #{$type} !important;
-		left      : 50%;
-		transform : translateX(-50%);
-	  }
-	  .#{$breakpoint}#{$type}-y--center {
-		position  : #{$type} !important;
-		top       : 50%;
-		transform : translateY(-50%);
-	  }
+	.#{$breakpoint}inset#{$divider}#{$num} {
+	  top    : #{$value} #{if($important, "!important", null)};
+	  right  : #{$value} #{if($important, "!important", null)};
+	  bottom : #{$value} #{if($important, "!important", null)};
+	  left   : #{$value} #{if($important, "!important", null)};
 	}
-
-  }
-}
-
-@mixin position-placement($breakpoint: null, $enable: true) {
-  @if ($enable) {
-	@each $num, $value in $positions-values {
-	  @each $name, $pos in ('top' : top, 'right' : right, 'bottom' : bottom, 'left' : left) {
-		.#{$breakpoint}#{$name}--#{$num} {
-		  #{$pos} : #{$value}
-		}
-	  }
-	  .#{$breakpoint}inset--#{$num} {
-		top    : #{$value};
-		right  : #{$value};
-		bottom : #{$value};
-		left   : #{$value};
-	  }
-	  .#{$breakpoint}inset-x--#{$num} {
-		right : #{$value};
-		left  : #{$value};
-	  }
-	  .#{$breakpoint}inset-y--#{$num} {
-		top    : #{$value};
-		bottom : #{$value};
-	  }
+	.#{$breakpoint}inset-x#{$divider}#{$num} {
+	  right : #{$value} #{if($important, "!important", null)};
+	  left  : #{$value} #{if($important, "!important", null)};
+	}
+	.#{$breakpoint}inset-y#{$divider}#{$num} {
+	  top    : #{$value} #{if($important, "!important", null)};
+	  bottom : #{$value} #{if($important, "!important", null)};
 	}
   }
 }
 
 //--------------------------------------------------------------//
-//  Screen Readers
+//  Make Screen Readers
 //--------------------------------------------------------------//
-@mixin screen-readers($breakpoint: null, $enable: true) {
+@mixin makeScreenReaders($breakpoint: null) {
   .#{$breakpoint}sr-only {
 	position : absolute;
 	width    : 1px;
@@ -554,170 +242,37 @@ $z-index          : maps.$z-index !default;
 }
 
 //--------------------------------------------------------------//
-//  Spacers
+//  Make Grid
 //--------------------------------------------------------------//
-@mixin spacers($breakpoint: null, $enable: true) {
-  @if ($enable) {
-	@each $prefix, $prop in ('m': margin, 'p': padding) {
-	  @each $num, $value in $spacers {
-		.#{$breakpoint}#{$prefix}--#{$num} {
-		  #{$prop}: $value !important;
-		}
-		.#{$breakpoint}#{$prefix}t--#{$num},
-		.#{$breakpoint}#{$prefix}y--#{$num} {
-		  #{$prop}-top : $value !important;
-		}
-		.#{$breakpoint}#{$prefix}b--#{$num},
-		.#{$breakpoint}#{$prefix}y--#{$num} {
-		  #{$prop}-bottom : $value !important;
-		}
-		.#{$breakpoint}#{$prefix}l--#{$num},
-		.#{$breakpoint}#{$prefix}x--#{$num} {
-		  #{$prop}-left : $value !important;
-		}
-		.#{$breakpoint}#{$prefix}r--#{$num},
-		.#{$breakpoint}#{$prefix}x--#{$num} {
-		  #{$prop}-right : $value !important;
-		}
-	  }
+@mixin makeGrid($columns, $prefix, $divider, $breakpoint: null) {
+  @for $i from 1 through $columns {
+	.#{$breakpoint}#{$prefix}#{$divider}#{$i} {
+	  flex      : 0 0 100% / $columns  * $i;
+	  max-width : 100% / $columns * $i;
+	}
+  }
+  .#{$breakpoint}#{$prefix} {
+	flex      : 1 1 0;
+	max-width : 100%;
+	min-width : 0;
+  }
+}
+
+@mixin makeGridOffset($columns, $prefix, $divider, $breakpoint: null) {
+  @for $i from 0 through ($columns - 1) {
+	.#{$breakpoint}#{$prefix}#{$divider}#{$i} {
+	  margin-left : 100% / $columns  * $i
 	}
   }
 }
 
-// Auto Margins
-@mixin margin-auto($breakpoint: null, $enable: true) {
-  @if ($enable) {
-	.#{$breakpoint}mt--auto,
-	.#{$breakpoint}my--auto {
-	  margin-top : auto !important;
-	}
-	.#{$breakpoint}mb--auto,
-	.#{$breakpoint}my--auto {
-	  margin-bottom : auto !important;
-	}
-	.#{$breakpoint}ml--auto,
-	.#{$breakpoint}mx--auto {
-	  margin-left : auto !important;
-	}
-	.#{$breakpoint}mr--auto,
-	.#{$breakpoint}mx--auto {
-	  margin-right : auto !important;
-	}
-	.#{$breakpoint}m--auto,
-	.#{$breakpoint}m--auto {
-	  margin : auto !important;
-	}
-  }
-}
-
-//--------------------------------------------------------------//
-//  Transitions
-//--------------------------------------------------------------//
-@mixin transitions($breakpoint: null, $enable: true, $transition-timing: globals.$transition-timing, $prefix : opt.$transitions__prefix) {
-  @if ($enable) {
-	@each $name, $atr in $transitions {
-	  .#{$breakpoint}#{$prefix}#{$name} {
-		transition          : $transition-timing;
-		transition-property : #{$atr};
-	  }
-	}
-  }
-}
-
-//--------------------------------------------------------------//
-//  Typography
-//--------------------------------------------------------------//
-@mixin fontSizes($breakpoint: null, $enable: true) {
-  @if ($enable) {
-	@each $type, $value in $type-sizes {
-	  .#{$breakpoint}#{$type} {
-		font-size : $value;
-	  }
-	}
-  }
-}
-
-@mixin typography() {
-  @each $type, $value in $typography {
-	#{$type} {
-	  font-size : $value;
-	}
-  }
-}
-
-@mixin fontWeights($breakpoint: null, $enable: true, $prefix : opt.$fontWeights__prefix) {
-  @if ($enable) {
-	@each $type, $value in $font-weights {
-	  .#{$breakpoint}#{$prefix}#{$type} {
-		font-weight : $value;
-	  }
-	}
-  }
-}
-
-@mixin text-align($breakpoint: null, $enable: true, $prefix : opt.$text-align__prefix) {
-  @if ($enable) {
-	@each $type, $value in (left: left, right: right, center: center) {
-	  .#{$breakpoint}#{$prefix}#{$value} {
-		text-align : $value;
-	  }
-	}
-  }
-}
-
-//--------------------------------------------------------------//
-//  Width / Height
-//--------------------------------------------------------------//
-@mixin width($breakpoint: null, $enable: true, $prefix: opt.$width__prefix) {
-  @if ($enable) {
-	@each $name, $w in $width {
-	  .#{$breakpoint}#{$prefix}#{$name} {
-		width : $w;
-	  }
-	  .#{$breakpoint}max__#{$prefix}#{$name} {
-		max-width : $w;
-	  }
-	  .#{$breakpoint}min__#{$prefix}#{$name} {
-		min-width : $w;
-	  }
-	}
-	@each $name, $w in $vWidth {
-	  .#{$breakpoint}view__#{$prefix}#{$name} {
-		width : #{$w};
-	  }
-	}
-  }
-}
-
-@mixin height($breakpoint: null, $enable: true, $prefix: opt.$height__prefix) {
-  @if ($enable) {
-	@each $name, $h in $height {
-	  .#{$breakpoint}#{$prefix}#{$name} {
-		height : $h;
-	  }
-	  .#{$breakpoint}max__#{$prefix}#{$name} {
-		max-height : $h;
-	  }
-	  .#{$breakpoint}min__#{$prefix}#{$name} {
-		min-height : $h;
-	  }
-	}
-	@each $name, $h in $vHeight {
-	  .#{$breakpoint}view__#{$prefix}#{$name} {
-		height : #{$h};
-	  }
-	}
-  }
-}
-
-//--------------------------------------------------------------//
-//  Z Index
-//--------------------------------------------------------------//
-@mixin zIndex($breakpoint: null, $enable: true, $prefix : opt.$zIndex__prefix) {
-  @if ($enable) {
-	@each $name, $index in $z-index {
-	  .#{$breakpoint}#{$prefix}#{$name} {
-		z-index : $index;
+@mixin makeGridOrder($columns, $prefix, $divider, $breakpoint: null) {
+  @for $i from 0 through ($columns + 1) {
+	.#{$breakpoint}#{$prefix}#{$divider}#{$i} {
+	  @if $i == 0 {
+		order : -1;
+	  } @else {
+		order : $i;
 	  }
 	}
   }
