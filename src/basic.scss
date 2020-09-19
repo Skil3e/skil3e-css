@@ -6,9 +6,12 @@
 
 //@use "utilities/align";
 //@use "utilities/border-width";
-@use "utilities/border-radius";
-@use "utilities/colors";
+//@use "utilities/border-radius";
+//@use "utilities/colors";
 //@use "utilities/margin";
-
+//@use "utilities/display";
+@use "utilities/flex-direction" with (
+$removeDirection: ("row", "column")
+);
 
 

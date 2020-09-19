@@ -1,0 +1,30 @@
+@use "../maps";
+@use "mixins" as mx;
+
+$withBreakPoints : true !default;
+$prefix          : null !default;
+$divider         : null !default;
+$addDisplay      : () !default;
+$display         : (
+	'none' : none,
+	'block' : block,
+	'inline' : inline,
+	'inline-block': inline-block,
+	'table' : table,
+	'table-cell' : table-cell,
+	'table-row' : table-row,
+	'flow-root' : flow-root,
+	'flex' : flex,
+	'inline-flex' : inline-flex,
+	'grid': grid,
+	'inline-grid': inline-grid,
+) !default;
+$D               : map-merge($display, $addDisplay);
+
+@include mx.makeUtil("display", $prefix, $D, $divider);
+
+@each $name, $value in maps.$breakpoints {
+  @media (min-width : $value) {
+	@include mx.makeUtil("display", $prefix, $D, $divider, $name);
+  }
+}

@@ -38,11 +38,11 @@ $breakpoints : maps.$breakpoints !default;
 @include mx.cursor(
 	$enable : opt.$enable__cursor
 );
-
+//
 @include mx.display(
 	$enable : opt.$enable__display,
 );
-
+//
 @include mx.flex-direction(
 	$enable : opt.$enable__flex-direction
 );

@@ -1,0 +1,19 @@
+@use "../maps";
+@use "../globals";
+@use "mixins" as mx;
+
+
+$withBreakPoints : false !default;
+$prefix          : "flex-direction" !default;
+$divider         : "--" !default;
+$flex-directions : ('row': row, 'column': column, 'row-reverse': row-reverse, 'column-reverse': column-reverse);
+$removeDirection : () !default;
+$FD              : mx.removeFromMap($removeDirection, $flex-directions);
+
+@include mx.makeUtil("flex-direction", $prefix, $FD, $divider);
+
+@each $name, $value in maps.$breakpoints {
+  @media (min-width : $value) {
+	@include mx.makeUtil("flex-direction", $prefix, $FD, $divider, $name);
+  }
+}

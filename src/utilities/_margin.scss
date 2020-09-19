@@ -2,10 +2,10 @@
 @use "../globals";
 @use "mixins" as mx;
 
-$withBreakPoints : true !default;
+$withBreakPoints : false !default;
 $prefix          : "m" !default;
 $divider         : "--" !default;
-$posDivider      : "" !default;
+$posDivider      : null !default;
 $spacers         : maps.$spacers;
 
 @include mx.makeUtilPos("margin", $prefix, $spacers, $divider, $posDivider);
