@@ -5,8 +5,8 @@ $divider         : st.$divider !default;
 $important       : st.$important !default;
 $useCallback     : false !default;
 
-$properties      : () !default;
-$intents         : () !default;
+$addProperties   : () !default;
+$addIntents      : () !default;
 $addToDark       : () !default;
 $addToLight      : () !default;
 
@@ -16,12 +16,14 @@ $styleProperties : (
 	'fill' : fill,
 	'brd' : border-color
 ) !default;
+
 $intentColors    : (
 	'info' : st.$info,
 	'danger' : st.$danger,
 	'success' : st.$success,
 	'warning' : st.$warning,
 ) !default;
+
 $themeLight      : (
 	'accent' : #0B5FFF,
 	'body' : st.$gray-95,
@@ -31,6 +33,7 @@ $themeLight      : (
 	'text' : st.$gray-10,
 	'textDimmed' : st.$gray-40,
 ) !default;
+
 $themeDark       : (
 	"accent": #1FB6FF,
 	'body' : st.$gray-5,
@@ -41,8 +44,8 @@ $themeDark       : (
 	'textDimmed' : st.$gray-60,
 ) !default;
 
-$SP              : map-merge($styleProperties, $properties);
-$INTENT          : map-merge($intentColors, $intents);
+$SP              : map-merge($styleProperties, $addProperties);
+$INTENT          : map-merge($intentColors, $addIntents);
 $TL              : map-merge($themeLight, map-merge($INTENT, $addToDark));
 $TD              : map-merge($themeDark, map-merge($INTENT, $addToLight));
 $Classes         : map-merge($TL, $TD);

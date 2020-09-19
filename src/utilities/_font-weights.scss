@@ -5,7 +5,7 @@ $withBreakPoints : false !default;
 $prefix          : "text" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
-$font-weights    : ("light": 300, "regular": 500, "medium": 600, "bold": 700, "black": 900);
+$font-weights    : ("light": 300, "regular": 500, "medium": 600, "bold": 700, "black": 900) !default;
 $addWeights      : () !default;
 $FW              : map-merge($font-weights, $addWeights);
 

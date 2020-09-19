@@ -1,11 +1,11 @@
 @use "settings" as st;
 @use "mixins" as mx;
 
-$withBreakPoints : false !default;
+$withBreakPoints : true !default;
 $prefix          : "flex" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
-$flex-grow       : ("grow-0": 0, "grow": 1);
+$flex-grow       : ("grow-0": 0, "grow": 1) !default;
 $addGrow         : () !default;
 $FG              : map-merge($flex-grow, $addGrow);
 

@@ -1,7 +1,7 @@
 @use "settings" as st;
 @use "mixins" as mx;
 
-$withBreakPoints : false !default;
+$withBreakPoints : true !default;
 $disableMin      : false !default;
 $disableMax      : false !default;
 $prefix          : "h" !default;
@@ -10,7 +10,7 @@ $minPrefix       : "min-h" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
 $h               : ("100": 100%, "75" : 75%, "50" : 50%, "25" : 25%, "v100": 100vh, "v75" : 75vh, "v50" : 50vh, "v25" : 25vh);
-$addHeights       : () !default;
+$addHeights      : () !default;
 $height          : map-merge($h, $addHeights);
 
 @include mx.makeUtil("height", $prefix, $height, $divider, $important : $important);

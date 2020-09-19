@@ -1,7 +1,7 @@
 @use "settings" as st;
 @use "mixins" as mx;
 
-$withBreakPoints : false !default;
+$withBreakPoints : true !default;
 $prefix          : "m" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;

@@ -1,7 +1,7 @@
 @use "settings" as st;
 @use "mixins" as mx;
 
-$withBreakPoints : false !default;
+$withBreakPoints : true !default;
 $disableMin      : false !default;
 $disableMax      : false !default;
 $prefix          : "w" !default;
