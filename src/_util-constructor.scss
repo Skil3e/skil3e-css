@@ -14,51 +14,51 @@ $breakpoints : maps.$breakpoints !default;
   @extend .#{opt.$align-items__prefix}center;
   @extend .#{opt.$justify-content__prefix}center;
 }
-//
+//------------------------------------
 @include mx.align-content(
 	$enable : opt.$enable__align-content,
 );
-//
+//------------------------------------
 @include mx.align-items(
 	$enable : opt.$enable__align-items,
 );
-//
+//------------------------------------
 @include mx.align-self(
 	$enable : opt.$enable__align-self,
 );
-//
+//------------------------------------
 @include mx.borders(
 	$enable : opt.$enable__borders,
 );
-//
+//------------------------------------
 @include mx.border-radius(
 	$enable : opt.$enable__border-radius,
 );
-//
+//------------------------------------
 @include mx.cursor(
 	$enable : opt.$enable__cursor
 );
-//
+//------------------------------------
 @include mx.display(
 	$enable : opt.$enable__display,
 );
-//
+//------------------------------------
 @include mx.flex-direction(
 	$enable : opt.$enable__flex-direction
 );
-//
+//------------------------------------
 @include mx.flex-fill(
 	$enable : opt.$enable__flex-fill
 );
-//
+//------------------------------------
 @include mx.flex-grow(
 	$enable : opt.$enable__flex-grow
 );
-//
+//------------------------------------
 @include mx.flex-shrink(
 	$enable : opt.$enable__flex-shrink
 );
-//
+//------------------------------------
 @include mx.flex-wrap(
 	$enable : opt.$enable__flex-wrap
 );
@@ -74,19 +74,19 @@ $breakpoints : maps.$breakpoints !default;
 @include mx.grid-order(
 	$enable : opt.$enable__flex-grid-order
 );
-
+//------------------------------------
 @include mx.height(
 	$enable : opt.$enable__height
 );
-
+//------------------------------------
 @include mx.justify-content(
 	$enable : opt.$enable__justify-content,
 );
-
+//------------------------------------
 @include mx.justify-items(
 	$enable : opt.$enable__justify-items,
 );
-
+//------------------------------------
 @include mx.justify-self(
 	$enable : opt.$enable__justify-self,
 );
@@ -110,11 +110,11 @@ $breakpoints : maps.$breakpoints !default;
 @include mx.screen-readers(
 	$enable : opt.$enable__screen-readers
 );
-
+//------------------------------------
 @include mx.spacers(
 	$enable : opt.$enable__spacers
 );
-
+//------------------------------------
 @include mx.margin-auto(
 	$enable : opt.$enable__spacers
 );
@@ -134,7 +134,7 @@ $breakpoints : maps.$breakpoints !default;
 @include mx.transitions(
 	$enable : opt.$enable__transitions
 );
-
+//------------------------------------
 @include mx.width(
 	$enable : opt.$enable__width
 );
