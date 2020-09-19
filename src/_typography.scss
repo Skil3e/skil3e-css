@@ -1,11 +1,11 @@
-@use "globals";
+@use "settings";
 @use "functions-mixins/mixins" as mx;
 
-$headingFont       : globals.$headingFont !default;
-$headingLineHeight : globals.$headingLineHeight !default;
-$headingFontWeight : globals.$headingFontWeight !default;
-$lineHeight        : globals.$plineHeight !default;
-$highlight         : globals.$highlight !default;
+$headingFont       : settings.$headingFont !default;
+$headingLineHeight : settings.$headingLineHeight !default;
+$headingFontWeight : settings.$headingFontWeight !default;
+$lineHeight        : settings.$plineHeight !default;
+$highlight         : settings.$highlight !default;
 
 @include mx.typography();
 h1, h2, h3, h4, h5, h6 {

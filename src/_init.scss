@@ -1,4 +1,4 @@
-@use "globals";
+@use "settings";
 @use "reset";
 
 * {
@@ -7,12 +7,12 @@
 }
 
 body {
-  font-family : globals.$bodyFont;
+  font-family      : settings.$bodyFont;
   background-color : var(--body);
   color            : var(--text);
 
   &.transition {
-    transition : all 400ms ease-in-out;
+	transition : all 400ms ease-in-out;
   }
 }
 
