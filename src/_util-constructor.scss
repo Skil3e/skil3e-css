@@ -14,27 +14,27 @@ $breakpoints : maps.$breakpoints !default;
   @extend .#{opt.$align-items__prefix}center;
   @extend .#{opt.$justify-content__prefix}center;
 }
-
+//
 @include mx.align-content(
 	$enable : opt.$enable__align-content,
 );
-
+//
 @include mx.align-items(
 	$enable : opt.$enable__align-items,
 );
-
+//
 @include mx.align-self(
 	$enable : opt.$enable__align-self,
 );
-
+//
 @include mx.borders(
 	$enable : opt.$enable__borders,
 );
-
+//
 @include mx.border-radius(
 	$enable : opt.$enable__border-radius,
 );
-
+//
 @include mx.cursor(
 	$enable : opt.$enable__cursor
 );

@@ -1,10 +1,36 @@
 @use "../maps";
 @use "mixins" as mx;
 
-$align-item       : maps.$align-item !default;
-$align-content    : maps.$align-content !default;
-$align-self       : maps.$align-self !default;
+$disableItems    : false !default;
+$disableContent  : false !default;
+$disableSelf     : false !default;
+$withBreakPoints : true !default;
 
-@include mx.makeUtil("align-items","al__it", $align-item, "--" );
-@include mx.makeUtil("align-content","al__cnt", $align-item, "--" );
-@include mx.makeUtil("align-self","al__self", $align-item, "--" );
+$separator       : "--" !default;
+$itemsPrefix     : "al__it" !default;
+$contentPrefix   : "al__cnt" !default;
+$selfPrefix      : "al__self" !default;
+
+$align           : ('center' : center, 'start' : start, 'end' : end, 'stretch' : stretch) !default;
+$addItems        : () !default;
+$addContent      : () !default;
+$addSelf         : () !default;
+
+$align-items     : map-merge($align, $addItems);
+$align-content   : map-merge($align, $addContent);
+$align-self      : map-merge($align, $addSelf);
+
+@include mx.makeUtil("align-items", $itemsPrefix, $align-items, $separator, $disable : $disableItems);
+@include mx.makeUtil("align-content", $contentPrefix, $align-content, $separator, $disable : $disableContent);
+@include mx.makeUtil("align-self", $selfPrefix, $align-self, $separator, $disable : $disableSelf);
+
+@if ($withBreakPoints) {
+  @each $name, $value in maps.$breakpoints {
+	@media (min-width : $value) {
+	  @include mx.makeUtil("align-items", $itemsPrefix, $align-items, $separator, $name, $disableItems);
+	  @include mx.makeUtil("align-content", $contentPrefix, $align-content, $separator, $name, $disableContent);
+	  @include mx.makeUtil("align-self", $selfPrefix, $align-self, $separator, $name, $disableSelf);
+	}
+  }
+}
+

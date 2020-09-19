@@ -1,0 +1,18 @@
+@use "../maps";
+@use "mixins" as mx;
+
+$withBreakPoints : false !default;
+$prefix          : "border" !default;
+$separator       : "--" !default;
+$cursors-basic   : ("auto": auto, "grab": grab, "grabbing": grabbing, "none": none, "not-allowed": not-allowed, "pointer": pointer,) !default;
+$addCursors      : ();
+$CR              : map-merge(maps.$cursors-basic, $addCursors);
+
+@include mx.makeUtil("cursor", "cursor", $CR, "--");
+@if ($withBreakPoints) {
+  @each $name, $value in maps.$breakpoints {
+	@media (min-width : $value) {
+	  @include mx.makeUtil("cursor", "cursor", $CR, "--", $name);
+	}
+  }
+}
