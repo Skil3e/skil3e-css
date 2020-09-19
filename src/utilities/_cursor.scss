@@ -2,17 +2,18 @@
 @use "mixins" as mx;
 
 $withBreakPoints : false !default;
-$prefix          : "border" !default;
-$separator       : "--" !default;
+$prefix          : "cursor" !default;
+$divider         : "--" !default;
 $cursors-basic   : ("auto": auto, "grab": grab, "grabbing": grabbing, "none": none, "not-allowed": not-allowed, "pointer": pointer,) !default;
 $addCursors      : ();
 $CR              : map-merge(maps.$cursors-basic, $addCursors);
 
-@include mx.makeUtil("cursor", "cursor", $CR, "--");
+@include mx.makeUtil("cursor", $prefix, $CR, $divider);
+
 @if ($withBreakPoints) {
   @each $name, $value in maps.$breakpoints {
 	@media (min-width : $value) {
-	  @include mx.makeUtil("cursor", "cursor", $CR, "--", $name);
+	  @include mx.makeUtil("cursor", $prefix, $CR, $divider, $name);
 	}
   }
 }

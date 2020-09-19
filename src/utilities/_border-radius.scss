@@ -3,18 +3,18 @@
 
 $withBreakPoints : false !default;
 $prefix          : "round" !default;
-$separator       : "--" !default;
+$divider         : "--" !default;
 $posDivider      : "-" !default;
 $addRadius       : () !default;
 $border-radius   : ("": .25rem, '0' : 0, "circle": 1000rem) !default;
 $BR              : map-merge($border-radius, $addRadius);
 
-@include mx.border-radius($BR, $prefix, $separator, $posDivider);
+@include mx.border-radius($BR, $prefix, $divider, $posDivider);
 
 @if ($withBreakPoints) {
   @each $name, $value in maps.$breakpoints {
 	@media (min-width : $value) {
-	  @include mx.border-radius($BR, $prefix, $separator, $posDivider, $name);
+	  @include mx.border-radius($BR, $prefix, $divider, $posDivider, $name);
 	}
   }
 }
