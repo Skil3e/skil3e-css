@@ -118,15 +118,15 @@ $breakpoints : maps.$breakpoints !default;
 @include mx.margin-auto(
 	$enable : opt.$enable__spacers
 );
-
+//------------------------------------
 @include mx.fontSizes(
 	$enable : opt.$enable__fontSizes
 );
-
+//------------------------------------
 @include mx.fontWeights(
 	$enable : opt.$enable__fontWeights
 );
-
+//------------------------------------
 @include mx.text-align(
 	$enable : opt.$enable__text-align
 );

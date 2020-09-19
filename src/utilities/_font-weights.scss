@@ -1,0 +1,18 @@
+@use "settings" as st;
+@use "mixins" as mx;
+
+$withBreakPoints : false !default;
+$prefix          : "text" !default;
+$divider         : st.$divider !default;
+$important       : st.$important !default;
+$font-weights    : ("light": 300, "regular": 500, "medium": 600, "bold": 700, "black": 900);
+$addWeights      : () !default;
+$FW              : map-merge($font-weights, $addWeights);
+
+@include mx.makeUtil("font-weight", $prefix, $FW, $divider, $important : $important);
+
+@each $name, $value in st.$breakpoints {
+  @media (min-width : $value) {
+	@include mx.makeUtil("font-weight", $prefix, $FW, $divider, $name, $important : $important);
+  }
+}

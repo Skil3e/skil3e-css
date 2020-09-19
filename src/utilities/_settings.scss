@@ -1,16 +1,17 @@
 @forward "../colors";
-$divider      : "--" !default;
-$important    : false !default;
-$posDivider   : "-" !default;
+
+$divider     : "--" !default;
+$important   : false !default;
+$posDivider  : "-" !default;
 //--------------------------------------------------------------//
 //  Breakpoints
 //--------------------------------------------------------------//
-$phone        : 480px !default;
-$tablet       : 768px !default;
-$laptop       : 992px !default;
-$desktop      : 1200px !default;
+$phone       : 480px !default;
+$tablet      : 768px !default;
+$laptop      : 992px !default;
+$desktop     : 1200px !default;
 
-$breakpoints  : (
+$breakpoints : (
 	sm\: : $phone,
 	md\: : $tablet,
 	lg\: : $laptop,
@@ -20,7 +21,7 @@ $breakpoints  : (
 //--------------------------------------------------------------//
 //  Spacers
 //--------------------------------------------------------------//
-$spacers          : (
+$spacers     : (
 	'0' : 0,
 	'10' : 0.625rem, // 10px
 	'15' : 0.9375rem, // 15px
@@ -31,3 +32,15 @@ $spacers          : (
 	'xl' : 2rem, // 32px
 	'xxl': 2.5rem, // 40px
 ) !default;
+//--------------------------------------------------------------//
+// Typography
+//--------------------------------------------------------------//
+$h1          : 2rem !default;
+$h2          : 1.75rem !default;
+$h3          : 1.5rem !default;
+$h4          : 1.25rem !default;
+$h5          : 1.125rem !default;
+$h6          : 1rem !default;
+$small       : .75rem !default;
+
+$typography  : ('small':$small, 'h6' : $h6, 'h5' : $h5, 'h4' : $h4, 'h3' : $h3, 'h2' : $h2, 'h1' : $h1);

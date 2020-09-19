@@ -1,0 +1,16 @@
+@use "settings" as st;
+@use "mixins" as mx;
+
+$withBreakPoints : false !default;
+$prefix          : "text" !default;
+$divider         : st.$divider !default;
+$important       : st.$important !default;
+$align           : (left: left, right: right, center: center);
+
+@include mx.makeUtil("text-align", $prefix, $align, $divider, $important : $important);
+
+@each $name, $value in st.$breakpoints {
+  @media (min-width : $value) {
+	@include mx.makeUtil("text-align", $prefix, $align, $divider, $name, $important : $important);
+  }
+}
