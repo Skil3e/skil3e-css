@@ -1,17 +1,18 @@
-@use "../maps";
+@use "settings" as st;
 @use "../globals";
 @use "mixins" as mx;
 
 $withBreakPoints : false !default;
 $prefix          : "m" !default;
-$divider         : "--" !default;
+$divider         : st.$divider !default;
+$important       : st.$important !default;
 $posDivider      : null !default;
-$spacers         : maps.$spacers;
+$spacers         : st.$spacers;
 
-@include mx.makeUtilPos("margin", $prefix, $spacers, $divider, $posDivider);
+@include mx.makeUtilPos("margin", $prefix, $spacers, $divider, $posDivider, $important: $important);
 
-@each $name, $value in maps.$breakpoints {
+@each $name, $value in st.$breakpoints {
   @media (min-width : $value) {
-	@include mx.makeUtilPos("margin", $prefix, $spacers, $divider, $posDivider, $name);
+	@include mx.makeUtilPos("margin", $prefix, $spacers, $divider, $posDivider, $name, $important: $important);
   }
 }

@@ -1,19 +1,53 @@
-@use "../maps";
+@use "settings" as st;
 @use "mixins" as mx;
 
-$divider    : "--" !default;
-$properties : () !default;
-$intents    : () !default;
-$themeDark  : () !default;
-$themeLight : () !default;
+$divider         : st.$divider !default;
+$important       : st.$important !default;
+$useCallback     : false !default;
 
-$SP         : map-merge(maps.$styleProperties, $properties);
-$INTENT     : map-merge(maps.$intentColors, $intents);
-$TL         : map-merge(maps.$themeLight, map-merge($INTENT, $themeLight));
-$TD         : map-merge(maps.$themeDark, map-merge($INTENT, $themeDark));
-$Classes    : map-merge($TL, $TD);
+$properties      : () !default;
+$intents         : () !default;
+$addToDark       : () !default;
+$addToLight      : () !default;
+
+$styleProperties : (
+	'text' : color,
+	'bg' : background-color,
+	'fill' : fill,
+	'brd' : border-color
+) !default;
+$intentColors    : (
+	'info' : st.$info,
+	'danger' : st.$danger,
+	'success' : st.$success,
+	'warning' : st.$warning,
+) !default;
+$themeLight      : (
+	'accent' : #0B5FFF,
+	'body' : st.$gray-95,
+	'bg' : st.$gray-90,
+	'bgDimmed' : st.$gray-85,
+	'border' : st.$gray-80,
+	'text' : st.$gray-10,
+	'textDimmed' : st.$gray-40,
+) !default;
+$themeDark       : (
+	"accent": #1FB6FF,
+	'body' : st.$gray-5,
+	'bg' : st.$gray-10,
+	'bgDimmed' : st.$gray-15,
+	'border' : st.$gray-20,
+	'text' : st.$gray-80,
+	'textDimmed' : st.$gray-60,
+) !default;
+
+$SP              : map-merge($styleProperties, $properties);
+$INTENT          : map-merge($intentColors, $intents);
+$TL              : map-merge($themeLight, map-merge($INTENT, $addToDark));
+$TD              : map-merge($themeDark, map-merge($INTENT, $addToLight));
+$Classes         : map-merge($TL, $TD);
 
 @include mx.makeColorVars($TD, "body[data-theme='dark']");
 @include mx.makeColorVars($TL, "body");
-@include mx.makeColors($SP, $Classes, $divider);
+@include mx.makeColors($SP, $Classes, $divider, $useCallback : $useCallback, $important : $important);
 

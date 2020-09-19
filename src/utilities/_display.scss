@@ -1,9 +1,10 @@
-@use "../maps";
+@use "settings" as st;
 @use "mixins" as mx;
 
 $withBreakPoints : true !default;
 $prefix          : null !default;
-$divider         : null !default;
+$divider         : st.$divider !default;
+$important       : st.$important !default;
 $addDisplay      : () !default;
 $display         : (
 	'none' : none,
@@ -21,10 +22,10 @@ $display         : (
 ) !default;
 $D               : map-merge($display, $addDisplay);
 
-@include mx.makeUtil("display", $prefix, $D, $divider);
+@include mx.makeUtil("display", $prefix, $D, $divider, $important : $important);
 
-@each $name, $value in maps.$breakpoints {
+@each $name, $value in st.$breakpoints {
   @media (min-width : $value) {
-	@include mx.makeUtil("display", $prefix, $D, $divider, $name);
+	@include mx.makeUtil("display", $prefix, $D, $divider, $name, $important : $important);
   }
 }

@@ -1,20 +1,21 @@
-@use "../maps";
+@use "settings" as st;
 @use "mixins" as mx;
 
 $withBreakPoints : false !default;
 $prefix          : "round" !default;
-$divider         : "--" !default;
-$posDivider      : "-" !default;
+$divider         : st.$divider !default;
+$important       : st.$important !default;
+$posDivider      : st.$posDivider !default;
 $addRadius       : () !default;
 $border-radius   : ("": .25rem, '0' : 0, "circle": 1000rem) !default;
 $BR              : map-merge($border-radius, $addRadius);
 
-@include mx.border-radius($BR, $prefix, $divider, $posDivider);
+@include mx.border-radius($BR, $prefix, $divider, $posDivider, $important : $important);
 
 @if ($withBreakPoints) {
-  @each $name, $value in maps.$breakpoints {
+  @each $name, $value in st.$breakpoints {
 	@media (min-width : $value) {
-	  @include mx.border-radius($BR, $prefix, $divider, $posDivider, $name);
+	  @include mx.border-radius($BR, $prefix, $divider, $posDivider, $name, $important : $important);
 	}
   }
 }

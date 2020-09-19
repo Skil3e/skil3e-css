@@ -1,22 +1,23 @@
-@use "../maps";
+@use "settings" as st;
 @use "mixins" as mx;
 
 $withBreakPoints : true !default;
 $prefix          : "border" !default;
-$divider         : "--" !default;
-$posDivider      : "-" !default;
+$divider         : st.$divider !default;
+$important       : st.$important !default;
+$posDivider      : st.$posDivider !default;
 $addWidths       : () !default;
 $border-widths   : ("": 1px, "0": 0, "md": 3px) !default;
 $BW              : map-merge($border-widths, $addWidths);
 
-@include mx.makeUtilPos("border", $prefix, $BW, $divider, $posDivider) {
+@include mx.makeUtilPos("border", $prefix, $BW, $divider, $posDivider, $important : $important) {
   border-style : solid;
 }
 
 @if ($withBreakPoints) {
-  @each $name, $value in maps.$breakpoints {
+  @each $name, $value in st.$breakpoints {
 	@media (min-width : $value) {
-	  @include mx.makeUtilPos("border", $prefix, $BW, $divider, $posDivider, $name) {
+	  @include mx.makeUtilPos("border", $prefix, $BW, $divider, $posDivider, $name, $important : $important) {
 		border-style : solid;
 	  }
 	}

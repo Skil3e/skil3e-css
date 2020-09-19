@@ -1,4 +1,4 @@
-@use "../maps";
+@use "settings" as st;
 @use "mixins" as mx;
 
 $disableItems    : false !default;
@@ -6,7 +6,8 @@ $disableContent  : false !default;
 $disableSelf     : false !default;
 $withBreakPoints : true !default;
 
-$divider         : "--" !default;
+$divider         : st.$divider !default;
+$important       : st.$important !default;
 $itemsPrefix     : "al__it" !default;
 $contentPrefix   : "al__cnt" !default;
 $selfPrefix      : "al__self" !default;
@@ -20,16 +21,16 @@ $align-items     : map-merge($align, $addItems);
 $align-content   : map-merge($align, $addContent);
 $align-self      : map-merge($align, $addSelf);
 
-@include mx.makeUtil("align-items", $itemsPrefix, $align-items, $divider, $disable : $disableItems);
-@include mx.makeUtil("align-content", $contentPrefix, $align-content, $divider, $disable : $disableContent);
-@include mx.makeUtil("align-self", $selfPrefix, $align-self, $divider, $disable : $disableSelf);
+@include mx.makeUtil("align-items", $itemsPrefix, $align-items, $divider, $disable : $disableItems, $important : $important);
+@include mx.makeUtil("align-content", $contentPrefix, $align-content, $divider, $disable : $disableContent, $important : $important);
+@include mx.makeUtil("align-self", $selfPrefix, $align-self, $divider, $disable : $disableSelf, $important : $important);
 
 @if ($withBreakPoints) {
-  @each $name, $value in maps.$breakpoints {
+  @each $name, $value in st.$breakpoints {
 	@media (min-width : $value) {
-	  @include mx.makeUtil("align-items", $itemsPrefix, $align-items, $divider, $name, $disableItems);
-	  @include mx.makeUtil("align-content", $contentPrefix, $align-content, $divider, $name, $disableContent);
-	  @include mx.makeUtil("align-self", $selfPrefix, $align-self, $divider, $name, $disableSelf);
+	  @include mx.makeUtil("align-items", $itemsPrefix, $align-items, $divider, $name, $disableItems, $important : $important);
+	  @include mx.makeUtil("align-content", $contentPrefix, $align-content, $divider, $name, $disableContent, $important : $important);
+	  @include mx.makeUtil("align-self", $selfPrefix, $align-self, $divider, $name, $disableSelf, $important : $important);
 	}
   }
 }

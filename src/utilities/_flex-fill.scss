@@ -1,0 +1,20 @@
+@use "settings" as st;
+@use "../globals";
+@use "mixins" as mx;
+
+
+$withBreakPoints : false !default;
+$prefix          : "flex" !default;
+$divider         : st.$divider !default;
+$important       : st.$important !default;
+$flex-fill       : (fill: 1 1 auto);
+$addFill         : () !default;
+$FF              : map-merge($flex-fill, $addFill);
+
+@include mx.makeUtil("flex-fill", $prefix, $FF, $divider, $important : $important);
+
+@each $name, $value in st.$breakpoints {
+  @media (min-width : $value) {
+	@include mx.makeUtil("flex-fill", $prefix, $FF, $divider, $name, $important : $important);
+  }
+}
