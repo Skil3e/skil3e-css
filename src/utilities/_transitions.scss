@@ -5,6 +5,7 @@ $withBreakPoints : false !default;
 $prefix          : "transition" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
+$transition-timing : 250ms ease-in-out !default;
 $addTransition   : () !default;
 $transitions     : (
 	'' : 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform',
@@ -14,7 +15,9 @@ $transitions     : (
 $T               : map-merge($transitions, $addTransition);
 
 
-@include mx.makeUtil("transition-property", $prefix, $T, $divider, $important : $important);
+@include mx.makeUtil("transition-property", $prefix, $T, $divider, $important : $important){
+  transition-duration: $transition-timing;
+};
 
 @each $name, $value in st.$breakpoints {
   @media (min-width : $value) {
