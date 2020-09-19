@@ -9,10 +9,10 @@ $flex-fill       : (fill: 1 1 auto) !default;
 $addFill         : () !default;
 $FF              : map-merge($flex-fill, $addFill);
 
-@include mx.makeUtil("flex-fill", $prefix, $FF, $divider, $important : $important);
+@include mx.makeUtil("flex", $prefix, $FF, $divider, $important : $important);
 
 @each $name, $value in st.$breakpoints {
   @media (min-width : $value) {
-	@include mx.makeUtil("flex-fill", $prefix, $FF, $divider, $name, $important : $important);
+	@include mx.makeUtil("flex", $prefix, $FF, $divider, $name, $important : $important);
   }
 }
