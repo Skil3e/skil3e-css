@@ -8,11 +8,12 @@
 $important: true
 );
 //@use "utilities/align";
-@use "utilities/border-width";
+//@use "utilities/border-width";
 //@use "utilities/border-radius";
-//@use "utilities/colors";
+@use "utilities/colors";
 //@use "utilities/margin";
 //@use "utilities/display";
 //@use "utilities/flex-direction";
 //@use "utilities/text-align";
 //@use "utilities/positions-placement";
+@use "utilities/transitions";

@@ -8,6 +8,12 @@
 
 body {
   font-family : globals.$bodyFont;
+  background-color : var(--body);
+  color            : var(--text);
+
+  &.transition {
+    transition : all 400ms ease-in-out;
+  }
 }
 
 *,

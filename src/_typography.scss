@@ -21,3 +21,9 @@ p {
 mark {
   background-color : $highlight;
 }
+
+a {
+  text-decoration : none;
+  color           : var(--accent);
+  transition      : color 250ms ease;
+}
