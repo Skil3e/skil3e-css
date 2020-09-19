@@ -1,0 +1,23 @@
+@use "settings" as st;
+@use "mixins" as mx;
+
+$withBreakPoints : false !default;
+$prefix          : "transition" !default;
+$divider         : st.$divider !default;
+$important       : st.$important !default;
+$addTransition   : () !default;
+$transitions     : (
+	'' : 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform',
+	'--colors' : 'background-color, border-color, color, fill, stroke',
+	'--all': all
+) !default;
+$T               : map-merge($transitions, $addTransition);
+
+
+@include mx.makeUtil("transition-property", $prefix, $T, $divider, $important : $important);
+
+@each $name, $value in st.$breakpoints {
+  @media (min-width : $value) {
+	@include mx.makeUtil("transition-property", $prefix, $T, $divider, $name, $important : $important);
+  }
+}

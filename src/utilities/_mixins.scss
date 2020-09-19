@@ -151,3 +151,98 @@ $positions : (
 	}
   }
 }
+
+//--------------------------------------------------------------//
+// Make XYCenter
+//--------------------------------------------------------------//
+@mixin makeXYCenter($values, $divider, $breakpoint) {
+  @each $type in $values {
+	.#{$breakpoint}#{$type}#{$divider}center {
+	  position  : #{$type} !important;
+	  left      : 50%;
+	  top       : 50%;
+	  transform : translate(-50%, -50%);
+	}
+	.#{$breakpoint}#{$type}-x#{$divider}center {
+	  position  : #{$type} !important;
+	  left      : 50%;
+	  transform : translateX(-50%);
+	}
+	.#{$breakpoint}#{$type}-y#{$divider}center {
+	  position  : #{$type} !important;
+	  top       : 50%;
+	  transform : translateY(-50%);
+	}
+  }
+}
+
+//--------------------------------------------------------------//
+// Make Position Placement
+//--------------------------------------------------------------//
+@mixin position-placement($values, $positions, $divider, $breakpoint: null, $important) {
+  @each $num, $value in $values {
+	@each $name, $pos in $positions {
+	  #{makeClass( $num, $name, $divider, $breakpoint )} {
+		#{$pos} : #{$value} #{if($important, "!important", null)};
+	  }
+	}
+	.#{$breakpoint}inset#{$divider}#{$num} {
+	  top    : #{$value} #{if($important, "!important", null)};
+	  right  : #{$value} #{if($important, "!important", null)};
+	  bottom : #{$value} #{if($important, "!important", null)};
+	  left   : #{$value} #{if($important, "!important", null)};
+	}
+	.#{$breakpoint}inset-x#{$divider}#{$num} {
+	  right : #{$value} #{if($important, "!important", null)};
+	  left  : #{$value} #{if($important, "!important", null)};
+	}
+	.#{$breakpoint}inset-y#{$divider}#{$num} {
+	  top    : #{$value} #{if($important, "!important", null)};
+	  bottom : #{$value} #{if($important, "!important", null)};
+	}
+  }
+}
+
+//--------------------------------------------------------------//
+//  Make Screen Readers
+//--------------------------------------------------------------//
+@mixin makeScreenReaders($breakpoint: null) {
+  .#{$breakpoint}sr-only {
+	position : absolute;
+	width    : 1px;
+	height   : 1px;
+	padding  : 0;
+	margin   : -1px;
+	overflow : hidden;
+	clip     : rect(0, 0, 0, 0);
+	border   : 0;
+  }
+
+  .#{$breakpoint}not-sr-only {
+	position : static;
+	width    : auto;
+	height   : auto;
+	padding  : 0;
+	margin   : 0;
+	overflow : visible;
+	clip     : auto;
+	border   : 0;
+  }
+
+  .#{$breakpoint}sr-only-focusable {
+	position : absolute;
+	width    : 1px;
+	height   : 1px;
+	padding  : 0;
+	margin   : -1px;
+	overflow : hidden;
+	clip     : rect(0, 0, 0, 0);
+	border   : 0;
+
+	&:focus {
+	  position : relative;
+	  width    : auto;
+	  height   : auto;
+	}
+  }
+}

@@ -1,0 +1,20 @@
+@use "settings" as st;
+@use "mixins" as mx;
+
+$withBreakPoints : false !default;
+$prefix          : null !default;
+$divider         : st.$divider !default;
+$important       : st.$important !default;
+$positions       : ('static' : static, 'relative': relative, 'fixed' : fixed, 'absolute' : absolute, 'sticky': sticky) !default;
+$removePosition  : () !default;
+$P               : mx.removeFromMap($positions, $removePosition);
+
+@include mx.makeUtil("position", $prefix, $P, $divider, $important : $important);
+@include mx.makeXYCenter(("absolute", "fixed"), $divider);
+
+@each $name, $value in st.$breakpoints {
+  @media (min-width : $value) {
+	@include mx.makeUtil("position", $prefix, $P, $divider, $name, $important : $important);
+	@include mx.makeXYCenter(("absolute", "fixed"), $divider, $name);
+  }
+}

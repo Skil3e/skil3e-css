@@ -1,0 +1,20 @@
+@use "settings" as st;
+@use "mixins" as mx;
+
+$withBreakPoints  : false !default;
+$divider          : st.$divider !default;
+$important        : st.$important !default;
+$addValues        : () !default;
+$values           : ('0' : 0, 'auto': auto) !default;
+$direction        : ('top' : top, 'right' : right, 'bottom' : bottom, 'left' : left);
+$removeDirections : ();
+$D                : mx.removeFromMap($removeDirections, $direction);
+$PV               : map-merge($values, $addValues);
+
+@include mx.position-placement($PV, $direction, $divider, $important : $important);
+
+@each $name, $value in st.$breakpoints {
+  @media (min-width : $value) {
+	@include mx.position-placement($PV, $direction, $divider, $name, $important);
+  }
+}

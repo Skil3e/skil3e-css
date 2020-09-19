@@ -1,0 +1,18 @@
+@use "settings" as st;
+@use "mixins" as mx;
+
+$withBreakPoints : false !default;
+$prefix          : "obj-pos" !default;
+$divider         : st.$divider !default;
+$important       : st.$important !default;
+$object-position : ('center' : center, 'top' : top, 'bottom' : bottom, 'left' : left, 'right' : right, 'left-top' : left top, 'left-bottom' : left bottom, 'right-top' : right top, 'right-bottom' : right bottom,) !default;
+$removePosition  : () !default;
+$OP              : mx.removeFromMap($object-position, $removePosition);
+
+@include mx.makeUtil("object-position", $prefix, $OP, $divider, $important : $important);
+
+@each $name, $value in st.$breakpoints {
+  @media (min-width : $value) {
+	@include mx.makeUtil("object-position", $prefix, $OP, $divider, $name, $important : $important);
+  }
+}

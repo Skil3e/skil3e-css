@@ -1,0 +1,18 @@
+@use "settings" as st;
+@use "mixins" as mx;
+
+$withBreakPoints : false !default;
+$prefix          : "obj-fit" !default;
+$divider         : st.$divider !default;
+$important       : st.$important !default;
+$object-fit      : ('contain' : contain, 'cover' : cover, 'fill' : fill, 'none' : none, 'scale-down' : scale-down) !default;
+$removeFit       : () !default;
+$OF              : mx.removeFromMap($object-fit, $removeFit);
+
+@include mx.makeUtil("object-fit", $prefix, $OF, $divider, $important : $important);
+
+@each $name, $value in st.$breakpoints {
+  @media (min-width : $value) {
+	@include mx.makeUtil("object-fit", $prefix, $OF, $divider, $name, $important : $important);
+  }
+}

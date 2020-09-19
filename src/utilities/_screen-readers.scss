@@ -1,0 +1,10 @@
+@use "settings" as st;
+@use "mixins" as mx;
+
+@include mx.makeScreenReaders();
+
+@each $name, $value in st.$breakpoints {
+  @media (min-width : $value) {
+	@include mx.makeScreenReaders($name);
+  }
+}

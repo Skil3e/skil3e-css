@@ -90,23 +90,23 @@ $breakpoints : maps.$breakpoints !default;
 @include mx.justify-self(
 	$enable : opt.$enable__justify-self,
 );
-
+//------------------------------------
 @include mx.object-fit(
 	$enable : opt.$enable__object-fit
 );
-
+//------------------------------------
 @include mx.object-position(
 	$enable : opt.$enable__object-position
 );
-
+//------------------------------------
 @include mx.position(
 	$enable : opt.$enable__position
 );
-
+//------------------------------------
 @include mx.position-placement(
 	$enable : opt.$enable__position-placement
 );
-
+//------------------------------------
 @include mx.screen-readers(
 	$enable : opt.$enable__screen-readers
 );
@@ -130,7 +130,7 @@ $breakpoints : maps.$breakpoints !default;
 @include mx.text-align(
 	$enable : opt.$enable__text-align
 );
-
+//------------------------------------
 @include mx.transitions(
 	$enable : opt.$enable__transitions
 );

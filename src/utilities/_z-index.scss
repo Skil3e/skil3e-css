@@ -1,0 +1,18 @@
+@use "settings" as st;
+@use "mixins" as mx;
+
+$withBreakPoints : false !default;
+$prefix          : "text" !default;
+$divider         : st.$divider !default;
+$important       : st.$important !default;
+$zIndex          : ('1': 1000, '2': 2000, '3': 3000, '4': 4000, '5': 5000, '6': 6000, '7': 7000, '8': 8000, '9': 9000) !default;
+$addZIndex       : () !default;
+$ZI              : map-merge($zIndex, $addZIndex);
+
+@include mx.makeUtil("z-index", $prefix, $ZI, $divider, $important : $important);
+
+@each $name, $value in st.$breakpoints {
+  @media (min-width : $value) {
+	@include mx.makeUtil("z-index", $prefix, $ZI, $divider, $name, $important : $important);
+  }
+}
