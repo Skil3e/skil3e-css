@@ -4,6 +4,7 @@
 $divider         : st.$divider !default;
 $important       : st.$important !default;
 $useCallback     : false !default;
+$makeHover       : false !default;
 
 $addProperties   : () !default;
 $addIntents      : () !default;
@@ -52,5 +53,5 @@ $Classes         : map-merge($TL, $TD);
 
 @include mx.makeColorVars($TD, "body[data-theme='dark']");
 @include mx.makeColorVars($TL, "body");
-@include mx.makeColors($SP, $Classes, $divider, $useCallback : $useCallback, $important : $important);
+@include mx.makeColors($SP, $Classes, $divider, $useCallback : $useCallback, $important : $important, $hover : $makeHover);
 

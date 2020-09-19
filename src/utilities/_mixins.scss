@@ -134,7 +134,7 @@ $positions : (
   }
 }
 
-@mixin makeColors($styleProperties, $values, $divider, $makeVarsSelector: false, $useCallback: false, $breakpoint: null, $disable: false, $important) {
+@mixin makeColors($styleProperties, $values, $divider, $makeVarsSelector: false, $useCallback: false, $breakpoint: null, $disable: false, $important, $hover) {
   @if ($disable != true) {
 	@if ($makeVarsSelector) {
 	  @include makeColorVars($values, $makeVarsSelector);
@@ -146,6 +146,11 @@ $positions : (
 			#{$property}: #{$value} #{if($important, "!important", null)};
 		  }
 		  #{$property}: var(--#{ $name }) #{if($important, "!important", null)};
+		}
+		@if ($hover) {
+		  .#{$breakpoint}hover\:#{$prefix}#{$divider}#{$name}:hover {
+			#{$property}: var(--#{$name}) #{if($important, "!important", null)};
+		  }
 		}
 	  }
 	}
