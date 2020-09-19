@@ -1,0 +1,18 @@
+@use "settings" as st;
+@use "mixins" as mx;
+
+$withBreakPoints : false !default;
+$prefix          : "flex" !default;
+$divider         : st.$divider !default;
+$important       : st.$important !default;
+$flex-grow       : ("grow-0": 0, "grow": 1);
+$addGrow         : () !default;
+$FG              : map-merge($flex-grow, $addGrow);
+
+@include mx.makeUtil("flex-grow", $prefix, $FG, $divider, $important : $important);
+
+@each $name, $value in st.$breakpoints {
+  @media (min-width : $value) {
+	@include mx.makeUtil("flex-grow", $prefix, $FG, $divider, $name, $important : $important);
+  }
+}

@@ -1,0 +1,19 @@
+@use "settings" as st;
+@use "mixins" as mx;
+
+$withBreakPoints : false !default;
+$prefix          : "flex" !default;
+$divider         : st.$divider !default;
+$important       : st.$important !default;
+$flex-wrap       : (wrap: wrap, nowrap: nowrap, wrap-reverse: wrap-reverse);
+$addWrap         : () !default;
+
+$FW              : map-merge($flex-wrap, $addWrap);
+
+@include mx.makeUtil("flex-wrap", $prefix, $FW, $divider, $important : $important);
+
+@each $name, $value in st.$breakpoints {
+  @media (min-width : $value) {
+	@include mx.makeUtil("flex-wrap", $prefix, $FW, $divider, $name, $important : $important);
+  }
+}

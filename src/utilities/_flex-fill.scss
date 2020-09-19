@@ -1,7 +1,5 @@
 @use "settings" as st;
-@use "../globals";
 @use "mixins" as mx;
-
 
 $withBreakPoints : false !default;
 $prefix          : "flex" !default;
