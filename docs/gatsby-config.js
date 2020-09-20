@@ -16,6 +16,12 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    // {
+    //   resolve: `gatsby-plugin-layout`,
+    //   options: {
+    //     component: require.resolve(`./src/components/layout/Layout.tsx`),
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -31,12 +37,18 @@ module.exports = {
     {
       resolve: `@rocketseat/gatsby-theme-docs-core`,
       options: {
-        basePath: `/`,
+        basePath: `/documentation`,
         configPath: `src/config`,
         docsPath: `src/docs`,
         githubUrl: `https://github.com/Skil3e/skil3e-css`,
-        baseDir: `www`,
+        baseDir: `docs`,
       },
+    },
+    {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        offset: -60
+      }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

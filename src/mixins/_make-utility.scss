@@ -27,7 +27,7 @@ $positions : (
 ) !default;
 
 @mixin makeUtilPos($property, $prefix, $values, $divider, $posDivider, $breakpoint: null, $disable: false, $important) {
-  @include makeUtil($property, $prefix, $values, $divider, $breakpoint, $disable) {
+  @include makeUtil($property, $prefix, $values, $divider, $breakpoint, $disable, $important) {
 	@content
   }
   @if ($disable != true) {

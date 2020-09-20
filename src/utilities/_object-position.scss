@@ -8,7 +8,7 @@ $divider         : st.$divider !default;
 $important       : st.$important !default;
 $object-position : ('center' : center, 'top' : top, 'bottom' : bottom, 'left' : left, 'right' : right, 'left-top' : left top, 'left-bottom' : left bottom, 'right-top' : right top, 'right-bottom' : right bottom,) !default;
 $removePosition  : () !default;
-$OP              : fn.removeFromMap($object-position, $removePosition);
+$OP              : fn.removeFromMap($removePosition, $object-position);
 
 @include mx.makeUtil("object-position", $prefix, $OP, $divider, $important : $important);
 

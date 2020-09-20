@@ -8,7 +8,7 @@ $divider         : st.$divider !default;
 $important       : st.$important !default;
 $object-fit      : ('contain' : contain, 'cover' : cover, 'fill' : fill, 'none' : none, 'scale-down' : scale-down) !default;
 $removeFit       : () !default;
-$OF              : fn.removeFromMap($object-fit, $removeFit);
+$OF              : fn.removeFromMap($removeFit, $object-fit);
 
 @include mx.makeUtil("object-fit", $prefix, $OF, $divider, $important : $important);
 

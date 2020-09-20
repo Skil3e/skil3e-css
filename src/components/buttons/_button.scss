@@ -6,23 +6,24 @@
 //-----------------------------------------------------------
 //Variables
 //-----------------------------------------------------------
-$makeFill          : true !default;
-$makeMinimalLink   : true !default;
-$makeOutline       : true !default;
-$borderStyle       : solid !default;
+$makeFill        : true !default;
+$makeMinimalLink : true !default;
+$makeOutline     : true !default;
+$borderStyle     : solid !default;
 
-$pX                : 1.5rem !default;
-$pY                : .625rem !default;
-$padding           : $pY $pX !default;
-$colorsLight       : clr.$IL !default;
-$colorsDark        : clr.$ID !default;
+$pX              : 1.5rem !default;
+$pY              : .625rem !default;
+$padding         : $pY $pX !default;
+$colorsLight     : clr.$IL !default;
+$colorsDark      : clr.$ID !default;
 
 
-.button, button, a {
+.button, button {
   display             : inline-flex;
   align-items         : center;
   vertical-align      : middle;
   text-decoration     : none;
+  cursor              : pointer;
   background          : st.$primary;
   color               : fn.color-contrast(st.$primary);
   border              : 1px solid st.$primary;
@@ -46,8 +47,8 @@ $colorsDark        : clr.$ID !default;
   }
 
   &:focus {
-	outline : none;
-	box-shadow : 0 0 0 2px;
+	outline    : none;
+	box-shadow : 0 0 0 2px transparentize(st.$primary, .25);
 
 	&::after,
 	&::before {
@@ -72,7 +73,7 @@ $colorsDark        : clr.$ID !default;
 // Button Link & Minimal Defaults
 //-----------------------------------------------------------
 @if ($makeMinimalLink) {
-  .button.link,
+  .button.link, a,
   .button.minimal {
 	padding    : 0;
 	min-height : 0;
@@ -84,7 +85,7 @@ $colorsDark        : clr.$ID !default;
 	  @include btnMx.makeMinimalLinkButton(clr.$ID);
 	}
   }
-  .button.link {
+  .button.link, a {
 	display         : inline;
 	vertical-align  : baseline;
 	text-decoration : underline;

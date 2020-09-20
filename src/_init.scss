@@ -25,3 +25,9 @@ body {
 img {
   max-width : 100%;
 }
+main *  {
+  + *:not(li){
+    margin-top: 1em;
+  }
+
+}

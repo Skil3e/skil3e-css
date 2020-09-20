@@ -1,6 +1,6 @@
-- label: 'Home'
+- label: 'Introduction'
   link: '/'
 - label: 'With dropdown'
   items:
-    - label: 'My Example'
-      link: '/my-example'
+    - label: 'Quick Start'
+      link: '/quick-start'

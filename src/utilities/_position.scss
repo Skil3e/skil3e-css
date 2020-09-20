@@ -8,7 +8,7 @@ $divider         : st.$divider !default;
 $important       : st.$important !default;
 $positions       : ('static' : static, 'relative': relative, 'fixed' : fixed, 'absolute' : absolute, 'sticky': sticky) !default;
 $removePosition  : () !default;
-$P               : fn.removeFromMap($positions, $removePosition);
+$P               : fn.removeFromMap($removePosition, $positions);
 
 @include mx.makeUtil("position", $prefix, $P, $divider, $important : $important);
 @include mx.makeXYCenter(("absolute", "fixed"), $divider);

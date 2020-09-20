@@ -1,12 +1,37 @@
 import * as React from 'react';
 import { useSidebar } from '@rocketseat/gatsby-theme-docs-core';
+import NavLink from "./NavLink";
 
-const Sidebar: React.FC = () => {
+const Sidebar: React.FC<{ className?: string }> = ( { className } ) => {
     const data = useSidebar();
-    console.log(data);
-    return(
-        <aside>
-            I am the sidebar
+    return (
+        <aside className={ className }>
+            <nav className={ "h--sidebar p--md" }>
+                <ul>
+                    { data.map( item => {
+                            return (
+                                <li key={ item.node.id }>
+                                    { item.node.items
+                                        ?
+                                        <div>
+                                            <h4 className={"text--accent p--sm mt--md"}>{ item.node.label.toUpperCase() }</h4>
+                                            <ul>
+                                                { item.node.items.map( item =>
+                                                    <li key={item.link}>
+                                                        <NavLink className={"round"} inSidebar to={ item.link }>{ item.label }</NavLink>
+                                                    </li>
+                                                ) }
+                                            </ul>
+                                        </div>
+                                        : <NavLink className={"round"} inSidebar to={ item.node.link }>{ item.node.label }</NavLink>
+                                    }
+                                </li>
+                            )
+                        }
+                    ) }
+                </ul>
+            </nav>
+
         </aside>
     )
     /*

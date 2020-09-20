@@ -11,10 +11,10 @@ type DataProps = {
 }
 
 const Home: React.FC<PageProps<DataProps>> = ({ data, path }) => (
-    <Layout>
+    <main>
         <SEO title="Using TypeScript" />
         <h1>Home</h1>
-    </Layout>
+    </main>
 )
 
 export default Home
