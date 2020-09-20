@@ -1,36 +1,32 @@
-@use "../util-constructor";
-@use "src/functions/accessibility-colors" as acc;
-@use "../themes";
-
-$light : themes.$colorsLight !default;
-$dark  : themes.$colorsDark !default;
+@use "../functions" as fn;
+@use "../settings" as st;
+@use "../utilities/colors" as clr;
 
 .badge {
-  @extend .inline-flex;
-  @extend .py--xs;
-  @extend .px--sm;
-  @extend .transition--colors;
-  @extend .round;
-  line-height    : 1.5;
-  vertical-align : middle;
+  display             : inline-flex;
+  padding             : map-get(st.$spacers, "xs") map-get(st.$spacers, "sm");
+  transition-property : color, background-color, border;
+  transition          : st.$transition-timing;
+  line-height         : 1.5;
+  vertical-align      : middle;
 
-  @each $color, $hex in $light {
+  @each $color, $hex in clr.$IL {
 	&.#{$color} {
-	  color      : acc.color-contrast($hex);
+	  color      : fn.color-contrast($hex);
 	  background : $hex;
 
 	  &:hover {
-		background : acc.set-hover-color($hex)
+		background : fn.set-hover-color($hex)
 	  }
 	}
   }
-  @each $color, $hex in $dark {
+  @each $color, $hex in clr.$ID {
 	body[data-theme="dark"].#{$color} {
-	  color      : acc.color-contrast($hex);
+	  color      : fn.color-contrast($hex);
 	  background : $hex;
 
 	  &:hover {
-		background : acc.set-hover-color($hex)
+		background : fn.set-hover-color($hex)
 	  }
 	}
   }
