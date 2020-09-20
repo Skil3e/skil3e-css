@@ -2,9 +2,8 @@
 
 ## Run locally
 ```
+cd docs
 npm install
-```
-```
 npm start
 ```
 
