@@ -1,57 +1,63 @@
-@use "../../functions-mixins/acc-colors" as acc;
+@use "../../functions" as fn;
 
-@mixin makeFillButton($color, $hex) {
-  &.#{$color} {
-	background : $hex;
-	color      : acc.color-contrast($hex);
-
-	.icon, .loader {
-	  fill : acc.color-contrast($hex);
-	}
-
-	&:hover:not(:disabled), &:hover:not(.disabled) {
-	  background : acc.set-hover-color($hex);
-
-	  .icon {
-		fill : acc.color-contrast($hex);
-	  }
-	}
-  }
-}
-
-@mixin makeMinimalLinkButton($color, $hex) {
-  &.#{$color} {
-	color : $hex;
-
-	.icon, .loader {
-	  fill : $hex;
-	}
-
-	&:not(:disabled):hover, &:not(.disabled):hover {
-	  color : acc.set-hover-color($hex);
-
-	  .icon {
-		fill : acc.set-hover-color($hex);
-	  }
-	}
-  }
-}
-
-@mixin makeOutlineButton($color, $hex) {
-  &.#{$color} {
-	border-color : $hex;
-	color        : $hex;
-
-	.icon {
-	  fill : $hex;
-	}
-
-	&:not(:disabled):hover, &:not(.disabled):hover {
+@mixin makeFillButton($colors) {
+  @each $color, $hex in $colors {
+	&.#{$color} {
 	  background : $hex;
-	  color      : acc.color-contrast($hex);
+	  color      : fn.color-contrast($hex);
+
+	  .icon, .loader {
+		fill : fn.color-contrast($hex);
+	  }
+
+	  &:hover:not(:disabled), &:hover:not(.disabled) {
+		background : fn.set-hover-color($hex);
+
+		.icon {
+		  fill : fn.color-contrast($hex);
+		}
+	  }
+	}
+  }
+}
+
+@mixin makeMinimalLinkButton($colors) {
+  @each $color, $hex in $colors {
+	&.#{$color} {
+	  color : $hex;
+
+	  .icon, .loader {
+		fill : $hex;
+	  }
+
+	  &:not(:disabled):hover, &:not(.disabled):hover {
+		color : fn.set-hover-color($hex);
+
+		.icon {
+		  fill : fn.set-hover-color($hex);
+		}
+	  }
+	}
+  }
+}
+
+@mixin makeOutlineButton($colors) {
+  @each $color, $hex in $colors {
+	&.#{$color} {
+	  border-color : $hex;
+	  color        : $hex;
 
 	  .icon {
-		fill : acc.color-contrast($hex);
+		fill : $hex;
+	  }
+
+	  &:not(:disabled):hover, &:not(.disabled):hover {
+		background : $hex;
+		color      : fn.color-contrast($hex);
+
+		.icon {
+		  fill : fn.color-contrast($hex);
+		}
 	  }
 	}
   }

@@ -1,5 +1,4 @@
 @use "settings";
-@use "functions-mixins/mixins" as mx;
 
 $headingFont       : settings.$headingFont !default;
 $headingLineHeight : settings.$headingLineHeight !default;

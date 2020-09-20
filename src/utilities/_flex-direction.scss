@@ -1,5 +1,6 @@
 @use "../settings" as st;
-@use "../functions-mixins/mixins" as mx;
+@use "../mixins" as mx;
+@use "../functions" as fn;
 
 $withBreakPoints : true !default;
 $prefix          : "flex" !default;
@@ -7,7 +8,7 @@ $divider         : st.$divider !default;
 $important       : st.$important !default;
 $flex-directions : ('row': row, 'column': column, 'row-reverse': row-reverse, 'column-reverse': column-reverse) !default;
 $removeDirection : () !default;
-$FD              : mx.removeFromMap($removeDirection, $flex-directions);
+$FD              : fn.removeFromMap($removeDirection, $flex-directions);
 
 @include mx.makeUtil("flex-direction", $prefix, $FD, $divider, $important : $important);
 

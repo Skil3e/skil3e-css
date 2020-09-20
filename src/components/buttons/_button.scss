@@ -1,63 +1,58 @@
-@use "../../util-constructor";
-@use "../../globals";
-@use "../../options" as opt;
-@use "../../themes";
 @use "button-mixins" as btnMx;
+@use "../../settings" as st;
+@use "../../functions" as fn;
+@use "../../utilities/colors" as clr;
+
 //-----------------------------------------------------------
 //Variables
 //-----------------------------------------------------------
-$makeFill        : true !default;
-$makeMinimalLink : true !default;
-$makeOutline     : true !default;
-$pX              : 1.5rem !default;
-$pY              : .625rem !default;
-$padding         : $pY $pX !default;
-$textTransform   : initial !default;
-$lineHeight      : 1.2 !default;
-$border-radius   : globals.$border-radius !default;
-$border-width    : globals.$border-width !default;
-$borderStyle     : solid !default;
-$border          : $border-width solid !default;
-$colorsLight     : themes.$colorsLight !default;
-$colorsDark      : themes.$colorsDark !default;
+$makeFill          : true !default;
+$makeMinimalLink   : true !default;
+$makeOutline       : true !default;
+$borderStyle       : solid !default;
 
-.button, button {
-  @extend .inline-flex;
-  @extend .#{opt.$align-items__prefix}center;
-  @extend .#{opt.$justify-content__prefix}center;
-  @extend .relative;
-  @extend .#{opt.$cursor__prefix}pointer;
-  @extend .#{opt.$transitions__prefix}--colors;
-  z-index         : 1;
-  vertical-align  : middle;
-  text-transform  : $textTransform;
-  line-height     : $lineHeight;
-  text-decoration : none;
-  background      : transparent;
-  border          : $border transparent;
-  border-radius   : $border-radius;
+$pX                : 1.5rem !default;
+$pY                : .625rem !default;
+$padding           : $pY $pX !default;
+$colorsLight       : clr.$IL !default;
+$colorsDark        : clr.$ID !default;
+
+
+.button, button, a {
+  display             : inline-flex;
+  align-items         : center;
+  vertical-align      : middle;
+  text-decoration     : none;
+  background          : st.$primary;
+  color               : fn.color-contrast(st.$primary);
+  border              : 1px solid st.$primary;
+  transition-property : color, background-color, border;
+  transition          : st.$transition-timing;
+  padding             : $padding;
 
   .icon {
-	@extend .transition--colors;
+	fill                : fn.color-contrast(st.$primary);
+	transition-property : fill, stroke;
+	transition          : st.$transition-timing;
+  }
+
+  &.disabled {
+	pointer-events : none;
   }
 
   &.disabled, &:disabled {
-	@extend .cursor--not-allowed;
-	pointer-events: none;
+	cursor  : not-allowed;
 	opacity : .65;
   }
 
   &:focus {
 	outline : none;
+	box-shadow : 0 0 0 2px;
 
 	&::after,
 	&::before {
 	  outline : none;
 	}
-  }
-
-  &.fullwidth {
-	@extend .w--100;
   }
 }
 
@@ -66,39 +61,10 @@ $colorsDark      : themes.$colorsDark !default;
 //-----------------------------------------------------------
 @if ($makeFill) {
   .button.fill {
-	@each $color, $hex in $colorsLight {
-	  @include btnMx.makeFillButton($color, $hex);
-	}
-	@extend .px--lg;
-	@extend .py--10;
-	&.xs {
-	  @extend .px--sm;
-	  @extend .py--xs;
-	  font-size : .75rem;
-	}
-
-	&.sm {
-	  font-size : .9rem;
-	  @extend .px--10;
-	  @extend .py--sm;
-	}
-
-	&.lg {
-	  @extend .px--lg;
-	  @extend .py--10;
-	  font-size : 1.5rem;
-	}
-
-	&.xl {
-	  @extend .px--xxl;
-	  @extend .py--md;
-	  font-size : 1.75rem;
-	}
+	@include btnMx.makeFillButton(clr.$IL);
   }
   body[data-theme="dark"] .button.fill {
-	@each $color, $hex in $colorsDark {
-	  @include btnMx.makeFillButton($color, $hex);
-	}
+	@include btnMx.makeFillButton(clr.$ID);
   }
 }
 
@@ -111,31 +77,11 @@ $colorsDark      : themes.$colorsDark !default;
 	padding    : 0;
 	min-height : 0;
 	border     : none;
-	@each $color, $hex in $colorsLight {
-	  @include btnMx.makeMinimalLinkButton($color, $hex);
-	}
-
-	&.xs {
-	  font-size : .75rem;
-	}
-
-	&.sm {
-	  font-size : .9rem;
-	}
-
-	&.lg {
-	  font-size : 1.5rem;
-	}
-
-	&.xl {
-	  font-size : 1.75rem;
-	}
+	@include btnMx.makeMinimalLinkButton(clr.$IL);
   }
   body[data-theme="dark"] {
 	.button.link, .button.minimal {
-	  @each $color, $hex in $colorsDark {
-		@include btnMx.makeMinimalLinkButton($color, $hex);
-	  }
+	  @include btnMx.makeMinimalLinkButton(clr.$ID);
 	}
   }
   .button.link {
@@ -150,40 +96,11 @@ $colorsDark      : themes.$colorsDark !default;
 //-----------------------------------------------------------
 @if ($makeOutline) {
   .button.outline {
-	@each $color, $hex in $colorsLight {
-	  @include btnMx.makeOutlineButton($color, $hex);
-	}
-	@extend .px--lg;
-	@extend .py--10;
-	&.xs {
-	  @extend .px--sm;
-	  @extend .py--xs;
-	  font-size : .75rem;
-	}
-
-	&.sm {
-	  font-size : .9rem;
-	  @extend .px--10;
-	  @extend .py--sm;
-	}
-
-	&.lg {
-	  @extend .px--lg;
-	  @extend .py--10;
-	  font-size : 1.5rem;
-	}
-
-	&.xl {
-	  @extend .px--xxl;
-	  @extend .py--md;
-	  font-size : 1.75rem;
-	}
+	@include btnMx.makeOutlineButton(clr.$IL);
   }
 
   body[data-theme="dark"] .button.outline {
-	@each $color, $hex in $colorsDark {
-	  @include btnMx.makeOutlineButton($color, $hex);
-	}
+	@include btnMx.makeOutlineButton(clr.$ID);
   }
 
 }

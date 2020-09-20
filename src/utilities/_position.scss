@@ -1,5 +1,6 @@
 @use "../settings" as st;
-@use "../functions-mixins/mixins" as mx;
+@use "../mixins" as mx;
+@use "../functions" as fn;
 
 $withBreakPoints : true !default;
 $prefix          : null !default;
@@ -7,7 +8,7 @@ $divider         : st.$divider !default;
 $important       : st.$important !default;
 $positions       : ('static' : static, 'relative': relative, 'fixed' : fixed, 'absolute' : absolute, 'sticky': sticky) !default;
 $removePosition  : () !default;
-$P               : mx.removeFromMap($positions, $removePosition);
+$P               : fn.removeFromMap($positions, $removePosition);
 
 @include mx.makeUtil("position", $prefix, $P, $divider, $important : $important);
 @include mx.makeXYCenter(("absolute", "fixed"), $divider);

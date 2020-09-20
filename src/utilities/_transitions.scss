@@ -1,5 +1,5 @@
 @use "../settings" as st;
-@use "../functions-mixins/mixins" as mx;
+@use "../mixins" as mx;
 
 $withBreakPoints   : false !default;
 $prefix            : "transition" !default;

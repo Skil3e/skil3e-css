@@ -1,0 +1,9 @@
+@function makeClass( $name, $prefix, $divider, $breakpoint, $posDivider:null, $p:null, $parent:null ) {
+  @if ($name == "" or $name == null) {
+	@return "#{$parent} .#{$breakpoint}#{$prefix}#{$posDivider}#{$p}";
+  } @else if ($prefix == "" or $prefix == null) {
+	@return "#{$parent} .#{$breakpoint}#{$posDivider}#{$p}#{$name}";
+  } @else {
+	@return "#{$parent} .#{$breakpoint}#{$prefix}#{$posDivider}#{$p}#{$divider}#{$name}";
+  }
+}

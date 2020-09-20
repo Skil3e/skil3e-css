@@ -1,23 +1,25 @@
-@use "../../util-constructor";
+@use "../../functions" as acc;
+@use "../../settings" as st;
+@use "../../utilities/colors" as clr;
+
 .input-wrapper {
   &__label {
-    @extend .mb--xs;
-    @extend .px--md;
-    @extend .block;
-    @extend .small;
+	display       : block;
+	font-size     : st.$small;
+	margin-bottom : map-get(st.$spacers, "xs");
+	padding       : 0 map-get(st.$spacers, "md");
   }
 
   &__error {
-    @extend .text--danger;
-    @extend .pt--xs;
-    @extend .px--md;
-    font-size : 75%;
+	color     : var(--danger);
+	padding   : map-get(st.$spacers, "xs") map-get(st.$spacers, "md") 0;
+	font-size : st.$small;
   }
 
   &__description {
-    @extend .small;
-    @extend .px--md;
-    @extend .mt--xs;
-    color: var(--textDimmed);
+	color      : var(--textDimmed);
+	font-size  : st.$small;
+	margin-top : map-get(st.$spacers, "xs");
+	padding    : 0 map-get(st.$spacers, "md");
   }
 }

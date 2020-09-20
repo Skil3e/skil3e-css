@@ -1,5 +1,5 @@
 @use "../util-constructor";
-@use "../functions-mixins/acc-colors" as acc;
+@use "src/functions/accessibility-colors" as acc;
 @use "../themes";
 
 $light : themes.$colorsLight !default;

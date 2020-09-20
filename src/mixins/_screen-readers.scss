@@ -1,0 +1,43 @@
+//--------------------------------------------------------------//
+//  Make Screen Readers
+//--------------------------------------------------------------//
+@mixin makeScreenReaders($breakpoint: null) {
+  .#{$breakpoint}sr-only {
+	position : absolute;
+	width    : 1px;
+	height   : 1px;
+	padding  : 0;
+	margin   : -1px;
+	overflow : hidden;
+	clip     : rect(0, 0, 0, 0);
+	border   : 0;
+  }
+
+  .#{$breakpoint}not-sr-only {
+	position : static;
+	width    : auto;
+	height   : auto;
+	padding  : 0;
+	margin   : 0;
+	overflow : visible;
+	clip     : auto;
+	border   : 0;
+  }
+
+  .#{$breakpoint}sr-only-focusable {
+	position : absolute;
+	width    : 1px;
+	height   : 1px;
+	padding  : 0;
+	margin   : -1px;
+	overflow : hidden;
+	clip     : rect(0, 0, 0, 0);
+	border   : 0;
+
+	&:focus {
+	  position : relative;
+	  width    : auto;
+	  height   : auto;
+	}
+  }
+}

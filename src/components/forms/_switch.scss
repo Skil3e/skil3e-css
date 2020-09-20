@@ -1,10 +1,8 @@
-@use "../../util-constructor";
-@use "../../globals";
-@use "../../themes";
+@use "../../functions" as acc;
+@use "../../settings" as st;
+@use "../../utilities/colors" as clr;
 
-$colorsLight : themes.$colorsLight !default;
-$colorsDark  : themes.$colorsDark !default;
-$inactiveBG  : globals.$gray-50 !default;
+$inactiveBG  : st.$gray-50 !default;
 $buttonColor : #fff !default;
 
 .switch {
@@ -26,21 +24,22 @@ $buttonColor : #fff !default;
   }
 
   &__label {
-	@extend .relative;
-	@extend .flex--center;
-	@extend .jf__cnt--between;
-	@extend .cursor--pointer;
-	@extend .round--circle;
-	@extend .transition--colors;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+	border-radius: 1000rem;
+	transition: color, background-color, border;
 	background : $inactiveBG;
 
 	.switch__button {
 	  content    : "";
-	  @extend .absolute;
-	  @extend .round--circle;
+	  position: absolute;
+	  border-radius: 1000rem;
 	  top        : 2px;
 	  left       : 2px;
-	  transition : globals.$transition-timing;
+	  transition : st.$transition-timing;
 	  background : $buttonColor;
 	  box-shadow : 0 0 2px 0 rgba(10, 10, 10, 0.3);
 	}
@@ -117,7 +116,7 @@ $buttonColor : #fff !default;
   }
 }
 
-@each $name, $atr in $colorsLight {
+@each $name, $atr in clr.$IL {
   .switch.#{$name} {
 	.switch__checkbox:checked + .switch__label {
 	  background : $atr;
@@ -125,7 +124,7 @@ $buttonColor : #fff !default;
   }
 }
 
-@each $name, $atr in $colorsDark {
+@each $name, $atr in clr.$ID {
   body[data-theme="dark"] {
 	.switch.#{$name} {
 	  .switch__checkbox:checked + .switch__label {

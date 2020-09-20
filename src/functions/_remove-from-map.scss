@@ -1,0 +1,12 @@
+@function removeFromMap($values, $map) {
+  $length : length($values);
+  @if ($length > 1) {
+	$restMap : $map;
+	@each $key in $values {
+	  $restMap : map-remove($restMap, $key);
+	}
+	@return $restMap;
+  } @else {
+	@return map-remove($map, $values);
+  }
+}

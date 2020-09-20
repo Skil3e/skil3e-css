@@ -1,0 +1,28 @@
+@use "../functions/make-class" as *;
+
+//--------------------------------------------------------------//
+// Make Position Placement
+//--------------------------------------------------------------//
+@mixin makePositionPlacement($values, $positions, $divider, $breakpoint: null, $important) {
+  @each $num, $value in $values {
+	@each $name, $pos in $positions {
+	  #{makeClass( $num, $name, $divider, $breakpoint )} {
+		#{$pos} : #{$value} #{if($important, "!important", null)};
+	  }
+	}
+	.#{$breakpoint}inset#{$divider}#{$num} {
+	  top    : #{$value} #{if($important, "!important", null)};
+	  right  : #{$value} #{if($important, "!important", null)};
+	  bottom : #{$value} #{if($important, "!important", null)};
+	  left   : #{$value} #{if($important, "!important", null)};
+	}
+	.#{$breakpoint}inset-x#{$divider}#{$num} {
+	  right : #{$value} #{if($important, "!important", null)};
+	  left  : #{$value} #{if($important, "!important", null)};
+	}
+	.#{$breakpoint}inset-y#{$divider}#{$num} {
+	  top    : #{$value} #{if($important, "!important", null)};
+	  bottom : #{$value} #{if($important, "!important", null)};
+	}
+  }
+}

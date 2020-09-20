@@ -1,94 +1,82 @@
-@use "../../util-constructor";
-@use "../../themes";
-@use "../../functions-mixins/acc-colors" as acc;
-@use "../../globals";
-
-$colorsLight : themes.$colorsLight !default;
-$colorsDark  : themes.$colorsDark !default;
+@use "../../functions" as acc;
+@use "../../settings" as st;
+@use "../../utilities/colors" as clr;
 
 .check-badge {
   .badge-label {
-    @extend .inline-flex;
-    @extend .px--lg;
-    @extend .py--10;
-    @extend .brd;
-    @extend .transition;
-    @extend .round;
-    @extend .brd--text;
-    @extend .text--text;
-    @extend .cursor--pointer;
-    opacity : .65;
+	display             : inline-flex;
+	padding             : map-get(st.$spacers, "10") map-get(st.$spacers, "lg");
+	border              : 1px solid var(--text);
+	color               : var(--text);
+	transition-property : color, background-color, border;
+	transition          : st.$transition-timing;
+	cursor              : pointer;
+	opacity             : .65;
   }
 
   .checkbox {
-    height  : 0;
-    width   : 0;
-    display : none;
+	height  : 0;
+	width   : 0;
+	display : none;
   }
 
   &.xs .badge-label {
-    @extend .px--sm;
-    @extend .py--xs;
-    font-size : .75rem;
-
+	padding   : map-get(st.$spacers, "xs") map-get(st.$spacers, "sm");
+	font-size : .75rem;
   }
 
   &.sm .badge-label {
-    font-size : .9rem;
-    @extend .px--10;
-    @extend .py--sm;
-
+	padding   : map-get(st.$spacers, "sm") map-get(st.$spacers, "10");
+	font-size : .9rem;
   }
 
   &.lg .badge-label {
-    @extend .px--lg;
-    @extend .py--10;
-    font-size : 1.5rem;
+	padding   : map-get(st.$spacers, "10") map-get(st.$spacers, "lg");
+	font-size : 1.5rem;
   }
 
   &.xl .badge-label {
-    @extend .px--xxl;
-    @extend .py--md;
-    font-size : 1.75rem;
+	padding   : map-get(st.$spacers, "md") map-get(st.$spacers, "xxl");
+	font-size : 1.75rem;
   }
 }
 
 .check-badge {
-  @each $color, $hex in $colorsLight {
-    &.#{$color} {
-      .badge-label:hover {
-        opacity      : 1;
-        color        : acc.color-contrast($hex);
-        background   : $hex;
-        border-color : $hex;
-      }
+  @each $color, $hex in clr.$IL {
+	&.#{$color} {
+	  .badge-label:hover {
+		opacity      : 1;
+		color        : acc.color-contrast($hex);
+		background   : $hex;
+		border-color : $hex;
+	  }
 
-      .checkbox:checked + .badge-label {
-        opacity      : 1;
-        color        : acc.color-contrast($hex);
-        background   : $hex;
-        border-color : $hex;
-      }
-    }
+	  .checkbox:checked + .badge-label {
+		opacity      : 1;
+		color        : acc.color-contrast($hex);
+		background   : $hex;
+		border-color : $hex;
+	  }
+	}
   }
 }
 
 body[data-theme="dark"] .check-badge {
-  @each $color, $hex in $colorsDark {
-    &.#{$color} {
-      .badge-label:hover {
-        opacity      : 1;
-        color        : acc.color-contrast($hex);
-        background   : $hex;
-        border-color : $hex;
-      }
+  @each $color, $hex in clr.$ID {
+	&.#{$color} {
+	  .badge-label:hover {
+		opacity      : 1;
+		color        : acc.color-contrast($hex);
+		background   : $hex;
+		border-color : $hex;
+	  }
 
-      .checkbox:checked + .badge-label {
-        opacity      : 1;
-        color        : acc.color-contrast($hex);
-        background   : $hex;
-        border-color : $hex;
-      }
-    }
+	  .checkbox:checked + .badge-label {
+		opacity      : 1;
+		color        : acc.color-contrast($hex);
+		background   : $hex;
+		border-color : $hex;
+	  }
+	}
   }
 }

@@ -1,0 +1,57 @@
+@use "../functions/make-class" as *;
+
+//--------------------------------------------------------------//
+// Make Utilities
+//--------------------------------------------------------------//
+@mixin makeUtil($property, $prefix, $values, $divider, $breakpoint: null, $disable: false, $important: false) {
+  @if ($disable != true) {
+	@each $name, $value in $values {
+	  #{makeClass($name, $prefix, $divider, $breakpoint)} {
+		#{$property}: #{$value} #{if($important, "!important", null)};
+		@if ($value != none) {
+		  @content
+		}
+	  }
+	}
+  }
+}
+
+//--------------------------------------------------------------//
+// Make Utilities with Position
+//--------------------------------------------------------------//
+$positions : (
+	"t": "top",
+	"b": "bottom",
+	"l": "left",
+	"r": "right"
+) !default;
+
+@mixin makeUtilPos($property, $prefix, $values, $divider, $posDivider, $breakpoint: null, $disable: false, $important) {
+  @include makeUtil($property, $prefix, $values, $divider, $breakpoint, $disable) {
+	@content
+  }
+  @if ($disable != true) {
+	@each $name, $value in $values {
+	  @each $posName, $posValue in $positions {
+		@if ($posValue == "top" or $posValue == "bottom") {
+		  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, $posName )},
+		  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, y )} {
+			#{$property}-#{$posValue}: #{$value} #{if($important, "!important", null)};
+			@if ($value != none) {
+			  @content
+			}
+		  }
+		}
+		@if ($posValue == "left" or $posValue == "right") {
+		  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, $posName )},
+		  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, x )} {
+			#{$property}-#{$posValue}: #{$value} #{if($important, "!important", null)};
+			@if ($value != none) {
+			  @content
+			}
+		  }
+		}
+	  }
+	}
+  }
+}

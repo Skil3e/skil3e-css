@@ -1,48 +1,46 @@
-@use "../util-constructor";
-@use "../functions-mixins/media-queries" as mq;
+@use "../mixins/media-queries" as mq;
 
-$maxWidth: 1100px;
+$maxWidth : 1100px;
 
 .timeline {
   max-width : $maxWidth;
-  @extend .mx--auto;
+  margin    : 0 auto;
 
   &__line {
 	width : 1px;
 
 	&::after, &::before {
-	  content : "";
-	  @extend .absolute-x--center;
-	  @extend .bg--text;
-	  width   : 10px;
-	  height  : 10px;
+	  content       : "";
+	  left          : 50%;
+	  transform     : translateX(-50%);
+	  background    : var(--text);
+	  width         : 10px;
+	  height        : 10px;
+	  border-radius : 1000rem;
 	}
 
 	&::before {
-	  @extend .top--0;
-	  @extend .round--circle;
+	  top : 0;
 	}
 
 	&::after {
-	  @extend .bottom--0;
-	  @extend .round--circle;
+	  bottom : 0;
 	}
   }
 
   &__item {
 	&::after, &::before {
-	  content : "";
-	  @extend .absolute-y--center;
-	  @extend .bg--text;
-	  top     : 40%;
+	  content    : "";
+	  top        : 40%;
+	  transform  : translateY(-50%);
+	  background : var(--text);
 	}
 
 	&::before {
-	  @extend .round--circle;
-	  @extend .brd--md;
-	  @extend .brd--bg;
-	  width  : 16px;
-	  height : 16px;
+	  border-radius : 1000rem;
+	  border        : 2px solid var(--bg);
+	  width         : 16px;
+	  height        : 16px;
 	  @include mq.tablet-down() {
 		left : -8px;
 	  }
@@ -65,11 +63,11 @@ $maxWidth: 1100px;
 	}
 
 	&:nth-child(even)::after {
-	  @extend .right--0;
+	  right: 0;
 	}
 
 	&:nth-child(odd)::after {
-	  @extend .left--0;
+	  left: 0;
 	}
   }
 }

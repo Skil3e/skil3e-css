@@ -1,11 +1,9 @@
-@use "../../util-constructor";
-@use "../../globals";
+@use "../../settings" as st;
 
-$clrInput           : globals.$gray-85 !default;
-$clrInputDark       : globals.$gray-15 !default;
-$clrInputBorder     : globals.$gray-80 !default;
-$clrInputBorderDark : globals.$gray-20 !default;
-$border-radius      : globals.$border-radius !default;
+$clrInput           : st.$gray-85 !default;
+$clrInputDark       : st.$gray-15 !default;
+$clrInputBorder     : st.$gray-80 !default;
+$clrInputBorderDark : st.$gray-20 !default;
 
 body {
   --input       : #{$clrInput};
@@ -19,30 +17,21 @@ body[data-theme="dark"] {
 
 input {
   &:not(.password-input) {
-	@extend .pr--15;
+	padding-right : map-get(st.$spacers, "15");
   }
 
-  @extend .pl--15;
-  @extend .py--10;
-  @extend .w--100;
-  @extend .max__w--100;
-  @extend .brd--0;
-  border-radius    : $border-radius;
+  padding-left     : map-get(st.$spacers, "15");
+  padding-top      : map-get(st.$spacers, "10");
+  padding-bottom   : map-get(st.$spacers, "10");
+  max-width        : 100%;
+  border           : none;
   background-color : var(--input);
   color            : var(--text);
-  transition       : box-shadow globals.$transition-timing;
+  transition       : box-shadow st.$transition-timing;
 
   &:focus {
 	outline    : none;
 	box-shadow : 0 0 0 2px var(--inputBorder);
-  }
-
-  &.sm {
-	@extend .py--xs;
-	@extend .px--sm;
-  }
-  &.lg {
-    @extend .py--15;
   }
 }
 
@@ -73,24 +62,24 @@ body[data-theme="dark"] {
 }
 
 legend {
-  @extend .block;
-  @extend .h2;
-  @extend .mb--md;
-  @extend .font--bold;
-  @extend .text--accent;
+  display       : block;
+  font-size     : st.$h2;
+  margin-bottom : map-get(st.$spacers, "md");
 }
 
 .password-input {
-  @extend .relative;
+  position : relative;
 
   input {
-	@extend .pr--xxl;
+	padding-right : map-get(st.$spacers, "xxl");
   }
 
   .button {
-	@extend .m--0;
-	@extend .absolute-x--center;
-	right : 10px;
+	margin    : 0;
+	position  : absolute;
+	left      : 50%;
+	transform : translateX(-50%);
+	right     : 10px;
   }
 }
 

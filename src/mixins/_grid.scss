@@ -1,0 +1,36 @@
+//--------------------------------------------------------------//
+//  Make Grid
+//--------------------------------------------------------------//
+@mixin makeGrid($columns, $prefix, $divider, $breakpoint: null) {
+  @for $i from 1 through $columns {
+	.#{$breakpoint}#{$prefix}#{$divider}#{$i} {
+	  flex      : 0 0 100% / $columns  * $i;
+	  max-width : 100% / $columns * $i;
+	}
+  }
+  .#{$breakpoint}#{$prefix} {
+	flex      : 1 1 0;
+	max-width : 100%;
+	min-width : 0;
+  }
+}
+
+@mixin makeGridOffset($columns, $prefix, $divider, $breakpoint: null) {
+  @for $i from 0 through ($columns - 1) {
+	.#{$breakpoint}#{$prefix}#{$divider}#{$i} {
+	  margin-left : 100% / $columns  * $i
+	}
+  }
+}
+
+@mixin makeGridOrder($columns, $prefix, $divider, $breakpoint: null) {
+  @for $i from 0 through ($columns + 1) {
+	.#{$breakpoint}#{$prefix}#{$divider}#{$i} {
+	  @if $i == 0 {
+		order : -1;
+	  } @else {
+		order : $i;
+	  }
+	}
+  }
+}
