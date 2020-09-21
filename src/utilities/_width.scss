@@ -13,14 +13,14 @@ $w               : ("100": 100%, "75" : 75%, "50" : 50%, "25" : 25%, "v100": 100
 $addWidths       : () !default;
 $width          : map-merge($w, $addWidths);
 
-@include mx.makeUtil("height", $prefix, $width, $divider, $important : $important);
-@include mx.makeUtil("max-height", $maxPrefix, $width, $divider, $disable : $disableMax, $important : $important);
-@include mx.makeUtil("min-height", $minPrefix, $width, $divider, $disable : $disableMin, $important : $important);
+@include mx.makeUtil("width", $prefix, $width, $divider, $important : $important);
+@include mx.makeUtil("max-width", $maxPrefix, $width, $divider, $disable : $disableMax, $important : $important);
+@include mx.makeUtil("min-width", $minPrefix, $width, $divider, $disable : $disableMin, $important : $important);
 
 @each $name, $value in st.$breakpoints {
   @media (min-width : $value) {
-	@include mx.makeUtil("height", $prefix, $width, $divider, $name, $important : $important);
-	@include mx.makeUtil("max-height", $maxPrefix, $width, $divider, $name, $disable : $disableMax, $important : $important);
-	@include mx.makeUtil("min-height", $minPrefix, $width, $divider, $name, $disable : $disableMin, $important : $important);
+	@include mx.makeUtil("width", $prefix, $width, $divider, $name, $important : $important);
+	@include mx.makeUtil("max-width", $maxPrefix, $width, $divider, $name, $disable : $disableMax, $important : $important);
+	@include mx.makeUtil("min-width", $minPrefix, $width, $divider, $name, $disable : $disableMin, $important : $important);
   }
 }

@@ -12,7 +12,7 @@ $itemsPrefix     : "al__it" !default;
 $contentPrefix   : "al__cnt" !default;
 $selfPrefix      : "al__self" !default;
 
-$align           : ('center' : center, 'start' : start, 'end' : end, 'stretch' : stretch) !default;
+$align           : ('center' : center, 'start' : start, 'end' : end, 'fl-start': flex-start, 'fl-end': flex-end, 'stretch' : stretch) !default;
 $addItems        : () !default;
 $addContent      : () !default;
 $addSelf         : () !default;

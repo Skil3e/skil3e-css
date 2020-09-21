@@ -10,7 +10,7 @@ const components = {
         const props = preToCodeBlock(preProps);
 
         if (props) {
-            return <Code {...props} />;
+            return <Code {...props} language={props.className && props.className.replace(/language-/, '')}/>;
         }
 
         return <pre {...preProps} />;
@@ -25,10 +25,16 @@ const components = {
 
 export function wrapPageElement({element}) {
     return (
-        <StateProvider>
-            <Layout>
-                <MDXProvider components={components}>{element}</MDXProvider>
-            </Layout>
-        </StateProvider>
+        <Layout>
+            <MDXProvider components={components}>{element}</MDXProvider>
+        </Layout>
     );
+}
+
+export function wrapRootElement({element}) {
+    return (
+        <StateProvider>
+            {element}
+        </StateProvider>
+    )
 }

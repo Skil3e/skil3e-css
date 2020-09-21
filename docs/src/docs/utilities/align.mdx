@@ -1,0 +1,43 @@
+---
+title: 'Align'
+description: 'Align items, content and self with Flexbox and Grid'
+---
+
+## Align Items
+```html
+al__it--{value}
+```
+```jsx live=true
+<div class="example flex al__it--center">
+    <div>Child</div>
+    <div>Child</div>
+    <div>Child</div>
+</div>
+```
+
+## Align Content
+```html
+al__cnt--{value}
+```
+## Align Self
+```html
+al__self--{value}
+```
+
+## Variables and defaults
+
+| Variables        | Default                                                                                                                  | Type    | Description                                                                                            |
+|------------------|--------------------------------------------------------------------------------------------------------------------------|---------|--------------------------------------------------------------------------------------------------------|
+| $withBreakPoints | true                                                                                                                     | boolean | Define if the utility should generate classes for responsive behavior.                                 |
+| $disableItems    | false                                                                                                                    | boolean | Should align-items be disabled                                                                         |
+| $disableContent  | false                                                                                                                    | boolean | Should align-content be disabled                                                                       |
+| $disableSelf     | false                                                                                                                    | boolean | Should align-self be disabled                                                                          |
+| $divider         | from "_settings.scss"                                                                                                    | string  | Divider between Prefix and Value                                                                       |
+| $important       | from "_settings.scss"                                                                                                    | boolean | Use !important for the value                                                                           |
+| $itemsPrefix     | "al_it"                                                                                                                  | string  | align-items Prefix                                                                                     |
+| $contentPrefix   | "al__cnt"                                                                                                                | string  | align-content Prefix                                                                                   |
+| $selfPrefix      | "al__self"                                                                                                               | string  | align-self Prefix                                                                                      |
+| $align           | ( 'center': center,  'start' : start,  'end' : end,  'fl-start': flex-start,  'fl-end': flex-end,  'stretch' : stretch ) | map     | Map with name and value. name with be appended to the class after the divider, value is the CSS value. |
+| $addItems        | ()                                                                                                                       | map     | Add a map with [key] : [value] pairs to be added as values to align-items                              |
+| $addContent      | ()                                                                                                                       | map     | Add a map with [key] : [value] pairs to be added as values to align-content                            |
+| $addSelf         | ()                                                                                                                       | map     | Add a map with [key] : [value] pairs to be added as values to align-self                               |

@@ -4,5 +4,5 @@ import { css, jsx } from '@emotion/core';
 export default {
     css,
     jsx,
-    mdx,
+    mdx
 };
