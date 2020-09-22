@@ -56,8 +56,8 @@ $themeDark         : (
 $SP                : map-merge($styleProperties, $addProperties);
 $IL                : map-merge($intentColorsLight, $addIntentsLight);
 $ID                : map-merge($intentColorsDark, $addIntentsDark);
-$TL                : map-merge($themeLight, map-merge($IL, $addToDark));
-$TD                : map-merge($themeDark, map-merge($ID, $addToLight));
+$TL                : map-merge($themeLight, map-merge($IL, $addToLight));
+$TD                : map-merge($themeDark, map-merge($ID, $addToDark));
 $Classes           : map-merge($TL, $TD);
 
 @include mx.makeColorVars($TD, "body[data-theme='dark']");

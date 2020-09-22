@@ -11,14 +11,14 @@ $border-widths   : ("": 1px, "0": 0, "md": 3px) !default;
 $BW              : map-merge($border-widths, $addWidths);
 
 @include mx.makeUtilPos("border", $prefix, $BW, $divider, $posDivider, $important : $important) {
-  border-style : solid;
+  border-style : solid #{if($important, "!important", null)};;
 }
 
 @if ($withBreakPoints) {
   @each $name, $value in st.$breakpoints {
 	@media (min-width : $value) {
 	  @include mx.makeUtilPos("border", $prefix, $BW, $divider, $posDivider, $name, $important : $important) {
-		border-style : solid;
+		border-style : solid #{if($important, "!important", null)};;
 	  }
 	}
   }
