@@ -12,7 +12,7 @@ $itemsPrefix     : "jf__it" !default;
 $contentPrefix   : "jf__cnt" !default;
 $selfPrefix      : "jf__self" !default;
 
-$justify         : ('center' : center, 'start' : start, 'end' : end, 'stretch' : stretch) !default;
+$justify         : ('center' : center, 'start' : start, 'end' : end, 'fl-start' : flex-start, 'fl-end' : flex-end, 'stretch' : stretch) !default;
 $content         : map-merge($justify, ('between' : space-between, 'around' : space-around, 'evenly': space-evenly));
 $addItems        : () !default;
 $addContent      : () !default;
