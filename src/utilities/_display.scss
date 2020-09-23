@@ -24,10 +24,10 @@ $D               : map-merge($display, $addDisplay);
 @each $type in ("center", "middle", "center-middle") {
   .flex#{$divider}#{$type} {
 	display : flex;
-	@if ($type = "center" or $type = "center-middle") {
+	@if ($type == "center" or $type == "center-middle") {
 	  align-items : center;
 	}
-	@if ($type = "middle" or $type = "center-middle") {
+	@if ($type == "middle" or $type == "center-middle") {
 	  justify-content : center;
 	}
   }
@@ -39,10 +39,10 @@ $D               : map-merge($display, $addDisplay);
 	@each $type in ("center", "middle", "center-middle") {
 	  .#{$name}flex#{$divider}#{$type} {
 		display : flex;
-		@if ($type = "center" or $type = "center-middle") {
+		@if ($type == "center" or $type == "center-middle") {
 		  align-items : center;
 		}
-		@if ($type = "middle" or $type = "center-middle") {
+		@if ($type == "middle" or $type == "center-middle") {
 		  justify-content : center;
 		}
 	  }
