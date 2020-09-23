@@ -10,7 +10,9 @@
 	  .icon, .loader {
 		fill : fn.color-contrast($hex);
 	  }
-
+	  &:focus:not(:disabled), &:focus:not(.disabled) {
+		box-shadow : 0 0 0 2px transparentize($hex, .3);
+	  }
 	  &:hover:not(:disabled), &:hover:not(.disabled) {
 		background : fn.set-hover-color($hex);
 
@@ -29,6 +31,10 @@
 
 	  .icon, .loader {
 		fill : $hex;
+	  }
+
+	  &:focus:not(:disabled), &:focus:not(.disabled) {
+		box-shadow : 0 0 0 2px transparentize($hex, .3);
 	  }
 
 	  &:not(:disabled):hover, &:not(.disabled):hover {
@@ -51,7 +57,9 @@
 	  .icon {
 		fill : $hex;
 	  }
-
+	  &:focus:not(:disabled), &:focus:not(.disabled) {
+		box-shadow : 0 0 0 2px transparentize($hex, .3);
+	  }
 	  &:not(:disabled):hover, &:not(.disabled):hover {
 		background : $hex;
 		color      : fn.color-contrast($hex);

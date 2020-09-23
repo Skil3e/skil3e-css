@@ -75,7 +75,7 @@ $colorsDark      : clr.$ID !default;
 @if ($makeMinimalLink) {
   .button.link, a,
   .button.minimal {
-	background: transparent;
+	background : transparent;
 	padding    : 0;
 	min-height : 0;
 	border     : none;
@@ -98,12 +98,12 @@ $colorsDark      : clr.$ID !default;
 //-----------------------------------------------------------
 @if ($makeOutline) {
   .button.outline {
-	background: transparent;
+	background : transparent;
 	@include btnMx.makeOutlineButton(clr.$IL);
   }
 
   body[data-theme="dark"] .button.outline {
-	background: transparent;
+	background : transparent;
 	@include btnMx.makeOutlineButton(clr.$ID);
   }
 
