@@ -21,8 +21,31 @@ $D               : map-merge($display, $addDisplay);
 
 @include mx.makeUtil("display", $prefix, $D, $divider, $important : $important);
 
+@each $type in ("center", "middle", "center-middle") {
+  .flex#{$divider}#{$type} {
+	display : flex;
+	@if ($type = "center" or $type = "center-middle") {
+	  align-items : center;
+	}
+	@if ($type = "middle" or $type = "center-middle") {
+	  justify-content : center;
+	}
+  }
+}
+
 @each $name, $value in st.$breakpoints {
   @media (min-width : $value) {
 	@include mx.makeUtil("display", $prefix, $D, $divider, $name, $important : $important);
+	@each $type in ("center", "middle", "center-middle") {
+	  .#{$name}flex#{$divider}#{$type} {
+		display : flex;
+		@if ($type = "center" or $type = "center-middle") {
+		  align-items : center;
+		}
+		@if ($type = "middle" or $type = "center-middle") {
+		  justify-content : center;
+		}
+	  }
+	}
   }
 }
