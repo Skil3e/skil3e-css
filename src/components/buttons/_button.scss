@@ -73,7 +73,7 @@ $colorsDark      : clr.$ID !default;
 // Button Link & Minimal Defaults
 //-----------------------------------------------------------
 @if ($makeMinimalLink) {
-  .button.link, a,
+  .button.link,
   .button.minimal {
 	background : transparent;
 	padding    : 0;
@@ -86,7 +86,7 @@ $colorsDark      : clr.$ID !default;
 	  @include btnMx.makeMinimalLinkButton(clr.$ID);
 	}
   }
-  .button.link, a {
+  .button.link {
 	display         : inline;
 	vertical-align  : baseline;
 	text-decoration : underline;

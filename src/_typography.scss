@@ -12,6 +12,12 @@ h1, h2, h3, h4, h5, h6 {
   font-weight : $headingFontWeight;
 }
 
+@each $type, $size in settings.$typography {
+  #{$type} {
+	font-size : #{$size}
+  }
+}
+
 p {
   line-height : $lineHeight;
 }
