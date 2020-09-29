@@ -1,0 +1,17 @@
+@use "../settings";
+@use "../mixins" as mx;
+
+$gridColumns  : 12 !default;
+$columnPrefix : "col" !default;
+$offsetPrefix : "offset" !default;
+$divider      : settings.$divider !default;
+
+@include mx.makeGrid($gridColumns, $columnPrefix, $divider);
+@include mx.makeGridOffset($gridColumns, $offsetPrefix, $divider);
+
+@each $name, $value in settings.$breakpoints {
+  @media (min-width : $value) {
+	@include mx.makeGrid($gridColumns, $columnPrefix, $divider, $name);
+	@include mx.makeGridOffset($gridColumns, $offsetPrefix, $divider, $name);
+  }
+}

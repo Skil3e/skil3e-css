@@ -1,4 +1,5 @@
 @use "settings";
+@use "mixins" as mx;
 
 $headingFont       : settings.$headingFont !default;
 $headingLineHeight : settings.$headingLineHeight !default;
@@ -11,6 +12,8 @@ h1, h2, h3, h4, h5, h6 {
   line-height : $headingLineHeight;
   font-weight : $headingFontWeight;
 }
+
+@include mx.makeUtil("font-size", null, settings.$typography, null);
 
 @each $type, $size in settings.$typography {
   #{$type} {
