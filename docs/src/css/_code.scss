@@ -57,7 +57,7 @@ $languagesColors : (
 }
 
 .live-view {
-  line-height : st.$plineHeight;
+  line-height : st.$pLineHeight;
 
   textarea, pre {
 	padding : map-get(st.$spacers, "xxl") map-get(st.$spacers, "md") map-get(st.$spacers, "lg")!important;

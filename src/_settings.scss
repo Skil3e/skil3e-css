@@ -5,6 +5,7 @@ $important           : false !default;
 $posDivider          : "-" !default;
 $includeReduceMotion : true;
 $transition-timing   : 250ms ease;
+$containerWidth      : 1140px;
 //--------------------------------------------------------------//
 //  Breakpoints
 //--------------------------------------------------------------//
@@ -23,7 +24,7 @@ $breakpoints         : (
 //--------------------------------------------------------------//
 //  Spacers
 //--------------------------------------------------------------//
-$spacers             : (
+$spacersDefault      : (
 	'0' : 0,
 	'10' : 0.625rem, // 10px
 	'15' : 0.9375rem, // 15px
@@ -34,6 +35,8 @@ $spacers             : (
 	'xl' : 2rem, // 32px
 	'xxl': 2.5rem, // 40px
 ) !default;
+$addSpacer           : () !default;
+$spacers             : map-merge($spacersDefault, $addSpacer);
 //--------------------------------------------------------------//
 // Typography
 //--------------------------------------------------------------//
@@ -42,7 +45,7 @@ $bodyFont            : $systemFonts !default;
 $headingFont         : $systemFonts !default;
 $headingLineHeight   : 1 !default;
 $headingFontWeight   : 500 !default;
-$plineHeight         : 1.6875rem !default;
+$pLineHeight         : 1.6875rem !default;
 $highlight           : hsla(213, 80%, 50%, 0.5) !default;
 $h1                  : 2rem !default;
 $h2                  : 1.75rem !default;
@@ -52,4 +55,12 @@ $h5                  : 1.125rem !default;
 $h6                  : 1rem !default;
 $small               : .75rem !default;
 
-$typography          : ('small':$small, 'h6' : $h6, 'h5' : $h5, 'h4' : $h4, 'h3' : $h3, 'h2' : $h2, 'h1' : $h1);
+$typography          : (
+	'small':$small,
+	'h6' : $h6,
+	'h5' : $h5,
+	'h4' : $h4,
+	'h3' : $h3,
+	'h2' : $h2,
+	'h1' : $h1
+);
