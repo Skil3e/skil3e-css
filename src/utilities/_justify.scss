@@ -1,7 +1,7 @@
 @use "../settings" as st;
 @use "../mixins" as mx;
 
-$disableItems    : true !default;
+$disableItems    : false !default;
 $disableContent  : false !default;
 $disableSelf     : false !default;
 $withBreakPoints : true !default;
