@@ -55,3 +55,35 @@ $positions : (
 	}
   }
 }
+
+@mixin makeBorder($prefix, $values, $divider, $posDivider, $style, $breakpoint: null, $disable: false, $important) {
+  @include makeUtil("border-width", $prefix, $values, $divider, $breakpoint, $disable, $important) {
+	border-style : #{$style};
+  }
+  @if ($disable != true) {
+	@each $name, $value in $values {
+	  @each $posName, $posValue in $positions {
+		@if ($posValue == "top" or $posValue == "bottom") {
+		  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, $posName )},
+		  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, y )} {
+			border-#{$posValue}-width : #{$value} #{if($important, "!important", null)};
+			border-#{$posValue}-style : #{$style} #{if($important, "!important", null)};
+			@if ($value != none) {
+			  @content
+			}
+		  }
+		}
+		@if ($posValue == "left" or $posValue == "right") {
+		  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, $posName )},
+		  #{makeClass( $name, $prefix, $divider, $breakpoint, $posDivider, x )} {
+			border-#{$posValue}-width : #{$value} #{if($important, "!important", null)};
+			border-#{$posValue}-style : #{$style} #{if($important, "!important", null)};
+			@if ($value != none) {
+			  @content
+			}
+		  }
+		}
+	  }
+	}
+  }
+}
