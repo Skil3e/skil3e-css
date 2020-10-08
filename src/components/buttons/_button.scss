@@ -20,6 +20,7 @@ $colorsDark      : clr.$ID !default;
 
 .button, button {
   display             : inline-flex;
+  white-space         : nowrap;
   align-items         : center;
   vertical-align      : middle;
   text-decoration     : none;
