@@ -5,8 +5,8 @@
 .badge {
   display             : inline-flex;
   padding             : map-get(st.$spacers, "xs") map-get(st.$spacers, "sm");
-  transition-property : color, background-color, border;
   transition          : st.$transition-timing;
+  transition-property : color, background-color, border;
   line-height         : 1.5;
   vertical-align      : middle;
 

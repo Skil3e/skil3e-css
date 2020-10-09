@@ -8,8 +8,8 @@
 	padding             : map-get(st.$spacers, "10") map-get(st.$spacers, "lg");
 	border              : 1px solid var(--text);
 	color               : var(--text);
-	transition-property : color, background-color, border;
 	transition          : st.$transition-timing;
+	transition-property : color, background-color, border;
 	cursor              : pointer;
 	opacity             : .65;
   }

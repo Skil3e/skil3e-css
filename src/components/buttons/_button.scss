@@ -22,20 +22,21 @@ $colorsDark      : clr.$ID !default;
   display             : inline-flex;
   white-space         : nowrap;
   align-items         : center;
+  justify-content     : center;
   vertical-align      : middle;
+  padding             : $padding;
   text-decoration     : none;
   cursor              : pointer;
   background          : transparent;
   color               : var(--text);
   border              : 1px solid transparent;
-  transition-property : color, background-color, border;
   transition          : st.$transition-timing;
-  padding             : $padding;
+  transition-property : color, background-color, border;
 
   .icon {
 	fill                : var(--text);
-	transition-property : fill, stroke;
 	transition          : st.$transition-timing;
+	transition-property : fill, stroke;
   }
 
   &.disabled {
