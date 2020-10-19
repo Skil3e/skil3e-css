@@ -1,6 +1,6 @@
 {
   "name": "skil3e-css",
-  "version": "3.0.0-RC-4",
+  "version": "3.0.0-RC-5",
   "author": "Skil3e",
   "description": "A simple utility SCSS Lib using SASS modules. Supports @use and @forward",
   "license": "MIT",
