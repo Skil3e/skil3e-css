@@ -24,6 +24,7 @@ input {
   padding-top      : map-get(st.$spacers, "10");
   padding-bottom   : map-get(st.$spacers, "10");
   max-width        : 100%;
+  width            : 100%;
   border           : none;
   background-color : var(--input);
   color            : var(--text);
