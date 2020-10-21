@@ -23,13 +23,13 @@ $linear-channel-values : 0 .0003035269835488375 .000607053967097675 .00091058095
     @if($useVar) {
       @return var(--body);
     } @else {
-      @return #eeeeee;
+      @return #ffffff;
     }
   } @else {
     @if($useVar) {
       @return var(--text);
     } @else {
-      @return #222222;
+      @return #000000;
     }
   }
 }
