@@ -3,9 +3,9 @@
 $divider             : "--" !default;
 $important           : false !default;
 $posDivider          : "-" !default;
-$includeReduceMotion : true;
-$transition-timing   : 250ms ease;
-$containerWidth      : 1140px;
+$includeReduceMotion : true !default;
+$transition-timing   : 250ms ease !default;
+$containerWidth      : 1140px !default;
 //--------------------------------------------------------------//
 //  Breakpoints
 //--------------------------------------------------------------//
