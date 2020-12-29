@@ -36,18 +36,18 @@ $intentColorsDark  : (
 ) !default;
 
 $themeLight        : (
-	'body' : st.$gray-95,
-	'bg' : st.$gray-90,
-	'bgDimmed' : st.$gray-85,
+	'body' : st.$gray-85,
+	'bg' : st.$white,
+	'bgDimmed' : st.$gray-95,
 	'border' : st.$gray-80,
 	'text' : st.$gray-10,
 	'textDimmed' : st.$gray-40,
 ) !default;
 
 $themeDark         : (
-	'body' : st.$gray-5,
-	'bg' : st.$gray-10,
-	'bgDimmed' : st.$gray-15,
+	'body' : st.$gray-15,
+	'bg' : st.$gray-5,
+	'bgDimmed' : st.$gray-10,
 	'border' : st.$gray-20,
 	'text' : st.$gray-80,
 	'textDimmed' : st.$gray-60,

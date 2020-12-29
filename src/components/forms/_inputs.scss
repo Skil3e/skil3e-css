@@ -1,7 +1,7 @@
 @use "../../settings" as st;
 
-$clrInput           : st.$gray-85 !default;
-$clrInputDark       : st.$gray-15 !default;
+$clrInput           : st.$white !default;
+$clrInputDark       : st.$gray-5 !default;
 $clrInputBorder     : st.$gray-80 !default;
 $clrInputBorderDark : st.$gray-20 !default;
 
