@@ -9,7 +9,8 @@
     "dev": "sass src/skil3e.scss:src/debug/skil3e.css --no-source-map && npx postcss src/debug/skil3e.css --use autoprefixer --use postcss-combine-media-query -d src/debug/ --no-map",
     "build-basic": "sass src/basic.scss:dist/skil3e-basic.min.css --no-source-map --style compressed && npx postcss dist/skil3e-basic.min.css --use autoprefixer --use postcss-combine-media-query -d dist/ --no-map",
     "build": "sass src/skil3e.scss:dist/skil3e.min.css --no-source-map --style compressed && npx postcss dist/skil3e.min.css --use autoprefixer --use postcss-combine-media-query -d dist/ --no-map",
-    "pub": "npm run build && npm run build-basic && npm publish"
+    "pub": "npm run build && npm run build-basic && npm publish",
+    "generate-docs": "node generate-docs.js"
   },
   "repository": {
     "type": "git",

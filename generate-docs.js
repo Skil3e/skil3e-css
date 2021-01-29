@@ -1,5 +1,9 @@
 const fs = require('fs')
 
+function formatPageSlug(filename) {
+    return filename.replace("_", "").replace(".scss", "")
+}
+
 function getDefaultValues(data) {
     const val = data.filter(line => line.startsWith("$values"));
     const final = val[0].replace(/ /g, '')
@@ -12,17 +16,12 @@ function getDefaultValues(data) {
     return JSON.parse(final);
 }
 
-function formatPageSlug(filename) {
-    return filename.replace("_", "").replace(".scss", "")
-}
-
 function getPrefix(data) {
     const line = data.filter(line => line.startsWith("$prefix"));
     return line[0].replace(/ /g, '').replace("$prefix:", "").replace(/'/g, '').replace(/"/g, '')
         .replace("!default", "")
         .replace(";", "")
         .replace("\r", "")
-
 }
 
 function convertFileForDocs(path, filename) {
@@ -45,8 +44,7 @@ fs.readdir(process.cwd() + "/src/utilities", function (err, filenames) {
         return;
     }
     filenames.forEach(function (filename) {
-        if (
-            filename === "_align.scss"
+        if (filename === "_align.scss"
             || filename === "_colors.scss"
             || filename === "_font-size.scss"
             || filename === "_justify.scss"
@@ -54,8 +52,7 @@ fs.readdir(process.cwd() + "/src/utilities", function (err, filenames) {
             || filename === "_padding.scss"
             || filename === "_positions-placement.scss"
             || filename === "_reduce-motion.scss"
-            || filename === "_screen-readers.scss"
-        ) {
+            || filename === "_screen-readers.scss") {
             console.log("skipped: ", filename)
             return null;
         }
