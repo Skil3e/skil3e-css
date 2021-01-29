@@ -1,0 +1,25 @@
+@use "../settings" as st;
+@use "../mixins" as mx;
+@use "../functions" as fn;
+
+$withBreakPoints : true !default;
+$prefix          : "overflow" !default;
+$prefixX         : "overflow-x" !default;
+$prefixY         : "overflow-y" !default;
+$divider         : st.$divider !default;
+$important       : st.$important !default;
+$values          : ('visible' : 'visible', 'hidden' : 'hidden', 'scroll' : 'scroll', 'auto' : 'auto') !default;
+$removeValues    : () !default;
+$OF              : fn.removeFromMap($removeValues, $values);
+
+@include mx.makeUtil("overflow", $prefix, $OF, $divider, $important : $important);
+@include mx.makeUtil("overflow-x", $prefixX, $OF, $divider, $important : $important);
+@include mx.makeUtil("overflow-y", $prefixY, $OF, $divider, $important : $important);
+
+@each $name, $value in st.$breakpoints {
+  @media (min-width : $value) {
+	@include mx.makeUtil("overflow", $prefix, $OF, $divider, $name, $important : $important);
+	@include mx.makeUtil("overflow-x", $prefixX, $OF, $divider, $name, $important : $important);
+	@include mx.makeUtil("overflow-y", $prefixY, $OF, $divider, $name, $important : $important);
+  }
+}

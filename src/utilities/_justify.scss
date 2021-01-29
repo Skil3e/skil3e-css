@@ -1,26 +1,26 @@
 @use "../settings" as st;
 @use "../mixins" as mx;
 
-$disableItems    : false !default;
-$disableContent  : false !default;
-$disableSelf     : false !default;
-$withBreakPoints : true !default;
+$disableItems     : false !default;
+$disableContent   : false !default;
+$disableSelf      : false !default;
+$withBreakPoints  : true !default;
 
-$divider         : st.$divider !default;
-$important       : st.$important !default;
-$itemsPrefix     : "jf__it" !default;
-$contentPrefix   : "jf__cnt" !default;
-$selfPrefix      : "jf__self" !default;
+$divider          : st.$divider !default;
+$important        : st.$important !default;
+$itemsPrefix      : "jf__it" !default;
+$contentPrefix    : "jf__cnt" !default;
+$selfPrefix       : "jf__self" !default;
 
-$justify         : ('center' : center, 'start' : start, 'end' : end, 'fl-start' : flex-start, 'fl-end' : flex-end, 'stretch' : stretch) !default;
-$content         : map-merge($justify, ('between' : space-between, 'around' : space-around, 'evenly': space-evenly));
-$addItems        : () !default;
-$addContent      : () !default;
-$addSelf         : () !default;
+$justify          : ('center' : 'center', 'start' : 'start', 'end' : 'end', 'fl-start' : 'flex-start', 'fl-end' : 'flex-end', 'stretch' : 'stretch') !default;
+$content          : map-merge($justify, ('between' : 'space-between', 'around' : 'space-around', 'evenly': 'space-evenly'));
+$addValuesItems   : () !default;
+$addValuesContent : () !default;
+$addValuesSelf    : () !default;
 
-$justify-items   : map-merge($justify, $addItems);
-$justify-content : map-merge($content, $addContent);
-$justify-self    : map-merge($justify, $addSelf);
+$justify-items    : map-merge($justify, $addValuesItems);
+$justify-content  : map-merge($content, $addValuesContent);
+$justify-self     : map-merge($justify, $addValuesSelf);
 
 @include mx.makeUtil("justify-items", $itemsPrefix, $justify-items, $divider, $disable : $disableItems, $important : $important);
 @include mx.makeUtil("justify-content", $contentPrefix, $justify-content, $divider, $disable : $disableContent, $important : $important);

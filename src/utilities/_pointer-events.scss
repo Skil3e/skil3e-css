@@ -5,9 +5,9 @@ $withBreakPoints : false !default;
 $prefix          : "pointer" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
-$pointers        : ("auto": auto, "none": none) !default;
-$addPointers     : () !default;
-$PE              : map-merge($pointers, $addPointers);
+$values          : ('auto': 'auto', 'none': 'none') !default;
+$addValues       : () !default;
+$PE              : map-merge($values, $addValues);
 
 @include mx.makeUtil("pointer-events", $prefix, $PE, $divider, $important : $important);
 

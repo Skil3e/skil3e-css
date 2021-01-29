@@ -5,9 +5,9 @@ $withBreakPoints : false !default;
 $prefix          : "cursor" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
-$cursors         : ("auto": auto, "grab": grab, "grabbing": grabbing, "none": none, "not-allowed": not-allowed, "pointer": pointer,) !default;
-$addCursors      : () !default;
-$CR              : map-merge($cursors, $addCursors);
+$values          : ('auto': 'auto', 'grab': 'grab', 'grabbing': 'grabbing', 'none': 'none', 'not-allowed': 'not-allowed', 'pointer': 'pointer') !default;
+$addValues       : () !default;
+$CR              : map-merge($values, $addValues);
 
 @include mx.makeUtil("cursor", $prefix, $CR, $divider, $important : $important);
 

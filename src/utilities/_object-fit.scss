@@ -6,9 +6,9 @@ $withBreakPoints : false !default;
 $prefix          : "obj-fit" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
-$object-fit      : ('contain' : contain, 'cover' : cover, 'fill' : fill, 'none' : none, 'scale-down' : scale-down) !default;
-$removeFit       : () !default;
-$OF              : fn.removeFromMap($removeFit, $object-fit);
+$values          : ('contain' : 'contain', 'cover' : 'cover', 'fill' : 'fill', 'none' : 'none', 'scale-down' : 'scale-down') !default;
+$removeValues    : () !default;
+$OF              : fn.removeFromMap($removeValues, $values);
 
 @include mx.makeUtil("object-fit", $prefix, $OF, $divider, $important : $important);
 

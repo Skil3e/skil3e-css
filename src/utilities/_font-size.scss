@@ -5,9 +5,9 @@ $withBreakPoints : true !default;
 $prefix          : "text" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
-$font-sizes      : map-merge(st.$typography, ('xl-1': 3rem, 'xl-2': 4rem, 'xl-3': 6rem,));
-$addSizes        : () !default;
-$FS              : map-merge($font-sizes, $addSizes);
+$values          : map-merge(st.$typography, ('xl-1': '3rem', 'xl-2': '4rem', 'xl-3': '6rem',));
+$addValues       : () !default;
+$FS              : map-merge($values, $addValues);
 
 @include mx.makeUtil("font-size", $prefix, $FS, $divider, $important : $important);
 

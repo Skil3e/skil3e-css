@@ -5,19 +5,9 @@ $withBreakPoints : true !default;
 $prefix          : null !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
-$addDisplay      : () !default;
-$display         : (
-	'none' : none,
-	'block' : block,
-	'inline' : inline,
-	'inline-block': inline-block,
-	'flow-root' : flow-root,
-	'flex' : flex,
-	'inline-flex' : inline-flex,
-	'grid': grid,
-	'inline-grid': inline-grid,
-) !default;
-$D               : map-merge($display, $addDisplay);
+$addValues       : () !default;
+$values          : ('none' : 'none', 'block' : 'block', 'inline' : 'inline', 'inline-block': 'inline-block', 'flow-root' : 'flow-root', 'flex' : 'flex', 'inline-flex' : 'inline-flex', 'grid': 'grid', 'inline-grid': 'inline-grid') !default;
+$D               : map-merge($values, $addValues);
 
 @include mx.makeUtil("display", $prefix, $D, $divider, $important : $important);
 

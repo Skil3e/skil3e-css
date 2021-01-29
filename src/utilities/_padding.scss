@@ -6,12 +6,12 @@ $prefix          : "p" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
 $posDivider      : null !default;
-$spacers         : st.$spacers;
+$values          : st.$spacers;
 
-@include mx.makeUtilPos("padding", $prefix, $spacers, $divider, $posDivider, $important : $important);
+@include mx.makeUtilPos("padding", $prefix, $values, $divider, $posDivider, $important : $important);
 
 @each $name, $value in st.$breakpoints {
   @media (min-width : $value) {
-	@include mx.makeUtilPos("padding", $prefix, $spacers, $divider, $posDivider, $name, $important : $important);
+	@include mx.makeUtilPos("padding", $prefix, $values, $divider, $posDivider, $name, $important : $important);
   }
 }

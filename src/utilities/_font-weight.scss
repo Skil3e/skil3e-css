@@ -5,9 +5,9 @@ $withBreakPoints : false !default;
 $prefix          : "text" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
-$font-weights    : ("light": 300, "regular": 500, "medium": 600, "bold": 700, "black": 900) !default;
-$addWeights      : () !default;
-$FW              : map-merge($font-weights, $addWeights);
+$values          : ('light': '300', 'regular': '500', 'medium': '600', 'bold': '700', 'black': '900') !default;
+$addValues       : () !default;
+$FW              : map-merge($values, $addValues);
 
 @include mx.makeUtil("font-weight", $prefix, $FW, $divider, $important : $important);
 

@@ -6,13 +6,9 @@ $prefix            : "transition" !default;
 $divider           : st.$divider !default;
 $important         : st.$important !default;
 $transition-timing : 250ms ease-in-out !default;
-$addTransition     : () !default;
-$transitions       : (
-	'' : 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform',
-	'colors' : 'background-color, border-color, color, fill, stroke',
-	'all': all
-) !default;
-$T                 : map-merge($transitions, $addTransition);
+$addValues         : () !default;
+$values            : ('' : 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform', 'colors' : 'background-color, border-color, color, fill, stroke', 'all': 'all') !default;
+$T                 : map-merge($values, $addValues);
 
 
 @include mx.makeUtil("transition-property", $prefix, $T, $divider, $important : $important) {

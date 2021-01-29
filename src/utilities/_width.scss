@@ -9,9 +9,9 @@ $maxPrefix       : "max-w" !default;
 $minPrefix       : "min-w" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
-$w               : ("100": 100%, "75" : 75%, "50" : 50%, "25" : 25%, "v100": 100vh, "v75" : 75vh, "v50" : 50vh, "v25" : 25vh);
-$addWidths       : () !default;
-$width          : map-merge($w, $addWidths);
+$values          : ('100': '100%', '75' : '75%', '50' : '50%', '25' : '25%', 'v100': '100vh', 'v75' : '75vh', 'v50' : '50vh', 'v25' : '25vh');
+$addValues       : () !default;
+$width           : map-merge($values, $addValues);
 
 @include mx.makeUtil("width", $prefix, $width, $divider, $important : $important);
 @include mx.makeUtil("max-width", $maxPrefix, $width, $divider, $disable : $disableMax, $important : $important);

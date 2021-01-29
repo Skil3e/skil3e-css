@@ -2,13 +2,13 @@
 @use "../mixins" as mx;
 
 $withBreakPoints : false !default;
-$prefix          : "round" !default;
+$prefix          : 'round' !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
 $posDivider      : st.$posDivider !default;
-$addRadius       : () !default;
-$border-radius   : ("": .25rem, '0' : 0, "circle": 1000rem) !default;
-$BR              : map-merge($border-radius, $addRadius);
+$addValues       : () !default;
+$values          : ('': '.25rem', '0' : '0', 'circle': '1000rem') !default;
+$BR              : map-merge($values, $addValues);
 
 @include mx.makeBorderRadius($BR, $prefix, $divider, $posDivider, $important : $important);
 

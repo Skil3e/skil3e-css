@@ -9,9 +9,9 @@ $maxPrefix       : "max-h" !default;
 $minPrefix       : "min-h" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
-$h               : ("100": 100%, "75" : 75%, "50" : 50%, "25" : 25%, "v100": 100vh, "v75" : 75vh, "v50" : 50vh, "v25" : 25vh);
-$addHeights      : () !default;
-$height          : map-merge($h, $addHeights);
+$values          : ('100': '100%', '75' : '75%', '50' : '50%', '25' : '25%', 'v100': '100vh', 'v75' : '75vh', 'v50' : '50vh', 'v25' : '25vh');
+$addValues       : () !default;
+$height          : map-merge($values, $addValues);
 
 @include mx.makeUtil("height", $prefix, $height, $divider, $important : $important);
 @include mx.makeUtil("max-height", $maxPrefix, $height, $divider, $disable : $disableMax, $important : $important);

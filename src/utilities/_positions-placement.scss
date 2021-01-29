@@ -2,15 +2,15 @@
 @use "../mixins" as mx;
 @use "../functions" as fn;
 
-$withBreakPoints  : true !default;
-$divider          : st.$divider !default;
-$important        : st.$important !default;
-$addValues        : () !default;
-$values           : ('0' : 0, 'auto': auto) !default;
-$direction        : ('top' : top, 'right' : right, 'bottom' : bottom, 'left' : left);
-$removeDirections : ();
-$D                : fn.removeFromMap($removeDirections, $direction);
-$PV               : map-merge($values, $addValues);
+$withBreakPoints : true !default;
+$divider         : st.$divider !default;
+$important       : st.$important !default;
+$addValues       : () !default;
+$values          : ('0' : '0', 'auto': 'auto') !default;
+$direction       : ('top' : 'top', 'right' : 'right', 'bottom' : 'bottom', 'left' : 'left');
+$removeValues    : ();
+$D               : fn.removeFromMap($removeValues, $direction);
+$PV              : map-merge($values, $addValues);
 
 @include mx.makePositionPlacement($PV, $direction, $divider, $important : $important);
 

@@ -1,25 +1,25 @@
 @use "../settings" as st;
 @use "../mixins" as mx;
 
-$withBreakPoints : true !default;
-$disableItems    : false !default;
-$disableContent  : false !default;
-$disableSelf     : false !default;
+$withBreakPoints  : true !default;
+$disableItems     : false !default;
+$disableContent   : false !default;
+$disableSelf      : false !default;
 
-$divider         : st.$divider !default;
-$important       : st.$important !default;
-$itemsPrefix     : "al__it" !default;
-$contentPrefix   : "al__cnt" !default;
-$selfPrefix      : "al__self" !default;
+$divider          : st.$divider !default;
+$important        : st.$important !default;
+$itemsPrefix      : "al__it" !default;
+$contentPrefix    : "al__cnt" !default;
+$selfPrefix       : "al__self" !default;
 
-$align           : ('center' : center, 'start' : start, 'end' : end, 'fl-start': flex-start, 'fl-end': flex-end, 'stretch' : stretch) !default;
-$addItems        : () !default;
-$addContent      : () !default;
-$addSelf         : () !default;
+$align            : ('center' : 'center', 'start' : 'start', 'end' : 'end', 'fl-start': 'flex-start', 'fl-end': 'flex-end', 'stretch' : 'stretch') !default;
+$addValuesItems   : () !default;
+$addValuesContent : () !default;
+$addValuesSelf    : () !default;
 
-$align-items     : map-merge($align, $addItems);
-$align-content   : map-merge($align, $addContent);
-$align-self      : map-merge($align, $addSelf);
+$align-items      : map-merge($align, $addValuesItems);
+$align-content    : map-merge($align, $addValuesContent);
+$align-self       : map-merge($align, $addValuesSelf);
 
 @include mx.makeUtil("align-items", $itemsPrefix, $align-items, $divider, $disable : $disableItems, $important : $important);
 @include mx.makeUtil("align-content", $contentPrefix, $align-content, $divider, $disable : $disableContent, $important : $important);

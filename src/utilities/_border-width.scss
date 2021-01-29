@@ -7,9 +7,9 @@ $style           : "solid" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
 $posDivider      : st.$posDivider !default;
-$addWidths       : () !default;
-$border-widths   : ("": 1px, "0": 0, "md": 3px) !default;
-$BW              : map-merge($border-widths, $addWidths);
+$addValues       : () !default;
+$values          : ('': '1px', '0': '0', 'md': '3px') !default;
+$BW              : map-merge($values, $addValues);
 
 @include mx.makeBorder($prefix, $BW, $divider, $posDivider, $style, $important : $important);
 
