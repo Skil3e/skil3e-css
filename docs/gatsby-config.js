@@ -1,51 +1,43 @@
 module.exports = {
-  siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-  },
-  plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
+    siteMetadata: {
+        title: "skil3e CSS Docs",
+        description: "A simple CSS utility framework with dark and light mode.",
+        siteUrl: process.env.NODE_ENV === "production" ? "https://skil3e.github.io/skil3e-css" : "http://localhost:8000"
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: `@rocketseat/gatsby-theme-docs-core`,
-      options: {
-        basePath: `/`,
-        configPath: `src/config`,
-        docsPath: `src/docs`,
-        githubUrl: `https://github.com/Skil3e/skil3e-css`,
-        baseDir: `docs`,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-anchor-links",
-      options: {
-        offset: -60
-      }
-    },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
-  ],
-}
+    plugins: [
+        "gatsby-plugin-sass",
+        "gatsby-plugin-sharp",
+        "gatsby-plugin-react-helmet",
+        "gatsby-plugin-sitemap",
+        // "gatsby-plugin-offline",
+        {
+            resolve: "gatsby-plugin-manifest",
+            options: {
+                icon: "src/images/icon.png",
+            },
+        },
+        "gatsby-transformer-sharp",
+        {
+            resolve: "gatsby-source-filesystem",
+            options: {
+                name: "images",
+                path: "./src/images/",
+            },
+            __key: "images",
+        },
+        {
+            resolve: "gatsby-source-filesystem",
+            options: {
+                name: "generated",
+                path: "./src/generated/",
+            },
+            __key: "documentation",
+        },
+        {
+            resolve: `gatsby-transformer-json`,
+            options: {
+                typeName: `documentation`, // a fixed string
+            },
+        },
+    ],
+};

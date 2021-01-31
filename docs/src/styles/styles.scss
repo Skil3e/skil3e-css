@@ -1,0 +1,39 @@
+@use "fonts";
+@use "imports";
+@use "switch";
+@use "../../../src/functions" as f;
+
+nav ul {
+  list-style : none;
+}
+
+h1 {
+  margin-top : 0;
+}
+
+.text--code {
+  font-family : "Fira Code", monospace;
+}
+
+.table-classes {
+  border-collapse : collapse;
+}
+
+::-webkit-scrollbar {
+  width  : 10px;
+  height : 8px;
+
+  &-track {
+	background    : var(--body);
+	border-radius : 10px;
+  }
+
+  &-thumb {
+	background    : var(--bgDimmed);
+	border-radius : 0;
+
+	&:hover {
+	  background : var(--bg)
+	}
+  }
+}

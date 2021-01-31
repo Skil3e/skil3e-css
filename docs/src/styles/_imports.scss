@@ -1,0 +1,32 @@
+$headerHeight : 4rem;
+$sidebarWidth : 18rem;
+@use "../../../src/functions" as f;
+
+@use "../../../src/settings" with (
+$containerWidth: 90rem,
+$bodyFont: f.makeFont("Poppins"),
+$headingFont: f.makeFont("Poppins"),
+$headingFontWeight: 700,
+$addSpacer: ("header": $headerHeight, "sidebar":$sidebarWidth)
+);
+
+@use "../../../src/utilities/colors" with (
+$addIntentsLight: ("pale": rgba(11, 95, 255, .1), "overlay": rgba(0,0,0,.75)),
+$addIntentsDark: ('accent' : #4b89ff,),
+$makeHover: true
+);
+
+@use "../../../src/utilities/width" with (
+$addValues: ("sidebar" : $sidebarWidth, "content": 70ch)
+);
+
+@use "../../../src/utilities/height" with (
+$addValues: ("header" : $headerHeight, "main":  calc(100vh - 4rem), "example": 300px)
+);
+
+@use "../../../src/utilities/positions-placement" with (
+$addValues: ("header" : $headerHeight, "drawerToggle": $headerHeight + 3rem)
+);
+
+@use "../../../src/basic.scss";
+@use "../../../src/components/fl-grid";

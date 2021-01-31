@@ -1,8 +1,0 @@
-- label: 'Introduction'
-  link: '/introduction'
-- label: 'Quick Start'
-  link: '/quick-start'
-- label: 'Utilities'
-  items:
-    - label: 'Align'
-      link: '/utilities/align'

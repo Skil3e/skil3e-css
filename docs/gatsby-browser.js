@@ -1,40 +1,22 @@
-import React from 'react';
-import {preToCodeBlock} from 'mdx-utils';
-import {MDXProvider} from '@mdx-js/react';
-import {StateProvider} from "./src/State";
-import Code from './src/components/code/CodeHightlight';
-import Layout from "./src/components/layout/Layout";
+import * as React from "react";
+import {ThemeProvider} from "./src/components/ThemeProvide";
+import {LayoutProvider} from "./src/components/LayoutProvider";
+import Layout from "./src/components/layout";
+import "./src/styles/styles.scss"
 
-const components = {
-    pre: (preProps) => {
-        const props = preToCodeBlock(preProps);
-
-        if (props) {
-            return <Code {...props} language={props.className && props.className.replace(/language-/, '')}/>;
-        }
-
-        return <pre {...preProps} />;
-    },
-    inlineCode: (props) => <code className="inline-code" {...props} />,
-    table: ({children, ...rest}) => (
-        <div style={{overflowX: `auto`}}>
-            <table {...rest}>{children}</table>
-        </div>
-    ),
+export const wrapRootElement = ({element}) => {
+    return (
+        <ThemeProvider>
+            <LayoutProvider>
+                {element}
+            </LayoutProvider>
+        </ThemeProvider>
+    )
 };
-
-export function wrapPageElement({element}) {
+export const wrapPageElement = ({element, props}) => {
     return (
-        <Layout>
-            <MDXProvider components={components}>{element}</MDXProvider>
-        </Layout>
-    );
-}
-
-export function wrapRootElement({element}) {
-    return (
-        <StateProvider>
+        <Layout {...props}>
             {element}
-        </StateProvider>
+        </Layout>
     )
 }
