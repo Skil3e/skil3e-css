@@ -8,30 +8,30 @@ $withBreakPoints  : true !default;
 
 $divider          : st.$divider !default;
 $important        : st.$important !default;
-$itemsPrefix      : "jf__it" !default;
-$contentPrefix    : "jf__cnt" !default;
-$selfPrefix       : "jf__self" !default;
+$prefixItems      : "jf__it" !default;
+$prefixContent    : "jf__cnt" !default;
+$prefixSelf       : "jf__self" !default;
 
-$justify          : ('center' : 'center', 'start' : 'start', 'end' : 'end', 'fl-start' : 'flex-start', 'fl-end' : 'flex-end', 'stretch' : 'stretch') !default;
-$content          : map-merge($justify, ('between' : 'space-between', 'around' : 'space-around', 'evenly': 'space-evenly'));
+$values           : ('center' : 'center', 'start' : 'start', 'end' : 'end', 'fl-start' : 'flex-start', 'fl-end' : 'flex-end', 'stretch' : 'stretch', 'between' : 'space-between', 'around' : 'space-around', 'evenly': 'space-evenly') !default;
+$filtered         : map-remove($values, 'between', 'around', 'evenly');
 $addValuesItems   : () !default;
 $addValuesContent : () !default;
 $addValuesSelf    : () !default;
 
-$justify-items    : map-merge($justify, $addValuesItems);
-$justify-content  : map-merge($content, $addValuesContent);
-$justify-self     : map-merge($justify, $addValuesSelf);
+$justify-items    : map-merge($filtered, $addValuesItems);
+$justify-content  : map-merge($values, $addValuesContent);
+$justify-self     : map-merge($filtered, $addValuesSelf);
 
-@include mx.makeUtil("justify-items", $itemsPrefix, $justify-items, $divider, $disable : $disableItems, $important : $important);
-@include mx.makeUtil("justify-content", $contentPrefix, $justify-content, $divider, $disable : $disableContent, $important : $important);
-@include mx.makeUtil("justify-self", $selfPrefix, $justify-self, $divider, $disable : $disableSelf, $important : $important);
+@include mx.makeUtil("justify-items", $prefixItems, $justify-items, $divider, $disable : $disableItems, $important : $important);
+@include mx.makeUtil("justify-content", $prefixContent, $justify-content, $divider, $disable : $disableContent, $important : $important);
+@include mx.makeUtil("justify-self", $prefixSelf, $justify-self, $divider, $disable : $disableSelf, $important : $important);
 
 @if ($withBreakPoints) {
   @each $name, $value in st.$breakpoints {
 	@media (min-width : $value) {
-	  @include mx.makeUtil("justify-items", $itemsPrefix, $justify-items, $divider, $name, $disableItems, $important : $important);
-	  @include mx.makeUtil("justify-content", $contentPrefix, $justify-content, $divider, $name, $disableContent, $important : $important);
-	  @include mx.makeUtil("justify-self", $selfPrefix, $justify-self, $divider, $name, $disableSelf, $important : $important);
+	  @include mx.makeUtil("justify-items", $prefixItems, $justify-items, $divider, $name, $disableItems, $important : $important);
+	  @include mx.makeUtil("justify-content", $prefixContent, $justify-content, $divider, $name, $disableContent, $important : $important);
+	  @include mx.makeUtil("justify-self", $prefixSelf, $justify-self, $divider, $name, $disableSelf, $important : $important);
 	}
   }
 }

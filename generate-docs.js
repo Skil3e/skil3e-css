@@ -4,60 +4,104 @@ function formatPageSlug(filename) {
     return filename.replace("_", "").replace(".scss", "")
 }
 
-function getDefaultValues(data) {
-    const val = data.filter(line => line.startsWith("$values"));
-    const final = val[0].replace(/ /g, '')
-        .replace("$values:", "")
+function getPrefix(data) {
+    let prefixed = [];
+    const lines = data.filter(line => line.startsWith("$prefix"));
+    lines.forEach(line => {
+        const formatted = line.replace(/ /g, '')
+            .replace(/\$prefix.*?:/, "")
+            .replace(/'/g, '').replace(/"/g, '')
+            .replace("!default", "")
+            .replace(";", "")
+            .replace("\r", "")
+        prefixed.push(formatted);
+    })
+    return prefixed
+}
+
+function convertSCSSMapToObj(lines, name) {
+    const values = lines.filter(line => line.startsWith(name));
+    const final = values[0].replace(/ /g, '')
+        .replace(`${name}:`, "")
         .replace("!default", "")
         .replace(";", "")
         .replace("(", "{").replace(")", "}")
         .replace("\r", "")
-        .replace(/'/g, '"');
-    return JSON.parse(final);
-}
-
-function getPrefix(data) {
-    const line = data.filter(line => line.startsWith("$prefix"));
-    return line[0].replace(/ /g, '').replace("$prefix:", "").replace(/'/g, '').replace(/"/g, '')
-        .replace("!default", "")
-        .replace(";", "")
-        .replace("\r", "")
-}
-
-function convertFileForDocs(path, filename) {
-    const lines = fs.readFileSync(process.cwd() + path + filename, 'utf8').split("\n");
-    const data = JSON.stringify({
-        page: formatPageSlug(filename),
-        prefix: getPrefix(lines),
-        defaultValues: getDefaultValues(lines)
+        .replace(/'/g, '"')
+    // .replace(/""/, "\"_\"");
+    const parsed = JSON.parse(final);
+    return Object.entries(parsed).map(([key, val]) => {
+        return {key, val}
     });
+}
 
-    fs.writeFile(`${process.cwd()}/docs/src/generated/${formatPageSlug(filename)}.json`, data, function (err) {
+function getDefaultValues(data) {
+    return convertSCSSMapToObj(data, "$values");
+}
+
+function convertLinesToArray(path) {
+    return fs.readFileSync(path, 'utf8').split("\n");
+}
+
+function getVariables(lines) {
+    const index = lines.filter(line => line.startsWith("@include"))
+    lines.length = lines.indexOf(index[0]);
+    const final = lines.filter(line => !line.startsWith("@use"))
+    return final.join("").replace( / !default;/g, "," );
+}
+
+function convertFileToJSON(filename, page, prefix, defaultValues, variables) {
+    return JSON.stringify({
+        filename: filename,
+        utility: page,
+        prefix: prefix,
+        divider: "--",
+        values: defaultValues,
+        variables: variables ?? []
+    });
+}
+
+function writeFIleToDocs(path, data, callBack) {
+    fs.writeFile(path, data, function (err) {
         if (err) return console.log(err);
-        console.log(`Generated ${formatPageSlug(filename)}.json`);
+        callBack && callBack()
     });
 }
 
+//--------------------------------------------------------------//
+//Generate docs JSON files
+//--------------------------------------------------------------//
 fs.readdir(process.cwd() + "/src/utilities", function (err, filenames) {
     if (err) {
         console.log(err)
         return;
     }
     filenames.forEach(function (filename) {
-        if (filename === "_align.scss"
-            || filename === "_colors.scss"
-            || filename === "_font-size.scss"
-            || filename === "_justify.scss"
-            || filename === "_margin.scss"
-            || filename === "_padding.scss"
-            || filename === "_positions-placement.scss"
-            || filename === "_reduce-motion.scss"
-            || filename === "_screen-readers.scss") {
+        const readPath = `${process.cwd()}/src/utilities/${filename}`;
+        const writePath = `${process.cwd()}/docs/src/generated/${formatPageSlug(filename)}.json`
+        const lines = convertLinesToArray(readPath);
+
+        if (filename === "_colors.scss" || filename === "_reduce-motion.scss" || filename === "_screen-readers.scss") {
             console.log("skipped: ", filename)
             return null;
         }
-        convertFileForDocs("/src/utilities/", filename);
+        if (filename === "_margin.scss" || filename === "_padding.scss") {
+            const settingsLines = convertLinesToArray(`${process.cwd()}/src/_settings.scss`);
+            const data = convertFileToJSON(filename, formatPageSlug(filename), getPrefix(lines), convertSCSSMapToObj(settingsLines, "$spacersDefault"), getVariables(lines));
+            writeFIleToDocs(writePath, data, function () {
+                console.log(`Generated: ${formatPageSlug(filename)}.json`)
+            })
+            return;
+        }
+        if (filename === "_positions-placement.scss") {
+            console.log("skipped: ", filename)
+            return null;
+        }
+
+        const data = convertFileToJSON(filename, formatPageSlug(filename), getPrefix(lines), getDefaultValues(lines), getVariables(lines));
+        writeFIleToDocs(writePath, data, function () {
+            console.log(`Generated: ${formatPageSlug(filename)}.json`)
+        })
     });
 });
-
 

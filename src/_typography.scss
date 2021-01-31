@@ -1,5 +1,16 @@
 @use "settings";
+@use "utilities/font-size" as fs;
 @use "mixins" as mx;
+
+@function getTypographyMap() {
+  $typo : ();
+  @each $key in ('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'small') {
+	$val : map-get(fs.$values, $key);
+	$typo : map-merge($typo, ($key: $val));
+  }
+  @return $typo;
+}
+
 
 $headingFont       : settings.$headingFont !default;
 $headingLineHeight : settings.$headingLineHeight !default;
@@ -13,9 +24,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight : $headingFontWeight;
 }
 
-@include mx.makeUtil("font-size", null, settings.$typography, null);
+@include mx.makeUtil("font-size", null, getTypographyMap(), null);
 
-@each $type, $size in settings.$typography {
+@each $type, $size in getTypographyMap() {
   #{$type} {
 	font-size : #{$size}
   }
