@@ -34,3 +34,22 @@
 	}
   }
 }
+
+//--------------------------------------------------------------//
+// Make Colors Shades
+//--------------------------------------------------------------//
+@mixin makeColorShadesVars($name: mint, $hue: 180, $saturation: 65%, $steps: 5, $ratio: 1.25) {
+  @for $i from 1 through $steps {
+	$per             : percentage(($i / $steps) / $ratio);
+	--#{$name}--#{$i}: hsl(#{$hue}, #{$saturation}, #{$per});
+  }
+}
+
+@mixin makeColorShadesProperty($prefix: bg, $name: mint, $property: background-color, $hue: 180, $saturation: 65%, $steps: 5, $ratio: 1.25) {
+  @for $i from 1 through $steps {
+	.#{$prefix}-#{$name}--#{$i} {
+	  $per        : percentage(($i / $steps) / $ratio);
+	  #{$property}: hsl($hue, $saturation, $per);
+	}
+  }
+}
