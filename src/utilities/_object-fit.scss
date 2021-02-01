@@ -1,13 +1,14 @@
 @use "../settings" as st;
 @use "../mixins" as mx;
 @use "../functions" as fn;
-
+/* Start Variables */
 $withBreakPoints : false !default;
 $prefix          : "obj-fit" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
 $values          : ('contain' : 'contain', 'cover' : 'cover', 'fill' : 'fill', 'none' : 'none', 'scale-down' : 'scale-down') !default;
 $removeValues    : () !default;
+/* End Variables */
 $OF              : fn.removeFromMap($removeValues, $values);
 
 @include mx.makeUtil("object-fit", $prefix, $OF, $divider, $important : $important);

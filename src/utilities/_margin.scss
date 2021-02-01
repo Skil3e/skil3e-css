@@ -1,12 +1,14 @@
 @use "../settings" as st;
 @use "../mixins" as mx;
 
+/* Start Variables */
 $withBreakPoints : true !default;
 $prefix          : "m" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
 $posDivider      : null !default;
 $values          : st.$spacers;
+/* End Variables */
 $margin          : map-merge($values, ('auto': 'auto'));
 
 @include mx.makeUtilPos("margin", $prefix, $margin, $divider, $posDivider, $important : $important);

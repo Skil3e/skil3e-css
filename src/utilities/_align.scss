@@ -1,6 +1,7 @@
 @use "../settings" as st;
 @use "../mixins" as mx;
 
+/* Start Variables */
 $withBreakPoints  : true !default;
 $disableItems     : false !default;
 $disableContent   : false !default;
@@ -12,10 +13,11 @@ $prefixItems      : "al__it" !default;
 $prefixContent    : "al__cnt" !default;
 $prefixSelf       : "al__self" !default;
 
-$values            : ('center' : 'center', 'start' : 'start', 'end' : 'end', 'fl-start': 'flex-start', 'fl-end': 'flex-end', 'stretch' : 'stretch') !default;
+$values           : ('center' : 'center', 'start' : 'start', 'end' : 'end', 'fl-start': 'flex-start', 'fl-end': 'flex-end', 'stretch' : 'stretch') !default;
 $addValuesItems   : () !default;
 $addValuesContent : () !default;
 $addValuesSelf    : () !default;
+/* End Variables */
 
 $align-items      : map-merge($values, $addValuesItems);
 $align-content    : map-merge($values, $addValuesContent);

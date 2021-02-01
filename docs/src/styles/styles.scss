@@ -3,6 +3,12 @@
 @use "switch";
 @use "../../../src/functions" as f;
 
+.utils{
+  code[class*="language-"] {
+	line-height: 2.5;
+  }
+}
+
 nav ul {
   list-style : none;
 }
@@ -11,12 +17,22 @@ h1 {
   margin-top : 0;
 }
 
+p {
+  max-width : 70ch;
+}
+
 .text--code {
   font-family : "Fira Code", monospace;
 }
 
 .table-classes {
   border-collapse : collapse;
+
+  td {
+	vertical-align : baseline;
+	line-height    : 2;
+  }
+
 }
 
 ::-webkit-scrollbar {
@@ -24,13 +40,11 @@ h1 {
   height : 8px;
 
   &-track {
-	background    : var(--body);
-	border-radius : 10px;
+	background : var(--bg);
   }
 
   &-thumb {
-	background    : var(--bgDimmed);
-	border-radius : 0;
+	background : var(--bgDimmed);
 
 	&:hover {
 	  background : var(--bg)

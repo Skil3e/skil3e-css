@@ -1,6 +1,7 @@
 @use "../settings" as st;
 @use "../mixins" as mx;
 
+/* Start Variables */
 $withBreakPoints : true !default;
 $disableMin      : false !default;
 $disableMax      : false !default;
@@ -11,6 +12,7 @@ $divider         : st.$divider !default;
 $important       : st.$important !default;
 $values          : ('100': '100%', '75' : '75%', '50' : '50%', '25' : '25%', 'v100': '100vh', 'v75' : '75vh', 'v50' : '50vh', 'v25' : '25vh');
 $addValues       : () !default;
+/* End Variables */
 $height          : map-merge($values, $addValues);
 
 @include mx.makeUtil("height", $prefix, $height, $divider, $important : $important);

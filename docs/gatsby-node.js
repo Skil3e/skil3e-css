@@ -10,6 +10,7 @@ exports.createPages = async ({graphql, actions}) => {
           prefix
           utility
           divider
+          withPosition
           values {
             key
             val

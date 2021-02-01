@@ -21,7 +21,7 @@ $addValues: ("sidebar" : $sidebarWidth, "content": 70ch)
 );
 
 @use "../../../src/utilities/height" with (
-$addValues: ("header" : $headerHeight, "main":  calc(100vh - 4rem), "example": 300px)
+$addValues: ("header" : $headerHeight, "main":  calc(100vh - #{$headerHeight * 2}), "main-nofooter":  calc(100vh - #{$headerHeight}),"example": 300px)
 );
 
 @use "../../../src/utilities/positions-placement" with (
@@ -30,3 +30,4 @@ $addValues: ("header" : $headerHeight, "drawerToggle": $headerHeight + 3rem)
 
 @use "../../../src/basic.scss";
 @use "../../../src/components/fl-grid";
+@use "../../../src/components/buttons/button";

@@ -1,12 +1,14 @@
 @use "../settings" as st;
 @use "../mixins" as mx;
 
+/* Start Variables */
 $withBreakPoints : true !default;
 $prefix          : null !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
-$addValues       : () !default;
 $values          : ('none' : 'none', 'block' : 'block', 'inline' : 'inline', 'inline-block': 'inline-block', 'flow-root' : 'flow-root', 'flex' : 'flex', 'inline-flex' : 'inline-flex', 'grid': 'grid', 'inline-grid': 'inline-grid') !default;
+$addValues       : () !default;
+/* End Variables */
 $D               : map-merge($values, $addValues);
 
 @include mx.makeUtil("display", $prefix, $D, $divider, $important : $important);

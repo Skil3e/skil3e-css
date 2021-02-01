@@ -1,49 +1,4 @@
 body[data-theme=dark] {
-  code[class*="language-"],
-  pre[class*="language-"] {
-	text-align    : left;
-	white-space   : pre;
-	word-spacing  : normal;
-	word-break    : normal;
-	word-wrap     : normal;
-	color         : var(--text);
-	background    : var(--bg);
-	border-radius : .25rem;
-	font-family   : Roboto Mono, monospace;
-	font-size     : 1em;
-	line-height   : 1.6em;
-	tab-size      : 4;
-	hyphens       : none;
-	margin-top    : 1rem !important;
-  }
-
-  code[class*="language-"]::-moz-selection,
-  pre[class*="language-"]::-moz-selection,
-  code[class*="language-"] ::-moz-selection,
-  pre[class*="language-"] ::-moz-selection {
-	background : var(--pale);
-  }
-
-  code[class*="language-"]::selection,
-  pre[class*="language-"]::selection,
-  code[class*="language-"] ::selection,
-  pre[class*="language-"] ::selection {
-	background : var(--pale);
-  }
-
-  :not(pre) > code[class*="language-"] {
-	white-space   : normal;
-	border-radius : 0.2em;
-	padding       : 0.1em;
-  }
-
-  pre[class*="language-"] {
-	overflow : auto;
-	position : relative;
-	margin   : 0.5em 0;
-	padding  : 1.25em 1em;
-  }
-
   .language-css > code,
   .language-sass > code,
   .language-scss > code {

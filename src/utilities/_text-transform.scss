@@ -1,12 +1,13 @@
 @use "../settings" as st;
 @use "../mixins" as mx;
 
+/* Start Variables */
 $withBreakPoints : true !default;
 $prefix          : "text" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
 $values          : ('uppercase': 'uppercase', 'lowercase': 'lowercase', 'capitalize': 'capitalize');
-
+/* End Variables */
 @include mx.makeUtil("text-transform", $prefix, $values, $divider, $important : $important);
 
 @each $name, $value in st.$breakpoints {

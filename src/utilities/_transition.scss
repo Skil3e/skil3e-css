@@ -1,13 +1,15 @@
 @use "../settings" as st;
 @use "../mixins" as mx;
 
+/* Start Variables */
 $withBreakPoints   : false !default;
 $prefix            : "transition" !default;
 $divider           : st.$divider !default;
 $important         : st.$important !default;
 $transition-timing : 250ms ease-in-out !default;
-$addValues         : () !default;
 $values            : ('' : 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform', 'colors' : 'background-color, border-color, color, fill, stroke', 'all': 'all') !default;
+$addValues         : () !default;
+/* End Variables */
 $T                 : map-merge($values, $addValues);
 
 

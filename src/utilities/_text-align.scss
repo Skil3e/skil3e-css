@@ -1,12 +1,13 @@
 @use "../settings" as st;
 @use "../mixins" as mx;
 
+/* Start Variables */
 $withBreakPoints : true !default;
 $prefix          : "text" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
 $values          : ('left': 'left', 'right': 'right', 'center': 'center');
-
+/* End Variables */
 @include mx.makeUtil("text-align", $prefix, $values, $divider, $important : $important);
 
 @each $name, $value in st.$breakpoints {

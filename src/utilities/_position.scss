@@ -1,13 +1,14 @@
 @use "../settings" as st;
 @use "../mixins" as mx;
 @use "../functions" as fn;
-
+/* Start Variables */
 $withBreakPoints : true !default;
 $prefix          : null !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
 $values          : ('static' : 'static', 'relative': 'relative', 'fixed' : 'fixed', 'absolute' : 'absolute', 'sticky': 'sticky') !default;
 $removeValues    : () !default;
+/* End Variables */
 $P               : fn.removeFromMap($removeValues, $values);
 
 @include mx.makeUtil("position", $prefix, $P, $divider, $important : $important);

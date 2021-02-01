@@ -7,6 +7,7 @@ export type Utility = {
     prefix: string[]
     utility: string
     divider: string
+    withPosition: boolean
     values: UtilityValue[]
     variables: string
 }

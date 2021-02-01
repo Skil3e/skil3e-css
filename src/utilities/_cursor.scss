@@ -1,12 +1,14 @@
 @use "../settings" as st;
 @use "../mixins" as mx;
 
+/* Start Variables */
 $withBreakPoints : false !default;
 $prefix          : "cursor" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
 $values          : ('auto': 'auto', 'grab': 'grab', 'grabbing': 'grabbing', 'none': 'none', 'not-allowed': 'not-allowed', 'pointer': 'pointer') !default;
 $addValues       : () !default;
+/* End Variables */
 $CR              : map-merge($values, $addValues);
 
 @include mx.makeUtil("cursor", $prefix, $CR, $divider, $important : $important);

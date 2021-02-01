@@ -1,12 +1,14 @@
 @use "../settings" as st;
 @use "../mixins" as mx;
 
+/* Start Variables */
 $withBreakPoints : true !default;
 $prefix          : "p" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
 $posDivider      : null !default;
 $values          : st.$spacers;
+/* End Variables */
 
 @include mx.makeUtilPos("padding", $prefix, $values, $divider, $posDivider, $important : $important);
 

@@ -16,15 +16,16 @@ const Sidebar: FC<ISidebar> = ( { className } ) => {
             { isMobile && drawerOpen && <div onClick={ () => dispatch( { type: "CLOSE_DRAWER" } ) } className={ "fixed inset--0 bg--overlay z--6" }/> }
             { drawerOpen &&
             <aside className={ cls }>
-                <nav className={ "px--lg py--md h--main side-nav overflow-y--auto" } key={ "css-utilities" }>
+                <nav className={ "px--lg py--md h--main-nofooter side-nav overflow-y--auto" } key={ "css-utilities" }>
                     <ul>
                         <li className={ "text--bold text--uppercase p--10" }>Settings</li>
                         <SidebarLink to={ "/docs/spacers" }>Spacers</SidebarLink>
 
                         <SideHeader>Layout</SideHeader>
+                        <SidebarLink to={ "/docs/display" }>Display</SidebarLink>
                         <SidebarLink to={ "/docs/overflow" }>Overflow</SidebarLink>
                         <SidebarLink to={ "/docs/position" }>Position</SidebarLink>
-                        <SidebarLink to={ "/docs/position-placement" }>Position Placement</SidebarLink>
+                        <SidebarLink to={ "/docs/positions-placement" }>Positions Placement</SidebarLink>
                         <SidebarLink to={ "/docs/z-index" }>Z Index</SidebarLink>
                         <SidebarLink to={ "/docs/object-fit" }>Object Fit</SidebarLink>
                         <SidebarLink to={ "/docs/object-position" }>Object Position</SidebarLink>
@@ -66,7 +67,7 @@ const Sidebar: FC<ISidebar> = ( { className } ) => {
                         <SideHeader>Misc</SideHeader>
                         <SidebarLink to={ "/docs/cursor" }>Cursor</SidebarLink>
                         <SidebarLink to={ "/docs/pointer-events" }>Pointer Events</SidebarLink>
-                        <SidebarLink to={ "/docs/transitions" }>Transitions</SidebarLink>
+                        <SidebarLink to={ "/docs/transition" }>Transitions</SidebarLink>
 
                         <SideHeader>Accessibility</SideHeader>
                         <SidebarLink to={ "/docs/screen-readers" }>Screen Readers</SidebarLink>

@@ -7,26 +7,27 @@ pre[class*="language-"] {
   word-wrap     : normal;
   color         : var(--text);
   background    : var(--bg);
-  font-family   : Roboto Mono, monospace;
+  font-family   : "Fira Code", monospace;
   font-size     : 1em;
-  line-height   : 1.5em;
+  line-height   : 1.5;
   tab-size      : 4;
   hyphens       : none;
   border-radius : .25rem;
+  margin-top    : 1rem !important;
 }
 
 code[class*="language-"]::-moz-selection,
 pre[class*="language-"]::-moz-selection,
 code[class*="language-"] ::-moz-selection,
 pre[class*="language-"] ::-moz-selection {
-  background    : var(--pale);
+  background : var(--pale);
 }
 
 code[class*="language-"]::selection,
 pre[class*="language-"]::selection,
 code[class*="language-"] ::selection,
 pre[class*="language-"] ::selection {
-  background    : var(--pale);
+  background : var(--pale);
 }
 
 :not(pre) > code[class*="language-"] {

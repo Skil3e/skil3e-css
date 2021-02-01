@@ -11,13 +11,13 @@ interface INoSidebar {
 const NoSidebar: FC<INoSidebar> = ( { children, siteMetadata } ) => {
     return (
         <div>
-            <div className={ "container pt--header" }>
-                <main id={ "main" } className={ "min-h--main p--md" }>
+            <div className={ "pt--header" }>
+                <main id={ "main" } className={ "min-h--main" }>
                     { children }
                 </main>
             </div>
 
-            <Footer className={ "p--md bg--bg" } siteName={ siteMetadata.title }/>
+            <Footer className={ "px--md bg--bg h--header flex--center" } siteName={ siteMetadata.title }/>
         </div>
     )
 }

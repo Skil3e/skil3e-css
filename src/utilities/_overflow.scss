@@ -1,7 +1,7 @@
 @use "../settings" as st;
 @use "../mixins" as mx;
 @use "../functions" as fn;
-
+/* Start Variables */
 $withBreakPoints : true !default;
 $prefix          : "overflow" !default;
 $prefixX         : "overflow-x" !default;
@@ -10,6 +10,7 @@ $divider         : st.$divider !default;
 $important       : st.$important !default;
 $values          : ('visible' : 'visible', 'hidden' : 'hidden', 'scroll' : 'scroll', 'auto' : 'auto') !default;
 $removeValues    : () !default;
+/* End Variables */
 $OF              : fn.removeFromMap($removeValues, $values);
 
 @include mx.makeUtil("overflow", $prefix, $OF, $divider, $important : $important);

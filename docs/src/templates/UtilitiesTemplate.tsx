@@ -16,16 +16,17 @@ export interface IUtilitiesTemplate extends PageProps {
 const UtilitiesTemplate: FC<IUtilitiesTemplate> = ( { pageContext: { data } } ) => {
     usePrism();
     return (
-        <div>
+        <div className={"utils"}>
             <GroupHeading title={ createLabel( data.utility ) }>
             </GroupHeading>
             <ClassesTable map={ data }/>
-            <CodeHighlight>
-                { data.variables }
+            <GroupHeading title={ "Customize" }/>
+            <CodeHighlight>@use "~skil3e-css/src/utilities/{ data.utility } with (
+                { data.variables });
             </CodeHighlight>
-            <pre>
-            { JSON.stringify( data, null, 2 ) }
-            </pre>
+            <CodeHighlight lang={"json"}>
+                { JSON.stringify( data, null, 2 ) }
+            </CodeHighlight>
         </div>
     )
 }

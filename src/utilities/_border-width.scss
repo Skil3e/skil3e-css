@@ -1,14 +1,17 @@
 @use "../settings" as st;
 @use "../mixins" as mx;
 
+/* Start Variables */
 $withBreakPoints : true !default;
 $prefix          : "border" !default;
 $style           : "solid" !default;
 $divider         : st.$divider !default;
 $important       : st.$important !default;
 $posDivider      : st.$posDivider !default;
-$addValues       : () !default;
 $values          : ('': '1px', '0': '0', 'md': '3px') !default;
+$addValues       : () !default;
+/* End Variables */
+
 $BW              : map-merge($values, $addValues);
 
 @include mx.makeBorder($prefix, $BW, $divider, $posDivider, $style, $important : $important);
