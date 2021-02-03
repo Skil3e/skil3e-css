@@ -2,7 +2,7 @@ module.exports = {
     siteMetadata: {
         title: "skil3e CSS Docs",
         description: "A simple CSS utility framework with dark and light mode.",
-        siteUrl: process.env.NODE_ENV === "production" ? "https://skil3e.github.io/skil3e-css" : "http://localhost:8000"
+        siteUrl: process.env.NODE_ENV === "production" ? "https://skil3e.github.io/" : "http://localhost:8000"
     },
     pathPrefix: "/skil3e-css",
     plugins: [
