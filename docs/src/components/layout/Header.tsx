@@ -20,7 +20,6 @@ const Header: FC<IHeader> = ( { className } ) => {
                 <ThemeChanger className={ "ml--md" }/>
                 <Link className={ "ml--auto mr--md" } to={ "/docs" }>Documentation</Link>
                 <Github/>
-
             </nav>
         </header>
     )
