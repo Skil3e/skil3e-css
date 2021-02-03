@@ -35,7 +35,7 @@ const HeadMeta: FC<IHeadMeta> = ( { title, description, image, type, pathname } 
     const url = siteMetadata.siteUrl + "/skil3e-css/" + (pathname ?? "");
     const pageTitle = `${ title } | ${ siteMetadata.title }`
     const pageDescription = description ?? siteMetadata.description;
-    const imageWithFallback = image ?? (siteMetadata.siteUrl + "/skil3e-css" + src)
+    const imageWithFallback = image ?? (siteMetadata.siteUrl + src)
 
     return (
         <Helmet>
