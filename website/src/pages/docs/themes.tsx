@@ -3,6 +3,7 @@ import { FC } from "react";
 import { usePrism } from "../../utils";
 import GroupHeading from "../../components/GroupHeading";
 import CodeHighlight from "../../components/CodeHighlight";
+import HeadMeta from "../../components/HeadMeta";
 
 interface IThemes {
 
@@ -12,6 +13,7 @@ const Themes: FC<IThemes> = () => {
     usePrism();
     return (
         <div className={ "utils" }>
+            <HeadMeta title={ "Themes" } pathname={ "docs/themes" }/>
             <GroupHeading title={ "Dark & Light mode" }>
                 Using <code className={ "language-html" }>data-theme="dark"</code> in any element you get access to the global theme variables.
             </GroupHeading>

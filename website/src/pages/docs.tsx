@@ -4,6 +4,7 @@ import { FC } from "react";
 import GroupHeading from "../components/GroupHeading";
 import CodeHighlight from "../components/CodeHighlight";
 import { usePrism } from "../utils";
+import HeadMeta from "../components/HeadMeta";
 
 interface IDocs {
 
@@ -15,6 +16,7 @@ const Docs: FC<IDocs> = () => {
     const basic = "<link rel=\"stylesheet\" href=\"https://unpkg.com/skil3e-css@latest/dist/skil3e-basic.min.css\" crossOrigin=\"anonymous\">"
     return (
         <div>
+            <HeadMeta title={ "Documentation" } pathname={ "docs" }/>
             <GroupHeading title={ "🤸🏽‍♀️ Quick start" }/>
             <CodeHighlight lang={ "bash" }>
                 npm install skil3e-css sass

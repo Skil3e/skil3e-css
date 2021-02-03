@@ -2,6 +2,7 @@ import * as React from "react";
 import { FC } from "react";
 import { usePrism } from "../../utils";
 import GroupHeading from "../../components/GroupHeading";
+import HeadMeta from "../../components/HeadMeta";
 
 interface IScreenReaders {
 
@@ -11,6 +12,7 @@ const ScreenReaders: FC<IScreenReaders> = () => {
     usePrism();
     return (
         <div className={ "utils" }>
+            <HeadMeta title={ "Screen readers" } pathname={ "docs/screen-readers" }/>
             <GroupHeading title={ "Screen reader helpers" }/>
             <table width={ "100%" } className={ "table-classes text--code bg--bg" }>
                 <tbody>

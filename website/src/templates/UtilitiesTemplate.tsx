@@ -6,6 +6,7 @@ import CodeHighlight from "../components/CodeHighlight";
 import { createLabel, usePrism } from "../utils";
 import { Utility } from "../types";
 import ClassesTable from "../components/ClassesTable";
+import HeadMeta from "../components/HeadMeta";
 
 export interface IUtilitiesTemplate extends PageProps {
     pageContext: {
@@ -16,7 +17,8 @@ export interface IUtilitiesTemplate extends PageProps {
 const UtilitiesTemplate: FC<IUtilitiesTemplate> = ( { pageContext: { data } } ) => {
     usePrism();
     return (
-        <div className={"utils"}>
+        <div className={ "utils" }>
+            <HeadMeta title={ createLabel( data.utility ) } pathname={ "docs/" + data.utility }/>
             <GroupHeading title={ createLabel( data.utility ) }>
             </GroupHeading>
             <ClassesTable map={ data }/>
@@ -24,9 +26,9 @@ const UtilitiesTemplate: FC<IUtilitiesTemplate> = ( { pageContext: { data } } ) 
             <CodeHighlight>@use "~skil3e-css/src/utilities/{ data.utility } with (
                 { data.variables });
             </CodeHighlight>
-            {/*<CodeHighlight lang={"json"}>*/}
-            {/*    { JSON.stringify( data, null, 2 ) }*/}
-            {/*</CodeHighlight>*/}
+            {/*<CodeHighlight lang={"json"}>*/ }
+            {/*    { JSON.stringify( data, null, 2 ) }*/ }
+            {/*</CodeHighlight>*/ }
         </div>
     )
 }

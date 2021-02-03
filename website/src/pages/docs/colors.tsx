@@ -1,8 +1,9 @@
 import * as React from "react";
 import { FC } from "react";
-import { usePrism } from "../../utils";
+import { createLabel, usePrism } from "../../utils";
 import GroupHeading from "../../components/GroupHeading";
 import CodeHighlight from "../../components/CodeHighlight";
+import HeadMeta from "../../components/HeadMeta";
 
 interface IColors {
 
@@ -14,6 +15,7 @@ const Colors: FC<IColors> = () => {
     usePrism();
     return (
         <div className={ "utils" }>
+            <HeadMeta title={ "Colors" } pathname={ "docs/colors" }/>
             <GroupHeading title={ "Colors" }>
                 The framework comes with some default that you can extend or remove.
             </GroupHeading>

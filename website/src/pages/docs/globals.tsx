@@ -3,6 +3,7 @@ import { FC } from "react";
 import GroupHeading from "../../components/GroupHeading";
 import CodeHighlight from "../../components/CodeHighlight";
 import { usePrism } from "../../utils";
+import HeadMeta from "../../components/HeadMeta";
 
 interface IGlobals {
 
@@ -12,6 +13,7 @@ const Globals: FC<IGlobals> = () => {
     usePrism();
     return (
         <div className={ "utils" }>
+            <HeadMeta title={ "Editing global variables" } pathname={ "docs/globals" }/>
             <GroupHeading title={ "Editing global variables" }>
                 You can customize default settings to match your needs. Use the code bellow before any other file. Default values are displayed.
             </GroupHeading>
