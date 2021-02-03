@@ -12,7 +12,7 @@ A simple CSS utility framework with dark and light mode.
 
 [![npm version](https://badge.fury.io/js/skil3e-css.svg)](https://badge.fury.io/js/skil3e-css)
 
-Skil3e-css a simple modular css utility framework. It utilizes the new SASS [at-rules](https://sass-lang.com/documentation/at-rules]) that allows you to use only the parts you need, the way you need them.
+Skil3e-css a simple modular css utility framework. It utilizes the new SASS [at-rules](https://sass-lang.com/documentation/at-rules) that allows you to use only the parts you need, the way you need them.
 
 ## Installation
 
@@ -36,7 +36,7 @@ If you need to alias [dart-sass](https://sass-lang.com/dart-sass) to node-sass.
 npm install node-sass@npm:sass
 ```
 
-## 🚀 Quick start
+## 🤸🏽‍♀️ Quick start
 
 On your main scss/sass file:
 

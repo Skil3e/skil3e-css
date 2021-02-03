@@ -3,9 +3,13 @@
 @use "switch";
 @use "../../../src/functions" as f;
 
-.utils{
+:root {
+  --pale : rgba(11, 95, 255, .1);
+}
+
+.utils {
   code[class*="language-"] {
-	line-height: 2.5;
+	line-height : 2.5;
   }
 }
 

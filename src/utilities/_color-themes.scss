@@ -1,0 +1,43 @@
+@use "../settings" as st;
+@use "../mixins" as mx;
+
+$divider         : st.$divider !default;
+$important       : st.$important !default;
+$useCallback     : false !default;
+$makeHover       : false !default;
+
+$addProperties   : () !default;
+$addToDark       : () !default;
+$addToLight      : () !default;
+
+$styleProperties : (
+	'text' : color,
+	'bg' : background-color,
+	'fill' : fill,
+	'border' : border-color
+) !default;
+
+$themeLight      : (
+	'body' : st.$gray-85,
+	'bg' : st.$white,
+	'bgDimmed' : st.$gray-95,
+	'border' : st.$gray-80,
+	'text' : st.$gray-10,
+	'textDimmed' : st.$gray-40,
+) !default;
+
+$themeDark       : (
+	'body' : st.$gray-5,
+	'bg' : st.$gray-10,
+	'bgDimmed' : st.$gray-15,
+	'border' : st.$gray-20,
+	'text' : st.$gray-80,
+	'textDimmed' : st.$gray-60,
+) !default;
+
+$SP              : map-merge($styleProperties, $addProperties);
+$Classes         : map-merge($themeDark, $themeLight);
+@include mx.makeColorVars($themeDark, "body[data-theme='dark']");
+@include mx.makeColorVars($themeLight, "body");
+
+@include mx.makeColors($SP, $Classes, $divider, $useCallback : $useCallback, $important : $important, $hover : $makeHover);

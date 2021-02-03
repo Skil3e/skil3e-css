@@ -1,0 +1,35 @@
+@use "../mixins" as mx;
+
+$styleProperties : ('text' : color, 'bg' : background-color, 'fill' : fill, 'border' : border-color) !default;
+$colors          : (
+	"blue": #1781b5,
+	"mint": #17b59d,
+	"emerald": #17b54e,
+	"yellow": #b2b517,
+	"orange": #e56418,
+	"red": #e51818,
+	"pink": #be20b0,
+	"purple": #8420be,
+) !default;
+$colorsMinimal   : (
+	"accent": #0B5FFF,
+	"blue": #1781b5,
+	"mint": #17b59d,
+	"emerald": #17b54e,
+	"orange": #e56418,
+	"red": #e51818
+) !default;
+
+@include mx.makeShadesFromBase($styleProperties, $colorsMinimal);
+
+//$hues            : (
+//	"red": ("hue": 1, "saturation": 75%),
+//	"orange": ("hue":30, "saturation": 75%),
+//	"yellow": ("hue":50, "saturation": 75%),
+//	"green": ("hue":100, "saturation": 75%),
+//	"mint": ("hue":160, "saturation": 75%),
+//	"blue": ("hue":210, "saturation": 75%),
+//	"purple": ("hue":270, "saturation": 75%),
+//	"pink": ("hue":320, "saturation": 75%),
+//) !default;
+//@include mx.makeColorShadesWithHue($styleProperties, $hues);

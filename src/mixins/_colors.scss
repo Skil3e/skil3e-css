@@ -1,4 +1,6 @@
 @use "../functions/make-class" as *;
+@use "sass:math";
+@use "sass:color";
 //--------------------------------------------------------------//
 // Make Colors
 //--------------------------------------------------------------//
@@ -36,20 +38,132 @@
 }
 
 //--------------------------------------------------------------//
-// Make Colors Shades
+// Make Shades from Base Color
 //--------------------------------------------------------------//
-@mixin makeColorShadesVars($name: mint, $hue: 180, $saturation: 65%, $steps: 5, $ratio: 1.25) {
-  @for $i from 1 through $steps {
-	$per             : percentage(($i / $steps) / $ratio);
-	--#{$name}--#{$i}: hsl(#{$hue}, #{$saturation}, #{$per});
+@function calcPercentage($i,$steps,$ratio,$darken:false) {
+  @if ($darken) {
+	@return math.floor(percentage(($i / $steps) / $ratio))
+  } @else {
+	@return math.floor(percentage((-$i / $steps) / $ratio));
   }
 }
 
-@mixin makeColorShadesProperty($prefix: bg, $name: mint, $property: background-color, $hue: 180, $saturation: 65%, $steps: 5, $ratio: 1.25) {
+@function scaleColor($base, $per, $satRatio, $darken: false) {
+  @if ($darken) {
+	@return color.scale($base, $lightness : -$per, $saturation : -($per * $satRatio));
+  } @else {
+	@return color.scale($base, $lightness : $per, $saturation : ($per * $satRatio));
+  }
+}
+
+@mixin makeShadesVarsFromBase($base, $name, $steps: 5, $ratio: 1.25, $satRatio: .5) {
+  $class     : --#{$name};
+  #{ $class} : #{$base};
+
+  @for $i from -$steps to 0 {
+	$per     : calcPercentage($i, $steps, $ratio);
+	$color   : scaleColor($base, $per, $satRatio);
+	$class   : --#{$name}-#{$steps + $i + 1};
+	#{$class}: #{$color};
+  }
+
   @for $i from 1 through $steps {
-	.#{$prefix}-#{$name}--#{$i} {
-	  $per        : percentage(($i / $steps) / $ratio);
-	  #{$property}: hsl($hue, $saturation, $per);
+	$per     : calcPercentage($i, $steps, $ratio, true);
+	$color   : scaleColor($base, $per, $satRatio, true);
+	$class   : --#{$name}-#{$steps + $i};
+	#{$class}: #{$color};
+  }
+
+}
+
+@mixin makeShadesFromBase($styleProperties, $colors, $steps: 4, $ratio: 1.25, $satRatio: .5, $selector: ":root", $important: false, $hover: true) {
+  #{$selector} {
+	@each $name, $base in $colors {
+	  @include makeShadesVarsFromBase($base, $name, $steps : $steps, $ratio : $ratio, $satRatio : $satRatio);
+	}
+  }
+  @each $prefix, $prop in $styleProperties {
+	@each $name, $base in $colors {
+
+	  $var : --#{$name};
+	  .#{$prefix}#{$var} {
+		#{$prop}: var(#{$var}) #{if($important, "!important", null)};
+	  }
+	  @if ($hover) {
+		.hover\:#{$prefix}#{$var}:hover {
+		  #{$prop}: var(#{$var}) #{if($important, "!important", null)};
+		}
+	  }
+
+	  @for $i from -$steps to 0 {
+		$per   : calcPercentage($i, $steps, $ratio);
+		$color : scaleColor($base, $per, $satRatio);
+		$var   : --#{$name}-#{$steps + $i + 1};
+		.#{$prefix}#{$var} {
+		  #{$prop}: var(#{$var}) #{if($important, "!important", null)};
+		}
+		@if ($hover) {
+		  .hover\:#{$prefix}#{$var}:hover {
+			#{$prop}: var(#{$var}) #{if($important, "!important", null)};
+		  }
+		}
+	  }
+
+	  @for $i from 1 through $steps {
+		$per   : calcPercentage($i, $steps, $ratio, true);
+		$color : scaleColor($base, $per, $satRatio, true);
+		$var   : --#{$name}-#{$steps + $i};
+		.#{$prefix}#{$var} {
+		  #{$prop}: var(#{$var}) #{if($important, "!important", null)};
+		}
+		@if ($hover) {
+		  .hover\:#{$prefix}#{$var}:hover {
+			#{$prop}: var(#{$var}) #{if($important, "!important", null)};
+		  }
+		}
+	  }
 	}
   }
 }
+
+//--------------------------------------------------------------//
+// Make Shades from HSL
+//--------------------------------------------------------------//
+@mixin makeColorShadesVarsWithHue($name: mint, $hue: 180, $saturation: 65%, $steps: 5, $ratio: 1.25) {
+  @for $i from 1 through $steps {
+	$per            : math.floor(percentage(($i / $steps) / $ratio));
+	--#{$name}-#{$i}: hsl(#{$hue}, #{$saturation}, #{$per});
+  }
+}
+
+@mixin makeColorShadesWithHue( $styleProperties, $hues, $steps: 5, $ratio: 1.25, $useVar: true, $selector: ":root", $important: false, $hover: true ) {
+  @if ($useVar) {
+	#{$selector} {
+	  @each $name, $values in $hues {
+		$h : map-get($values, "hue");
+		$s : map-get($values, "saturation");
+		@include makeColorShadesVarsWithHue($name, $h, $s, $steps, $ratio);
+	  }
+	}
+  }
+  @for $i from 1 through $steps {
+	@each $name, $values in $hues {
+	  $h : map-get($values, "hue");
+	  $s : map-get($values, "saturation");
+	  @each $prefix, $prop in $styleProperties {
+		.#{$prefix}--#{$name}-#{$i} {
+		  $per    : math.floor(percentage(($i / $steps) / $ratio));
+		  #{$prop}: #{if($useVar, var(--#{$name}-#{$i}), hsl($h, $s, $per) )} #{if($important, "!important", null)};
+		}
+		@if ($hover) {
+		  .hover\:#{$prefix}-#{$name}--#{$i}:hover {
+			#{$prop}: var(--#{$name}--#{$i}) #{if($important, "!important", null)};
+		  }
+		}
+	  }
+	}
+  }
+}
+
+
+
