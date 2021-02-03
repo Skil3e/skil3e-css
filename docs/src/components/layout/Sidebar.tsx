@@ -18,8 +18,9 @@ const Sidebar: FC<ISidebar> = ( { className } ) => {
             <aside className={ cls }>
                 <nav className={ "px--lg py--md h--main-nofooter side-nav overflow-y--auto" } key={ "css-utilities" }>
                     <ul>
-                        <li className={ "text--bold text--uppercase p--10" }>Settings</li>
-                        <SidebarLink to={ "/docs/spacers" }>Spacers</SidebarLink>
+                        <li className={ "text--bold text--uppercase p--10" }>Getting Started</li>
+                        <SidebarLink to={ "/docs" }>Installation</SidebarLink>
+                        <SidebarLink to={ "/docs/globals" }>Customize</SidebarLink>
 
                         <SideHeader>Layout</SideHeader>
                         <SidebarLink to={ "/docs/display" }>Display</SidebarLink>
@@ -32,7 +33,21 @@ const Sidebar: FC<ISidebar> = ( { className } ) => {
 
                         <SideHeader>Colors</SideHeader>
                         <SidebarLink to={ "/docs/themes" }>Themes</SidebarLink>
-                        <SidebarLink to={ "/docs/intents" }>Intents</SidebarLink>
+                        <SidebarLink to={ "/docs/colors" }>Colors</SidebarLink>
+
+                        <SideHeader>Typography</SideHeader>
+                        <SidebarLink to={ "/docs/font-size" }>Font Size</SidebarLink>
+                        <SidebarLink to={ "/docs/font-weight" }>Font Weight</SidebarLink>
+                        <SidebarLink to={ "/docs/text-align" }>Text Align</SidebarLink>
+                        <SidebarLink to={ "/docs/text-transform" }>Text Transform</SidebarLink>
+
+                        <SideHeader>Spacing</SideHeader>
+                        <SidebarLink to={ "/docs/margin" }>Margin</SidebarLink>
+                        <SidebarLink to={ "/docs/padding" }>Padding</SidebarLink>
+
+                        <SideHeader>Sizing</SideHeader>
+                        <SidebarLink to={ "/docs/width" }>Width</SidebarLink>
+                        <SidebarLink to={ "/docs/height" }>Height</SidebarLink>
 
                         <SideHeader>Flexbox</SideHeader>
                         <SidebarLink to={ "/docs/flex-direction" }>Flex Direction</SidebarLink>
@@ -45,24 +60,9 @@ const Sidebar: FC<ISidebar> = ( { className } ) => {
                         <SidebarLink to={ "/docs/align" }>Align</SidebarLink>
                         <SidebarLink to={ "/docs/justify" }>Justify</SidebarLink>
 
-                        <SideHeader>Spacing</SideHeader>
-                        <SidebarLink to={ "/docs/margin" }>Margin</SidebarLink>
-                        <SidebarLink to={ "/docs/padding" }>Padding</SidebarLink>
-
-                        <SideHeader>Sizing</SideHeader>
-                        <SidebarLink to={ "/docs/width" }>Width</SidebarLink>
-                        <SidebarLink to={ "/docs/height" }>Height</SidebarLink>
-
                         <SideHeader>Borders</SideHeader>
                         <SidebarLink to={ "/docs/border-width" }>Border Width</SidebarLink>
                         <SidebarLink to={ "/docs/border-radius" }>Border Radius</SidebarLink>
-                        <SidebarLink to={ "/docs/border-color" }>Border Color</SidebarLink>
-
-                        <SideHeader>Typography</SideHeader>
-                        <SidebarLink to={ "/docs/font-size" }>Font Size</SidebarLink>
-                        <SidebarLink to={ "/docs/font-weight" }>Font Weight</SidebarLink>
-                        <SidebarLink to={ "/docs/text-align" }>Text Align</SidebarLink>
-                        <SidebarLink to={ "/docs/text-transform" }>Text Transform</SidebarLink>
 
                         <SideHeader>Misc</SideHeader>
                         <SidebarLink to={ "/docs/cursor" }>Cursor</SidebarLink>
@@ -71,7 +71,6 @@ const Sidebar: FC<ISidebar> = ( { className } ) => {
 
                         <SideHeader>Accessibility</SideHeader>
                         <SidebarLink to={ "/docs/screen-readers" }>Screen Readers</SidebarLink>
-                        <SidebarLink to={ "/docs/reduce-motion" }>Reduce Motion</SidebarLink>
 
                     </ul>
                 </nav>

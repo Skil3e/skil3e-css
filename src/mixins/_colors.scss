@@ -76,7 +76,7 @@
 
 }
 
-@mixin makeShadesFromBase($styleProperties, $colors, $steps: 4, $ratio: 1.25, $satRatio: .5, $selector: ":root", $important: false, $hover: true) {
+@mixin makeShadesFromBase($styleProperties, $colors, $steps: 4, $ratio: 1.25, $satRatio: .5, $selector: ":root", $important: false, $hover: true, $divider) {
   #{$selector} {
 	@each $name, $base in $colors {
 	  @include makeShadesVarsFromBase($base, $name, $steps : $steps, $ratio : $ratio, $satRatio : $satRatio);
@@ -85,26 +85,25 @@
   @each $prefix, $prop in $styleProperties {
 	@each $name, $base in $colors {
 
-	  $var : --#{$name};
-	  .#{$prefix}#{$var} {
-		#{$prop}: var(#{$var}) #{if($important, "!important", null)};
+	  .#{$prefix}#{$divider}#{$name} {
+		#{$prop}: var(--#{$name}) #{if($important, "!important", null)};
 	  }
 	  @if ($hover) {
-		.hover\:#{$prefix}#{$var}:hover {
-		  #{$prop}: var(#{$var}) #{if($important, "!important", null)};
+		.hover\:#{$prefix}#{$divider}#{$name}:hover {
+		  #{$prop}: var(--#{$name}) #{if($important, "!important", null)};
 		}
 	  }
 
 	  @for $i from -$steps to 0 {
 		$per   : calcPercentage($i, $steps, $ratio);
 		$color : scaleColor($base, $per, $satRatio);
-		$var   : --#{$name}-#{$steps + $i + 1};
-		.#{$prefix}#{$var} {
-		  #{$prop}: var(#{$var}) #{if($important, "!important", null)};
+		$var   : #{$name}-#{$steps + $i + 1};
+		.#{$prefix}#{$divider}#{$var} {
+		  #{$prop}: var(--#{$var}) #{if($important, "!important", null)};
 		}
 		@if ($hover) {
-		  .hover\:#{$prefix}#{$var}:hover {
-			#{$prop}: var(#{$var}) #{if($important, "!important", null)};
+		  .hover\:#{$prefix}#{$divider}#{$var}:hover {
+			#{$prop}: var(--#{$var}) #{if($important, "!important", null)};
 		  }
 		}
 	  }
@@ -112,13 +111,13 @@
 	  @for $i from 1 through $steps {
 		$per   : calcPercentage($i, $steps, $ratio, true);
 		$color : scaleColor($base, $per, $satRatio, true);
-		$var   : --#{$name}-#{$steps + $i};
-		.#{$prefix}#{$var} {
-		  #{$prop}: var(#{$var}) #{if($important, "!important", null)};
+		$var   : #{$name}-#{$steps + $i};
+		.#{$prefix}#{$divider}#{$var} {
+		  #{$prop}: var(--#{$var}) #{if($important, "!important", null)};
 		}
 		@if ($hover) {
-		  .hover\:#{$prefix}#{$var}:hover {
-			#{$prop}: var(#{$var}) #{if($important, "!important", null)};
+		  .hover\:#{$prefix}#{$divider}#{$var}:hover {
+			#{$prop}: var(--#{$var}) #{if($important, "!important", null)};
 		  }
 		}
 	  }

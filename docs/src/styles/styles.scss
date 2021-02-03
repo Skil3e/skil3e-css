@@ -3,8 +3,8 @@
 @use "switch";
 @use "../../../src/functions" as f;
 
-:root {
-  --pale : rgba(11, 95, 255, .1);
+.dark\:h1 {
+  --body: red;
 }
 
 .utils {
@@ -51,7 +51,7 @@ p {
 	background : var(--bgDimmed);
 
 	&:hover {
-	  background : var(--bg)
+	  background : var(--pale)
 	}
   }
 }

@@ -1,26 +1,41 @@
+@use "../settings" as st;
 @use "../mixins" as mx;
+@use "../functions" as fn;
 
+$divider         : st.$divider !default;
+$important       : st.$important !default;
+$steps           : 4 !default;
+$ratio           : 1.25 !default;
+$satRatio        : .5 !default;
+$selector        : ":root" !default;
+$hover           : true !default;
 $styleProperties : ('text' : color, 'bg' : background-color, 'fill' : fill, 'border' : border-color) !default;
 $colors          : (
-	"blue": #1781b5,
-	"mint": #17b59d,
-	"emerald": #17b54e,
-	"yellow": #b2b517,
-	"orange": #e56418,
+	'accent' : #0B5FFF,
+	'blue' : #09569c,
+	"mint": #10a791,
+	"emerald": #0baa3c,
+	"yellow": #dbca0f,
+	"orange": #cd5611,
 	"red": #e51818,
-	"pink": #be20b0,
-	"purple": #8420be,
+	"pink": #c41295,
+	"purple": #7c0cbb,
 ) !default;
-$colorsMinimal   : (
-	"accent": #0B5FFF,
-	"blue": #1781b5,
-	"mint": #17b59d,
-	"emerald": #17b54e,
-	"orange": #e56418,
-	"red": #e51818
-) !default;
+$grays           : ('gray' : #51515a) !default;
 
-@include mx.makeShadesFromBase($styleProperties, $colorsMinimal);
+$addColors       : () !default;
+$addGrays        : () !default;
+$removeColors    : () !default;
+$addProperties   : () !default;
+
+
+$P               : map-merge($styleProperties, $addProperties);
+$C               : map-merge($colors, $colors);
+$G               : map-merge($grays, $addGrays);
+$FC              : fn.removeFromMap($removeColors, $C);
+
+@include mx.makeShadesFromBase($P, $FC, $steps, $ratio, $satRatio, $selector, $important, $hover, $divider);
+@include mx.makeShadesFromBase($P, $G, $steps, $ratio, 0, $selector, $important, $hover, $divider);
 
 //$hues            : (
 //	"red": ("hue": 1, "saturation": 75%),

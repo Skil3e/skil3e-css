@@ -24,9 +24,9 @@ const UtilitiesTemplate: FC<IUtilitiesTemplate> = ( { pageContext: { data } } ) 
             <CodeHighlight>@use "~skil3e-css/src/utilities/{ data.utility } with (
                 { data.variables });
             </CodeHighlight>
-            <CodeHighlight lang={"json"}>
-                { JSON.stringify( data, null, 2 ) }
-            </CodeHighlight>
+            {/*<CodeHighlight lang={"json"}>*/}
+            {/*    { JSON.stringify( data, null, 2 ) }*/}
+            {/*</CodeHighlight>*/}
         </div>
     )
 }

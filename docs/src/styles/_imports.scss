@@ -9,12 +9,10 @@ $headingFont: f.makeFont("Poppins"),
 $headingFontWeight: 700,
 $addSpacer: ("header": $headerHeight, "sidebar":$sidebarWidth)
 );
+@use "../../../src/utilities/color-themes" with (
+$addToLight: ("pale": rgba(11, 95, 255, .2))
+);
 
-//@use "../../../src/utilities/colors" with (
-//$addIntentsLight: ("pale": rgba(11, 95, 255, .1), "overlay": rgba(0,0,0,.75)),
-//$addIntentsDark: ('accent' : #4b89ff,),
-//$makeHover: true
-//);
 
 @use "../../../src/utilities/width" with (
 $addValues: ("sidebar" : $sidebarWidth, "content": 70ch)

@@ -43,7 +43,7 @@ interface IRow {
 
 const RowSimple: FC<IRow> = ( { pre, classKey, map, val } ) => (
     <tr className={ "border-t border--border" }>
-        <td className={ "w--50 p--md text--accent" }>{ createClassUtility( pre, classKey, map.divider ) }</td>
+        <td className={ "w--50 p--md " }>{ createClassUtility( pre, classKey, map.divider ) }</td>
         <td className={ "w--50 p--md language-css" }> { valueWithInset( pre, val, map.utility ) }</td>
     </tr>
 )
@@ -66,7 +66,7 @@ const RowWithPosition: FC<IRow> = ( { map, pre, classKey, val } ) => {
         <>
             { positionValuesArray( pre ).map( ( [ posKey, posValue ] ) =>
                 <tr key={ posKey } className={ "border-t border--border" }>
-                    <td className={ "w--50 p--md text--accent" }>{ createClassUtility( pre, classKey, map.divider, posKey ) }</td>
+                    <td className={ "w--50 p--md" }>{ createClassUtility( pre, classKey, map.divider, posKey ) }</td>
                     <TableUtilityPosData val={ val } pre={ pre } posKey={ posKey } posValue={ posValue } utility={ map.utility }/>
                 </tr>
             ) }

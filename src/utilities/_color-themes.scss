@@ -18,26 +18,28 @@ $styleProperties : (
 ) !default;
 
 $themeLight      : (
-	'body' : st.$gray-85,
-	'bg' : st.$white,
-	'bgDimmed' : st.$gray-95,
-	'border' : st.$gray-80,
-	'text' : st.$gray-10,
-	'textDimmed' : st.$gray-40,
+	'body' : hsl(220, 11%, 85%),
+	'bg' : #fff,
+	'bgDimmed' : hsl(220, 11%, 95%),
+	'border' : hsl(220, 11%, 80%),
+	'text' : hsl(220, 11%, 10%),
+	'textDimmed' : hsl(220, 11%, 40%)
 ) !default;
 
 $themeDark       : (
-	'body' : st.$gray-5,
-	'bg' : st.$gray-10,
-	'bgDimmed' : st.$gray-15,
-	'border' : st.$gray-20,
-	'text' : st.$gray-80,
-	'textDimmed' : st.$gray-60,
+	'body' : hsl(220, 11%, 5%),
+	'bg' : hsl(220, 11%, 10%),
+	'bgDimmed' : hsl(220, 11%, 15%),
+	'border' : hsl(220, 11%, 20%),
+	'text' : hsl(220, 11%, 80%),
+	'textDimmed' : hsl(220, 11%, 60%)
 ) !default;
 
 $SP              : map-merge($styleProperties, $addProperties);
-$Classes         : map-merge($themeDark, $themeLight);
-@include mx.makeColorVars($themeDark, "body[data-theme='dark']");
-@include mx.makeColorVars($themeLight, "body");
+$TL              : map-merge($themeLight, $addToLight);
+$TD              : map-merge($themeDark, $addToDark);
+$Classes         : map-merge($TL, $TD);
 
+@include mx.makeColorVars($TL, ":root");
+@include mx.makeColorVars($TD, "[data-theme='dark']");
 @include mx.makeColors($SP, $Classes, $divider, $useCallback : $useCallback, $important : $important, $hover : $makeHover);
