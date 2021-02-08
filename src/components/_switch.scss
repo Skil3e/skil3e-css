@@ -1,0 +1,47 @@
+$width      : 50px;
+$height     : 15px;
+$buttonSize : 26px;
+$offset     : 0px;
+$bgColor    : var(--bg);
+$color      : var(--accent);
+
+.switch {
+  &__input {
+	display : none;
+
+	&:checked + .switch__label .switch__button {
+	  transform-origin : right;
+	  left             : 100%;
+	  transform        : translate(-100%, -50%)
+	}
+  }
+
+  &__label {
+	display       : block;
+	position      : relative;
+	width         : $width;
+	height        : $height;
+	background    : $bgColor;
+	border-radius : 50rem;
+	border        : $offset solid #607D8B;
+
+	&:active {
+	  .switch__button {
+		width : 35px
+	  }
+	}
+  }
+
+  &__button {
+	position            : absolute;
+	top                 : 50%;
+	transform           : translate(0, -50%);
+	width               : $buttonSize;
+	height              : $buttonSize;
+	background          : $color;
+	border-radius       : 50rem;
+	left                : 0;
+	transition          : 200ms ease;
+	transition-property : left, transform, width;
+  }
+}
