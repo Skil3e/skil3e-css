@@ -1,9 +1,9 @@
-$width      : 50px;
-$height     : 15px;
-$buttonSize : 26px;
-$offset     : 0px;
-$bgColor    : var(--bg);
-$color      : var(--accent);
+$width      : 50px !default;
+$height     : 15px !default;
+$buttonSize : 26px !default;
+$offset     : 0px !default;
+$bgColor    : var(--bg) !default;
+$color      : var(--accent) !default;
 
 .switch {
   &__input {
