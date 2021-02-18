@@ -25,7 +25,20 @@ body {
 img {
   display   : block;
   max-width : 100%;
-  height    : auto;
+
+  &[width] {
+	width : auto; /* Defer to max-width */
+  }
+
+  &[width][height] {
+	height : auto; /* Preserve aspect ratio */
+  }
+
+  &[src$=".svg"] {
+	width     : 100%;
+	height    : auto;
+	max-width : none;
+  }
 }
 
 .container {
@@ -69,6 +82,7 @@ body[data-theme="dark"] {
 	filter : invert(1);
   }
 }
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 textarea:-webkit-autofill,
