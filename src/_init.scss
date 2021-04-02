@@ -26,19 +26,19 @@ img {
   display   : block;
   max-width : 100%;
 
-  &[width] {
-	width : auto; /* Defer to max-width */
-  }
-
-  &[width][height] {
-	height : auto; /* Preserve aspect ratio */
-  }
-
-  &[src$=".svg"] {
-	width     : 100%;
-	height    : auto;
-	max-width : none;
-  }
+  //&[width] {
+	//width : auto; /* Defer to max-width */
+  //}
+  //
+  //&[width][height] {
+	//height : auto; /* Preserve aspect ratio */
+  //}
+  //
+  //&[src$=".svg"] {
+	//width     : 100%;
+	//height    : auto;
+	//max-width : none;
+  //}
 }
 
 .container {
