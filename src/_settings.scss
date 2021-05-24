@@ -1,4 +1,5 @@
 @forward "colors";
+@use "./functions" as fn;
 
 $divider             : "--" !default;
 $important           : false !default;
@@ -9,11 +10,13 @@ $containerWidth      : 1140px !default;
 //--------------------------------------------------------------//
 //  Breakpoints
 //--------------------------------------------------------------//
-$phone               : 480px !default;
-$tablet              : 768px !default;
-$laptop              : 992px !default;
-$desktop             : 1200px !default;
-$breakpoints         : (sm\: : $phone, md\: : $tablet, lg\: : $laptop, xl\: : $desktop) !default;
+$phone               : 30rem !default;
+$tablet              : 48rem !default;
+$laptop              : 62rem !default;
+$desktop             : 75rem !default;
+$breakpointsDefault  : (sm\: : $phone, md\: : $tablet, lg\: : $laptop, xl\: : $desktop) !default;
+$removeBreakpoints   : () !default;
+$breakpoints         : fn.removeFromMap($removeBreakpoints, $breakpointsDefault);
 //--------------------------------------------------------------//
 //  Spacers (values to create margin and padding)
 //--------------------------------------------------------------//
