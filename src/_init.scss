@@ -1,4 +1,5 @@
 @use "settings";
+@use "functions";
 
 * {
   margin  : 0;
@@ -68,22 +69,4 @@ body[data-theme="dark"] {
   }
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-select:-webkit-autofill,
-select:-webkit-autofill:hover {
-  border                  : 1px solid var(--border);
-  -webkit-text-fill-color : var(--text);
-  -webkit-box-shadow      : 0 0 0 1000px var(--body) inset;
-  transition              : background-color 5000s ease-in-out 0s;
-}
-
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill:focus {
-  -webkit-text-fill-color : var(--text);
-  transition              : background-color 5000s ease-in-out 0s;
-  -webkit-box-shadow      : 0 0 0 2px var(--body), 0 0 0 1000px var(--body) inset;
-}
+@include functions.autoCompleteColors()
