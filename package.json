@@ -1,6 +1,6 @@
 {
   "name": "skil3e-css",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "author": "Skil3e",
   "description": "A simple utility SCSS Lib using SASS modules. Supports @use and @forward",
   "license": "MIT",
@@ -21,11 +21,12 @@
   },
   "homepage": "https://github.com/Skil3e/skil3e-css#readme",
   "devDependencies": {
-    "autoprefixer": "^10.2.5",
+    "autoprefixer": "^10.2.6",
     "browserslist": "^4.16.6",
+    "postcss": "^8.3.2",
     "postcss-cli": "^8.3.1",
     "postcss-combine-media-query": "^1.0.1",
-    "sass": "^1.34.0"
+    "sass": "^1.34.1"
   },
   "browserslist": {
     "production": [
