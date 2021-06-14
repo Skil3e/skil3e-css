@@ -7,6 +7,7 @@
 }
 
 body {
+  line-height      : settings.$lineHeight;
   font-family      : settings.$bodyFont;
   background-color : var(--body);
   color            : var(--text);
@@ -14,17 +15,6 @@ body {
   &.transition {
 	transition : all 400ms ease-in-out;
   }
-}
-
-*,
-::after,
-::before {
-  box-sizing : border-box;
-}
-
-img {
-  display   : block;
-  max-width : 100%;
 }
 
 .container {

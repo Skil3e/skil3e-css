@@ -1,6 +1,9 @@
 @use "../settings";
 @if (settings.$includeReduceMotion) {
   @media (prefers-reduced-motion : reduce) {
+	html:focus-within {
+	  scroll-behavior: auto;
+	}
 	*, ::before, ::after {
 	  animation-delay           : -1ms !important;
 	  animation-duration        : 1ms !important;

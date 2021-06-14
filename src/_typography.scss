@@ -17,11 +17,13 @@ $headingLineHeight : settings.$headingLineHeight !default;
 $headingFontWeight : settings.$headingFontWeight !default;
 $lineHeight        : settings.$pLineHeight !default;
 $highlight         : settings.$highlight !default;
+$headingFontStyle  : settings.$headingFontStyle !default;
 
 h1, h2, h3, h4, h5, h6 {
   font-family : $headingFont;
   line-height : $headingLineHeight;
   font-weight : $headingFontWeight;
+  font-style  : $headingFontStyle;
 }
 
 @include mx.makeUtil("font-size", null, getTypographyMap(), null);

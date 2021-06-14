@@ -1,5 +1,7 @@
-*, *::before, *::after {
-  box-sizing: border-box;
+*,
+::after,
+::before {
+  box-sizing : border-box;
 }
 
 body, h1, h2, h3, h4, p, figure, blockquote, dl, dd {
@@ -17,7 +19,6 @@ html:focus-within {
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
 }
 
 a:not([class]) {
