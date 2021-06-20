@@ -30,7 +30,7 @@ $addProperties   : () !default;
 
 
 $P               : map-merge($styleProperties, $addProperties);
-$C               : map-merge($colors, $colors);
+$C               : map-merge($colors, $addColors);
 $G               : map-merge($grays, $addGrays);
 $FC              : fn.removeFromMap($removeColors, $C);
 
